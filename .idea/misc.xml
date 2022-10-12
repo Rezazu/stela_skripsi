@@ -3,14 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/drawable/rectangle.xml" value="0.3546875" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/drawable/rectangle_2.xml" value="0.3536458333333333" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/drawable/rectangle_3.xml" value="0.33125" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/drawable/rectangle_4.xml" value="0.26458333333333334" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/drawable/rectangle_5.xml" value="0.26458333333333334" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/layout/activity_homepage.xml" value="0.2" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/layout/activity_landing_page.xml" value="0.33" />
-        <entry key="..\:/Users/rezky/AndroidStudioProjects/stelaandroid/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_homepage.xml" value="0.16388044579533942" />
+        <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.16388044579533942" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2916666666666667" />
       </map>
     </option>
   </component>
