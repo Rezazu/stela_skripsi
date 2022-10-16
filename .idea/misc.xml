@@ -4,10 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/border_blue.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/border_red.xml" value="0.2415" />
+        <entry key="app/src/main/res/drawable/ic_sharp_build_circle.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/rectangle_2.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/rectangle_3.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/rectangle_4.xml" value="0.1715" />
         <entry key="app/src/main/res/drawable/rectangle_5.xml" value="0.1145" />
-        <entry key="app/src/main/res/layout/activity_active_ticket_page.xml" value="0.2320139788199162" />
+        <entry key="app/src/main/res/drawable/rectangle_blue.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/shadow.xml" value="0.1705" />
+        <entry key="app/src/main/res/layout/activity_active_ticket_page.xml" value="0.11978912353515626" />
         <entry key="app/src/main/res/layout/activity_homepage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.16388044579533942" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2916666666666667" />
