@@ -17,12 +17,12 @@
     <item
         android:id="@+id/btn_disable"
         android:title="Disabilitas"
-        android:icon="@drawable/disable_btn"
+        android:icon="@drawable/ic_disable_64"
         />
     <item
         android:id="@+id/btn_profile"
         android:title="Profil"
-        android:icon="@drawable/profile_btn"
+        android:icon="@drawable/ic_profile_64"
         />
 
 
