@@ -7,94 +7,30 @@
     android:background="@color/white"
     tools:context=".Homepage">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <FrameLayout
+        android:id="@+id/flFragment"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_4" />
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:itemIconSize="@dimen/design_bottom_navigation_icon_size"
+        app:itemTextColor="#000000"
+        app:menu="@menu/bottom_nav_menu"/>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/rectangle_5" />
-
-    <ImageButton
-        android:id="@+id/btn_home"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:paddingTop="5dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/home_btn"/>
-
-    <ImageButton
-        android:id="@+id/btn_ticket"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:paddingTop="5dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_home"
-        app:srcCompat="@drawable/ticket_btn" />
-
-    <ImageButton
-        android:id="@+id/btn_disable"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:paddingTop="5dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_ticket"
-        app:srcCompat="@drawable/disable_btn" />
-
-    <ImageButton
-        android:id="@+id/btn_profile"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:paddingTop="5dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_disable"
-        app:srcCompat="@drawable/profile_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
