@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">stela-android</string>
+    <string name="app_name">STELA</string>
+    <string name="email">Alamat Email<font color='#FF0000'>*</font></string>
+    <string name="nama_lengkap">Nama Lengkap<font color='#FF0000'>*</font></string>
+    <string name="nip">Nomor Induk Pegawai<font color='#FF0000'>*</font></string>
+    <string name="no_hp">Nomor HP<font color='#FF0000'>*</font></string>
+    <string name="judul">Judul<font color='#FF0000'>*</font></string>
+    <string name="deskripsi">Deskripsi<font color='#FF0000'>*</font></string>
 </resources>
