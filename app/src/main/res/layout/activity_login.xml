@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1AA1E3"
+    android:background="#5F9DF7"
     tools:context=".Login">
 
 
@@ -116,20 +116,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/et_password"
-        app:srcCompat="@drawable/rectangle_3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MASUK"
-        android:textColor="#FFFFFF"
-        app:fontFamily="@font/montserrat_extrabold"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_masuk"
-        app:layout_constraintEnd_toEndOf="@+id/btn_masuk"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/btn_masuk"
-        app:layout_constraintTop_toTopOf="@+id/btn_masuk" />
+        app:srcCompat="@drawable/ic_login_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
