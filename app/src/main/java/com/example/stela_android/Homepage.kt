@@ -15,15 +15,18 @@ class Homepage : AppCompatActivity() {
         bottomnav.itemIconTintList = null
 
         val profile = Profile()
+        val home = Home()
 
-        bottomNavigationView.setOnItemReselectedListener {
+        setCurrentFragment(home)
+
+        bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.btn_profile -> setCurrentFragment(profile)
+                R.id.btn_home -> setCurrentFragment(home)
             }
             true
         }
     }
-
 
     fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
@@ -31,5 +34,4 @@ class Homepage : AppCompatActivity() {
             commit()
         }
     }
-
 }

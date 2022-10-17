@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 
-class Profile : Fragment(){
+class Home : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,10 +19,15 @@ class Profile : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_profile, container,false)
+        return inflater.inflate(R.layout.activity_home, container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
+        btn_permohonan.setOnClickListener{
+            val intent_permohonan = Intent (getActivity(), FormActivity::class.java)
+            startActivity(intent_permohonan)
+        }
     }
 }
