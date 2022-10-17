@@ -10,7 +10,7 @@
         android:id="@+id/header_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16sp"
+        android:padding="20sp"
         android:background="#5F9DF7"
         tools:ignore="MissingConstraints">
 
@@ -18,7 +18,7 @@
             android:id="@+id/back_btn"
             android:layout_width="35sp"
             android:layout_height="35sp"
-            android:src="@drawable/back_btn" />
+            android:src="@drawable/ic_back_btn" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,6 +50,8 @@
                 android:id="@+id/information_system_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:elevation="10dp"
                 >
 
                 <RelativeLayout
@@ -96,7 +98,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/header_ticket_section"
-                    android:paddingHorizontal="15sp">
+                    android:paddingHorizontal="15sp"
+                    android:paddingBottom="10sp">
 
                     <RelativeLayout
                         android:id="@+id/ticket1"
@@ -206,6 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/information_system_section"
+                android:background="@drawable/shadow"
                 >
 
                 <RelativeLayout
@@ -252,7 +256,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/header_ticket_section2"
-                    android:paddingHorizontal="15sp">
+                    android:paddingHorizontal="15sp"
+                    android:paddingBottom="10sp">
 
                     <RelativeLayout
                         android:id="@+id/ticket12"
@@ -362,6 +367,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/infrastructure_section"
+                android:background="@drawable/shadow"
                 >
 
                 <RelativeLayout
@@ -410,6 +416,7 @@
                     android:layout_below="@+id/header_ticket_section23"
                     android:paddingHorizontal="15sp"
                     android:visibility="gone"
+                    android:paddingBottom="10sp"
                     >
 
                     <TextView
@@ -422,7 +429,7 @@
                         android:paddingHorizontal="30sp"
                         android:paddingTop="20sp"
                         android:paddingBottom="40sp"
-                        android:text="Anda tidak memliki layanan aktif \ndalam kategori Lainnya"
+                        android:text="Anda tidak memliki layanan aktif \ndalam kategori Tata Kelola TI"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -534,6 +541,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tata_kelola_ti_section"
+                android:background="@drawable/shadow"
                 >
 
                 <RelativeLayout
@@ -580,7 +588,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/header_ticket_section24"
-                    android:paddingHorizontal="15sp">
+                    android:paddingHorizontal="15sp"
+                    android:paddingBottom="10sp">
 
                     <TextView
                         android:id="@+id/date24"
