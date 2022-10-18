@@ -14,6 +14,64 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_4" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageButton
+                android:id="@+id/btn_sistem_informasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="240dp"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_sistem_informasi_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_infrastruktur_jaringan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="240dp"
+                android:layout_toEndOf="@+id/btn_sistem_informasi"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_infrastruktur_jaringan_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_tata_kelola"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="240dp"
+                android:layout_toEndOf="@+id/btn_infrastruktur_jaringan"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_tata_kelola_ti_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_lainnya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="240dp"
+                android:layout_toEndOf="@+id/btn_tata_kelola"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_lainnya_btn" />
+        </RelativeLayout>
+    </ScrollView>
+
     <ImageButton
         android:id="@+id/btn_permohonan"
         android:layout_width="wrap_content"
