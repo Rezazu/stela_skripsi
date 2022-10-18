@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/drawable/rectangle_blue.xml" value="0.1705" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.1705" />
         <entry key="app/src/main/res/layout/activity_active_ticket_page.xml" value="0.13518066406249998" />
+        <entry key="app/src/main/res/layout/activity_form.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/activity_homepage.xml" value="0.21873474121093753" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.16388044579533942" />
