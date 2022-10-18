@@ -20,6 +20,7 @@ class Homepage : AppCompatActivity() {
 
         val profile = Profile()
         val home = Home()
+        val activeTicket = ActiveTicketPage()
 
         setCurrentFragment(home)
 
@@ -27,6 +28,7 @@ class Homepage : AppCompatActivity() {
             when(it.itemId){
                 R.id.btn_profile -> setCurrentFragment(profile)
                 R.id.btn_home -> setCurrentFragment(home)
+                R.id.btn_ticket -> setCurrentFragment(activeTicket)
             }
             true
         }
