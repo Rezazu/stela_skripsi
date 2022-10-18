@@ -11,23 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid">
         <activity
-<<<<<<< HEAD
             android:name=".ActiveTicketPage"
-            android:exported="false" />
-=======
-
-            android:name=".FormActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
->>>>>>> origin/layout-homepage
         <activity
             android:name=".Homepage"
             android:exported="false" />
         <activity
             android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".FormActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

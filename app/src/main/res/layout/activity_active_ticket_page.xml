@@ -613,4 +613,20 @@
 
     </ScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_below="@+id/main_section"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:itemIconSize="@dimen/design_bottom_navigation_icon_size"
+        app:itemTextColor="#000000"
+        app:menu="@menu/bottom_nav_menu"/>
+
 </RelativeLayout>
