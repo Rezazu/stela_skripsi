@@ -12,7 +12,8 @@
         android:theme="@style/Theme.Stelaandroid">
         <activity
             android:name=".NotificationsPage"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".ActiveTicketPage"
             android:exported="false"
