@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +26,15 @@ class Home : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
         btn_permohonan.setOnClickListener{
-            val intent_permohonan = Intent (getActivity(), FormActivity::class.java)
+            val intent_permohonan = Intent(activity, FormActivity::class.java)
             startActivity(intent_permohonan)
+        }
+        btnNotificationListener()
+    }
+
+    private fun btnNotificationListener() {
+        btn_notification.setOnClickListener{
+            startActivity(Intent(activity, NotificationsPage::class.java))
         }
     }
 }
