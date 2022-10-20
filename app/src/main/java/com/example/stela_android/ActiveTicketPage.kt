@@ -13,12 +13,6 @@ import kotlinx.android.synthetic.main.activity_active_ticket_page.*;
 
 class ActiveTicketPage : Fragment() {
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -83,6 +77,5 @@ class ActiveTicketPage : Fragment() {
             }
         }
     }
-
 
 }
