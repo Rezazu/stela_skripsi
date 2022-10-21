@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_header"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_4" />
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/circle_1" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="25dp"
+
+        android:layout_toEndOf="@+id/iv_photo"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Tri Wulandari"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/sv_home"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="14dp"
+        android:layout_toEndOf="@+id/iv_photo"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Pusat Penelitian"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"/>
+
+
+    <ImageButton
+        android:id="@+id/btn_notification"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_notification_btn" />
+
+    <ScrollView
+        android:id="@+id/sv_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_header"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_header">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageButton
+                android:id="@+id/btn_sistem_informasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="260dp"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_sistem_informasi_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_infrastruktur_jaringan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="260dp"
+                android:layout_toEndOf="@+id/btn_sistem_informasi"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_infrastruktur_jaringan_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_tata_kelola"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="260dp"
+                android:layout_toEndOf="@+id/btn_infrastruktur_jaringan"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_tata_kelola_ti_btn" />
+
+            <ImageButton
+                android:id="@+id/btn_lainnya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="260dp"
+                android:layout_toEndOf="@+id/btn_tata_kelola"
+                android:background="@null"
+                app:srcCompat="@drawable/ic_lainnya_btn" />
+
+            <TextView
+                android:id="@+id/tv_tracking_permintaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="220dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:shadowColor="#000000"
+                android:text="Tracking Permintaan"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/btn_permohonan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="18dp"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_permohonan_baru_btn" />
+
+</RelativeLayout>
