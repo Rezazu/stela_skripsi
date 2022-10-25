@@ -28,6 +28,8 @@ class ActiveTicketPage : Fragment() {
         hideShowTicketsInfrastructureJaringan()
         hideShowTicketsTataKelolaIT()
         hideShowTicketsLainnya()
+
+        ticketClickHandler()
     }
 
     private fun hideShowTicketsInformationSystem() {
@@ -75,6 +77,12 @@ class ActiveTicketPage : Fragment() {
                 tickets_section4.visibility = View.VISIBLE
                 dropdown_handler4.setImageResource(R.drawable.ic_chevron_up_lainnya)
             }
+        }
+    }
+
+    private fun ticketClickHandler() {
+        ticket1.setOnClickListener{
+            startActivity(Intent(activity, Ticket::class.java))
         }
     }
 
