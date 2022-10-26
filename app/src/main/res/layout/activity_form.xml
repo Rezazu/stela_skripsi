@@ -52,17 +52,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
-                android:text="Silahkan isi permintaan anda"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Buat tiket baru"
                 android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/headerEmail"
+                android:id="@+id/tv_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/email"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Nama"
                 android:textColor="#000000" />
 
             <EditText
@@ -70,18 +71,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:id="@+id/headerNama"
+                android:id="@+id/tv_jabatan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/nama_lengkap"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Jabatan
+"
                 android:textColor="#000000" />
 
             <EditText
@@ -89,18 +92,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="text"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:id="@+id/headerNIP"
+                android:id="@+id/tv_unitkerja"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/nip"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Unit Kerja"
                 android:textColor="#000000" />
 
             <EditText
@@ -108,18 +112,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="number"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:id="@+id/headerHP"
+                android:id="@+id/tv_gedung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/no_hp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/gedung"
                 android:textColor="#000000" />
 
             <EditText
@@ -127,24 +132,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="number"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Silahkan isi permintaan yang berupa judul dan deskripsi" />
-
-            <TextView
                 android:id="@+id/headerJudul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/judul"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/lantai"
                 android:textColor="#000000" />
 
             <EditText
@@ -152,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="text"
                 android:paddingHorizontal="15dp"
@@ -163,7 +163,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="@string/deskripsi"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/ruangan"
                 android:textColor="#000000" />
 
             <EditText
@@ -171,21 +172,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border"
+                android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
+            <TextView
+                android:id="@+id/tv_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Silahkan lengkapi permintaan anda"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/judul"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/ed_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/edit_text_border_gray"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp" />
+
+            <TextView
+                android:id="@+id/tv_upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Untuk permintaan sistem informasi, diwajibkan untuk upload dokumen Kerangka Acuan Kerja (KAK) dan Nota Dinas (NoDin)"
+                android:textColor="#000000" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@null"
+                android:src="@drawable/btn_upload" />
+
+            <TextView
+                android:id="@+id/tv_keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/keterangan"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/edit_text_border_gray"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:paddingTop="1dp" />
+
             <Button
-                android:id="@+id/goTo"
+                android:id="@+id/btn_submit"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:backgroundTint="#2954A8"
+                android:fontFamily="@font/montserrat_semibold"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="20dp"
                 android:text="Buat Tiket"
-                app:cornerRadius="50dp" />
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="25dp" />
         </LinearLayout>
     </ScrollView>
+
 </RelativeLayout>
