@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid">
         <activity
+            android:name=".LainnyaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TataKelolaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InfrastrukturJaringanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SistemInformasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".FormDone"
             android:exported="false">
             <meta-data
