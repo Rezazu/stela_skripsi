@@ -59,11 +59,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginStart="0dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="25dp"
                     android:background="@null"
-                    android:layout_centerHorizontal="true"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/ic_permohonan_baru_btn" />
 
@@ -72,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20sp"
-                    android:paddingBottom="22sp"
+                    android:paddingVertical="22sp"
                     android:layout_below="@+id/btn_permohonan">
 
                     <RelativeLayout
@@ -96,6 +95,14 @@
                             android:textSize="14sp" />
 
                     </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/dropdown_handler_1"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_chevron_up_is" />
 
                 </RelativeLayout>
 
@@ -140,6 +147,15 @@
                                 android:text="Kode tiket"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="On Process"
+                                android:textColor="#43A241"
+                                android:textSize="11sp" />
 
                         </LinearLayout>
 
@@ -191,19 +207,34 @@
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
+                            <TextView
+                                android:id="@+id/status2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="22 September 2022 | 20.58"
+                                android:textColor="#000"
+                                android:textSize="10sp" />
+
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/date2"
+                        <LinearLayout
+                            android:id="@+id/ticket_star"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:orientation="vertical"
                             android:layout_alignParentRight="true"
                             android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
+                            >
 
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="25sp"
+                                android:layout_marginLeft="35sp"
+                                android:src="@drawable/ic_star"
+                                />
+
+                        </LinearLayout>
                     </RelativeLayout>
 
                 </RelativeLayout>

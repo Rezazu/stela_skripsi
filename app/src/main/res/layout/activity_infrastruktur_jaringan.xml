@@ -46,11 +46,10 @@
             >
 
             <RelativeLayout
-                android:id="@+id/information_system_section"
+                android:id="@+id/infrastructure_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="10dp"
-                >
+                android:elevation="10dp">
 
                 <ImageButton
                     android:id="@+id/btn_permohonan"
@@ -61,7 +60,6 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="25dp"
-                    android:layout_marginBottom="5dp"
                     android:background="@null"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/ic_permohonan_baru_btn" />
@@ -140,18 +138,63 @@
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
+                            <TextView
+                                android:id="@+id/status3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="22 September 2022 | 20.58"
+                                android:textColor="#000"
+                                android:textSize="10sp" />
+
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/date21"
+                        <LinearLayout
+                            android:id="@+id/ticket_success"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="25sp"
+                                android:layout_height="25sp"
+                                android:layout_marginLeft="35sp"
+                                android:src="@drawable/ic_success" />
+
+                            <RelativeLayout
+                                android:id="@+id/btn_nilai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/btn_nilai"
+                                android:paddingHorizontal="18dp"
+                                android:paddingVertical="5sp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-2sp"
+                                    android:fontFamily="@font/montserrat_semibold"
+                                    android:text="Beri Nilai"
+                                    android:textColor="#FFF"
+                                    android:textSize="11dp" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/date21"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_alignParentRight="true"-->
+                        <!--                            android:layout_alignParentBottom="true"-->
+                        <!--                            android:fontFamily="@font/montserrat_regular"-->
+                        <!--                            android:text="22 September 2022 | 20.58"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="10sp" />-->
 
                     </RelativeLayout>
 
@@ -189,6 +232,15 @@
                                 android:text="Kode tiket"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/status4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="On Hold"
+                                android:textColor="#FF0000"
+                                android:textSize="11sp" />
 
                         </LinearLayout>
 

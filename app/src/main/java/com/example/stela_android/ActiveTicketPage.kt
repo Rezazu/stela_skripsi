@@ -28,6 +28,10 @@ class ActiveTicketPage : Fragment() {
         hideShowTicketsInfrastructureJaringan()
         hideShowTicketsTataKelolaIT()
         hideShowTicketsLainnya()
+
+        beriNilaiHandler()
+        btnAktifTiketHandler()
+        btnSelesaiTiketHandler()
     }
 
     private fun hideShowTicketsInformationSystem() {
@@ -78,4 +82,11 @@ class ActiveTicketPage : Fragment() {
         }
     }
 
+    private fun beriNilaiHandler() {
+
+    }
+
+    private fun btnAktifTiketHandler() {}
+
+    private fun btnSelesaiTiketHandler() {}
 }
