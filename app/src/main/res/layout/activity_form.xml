@@ -27,6 +27,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:text="Form Permintaan"
+            android:text="Form"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             />
@@ -40,6 +41,7 @@
         android:layout_below="@+id/header_section"
         android:fillViewport="true"
         android:scrollbars="none">
+
         >
 
         <LinearLayout

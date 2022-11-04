@@ -144,6 +144,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="350dp"
+                android:layout_marginTop="340dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:shadowColor="#000000"
                 android:text="Panduan Permintaan"
@@ -266,6 +267,16 @@
 <!--                android:layout_marginTop="20sp"-->
 <!--                android:layout_below="@+id/banners"-->
 <!--                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />-->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="606dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="360dp"
+                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />
 
             <ImageView
                 android:id="@+id/imageView4"
