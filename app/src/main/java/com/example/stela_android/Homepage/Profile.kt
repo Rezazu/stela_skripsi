@@ -1,12 +1,11 @@
-package com.example.stela_android
+package com.example.stela_android.Homepage
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import com.example.stela_android.R
 
 class Profile : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {

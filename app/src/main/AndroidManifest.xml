@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.stela_android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -11,30 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid">
         <activity
-            android:name=".LainnyaActivity"
+            android:name=".Tracking.LainnyaActivity"
             android:exported="false" />
         <activity
-            android:name=".TataKelolaActivity"
+            android:name=".Tracking.TataKelolaActivity"
             android:exported="false" />
         <activity
-            android:name=".InfrastrukturJaringanActivity"
+            android:name=".Tracking.InfrastrukturJaringanActivity"
             android:exported="false" />
         <activity
-            android:name=".SistemInformasiActivity"
+            android:name=".Tracking.SistemInformasiActivity"
             android:exported="false" />
         <activity
-            android:name=".FormDone"
+            android:name=".Form.FormDone"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NotificationsPage"
+            android:name=".Homepage.NotificationsPage"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".ActiveTicketPage"
+            android:name=".Ticket.ActiveTicketPage"
             android:exported="false"
             tools:ignore="Instantiatable">
             <meta-data
@@ -42,19 +44,19 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Homepage"
+            android:name=".Homepage.Homepage"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Login.Login"
             android:exported="false" />
         <activity
-            android:name=".FormActivity"
+            android:name=".Form.FormActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LandingPage"
+            android:name=".Login.LandingPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

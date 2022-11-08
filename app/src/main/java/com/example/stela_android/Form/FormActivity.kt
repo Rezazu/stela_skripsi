@@ -1,10 +1,11 @@
-package com.example.stela_android
+package com.example.stela_android.Form
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.stela_android.Homepage.Homepage
+import com.example.stela_android.R
 import kotlinx.android.synthetic.main.activity_form.*
-import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_notifications_page.back_btn
 
 class FormActivity : AppCompatActivity() {

@@ -1,14 +1,12 @@
-package com.example.stela_android
+package com.example.stela_android.Ticket
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.example.stela_android.R
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*;
 
 class ActiveTicketPage : Fragment() {

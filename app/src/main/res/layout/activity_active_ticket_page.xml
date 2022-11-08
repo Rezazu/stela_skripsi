@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActiveTicketPage">
+    tools:context=".Ticket.ActiveTicketPage">
 
     <RelativeLayout
         android:id="@+id/header_section"
@@ -105,18 +105,11 @@
                             android:id="@+id/heading_ticket"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <ImageView
                                 android:layout_width="40sp"
                                 android:layout_height="40sp"
                                 android:src="@drawable/ic_information_system" />
-                            <TextView
-                                android:id="@+id/name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_semibold"
-                                android:text="Redesign tampilan dpr.go.id"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -125,8 +118,6 @@
                                 android:layout_marginLeft="50sp"
                                 android:fontFamily="@font/montserrat_semibold"
                                 android:text="Sistem Informasi"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:text="Kode tiket"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
@@ -139,11 +130,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_chevron_up_is" />
-                            android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
 
                     </RelativeLayout>
 
@@ -199,10 +185,6 @@
                                     android:textSize="11sp" />
 
                             </LinearLayout>
-                                android:fontFamily="@font/montserrat_semibold"
-                                android:text="Penambahan fitur notulensi sidang"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/date"
@@ -214,21 +196,6 @@
                                 android:text="22 September 2022 | 20.58"
                                 android:textColor="@color/black"
                                 android:textSize="10sp" />
-                                android:text="Kode tiket"
-                                android:textColor="@color/black"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/date2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
 
                         </RelativeLayout>
 
@@ -320,18 +287,12 @@
                             android:id="@+id/heading_ticket2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <ImageView
                                 android:layout_width="40sp"
                                 android:layout_height="40sp"
                                 android:src="@drawable/ic_infrastructure" />
-                            <TextView
-                                android:id="@+id/name21"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_semibold"
-                                android:text="Redesign tampilan dpr.go.id"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -339,8 +300,6 @@
                                 android:layout_marginLeft="50sp"
                                 android:fontFamily="@font/montserrat_semibold"
                                 android:text="Infrastruktur Jaringan"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:text="Kode tiket"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
@@ -353,11 +312,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_chevron_up_ij" />
-                            android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
 
                     </RelativeLayout>
 
@@ -508,10 +462,6 @@
                                     android:textSize="11sp" />
 
                             </LinearLayout>
-                                android:fontFamily="@font/montserrat_semibold"
-                                android:text="Penambahan fitur notulensi sidang"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/date22"
@@ -521,23 +471,10 @@
                                 android:layout_alignParentBottom="true"
                                 android:fontFamily="@font/montserrat_regular"
                                 android:text="22 September 2022 | 20.58"
-                                android:text="Kode tiket"
                                 android:textColor="@color/black"
                                 android:textSize="10sp" />
 
                         </RelativeLayout>
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/date22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentBottom="true"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="22 September 2022 | 20.58"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
 
                     </RelativeLayout>
 

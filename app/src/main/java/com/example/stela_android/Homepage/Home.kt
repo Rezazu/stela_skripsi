@@ -1,4 +1,4 @@
-package com.example.stela_android
+package com.example.stela_android.Homepage
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import com.example.stela_android.*
+import com.example.stela_android.Form.FormActivity
+import com.example.stela_android.Tracking.InfrastrukturJaringanActivity
+import com.example.stela_android.Tracking.LainnyaActivity
+import com.example.stela_android.Tracking.SistemInformasiActivity
+import com.example.stela_android.Tracking.TataKelolaActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : Fragment(){

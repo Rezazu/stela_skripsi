@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationsPage">
+    tools:context=".Homepage.NotificationsPage">
 
     <RelativeLayout
         android:id="@+id/header_section"
@@ -32,273 +32,40 @@
 
     </RelativeLayout>
 
-    <ScrollView
-        android:id="@+id/main_section"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvnotification"
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header_section"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginBottom="-72dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <!--    <ScrollView-->
+<!--        android:id="@+id/main_section"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/header_section"-->
+<!--        android:fillViewport="true"-->
+<!--        android:scrollbars="none">-->
 
-            <RelativeLayout
-                android:id="@+id/notification_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:background="@drawable/border_bottom_black"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
 
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_notifications_page" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Penambahan fitur notulensi sidang"
-                        android:textColor="@color/black"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3sp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="User melakukan permintaan untuk melakukan rapat"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
-
-                    <LinearLayout
-                        android:id="@+id/date_notification"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="21 Sep 2022"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text=" | "
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:id="@+id/time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="19:22"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/notification_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:background="@drawable/border_bottom_black"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
-
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_notifications_page" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Penambahan fitur notulensi sidang"
-                        android:textColor="@color/black"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3sp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="User mengirimkan permohonan aplikasi"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
-
-                    <LinearLayout
-                        android:id="@+id/date_notification2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/date2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="21 Sep 2022"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text=" | "
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:id="@+id/time2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="19:22"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/notification_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:background="@drawable/border_bottom_black"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
-
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_notifications_page" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Aplikasi absensi berbasis android"
-                        android:textColor="@color/black"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3sp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="Developer melakuakn permintaan untuk melakukan rapat"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
-
-                    <LinearLayout
-                        android:id="@+id/date_notification3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/date3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="21 Sep 2022"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text=" | "
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-                        <TextView
-                            android:id="@+id/time3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="19:22"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/notification_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:background="@drawable/border_bottom_black"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notification_1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="25dp"-->
+<!--                android:background="@drawable/border_bottom_black"-->
+<!--                android:paddingTop="25dp"-->
+<!--                android:paddingBottom="25dp">-->
 
 
 <!--                <ImageView-->
@@ -307,80 +74,80 @@
 <!--                    android:layout_centerVertical="true"-->
 <!--                    android:src="@drawable/ic_notifications_page" />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="40dp"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Redesign tampilan dpr.go.id"
-                        android:textColor="@color/black"
-                        android:textSize="13dp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/montserrat_medium"-->
+<!--                        android:text="Penambahan fitur notulensi sidang"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3sp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="Aplikasi siap digunakan"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="3sp"-->
+<!--                        android:fontFamily="@font/montserrat_regular"-->
+<!--                        android:text="User melakukan permintaan untuk melakukan rapat"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="10dp" />-->
 
-                    <LinearLayout
-                        android:id="@+id/date_notification4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/date_notification"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-                        <TextView
-                            android:id="@+id/date4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="21 Sep 2022"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/date"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="21 Sep 2022"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text=" | "
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text=" | "-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
-                        <TextView
-                            android:id="@+id/time4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="19:22"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/time"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="19:22"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/notification_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:background="@drawable/border_bottom_black"
-                android:paddingTop="25dp"
-                android:paddingBottom="25dp">
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notification_2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="25dp"-->
+<!--                android:background="@drawable/border_bottom_black"-->
+<!--                android:paddingTop="25dp"-->
+<!--                android:paddingBottom="25dp">-->
 
 
 <!--                <ImageView-->
@@ -389,74 +156,320 @@
 <!--                    android:layout_centerVertical="true"-->
 <!--                    android:src="@drawable/ic_notifications_page" />-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="40dp"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Redesign tampilan dpr.go.id"
-                        android:textColor="@color/black"
-                        android:textSize="13dp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/montserrat_medium"-->
+<!--                        android:text="Penambahan fitur notulensi sidang"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3sp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="User menyetujui pekerjaan aplikasi"
-                        android:textColor="@color/black"
-                        android:textSize="10dp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="3sp"-->
+<!--                        android:fontFamily="@font/montserrat_regular"-->
+<!--                        android:text="User mengirimkan permohonan aplikasi"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="10dp" />-->
 
-                    <LinearLayout
-                        android:id="@+id/date_notification5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/date_notification2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
 
-                        <TextView
-                            android:id="@+id/date5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="21 Sep 2022"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/date2"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="21 Sep 2022"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text=" | "
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text=" | "-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
-                        <TextView
-                            android:id="@+id/time5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3sp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="19:22"
-                            android:textColor="@color/black"
-                            android:textSize="10dp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/time2"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="19:22"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
 
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
-        </LinearLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notification_3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="25dp"-->
+<!--                android:background="@drawable/border_bottom_black"-->
+<!--                android:paddingTop="25dp"-->
+<!--                android:paddingBottom="25dp">-->
 
-    </ScrollView>
+
+<!--                <ImageView-->
+<!--                    android:layout_width="25dp"-->
+<!--                    android:layout_height="25dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:src="@drawable/ic_notifications_page" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="40dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/montserrat_medium"-->
+<!--                        android:text="Aplikasi absensi berbasis android"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="3sp"-->
+<!--                        android:fontFamily="@font/montserrat_regular"-->
+<!--                        android:text="Developer melakuakn permintaan untuk melakukan rapat"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="10dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/date_notification3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/date3"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="21 Sep 2022"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text=" | "-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/time3"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="19:22"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notification_4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="25dp"-->
+<!--                android:background="@drawable/border_bottom_black"-->
+<!--                android:paddingTop="25dp"-->
+<!--                android:paddingBottom="25dp">-->
+
+
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:src="@drawable/ic_notifications_page" />&ndash;&gt;-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="40dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/montserrat_medium"-->
+<!--                        android:text="Redesign tampilan dpr.go.id"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="3sp"-->
+<!--                        android:fontFamily="@font/montserrat_regular"-->
+<!--                        android:text="Aplikasi siap digunakan"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="10dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/date_notification4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/date4"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="21 Sep 2022"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text=" | "-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/time4"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="19:22"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notification_5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="25dp"-->
+<!--                android:background="@drawable/border_bottom_black"-->
+<!--                android:paddingTop="25dp"-->
+<!--                android:paddingBottom="25dp">-->
+
+
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:src="@drawable/ic_notifications_page" />&ndash;&gt;-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="40dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/montserrat_medium"-->
+<!--                        android:text="Redesign tampilan dpr.go.id"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="3sp"-->
+<!--                        android:fontFamily="@font/montserrat_regular"-->
+<!--                        android:text="User menyetujui pekerjaan aplikasi"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="10dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/date_notification5"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/date5"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="21 Sep 2022"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text=" | "-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/time5"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="3sp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="19:22"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="10dp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </RelativeLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </ScrollView>-->
 
 </RelativeLayout>

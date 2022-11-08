@@ -1,10 +1,8 @@
-package com.example.stela_android
+package com.example.stela_android.Form
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_homepage.*
+import com.example.stela_android.R
 
 class FormDone : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

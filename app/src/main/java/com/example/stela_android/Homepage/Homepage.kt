@@ -1,9 +1,10 @@
-package com.example.stela_android
+package com.example.stela_android.Homepage
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.stela_android.Ticket.ActiveTicketPage
+import com.example.stela_android.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_homepage.*
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormActivity">
+    tools:context=".Form.FormActivity">
 
     <RelativeLayout
         android:id="@+id/header_section"
@@ -27,7 +27,6 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:text="Form Permintaan"
-            android:text="Form"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             />
