@@ -3,14 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/btn_helpno.xml" value="0.1475" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/btnback.xml" value="0.1475" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/ic_chevron_down_ij.xml" value="0.144" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/popup.xml" value="0.145" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/popup1.xml" value="0.1475" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/popup2.xml" value="0.12" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/popup3.xml" value="0.145" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle.xml" value="0.145" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle_2.xml" value="0.145" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle_20.xml" value="0.1" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle_3.xml" value="0.144" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle_67.xml" value="0.1475" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/rectangle_fft.xml" value="0.1475" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/drawable/tiketbg.xml" value="0.144" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_active_ticket_page.xml" value="0.16666666666666666" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_form.xml" value="0.17552083333333332" />
@@ -22,7 +27,10 @@
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_notifications_page.xml" value="0.17552083333333332" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_popup.xml" value="0.22" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_profile.xml" value="0.17552083333333332" />
-        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_ticket.xml" value="0.10666666666666667" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/activity_ticket.xml" value="0.22" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_disabilitas.xml" value="0.17552083333333332" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_disabilitaspop.xml" value="0.17552083333333332" />
+        <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_popup_1.xml" value="0.22" />
       </map>
     </option>
   </component>
