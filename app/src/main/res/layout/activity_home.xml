@@ -69,6 +69,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/iv_header"
         android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_header">
@@ -77,15 +78,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageButton
                 android:id="@+id/btn_sistem_informasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="250dp"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_sistem_informasi_btn" />
 
@@ -94,8 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="250dp"
                 android:layout_toEndOf="@+id/btn_sistem_informasi"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_infrastruktur_jaringan_btn" />
@@ -105,8 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="250dp"
                 android:layout_toEndOf="@+id/btn_infrastruktur_jaringan"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_tata_kelola_ti_btn" />
@@ -116,8 +116,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="250dp"
                 android:layout_toEndOf="@+id/btn_tata_kelola"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_lainnya_btn" />
@@ -128,13 +128,178 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="220dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="210dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:shadowColor="#000000"
                 android:text="Tracking Permintaan"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_tracking_permintaan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginTop="340dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:shadowColor="#000000"
+                android:text="Panduan Permintaan"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_sisteminformasi"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_sistem_informasi"
+                android:layout_alignStart="@+id/btn_sistem_informasi"
+                android:layout_alignEnd="@+id/btn_sistem_informasi"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="-16dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Sistem Informasi"
+                android:textColor="#000000"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/tv_infrasturktur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_infrastruktur_jaringan"
+                android:layout_alignStart="@+id/btn_infrastruktur_jaringan"
+                android:layout_alignEnd="@+id/btn_infrastruktur_jaringan"
+                android:layout_marginStart="-7dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="-8dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Infrastruktur Jaringan"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/tv_tata_kelola"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_tata_kelola"
+                android:layout_alignStart="@+id/btn_tata_kelola"
+                android:layout_alignEnd="@+id/btn_tata_kelola"
+                android:layout_marginStart="-7dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="-10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Tata Kelola TI"
+                android:textColor="#000000"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/tv_lainnya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_lainnya"
+                android:layout_alignStart="@+id/btn_lainnya"
+                android:layout_alignEnd="@+id/btn_lainnya"
+                android:layout_marginStart="-8dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="-7dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Lainnya"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="8sp" />
+
+            <HorizontalScrollView
+                android:id="@+id/banners"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fillViewport="true"
+                android:paddingHorizontal="20sp"
+                android:paddingBottom="350sp"
+                android:scrollbars="none"
+                android:layout_below="@+id/tv_tracking_permintaan2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8sp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/banner"
+                        android:layout_width="320dp"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="20sp"
+                        android:background="@drawable/shadow_banner"></RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/banner2"
+                        android:layout_width="320dp"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="20sp"
+                        android:background="@drawable/shadow_banner"></RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/banner3"
+                        android:layout_width="320dp"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="20sp"
+                        android:background="@drawable/shadow_banner"></RelativeLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="606dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginStart="0dp"-->
+<!--                android:layout_marginTop="20sp"-->
+<!--                android:layout_below="@+id/banners"-->
+<!--                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />-->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="606dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="360dp"
+                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="35dp"
+                app:srcCompat="@drawable/ic_stela_small" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="358dp"
+                android:layout_height="97dp"
+                android:layout_below="@+id/imageView4"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+                android:textSize="12dp" />
+
 
         </RelativeLayout>
     </ScrollView>
@@ -147,7 +312,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="15dp"
         android:background="@null"
         android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"

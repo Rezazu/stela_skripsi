@@ -29,12 +29,41 @@ class Home : Fragment(){
             val intent_permohonan = Intent(activity, FormActivity::class.java)
             startActivity(intent_permohonan)
         }
+
         btnNotificationListener()
+        btnInformationSystemListener()
+        btnInfrastructureJaringanListener()
+        btnTataKelolaTIListener()
+        btnLainnyaListener()
     }
 
     private fun btnNotificationListener() {
         btn_notification.setOnClickListener{
             startActivity(Intent(activity, NotificationsPage::class.java))
+        }
+    }
+
+    private fun btnInformationSystemListener() {
+        btn_sistem_informasi.setOnClickListener{
+            startActivity(Intent(activity, SistemInformasiActivity::class.java))
+        }
+    }
+
+    private fun btnInfrastructureJaringanListener() {
+        btn_infrastruktur_jaringan.setOnClickListener{
+            startActivity(Intent(activity, InfrastrukturJaringanActivity::class.java))
+        }
+    }
+
+    private fun btnTataKelolaTIListener() {
+        btn_tata_kelola.setOnClickListener{
+            startActivity(Intent(activity, TataKelolaActivity::class.java))
+        }
+    }
+
+    private fun btnLainnyaListener() {
+        btn_lainnya.setOnClickListener{
+            startActivity(Intent(activity, LainnyaActivity::class.java))
         }
     }
 }

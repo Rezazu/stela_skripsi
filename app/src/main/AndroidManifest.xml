@@ -17,6 +17,25 @@
             android:name=".Ticket"
             android:exported="false" />
         <activity
+            android:name=".LainnyaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TataKelolaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InfrastrukturJaringanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SistemInformasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FormDone"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".NotificationsPage"
             android:exported="false"
             tools:ignore="Instantiatable" />
