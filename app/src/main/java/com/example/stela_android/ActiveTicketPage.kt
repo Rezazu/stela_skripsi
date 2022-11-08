@@ -29,9 +29,7 @@ class ActiveTicketPage : Fragment() {
         hideShowTicketsTataKelolaIT()
         hideShowTicketsLainnya()
 
-        beriNilaiHandler()
-        btnAktifTiketHandler()
-        btnSelesaiTiketHandler()
+        ticketClickHandler()
     }
 
     private fun hideShowTicketsInformationSystem() {
@@ -82,11 +80,10 @@ class ActiveTicketPage : Fragment() {
         }
     }
 
-    private fun beriNilaiHandler() {
-
+    private fun ticketClickHandler() {
+        ticket1.setOnClickListener{
+            startActivity(Intent(activity, Ticket::class.java))
+        }
     }
 
-    private fun btnAktifTiketHandler() {}
-
-    private fun btnSelesaiTiketHandler() {}
 }
