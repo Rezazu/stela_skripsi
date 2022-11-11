@@ -44,6 +44,10 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Ticket.Ticket"
+            android:exported="false"
+            tools:ignore="Instantiatable"/>
+        <activity
             android:name=".Homepage.Homepage"
             android:exported="false" />
         <activity

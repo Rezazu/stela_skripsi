@@ -1,15 +1,11 @@
-package com.example.stela_android
+package com.example.stela_android.Ticket
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
-import kotlinx.android.synthetic.main.activity_active_ticket_page.*
-import kotlinx.android.synthetic.main.activity_notifications_page.*
+import com.example.stela_android.R
 import kotlinx.android.synthetic.main.activity_ticket.*
 
 class Ticket : AppCompatActivity() {
@@ -22,7 +18,7 @@ class Ticket : AppCompatActivity() {
 
     private fun back_btn2ClickHandler() {
         back_btn2.setOnClickListener {
-            startActivity(Intent(this, Homepage::class.java))
+            startActivity(Intent(this, ActiveTicketPage::class.java))
         }
     }
 
