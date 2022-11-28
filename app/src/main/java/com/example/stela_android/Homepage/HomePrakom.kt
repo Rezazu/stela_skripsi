@@ -1,12 +1,14 @@
-package com.example.stela_android
+package com.example.stela_android.Homepage
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.stela_android.R
 
-class disabilitaspopup : Fragment() {
+class HomePrakom : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -16,10 +18,6 @@ class disabilitaspopup : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_disabilitaspop, container,false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        return inflater.inflate(R.layout.activity_home_prakom, container, false)
     }
 }

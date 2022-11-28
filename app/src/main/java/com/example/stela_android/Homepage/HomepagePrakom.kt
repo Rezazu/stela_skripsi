@@ -3,15 +3,15 @@ package com.example.stela_android.Homepage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.stela_android.Ticket.ActiveTicketPage
 import com.example.stela_android.R
+import com.example.stela_android.Ticket.ActiveTicketPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_homepage.*
 
-class Homepage : AppCompatActivity() {
+class HomepagePrakom : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_homepage)
+        setContentView(R.layout.activity_homepage_prakom)
         ticketActiveBtnHandler()
     }
 
