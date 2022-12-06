@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "951812557212",
+    "project_id": "stela-project-fab5a",
+    "storage_bucket": "stela-project-fab5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951812557212:android:bdaa109fba49bfef1a2059",
+        "android_client_info": {
+          "package_name": "com.example.stela_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951812557212-lgenslfuchbaeiie7vv00o3ahp9pl1j9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stela_android",
+            "certificate_hash": "9460393a3a9eb4c52de0e1115594321f915ca881"
+          }
+        },
+        {
+          "client_id": "951812557212-4m95h9ja8a0ualh2h0dec9h0elvobki6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxgJF6aK9ixDLZWlIyXhe07v3RMaYgewk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951812557212-4m95h9ja8a0ualh2h0dec9h0elvobki6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
