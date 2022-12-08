@@ -3,6 +3,7 @@ package com.example.stela_android.Homepage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.stela_android.Profile.Profile
 import com.example.stela_android.R
 import com.example.stela_android.Ticket.ActiveTicketPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,7 +28,7 @@ class HomepagePrakom : AppCompatActivity() {
 
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.btn_profile -> setCurrentFragment(profile)
+//                R.id.btn_profile -> setCurrentFragment(profile)
                 R.id.btn_home -> setCurrentFragment(home)
                 R.id.btn_ticket -> setCurrentFragment(activeTicket)
             }

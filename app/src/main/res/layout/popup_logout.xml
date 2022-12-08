@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="260dp"
+    android:layout_height="130dp"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#BBBBBB"
+    >
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Apakah anda yakin ingin keluar dari akun anda?"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="78dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="18dp"
+        android:text="Tidak"
+        android:textAllCaps="false"
+        app:cornerRadius="5dp" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="78dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="18dp"
+        android:layout_toEndOf="@+id/btn_cancel"
+        android:backgroundTint="#FF0000"
+        android:text="Ya"
+        android:textAllCaps="false"
+        app:cornerRadius="5dp" />
+
+
+</RelativeLayout>

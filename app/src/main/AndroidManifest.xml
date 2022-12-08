@@ -13,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid">
         <activity
+            android:name=".Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".HomePrakom"
             android:exported="false">
             <meta-data
