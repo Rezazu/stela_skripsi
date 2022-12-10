@@ -1,12 +1,15 @@
-package com.example.stela_android.Login
+package com.example.stela_android.Retrofit
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 interface UserApi {
     @POST("login")
-    fun login(
+    fun login (
         @Body userRequest: UserRequest
     ): Call<UserResponse>
+
+
+
 }
