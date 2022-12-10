@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class UserRequest {
-    @SerializedName("email")
+    @SerializedName("username")
     @Expose
     var email:String? = null
 

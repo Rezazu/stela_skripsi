@@ -5,10 +5,12 @@ import retrofit2.http.*
 
 
 interface UserApi {
+    @FormUrlEncoded
     @POST("login")
     fun login (
-        @Body userRequest: UserRequest
-    ): Call<UserResponse>
+        @Field("username") username:String,
+        @Field("password") password:String
+    ): Call<LoginResponse>
 
 
 
