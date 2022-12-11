@@ -52,6 +52,13 @@
             android:name=".Homepage.Homepage"
             android:exported="false" />
         <activity
+            android:name=".Homepage.HomepagePrakom"
+            android:exported="false" />
+        <activity
+            android:name=".Homepage.HomePrakom"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".Login.Login"
             android:exported="false" />
         <activity
