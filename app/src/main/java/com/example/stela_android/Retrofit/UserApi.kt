@@ -12,6 +12,9 @@ interface UserApi {
         @Field("password") password:String
     ): Call<LoginResponse>
 
+    @GET("login")
+    fun getUser (
+    ): Call<LoginResponse>
 
 
 }

@@ -30,7 +30,7 @@ class PopupLogout :Fragment(){
 
     fun logout() {
         btn_logout.setOnClickListener{
-            startActivity(Intent(activity, Login::class.java))
+
         }
     }
 }

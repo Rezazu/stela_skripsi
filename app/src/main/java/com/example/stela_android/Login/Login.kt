@@ -1,7 +1,5 @@
 package com.example.stela_android.Login
 
-import android.app.TaskStackBuilder.create
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,15 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.stela_android.Homepage.Homepage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.*
+import com.example.stela_android.Storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_login.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody.Part.Companion.create
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.converter.gson.GsonConverterFactory.create
-import java.lang.ref.Cleaner.create
+
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,33 +24,60 @@ class Login : AppCompatActivity() {
 
     fun initAction(){
         btn_masuk.setOnClickListener{
-            login()
-
+            val username = et_username.text.toString().trim()
+            val password = et_password.text.toString().trim()
+            if(username.isEmpty() || password.isEmpty() || username.isEmpty() && password.isEmpty()){
+                val myToast =
+                    Toast.makeText(applicationContext, "Username atau Password tidak boleh kosong", Toast.LENGTH_LONG)
+                myToast.show()
+            } else {
+                login()
+            }
         }
     }
 
     fun login(){
-        val email = et_username.text.toString().trim()
-        val password = et_password.text.toString().trim()
-
         val retro = Retrofit().getRetroClientInstance().create(UserApi::class.java)
-        retro.login(email, password).enqueue(object : Callback<LoginResponse>{
+        val username = et_username.text.toString().trim()
+        val password = et_password.text.toString().trim()
+        retro.login(username, password).enqueue(object : Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful()) {
-                    val myToast =
-                        Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
-                    myToast.show()
+                    val result = response.body()
+                    if (result != null) {
+                        SharedPrefManager.getInstance(applicationContext).saveUser(result.data?.user!!)
+                        val myToast =
+                            Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
+                        myToast.show()
 
-                    val intent = Intent(applicationContext, Homepage::class.java)
-                    startActivity(intent)
-
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                    } else {
+                        val myToast =
+                            Toast.makeText(applicationContext, "Null", Toast.LENGTH_LONG)
+                        myToast.show()
+                    }
                 }
             }
 
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 t.message?.let { Log.e("Error", it) }
+                val myToast =
+                    Toast.makeText(applicationContext, "Login gagal", Toast.LENGTH_LONG)
+                myToast.show()
             }
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if(SharedPrefManager.getInstance(this).isLoggedIn){
+            val intent = Intent(applicationContext, Homepage::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+        }
     }
 }
