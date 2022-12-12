@@ -1,20 +1,21 @@
 package com.example.stela_android.Profile
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.icu.text.CaseMap.Title
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.stela_android.Homepage.Homepage
 import com.example.stela_android.R
+import com.example.stela_android.Storage.SharedPrefManager
+
+
 
 public class Profile : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +55,13 @@ public class Profile : Fragment() {
     private fun btnKeluarListener(){
        val btn_keluar = requireActivity().findViewById<Button>(R.id.btn_keluar)
         btn_keluar.setOnClickListener {
-            showDialog()
+            getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+            if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+                val intent = Intent(activity, Homepage::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(intent)
+            }
         }
     }
 
