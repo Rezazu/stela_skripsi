@@ -2,11 +2,9 @@ package com.example.stela_android.Storage
 
 
 import android.content.Context
-import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
-import com.example.stela_android.Login.Login
+import android.media.session.MediaSession.Token
+import com.example.stela_android.Retrofit.Data
 import com.example.stela_android.Retrofit.User
-
 
 class SharedPrefManager private constructor(private val mCtx: Context) {
 
@@ -37,6 +35,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         }
 
 
+
     fun saveUser(user: User) {
 
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
@@ -58,6 +57,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         editor.apply()
 
     }
+
 
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)

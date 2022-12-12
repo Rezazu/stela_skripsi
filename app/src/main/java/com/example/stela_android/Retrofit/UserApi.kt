@@ -12,7 +12,9 @@ interface UserApi {
         @Field("password") password:String
     ): Call<LoginResponse>
 
-    @GET("login")
+    @Headers("Content-type: application/json",
+            "Authorization: Bearer my token")
+    @GET("user")
     fun getUser (
     ): Call<LoginResponse>
 

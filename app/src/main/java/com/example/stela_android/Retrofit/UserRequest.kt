@@ -11,4 +11,8 @@ class UserRequest {
     @SerializedName("password")
     @Expose
     var password:String? = null
+
+    @SerializedName("token")
+    @Expose
+    var token:String? = null
 }

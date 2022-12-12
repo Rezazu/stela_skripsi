@@ -33,11 +33,12 @@
 
         android:layout_toEndOf="@+id/iv_photo"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Tri Wulandari"
+        android:text="Nama Lengkap"
         android:textColor="#FFFFFF"
         android:textSize="16sp"/>
 
     <TextView
+        android:id="@+id/tv_unitkerjai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/sv_home"
@@ -47,7 +48,7 @@
         android:layout_marginBottom="14dp"
         android:layout_toEndOf="@+id/iv_photo"
         android:fontFamily="@font/montserrat_regular"
-        android:text="Pusat Penelitian"
+        android:text="Unit Kerja"
         android:textColor="#FFFFFF"
         android:textSize="10sp"/>
 
@@ -219,7 +220,7 @@
                 android:layout_marginTop="10dp"
                 android:fillViewport="true"
                 android:paddingHorizontal="20sp"
-                android:paddingBottom="350sp"
+                android:paddingBottom="80sp"
                 android:scrollbars="none"
                 android:layout_below="@+id/tv_tracking_permintaan2">
 
@@ -278,7 +279,7 @@
                 app:srcCompat="@drawable/ic_stela_small" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tv_descstela"
                 android:layout_width="358dp"
                 android:layout_height="97dp"
                 android:layout_below="@+id/imageView4"
@@ -287,7 +288,7 @@
                 android:layout_marginTop="13dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-                android:textSize="12dp" />
+                android:textSize="10dp" />
 
 
         </RelativeLayout>
@@ -302,7 +303,7 @@
         android:layout_alignParentBottom="true"
 
         android:layout_marginStart="0dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:background="@null"
         android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"

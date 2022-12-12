@@ -8,6 +8,7 @@ import com.example.stela_android.Login.Login
 import com.example.stela_android.Profile.Profile
 import com.example.stela_android.Ticket.ActiveTicketPage
 import com.example.stela_android.R
+import com.example.stela_android.Retrofit.User
 import com.example.stela_android.Storage.SharedPrefManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_homepage.*
