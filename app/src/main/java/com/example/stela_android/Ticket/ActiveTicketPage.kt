@@ -1,25 +1,27 @@
 package com.example.stela_android.Ticket
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Homepage.NotificationsPage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
-import com.example.stela_android.Retrofit.Ticket.Ticket
-import com.example.stela_android.Retrofit.Ticket.TicketAdapter
-import com.example.stela_android.Retrofit.Ticket.TicketResponse
+import com.example.stela_android.Retrofit.Ticket.TicketApi
+import com.example.stela_android.Retrofit.Ticket.TiketResponse
+import com.example.stela_android.Storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*;
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ActiveTicketPage : Fragment() {
+
+    private val list = ArrayList<TiketResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +38,6 @@ class ActiveTicketPage : Fragment() {
         hideShowTicketsInfrastructureJaringan()
         hideShowTicketsTataKelolaIT()
         hideShowTicketsLainnya()
-
         getTickets()
 
 //        ticketClickHandler()
@@ -92,17 +93,25 @@ class ActiveTicketPage : Fragment() {
 
     private fun getTickets() {
         tickets_section_1.setHasFixedSize(true)
+        tickets_section_1.layoutManager = LinearLayoutManager(activity)
+        val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "")
+        Log.d("test", "test:"+token)
+        val retro = Retrofit.getRetroData(token!!).create(TicketApi::class.java)
 
-        Retrofit.instanceTicketApi.getTickets().enqueue(object : Callback<TicketResponse> {
+        retro.getTickets().enqueue(object : Callback<TiketResponse> {
             override fun onResponse(
-                call: Call<TicketResponse>,
-                response: Response<TicketResponse>
+                call: Call<TiketResponse>,
+                response: Response<TiketResponse>
             ) {
-                val adapter = TicketAdapter(list = TicketResponse())
-                tickets_section_1.adapter = adapter
+//                response.body()?.let { list.addAll(listOf(it)) }
+//                val adapter = TicketAdapter(list)
+//                tickets_section_1.adapter = adapter
+                val responseData = response.body()?.data
+                Log.d("Home", "Data: "+responseData);
             }
 
-            override fun onFailure(call: Call<TicketResponse>, t: Throwable) {
+            override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 

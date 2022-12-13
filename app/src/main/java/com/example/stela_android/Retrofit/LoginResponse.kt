@@ -22,6 +22,6 @@ data class Data(
 	val user: User? = null,
 
 	@field:SerializedName("token")
-	val token: String? = null
+	val token: String
 
 )

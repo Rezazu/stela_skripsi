@@ -3,7 +3,7 @@ package com.example.stela_android.Homepage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.preference.PreferenceManager
+// import androidx.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -56,15 +56,16 @@ class Home : Fragment(){
     }
 
     private fun getResult(){
-        val retro = Retrofit().getRetroClientInstance().create(UserApi::class.java)
-
+        val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "")
+        val retro = Retrofit.getRetroData(token!!).create(UserApi::class.java)
         val tv_name : TextView = requireActivity().findViewById(R.id.tv_name) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+
 
                     val nama = prefs?.getString("nama_lengkap", "DefaultValue")
                     tv_name.text = nama

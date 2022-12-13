@@ -11,7 +11,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
     val isLoggedIn: Boolean
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getInt("id", -1) != -1
+            return sharedPreferences.getString("token", null) != null
         }
 
     val user: User
@@ -33,8 +33,6 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("status", null)
             )
         }
-
-
 
     fun saveUser(user: User) {
 
@@ -58,6 +56,13 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
 
     }
 
+    fun saveToken(token: String){
+        val prefs = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+
+        editor.putString("token", token)
+        editor.apply()
+    }
 
     fun clear() {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)

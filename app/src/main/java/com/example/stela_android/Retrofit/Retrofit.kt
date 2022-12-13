@@ -11,20 +11,26 @@ import retrofit2.create
 
 object Retrofit {
 
-    val BASE_URL = "http://192.168.78.224/api/"
+    val BASE_URL = "http://192.168.25.208/api/"
 
-    val instanceTicketApi: TicketApi by lazy {
-        val retrofit = getRetroClientInstance()
-        retrofit.create(TicketApi::class.java)
+    fun getRetroLogin() : Retrofit {
+        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
     }
 
-    fun getRetroClientInstance(): Retrofit {
+    fun getRetroData(token: String): Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
             .addInterceptor(OAuthInterceptor(
                 "Bearer",
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJuYW1hX2xlbmdrYXAiOiJ1c2VyMSIsInVzZXJuYW1lIjoidXNlcjEiLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsInN0YXR1cyI6IjEiLCJrZF9kZXBhcnRlbWVuIjpudWxsLCJiYWdpYW4iOm51bGwsImdlZHVuZyI6bnVsbCwidW5pdF9rZXJqYSI6bnVsbCwicnVhbmdhbiI6bnVsbCwibGFudGFpIjpudWxsLCJ0ZWxlcG9uIjpudWxsLCJocCI6bnVsbCwicGVyYW4iOlsidmVyaWZpY2F0b3IiLCJoZWxwZGVzayJdLCJleHAiOjE2NzA4NzE4Mzh9.WprBAEWHKmNp6r_OEBDfuK-O1MSPiCzmdSVPKZg7FyU"
-
+                token
             )).addInterceptor(loggingInterceptor)
             .build()
         return Retrofit.Builder()

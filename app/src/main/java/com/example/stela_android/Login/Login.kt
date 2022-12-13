@@ -1,5 +1,6 @@
 package com.example.stela_android.Login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -37,7 +38,7 @@ class Login : AppCompatActivity() {
     }
 
     fun login(){
-        val retro = Retrofit.getRetroClientInstance().create(UserApi::class.java)
+        val retro = Retrofit.getRetroLogin().create(UserApi::class.java)
         val username = et_username.text.toString().trim()
         val password = et_password.text.toString().trim()
         retro.login(username, password).enqueue(object : Callback<LoginResponse>{
@@ -46,6 +47,7 @@ class Login : AppCompatActivity() {
                     val result = response.body()
                     if (result != null) {
                         SharedPrefManager.getInstance(applicationContext).saveUser(result.data?.user!!)
+                        SharedPrefManager.getInstance(applicationContext).saveToken(result.data?.token)
                         val myToast =
                             Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
                         myToast.show()
@@ -75,7 +77,6 @@ class Login : AppCompatActivity() {
         if(SharedPrefManager.getInstance(this).isLoggedIn){
             val intent = Intent(applicationContext, Homepage::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
             startActivity(intent)
         }
     }

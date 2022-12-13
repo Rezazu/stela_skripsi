@@ -7,28 +7,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import kotlinx.android.synthetic.main.ticket_item.view.*
 
-class TicketAdapter(private val list: TicketResponse): RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
+class TicketAdapter(private val list: ArrayList<TiketResponse>): RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
 
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(ticketResponse: TicketResponse) {
+        fun bind(aTicketResponse: TiketResponse) {
             with(itemView) {
                 // Data Header Tiket
-                val keteranganTiket = ticketResponse.data?.keterangan
-                val noTiket = ticketResponse.data?.no_tiket
-                val statusTiket = ticketResponse.data?.status
+                val keteranganTiket = aTicketResponse.data?.keterangan
+                val noTiket = aTicketResponse.data?.no_tiket
+                val statusTiket = aTicketResponse.data?.status
 
                 // Data Pelapor
-                val nama_pelapor = ticketResponse.data?.nama_pelapor
-                val jabatan_pelapor = ticketResponse.data?.bagian_pelapor
-                val unit_kerja_pelapor = ticketResponse.data?.unit_kerja_pelapor
-                val gedung_pelapor = ticketResponse.data?.gedung_pelapor
-                val lantai_pelapor = ticketResponse.data?.lantai_pelapor
-                val ruangan_pelapor = ticketResponse.data?.ruangan_pelapor
+                val nama_pelapor = aTicketResponse.data?.nama_pelapor
+                val jabatan_pelapor = aTicketResponse.data?.bagian_pelapor
+                val unit_kerja_pelapor = aTicketResponse.data?.unit_kerja_pelapor
+                val gedung_pelapor = aTicketResponse.data?.gedung_pelapor
+                val lantai_pelapor = aTicketResponse.data?.lantai_pelapor
+                val ruangan_pelapor = aTicketResponse.data?.ruangan_pelapor
 
                 // Data Lengkap Tiket
-                val judul = ticketResponse.data?.keterangan
-                val deskripsi = ticketResponse.data?.keterangan
-                val tanggalTiket = ticketResponse.data?.tanggal_input
+                val judul = aTicketResponse.data?.keterangan
+                val deskripsi = aTicketResponse.data?.keterangan
+                val tanggalTiket = aTicketResponse.data?.tanggal_input
 
                 keterangan_tiket.text = judul
                 no_tiket.text = noTiket
@@ -44,7 +44,7 @@ class TicketAdapter(private val list: TicketResponse): RecyclerView.Adapter<Tick
     }
 
     override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
-        //
+        holder.bind(list[position])
     }
 
     override fun getItemCount(): Int = 0

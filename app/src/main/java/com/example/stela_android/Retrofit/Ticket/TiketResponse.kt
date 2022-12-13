@@ -2,7 +2,7 @@ package com.example.stela_android.Retrofit.Ticket
 
 import com.google.gson.annotations.SerializedName
 
-data class TicketResponse(
+data class TiketResponse(
 
     @field:SerializedName("data")
     val data: Ticket? = null,

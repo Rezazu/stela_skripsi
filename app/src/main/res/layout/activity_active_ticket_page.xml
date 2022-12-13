@@ -137,6 +137,7 @@
                         android:id="@+id/tickets_section_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:layout_below="@+id/header_ticket_section"
                         android:paddingHorizontal="15sp"
                         android:paddingBottom="10sp">
