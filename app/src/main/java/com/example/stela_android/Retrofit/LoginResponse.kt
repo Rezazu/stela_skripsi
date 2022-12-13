@@ -23,4 +23,5 @@ data class Data(
 
 	@field:SerializedName("token")
 	val token: String? = null
+
 )

@@ -7,9 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Homepage.NotificationsPage
 import com.example.stela_android.R
+import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.Ticket.Ticket
+import com.example.stela_android.Retrofit.Ticket.TicketAdapter
+import com.example.stela_android.Retrofit.Ticket.TicketResponse
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*;
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ActiveTicketPage : Fragment() {
 
@@ -29,7 +37,9 @@ class ActiveTicketPage : Fragment() {
         hideShowTicketsTataKelolaIT()
         hideShowTicketsLainnya()
 
-        ticketClickHandler()
+        getTickets()
+
+//        ticketClickHandler()
     }
 
     private fun hideShowTicketsInformationSystem() {
@@ -80,10 +90,30 @@ class ActiveTicketPage : Fragment() {
         }
     }
 
-    private fun ticketClickHandler() {
-        ticket1.setOnClickListener{
-            startActivity(Intent(activity, Ticket::class.java))
-        }
+    private fun getTickets() {
+        tickets_section_1.setHasFixedSize(true)
+
+        Retrofit.instanceTicketApi.getTickets().enqueue(object : Callback<TicketResponse> {
+            override fun onResponse(
+                call: Call<TicketResponse>,
+                response: Response<TicketResponse>
+            ) {
+                val adapter = TicketAdapter(list = TicketResponse())
+                tickets_section_1.adapter = adapter
+            }
+
+            override fun onFailure(call: Call<TicketResponse>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
+
+
+//    private fun ticketClickHandler() {
+//        ticket1.setOnClickListener{
+//            startActivity(Intent(activity, Ticket::class.java))
+//        }
+//    }
 
 }

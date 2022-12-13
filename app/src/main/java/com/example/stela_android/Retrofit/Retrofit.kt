@@ -1,15 +1,22 @@
 package com.example.stela_android.Retrofit
 
+import com.example.stela_android.Retrofit.Ticket.TicketApi
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
-class Retrofit {
+object Retrofit {
 
-    val BASE_URL = "http://192.168.0.107:8000/api/"
+    val BASE_URL = "http://192.168.78.224/api/"
+
+    val instanceTicketApi: TicketApi by lazy {
+        val retrofit = getRetroClientInstance()
+        retrofit.create(TicketApi::class.java)
+    }
 
     fun getRetroClientInstance(): Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -26,4 +33,5 @@ class Retrofit {
             .client(client)
             .build()
     }
+
 }

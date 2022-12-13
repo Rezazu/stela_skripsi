@@ -32,22 +32,29 @@
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_disabilitas.xml" value="0.17552083333333332" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_disabilitaspop.xml" value="0.16666666666666666" />
         <entry key="..\:/KM/DPR RI/stela-android/app/src/main/res/layout/fragment_popup_1.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/border_green.xml" value="0.1585" />
+        <entry key="app/src/main/res/drawable/border_purple.xml" value="0.1585" />
+        <entry key="app/src/main/res/drawable/ic_chevron_down_lainnya.xml" value="0.1585" />
+        <entry key="app/src/main/res/drawable/ic_chevron_down_tkt.xml" value="0.1585" />
         <entry key="app/src/main/res/layout/activity2_disabilitaspop.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_active_ticket_page.xml" value="0.161231884057971" />
+        <entry key="app/src/main/res/layout/activity_active_ticket_page.xml" value="0.19421375661656476" />
         <entry key="app/src/main/res/layout/activity_form.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_form_done.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_homepage.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_infrastruktur_jaringan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_infrastruktur_jaringan.xml" value="0.16156616210937502" />
         <entry key="app/src/main/res/layout/activity_lainnya.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_notifications_page.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.21442108154296874" />
-        <entry key="app/src/main/res/layout/activity_sistem_informasi.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sistem_informasi.xml" value="0.2627105712890625" />
         <entry key="app/src/main/res/layout/activity_tata_kelola.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_ticket.xml" value="0.1948501586914062" />
+        <entry key="app/src/main/res/layout/dokumen_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_notification.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/ticket_item.xml" value="0.2105978260869565" />
       </map>
     </option>
   </component>

@@ -37,7 +37,7 @@ class Login : AppCompatActivity() {
     }
 
     fun login(){
-        val retro = Retrofit().getRetroClientInstance().create(UserApi::class.java)
+        val retro = Retrofit.getRetroClientInstance().create(UserApi::class.java)
         val username = et_username.text.toString().trim()
         val password = et_password.text.toString().trim()
         retro.login(username, password).enqueue(object : Callback<LoginResponse>{

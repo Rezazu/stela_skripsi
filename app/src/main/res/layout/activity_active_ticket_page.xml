@@ -133,7 +133,7 @@
 
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/tickets_section_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,130 +141,128 @@
                         android:paddingHorizontal="15sp"
                         android:paddingBottom="10sp">
 
-                        <RelativeLayout
-                            android:id="@+id/ticket1"
-                            android:layout_width="match_parent"
-                            android:layout_height="100sp"
-                            android:layout_marginBottom="15sp"
-                            android:background="@drawable/border_blue"
-                            android:paddingHorizontal="20sp"
-                            android:paddingVertical="20sp">
+                        <!--                        <RelativeLayout-->
+                        <!--                            android:id="@+id/ticket1"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="100sp"-->
+                        <!--                            android:layout_marginBottom="15sp"-->
+                        <!--                            android:background="@drawable/border_blue"-->
+                        <!--                            android:paddingHorizontal="20sp"-->
+                        <!--                            android:paddingVertical="20sp">-->
 
-                            <LinearLayout
-                                android:id="@+id/ticket_name"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:orientation="vertical">
+                        <!--                            <LinearLayout-->
+                        <!--                                android:id="@+id/ticket_name"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginTop="5sp"-->
+                        <!--                                android:orientation="vertical">-->
 
-                                <TextView
-                                    android:id="@+id/name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_semibold"
-                                    android:text="Redesign tampilan dpr.go.id"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/name"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_semibold"-->
+                        <!--                                    android:text="Redesign tampilan dpr.go.id"-->
+                        <!--                                    android:textColor="@color/black"-->
+                        <!--                                    android:textSize="14sp" />-->
 
-                                <TextView
-                                    android:id="@+id/category"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text="Kode tiket"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/category"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_regular"-->
+                        <!--                                    android:text="Kode tiket"-->
+                        <!--                                    android:textColor="@color/black"-->
+                        <!--                                    android:textSize="13sp" />-->
 
-                                <TextView
-                                    android:id="@+id/status"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text="On Process"
-                                    android:textColor="#43A241"
-                                    android:textSize="11sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/status"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_regular"-->
+                        <!--                                    android:text="On Process"-->
+                        <!--                                    android:textColor="#43A241"-->
+                        <!--                                    android:textSize="11sp" />-->
 
-                            </LinearLayout>
+                        <!--                            </LinearLayout>-->
 
-                            <TextView
-                                android:id="@+id/date"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentBottom="true"
-                                android:fontFamily="@font/montserrat_regular"
-                                android:text="22 September 2022 | 20.58"
-                                android:textColor="@color/black"
-                                android:textSize="10sp" />
+                        <!--                            <TextView-->
+                        <!--                                android:id="@+id/date"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_alignParentRight="true"-->
+                        <!--                                android:layout_alignParentBottom="true"-->
+                        <!--                                android:fontFamily="@font/montserrat_regular"-->
+                        <!--                                android:text="22 September 2022 | 20.58"-->
+                        <!--                                android:textColor="@color/black"-->
+                        <!--                                android:textSize="10sp" />-->
 
-                        </RelativeLayout>
+                        <!--                        </RelativeLayout>-->
 
-                        <RelativeLayout
-                            android:id="@+id/ticket2"
-                            android:layout_width="match_parent"
-                            android:layout_height="100sp"
-                            android:layout_below="@+id/ticket1"
-                            android:layout_marginBottom="15sp"
-                            android:background="@drawable/border_blue"
-                            android:paddingHorizontal="20sp"
-                            android:paddingVertical="20sp">
+                        <!--                        <RelativeLayout-->
+                        <!--                            android:id="@+id/ticket2"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="100sp"-->
+                        <!--                            android:layout_below="@+id/ticket1"-->
+                        <!--                            android:layout_marginBottom="15sp"-->
+                        <!--                            android:background="@drawable/border_blue"-->
+                        <!--                            android:paddingHorizontal="20sp"-->
+                        <!--                            android:paddingVertical="20sp">-->
 
-                            <LinearLayout
-                                android:id="@+id/ticket_name2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:orientation="vertical">
+                        <!--                            <LinearLayout-->
+                        <!--                                android:id="@+id/ticket_name2"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_marginTop="5sp"-->
+                        <!--                                android:orientation="vertical">-->
 
-                                <TextView
-                                    android:id="@+id/name2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_semibold"
-                                    android:text="Penambahan fitur notulensi sidang"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/name2"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_semibold"-->
+                        <!--                                    android:text="Penambahan fitur notulensi sidang"-->
+                        <!--                                    android:textColor="@color/black"-->
+                        <!--                                    android:textSize="14sp" />-->
 
-                                <TextView
-                                    android:id="@+id/category2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text="Kode tiket"
-                                    android:textColor="@color/black"
-                                    android:textSize="13sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/category2"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_regular"-->
+                        <!--                                    android:text="Kode tiket"-->
+                        <!--                                    android:textColor="@color/black"-->
+                        <!--                                    android:textSize="13sp" />-->
 
-                                <TextView
-                                    android:id="@+id/status2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text="22 September 2022 | 20.58"
-                                    android:textColor="#000"
-                                    android:textSize="10sp" />
+                        <!--                                <TextView-->
+                        <!--                                    android:id="@+id/status2"-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:fontFamily="@font/montserrat_regular"-->
+                        <!--                                    android:text="22 September 2022 | 20.58"-->
+                        <!--                                    android:textColor="#000"-->
+                        <!--                                    android:textSize="10sp" />-->
 
-                            </LinearLayout>
+                        <!--                            </LinearLayout>-->
 
-                            <LinearLayout
-                                android:id="@+id/ticket_star"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentBottom="true"
-                                >
+                        <!--                            <LinearLayout-->
+                        <!--                                android:id="@+id/ticket_star"-->
+                        <!--                                android:layout_width="wrap_content"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:layout_alignParentRight="true"-->
+                        <!--                                android:layout_alignParentBottom="true"-->
+                        <!--                                android:orientation="vertical">-->
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="25sp"
-                                    android:layout_marginLeft="35sp"
-                                    android:src="@drawable/ic_star"
-                                    />
+                        <!--                                <ImageView-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="25sp"-->
+                        <!--                                    android:layout_marginLeft="35sp"-->
+                        <!--                                    android:src="@drawable/ic_star" />-->
 
-                            </LinearLayout>
-                        </RelativeLayout>
+                        <!--                            </LinearLayout>-->
+                        <!--                        </RelativeLayout>-->
 
-                    </RelativeLayout>
+                    </androidx.recyclerview.widget.RecyclerView>
 
                 </RelativeLayout>
 
@@ -304,6 +302,7 @@
                                 android:textSize="14sp" />
 
                         </RelativeLayout>
+
 
                         <ImageView
                             android:id="@+id/dropdown_handler2"
