@@ -60,6 +60,7 @@ class Home : Fragment(){
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(UserApi::class.java)
         val tv_name : TextView = requireActivity().findViewById(R.id.tv_name) as TextView
+        val tv_dept : TextView = requireActivity().findViewById(R.id.tv_dept) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 val responseData = response.body()?.data
@@ -67,8 +68,11 @@ class Home : Fragment(){
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
 
 
-                    val nama = prefs?.getString("nama_lengkap", "DefaultValue")
+                    val nama = prefs?.getString("nama_lengkap", "")
                     tv_name.text = nama
+
+                    val dept = prefs?.getString("kd_departemen", "")
+                    tv_dept.text = dept
                 }
             }
 

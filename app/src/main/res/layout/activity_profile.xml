@@ -29,23 +29,23 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_nama"
+            android:id="@+id/tv_nama_profil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="29dp"
-            android:layout_marginTop="136dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="120dp"
             android:layout_toEndOf="@+id/iv_photo"
             android:fontFamily="@font/montserrat_semibold"
             android:text="Nama"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_unit"
+            android:id="@+id/tv_departemen_profil2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_nama"
-            android:layout_marginStart="27dp"
+            android:layout_below="@+id/tv_nama_profil"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/iv_photo"
             android:fontFamily="@font/montserrat_medium"
@@ -59,7 +59,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="110dp"
             app:srcCompat="@drawable/circle_1" />
 
         <Button
@@ -74,6 +74,162 @@
             android:text="Keluar"
             android:textSize="8sp"
             app:cornerRadius="10dp" />
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="227dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/garis2" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_nama_profil"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="130dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Username"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_username"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="E-mail"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_departemen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_email"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Departemen"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_bagian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_departemen"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Bagian"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_telepon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_bagian"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Telepon"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_telepon"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Nomor HP"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_username2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_nama_profil"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="130dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_email2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_username2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_departemen2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_email2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_bagian2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_departemen2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_telepon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_bagian2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_hp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_telepon2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text=": "
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

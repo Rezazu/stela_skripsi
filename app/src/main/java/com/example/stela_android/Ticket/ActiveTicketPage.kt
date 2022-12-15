@@ -112,8 +112,7 @@ class ActiveTicketPage : Fragment() {
             }
 
             override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
+                Log.d("Home", "onFailure: "+t.message)            }
 
         })
     }
