@@ -48,8 +48,7 @@ class Login : AppCompatActivity() {
                     if (result != null) {
                         SharedPrefManager.getInstance(applicationContext).saveUser(result.data?.user!!)
                         SharedPrefManager.getInstance(applicationContext).saveToken(result.data?.token)
-                        val myToast =
-                            Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
+                        val myToast = Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
                         myToast.show()
 
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

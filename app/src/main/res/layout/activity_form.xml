@@ -69,36 +69,19 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/ed_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border_gray"
+                android:background="@drawable/edit_text_unfill_border_gray"
+                android:textSize="14sp"
                 android:ems="10"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_semibold"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
-            <TextView
-                android:id="@+id/tv_jabatan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Jabatan
-"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/nama"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/edit_text_border_gray"
-                android:ems="10"
-                android:inputType="text"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp" />
 
             <TextView
                 android:id="@+id/tv_unitkerja"
@@ -110,13 +93,82 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/NIP"
+                android:id="@+id/ed_unitkerja"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/edit_text_unfill_border_gray"
+                android:textSize="14sp"
+                android:ems="10"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp" />
+
+            <TextView
+                android:id="@+id/tv_nohp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Nomor HP"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/ed_nohp"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/montserrat_semibold"
+                android:enabled="false"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/edit_text_unfill_border_gray"
+                android:textSize="14sp"
+                android:ems="10"
+                android:inputType="number"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="E-mail"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/ed_email"
+                android:fontFamily="@font/montserrat_semibold"
+                android:enabled="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/edit_text_unfill_border_gray"
+                android:textSize="14sp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp" />
+
+            <TextView
+                android:id="@+id/tv_bagian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Bagian"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/ed_bagian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/edit_text_border_gray"
+                android:textSize="14sp"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="text"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
@@ -130,27 +182,27 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/no_hp"
+                android:id="@+id/ed_gedung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/edit_text_border_gray"
                 android:ems="10"
-                android:inputType="number"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:id="@+id/headerJudul"
+                android:id="@+id/tv_lantai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_medium"
+                android:inputType="number"
                 android:text="@string/lantai"
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/judul"
+                android:id="@+id/ed_lantai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -161,7 +213,7 @@
                 android:paddingVertical="10dp" />
 
             <TextView
-                android:id="@+id/headerDeskripsi"
+                android:id="@+id/tv_ruangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -170,7 +222,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/deskripsi"
+                android:id="@+id/ed_ruangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -219,6 +271,7 @@
                 android:textColor="#000000" />
 
             <ImageButton
+                android:id="@+id/btn_upload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -235,7 +288,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/keterangan"
+                android:id="@+id/ed_keterangan"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginBottom="30dp"

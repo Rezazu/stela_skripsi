@@ -86,7 +86,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="260dp"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_sistem_informasi_btn" />
 
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="260dp"
                 android:layout_toEndOf="@+id/btn_sistem_informasi"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_infrastruktur_jaringan_btn" />
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="260dp"
                 android:layout_toEndOf="@+id/btn_infrastruktur_jaringan"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_tata_kelola_ti_btn" />
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="260dp"
                 android:layout_toEndOf="@+id/btn_tata_kelola"
                 android:background="@null"
                 app:srcCompat="@drawable/ic_lainnya_btn" />
@@ -130,7 +130,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="210dp"
+                android:layout_marginTop="230dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:shadowColor="#000000"
                 android:text="Tracking Permintaan"
@@ -138,13 +138,13 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_tracking_permintaan2"
+                android:id="@+id/tv_panduan_permintaan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginTop="350dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:shadowColor="#000000"
                 android:text="Panduan Permintaan"
@@ -213,50 +213,50 @@
                 android:textColor="#000000"
                 android:textSize="8sp" />
 
-            <HorizontalScrollView
-                android:id="@+id/banners"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fillViewport="true"
-                android:paddingHorizontal="20sp"
-                android:paddingBottom="80sp"
-                android:scrollbars="none"
-                android:layout_below="@+id/tv_tracking_permintaan2">
+<!--            <HorizontalScrollView-->
+<!--                android:id="@+id/banners"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:fillViewport="true"-->
+<!--                android:paddingHorizontal="20sp"-->
+<!--                android:paddingBottom="80sp"-->
+<!--                android:scrollbars="none"-->
+<!--                android:layout_below="@+id/tv_tracking_permintaan2">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8sp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8sp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <RelativeLayout
-                        android:id="@+id/banner"
-                        android:layout_width="320dp"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/shadow_banner"></RelativeLayout>
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/banner"-->
+<!--                        android:layout_width="320dp"-->
+<!--                        android:layout_height="180dp"-->
+<!--                        android:layout_marginTop="3dp"-->
+<!--                        android:layout_marginRight="20sp"-->
+<!--                        android:background="@drawable/shadow_banner"></RelativeLayout>-->
 
-                    <RelativeLayout
-                        android:id="@+id/banner2"
-                        android:layout_width="320dp"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/shadow_banner"></RelativeLayout>
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/banner2"-->
+<!--                        android:layout_width="320dp"-->
+<!--                        android:layout_height="180dp"-->
+<!--                        android:layout_marginTop="3dp"-->
+<!--                        android:layout_marginRight="20sp"-->
+<!--                        android:background="@drawable/shadow_banner"></RelativeLayout>-->
 
-                    <RelativeLayout
-                        android:id="@+id/banner3"
-                        android:layout_width="320dp"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="20sp"
-                        android:background="@drawable/shadow_banner"></RelativeLayout>
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/banner3"-->
+<!--                        android:layout_width="320dp"-->
+<!--                        android:layout_height="180dp"-->
+<!--                        android:layout_marginTop="3dp"-->
+<!--                        android:layout_marginRight="20sp"-->
+<!--                        android:background="@drawable/shadow_banner"></RelativeLayout>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-            </HorizontalScrollView>
+<!--            </HorizontalScrollView>-->
 
 <!--            <ImageView-->
 <!--                android:id="@+id/imageView3"-->
@@ -281,14 +281,23 @@
             <TextView
                 android:id="@+id/tv_descstela"
                 android:layout_width="358dp"
-                android:layout_height="97dp"
+                android:layout_height="120dp"
                 android:layout_below="@+id/imageView4"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="22dp"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-                android:textSize="10dp" />
+                android:text="Sistem Tiket dan Layanan atau bisa disingkat dengan STELA, merupakan sebuah aplikasi yang diperuntukkan bagi kalangan pegawai/staff internal DPR. Aplikasi ini merupakan sebuah sistem pelayanan baru yang dapat digunakan untuk melaporkan atau meminta layanan mengenai Teknologi dan Informasi di DPR RI yang kemudian akan dilakukan eskalasi oleh tim dari Pusat Teknologi dan Informasi (Pustekinfo)."
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="480dp"
+                android:layout_height="600dp"
+                android:layout_below="@+id/tv_panduan_permintaan"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />
 
 
         </RelativeLayout>

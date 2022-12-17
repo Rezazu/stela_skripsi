@@ -3,6 +3,7 @@ package com.example.stela_android.Homepage
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Login.Login
 import com.example.stela_android.Profile.Profile
@@ -39,7 +40,7 @@ class Homepage : AppCompatActivity() {
         val profile = Profile()
         val home = Home()
         val activeTicket = ActiveTicketPage()
-
+        val myToast = Toast.makeText(applicationContext, "Fitur ini masih dikembangkan, sabar yaa", Toast.LENGTH_LONG)
         setCurrentFragment(home)
 
         bottomNavigationView.setOnItemSelectedListener {
@@ -47,6 +48,7 @@ class Homepage : AppCompatActivity() {
                 R.id.btn_profile -> setCurrentFragment(profile)
                 R.id.btn_home -> setCurrentFragment(home)
                 R.id.btn_ticket -> setCurrentFragment(activeTicket)
+                R.id.btn_disable -> myToast.show()
             }
             true
         }

@@ -18,7 +18,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return User(
-                sharedPreferences.getString("unitKerja", null),
+                sharedPreferences.getString("unit_kerja", null),
                 sharedPreferences.getString("nama_lengkap", null),
                 sharedPreferences.getString("telepon", null),
                 sharedPreferences.getString("hp", null),
@@ -29,6 +29,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("lantai", null),
                 sharedPreferences.getString("kd_departemen", null),
                 sharedPreferences.getInt("id", 0),
+                sharedPreferences.getString("email", null),
                 sharedPreferences.getString("username", null),
                 sharedPreferences.getString("status", null)
             )
@@ -50,6 +51,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         editor.putString("lantai", user.lantai)
         editor.putString("kd_departemen", user.kdDepartemen)
         editor.putInt("id", user.id)
+        editor.putString("email", user.email)
         editor.putString("username", user.username)
         editor.putString("status", user.status)
         editor.apply()

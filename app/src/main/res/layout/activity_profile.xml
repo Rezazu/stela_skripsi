@@ -41,7 +41,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_departemen_profil2"
+            android:id="@+id/tv_departemen_profil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_nama_profil"
@@ -94,7 +94,7 @@
             android:layout_below="@+id/tv_nama_profil"
             android:layout_alignParentStart="true"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Username"
             android:textSize="12sp" />
@@ -166,7 +166,7 @@
             android:layout_below="@+id/tv_nama_profil"
             android:layout_alignParentStart="true"
             android:layout_marginStart="160dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/montserrat_medium"
             android:text=": "
             android:textSize="12sp" />

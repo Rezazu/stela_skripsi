@@ -1,5 +1,6 @@
 package com.example.stela_android.Profile
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -20,6 +21,7 @@ import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
+import kotlinx.android.synthetic.main.activity_profile.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,20 +51,9 @@ public class Profile : Fragment() {
         val token = prefs?.getString("token", "").toString()
         val retro = Retrofit.getRetroData(token).create(UserApi::class.java)
 
-
-        val tv_nama_profil : TextView = requireActivity().findViewById(R.id.tv_nama_profil) as TextView
-        val tv_departemen_profil : TextView = requireActivity().findViewById(R.id.tv_departemen_profil2) as TextView
-        val tv_username : TextView = requireActivity().findViewById(R.id.tv_username2) as TextView
-        val tv_email : TextView = requireActivity().findViewById(R.id.tv_email2) as TextView
-        val tv_departemen : TextView = requireActivity().findViewById(R.id.tv_departemen2) as TextView
-        val tv_bagian : TextView = requireActivity().findViewById(R.id.tv_bagian2) as TextView
-        val tv_telepon : TextView = requireActivity().findViewById(R.id.tv_telepon2) as TextView
-        val tv_nomorhp : TextView = requireActivity().findViewById(R.id.tv_hp2) as TextView
-
-
         retro.getUser().enqueue(object : Callback<LoginResponse> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                val responseData = response.body()?.data
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
 
@@ -77,12 +68,12 @@ public class Profile : Fragment() {
                     tv_nama_profil.text = nama
                     tv_departemen_profil.text = departemen
 //
-                    tv_username.text = ": " + username
-                    tv_email.text = ": " + email
-                    tv_departemen.text = ": " + departemen
-                    tv_bagian.text = ": " + bagian
-                    tv_telepon.text = ": " + telepon
-                    tv_nomorhp.text = ": " + nomorhp
+                    tv_username2.text = ": " + username
+                    tv_email2.text = ": " + email
+                    tv_departemen2.text = ": " + departemen
+                    tv_bagian2.text = ": " + bagian
+                    tv_telepon2.text = ": " + telepon
+                    tv_hp2.text = ": " + nomorhp
                 }
             }
 
