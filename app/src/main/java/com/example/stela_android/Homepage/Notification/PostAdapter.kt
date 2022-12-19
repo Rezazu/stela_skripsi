@@ -1,0 +1,41 @@
+package com.example.stela_android.Homepage.Notification
+
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.stela_android.R
+import com.example.stela_android.Retrofit.Notification.Notification
+import com.example.stela_android.Retrofit.Notification.NotificationResponse
+
+
+
+class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
+
+    inner class PostViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
+        fun bind(notificationResponse: Notification){
+            with(itemView){
+                val tv_no_tiket : TextView = itemView.findViewById(R.id.no_tiket)
+                val tv_keterangan : TextView = itemView.findViewById(R.id.keterangan)
+                tv_no_tiket.text = notificationResponse.no_tiket
+                tv_keterangan.text = notificationResponse.keterangan
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_notification, parent, false)
+        return PostViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+        holder.bind(notif[position])
+    }
+
+    override fun getItemCount(): Int {
+        Log.d("COUNT",".getItemCountcalled ${notif.size}")
+        return notif.size
+    }
+}

@@ -4,9 +4,10 @@
     android:layout_width="260dp"
     android:layout_height="130dp"
     android:padding="5dp"
+
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="#BBBBBB"
+    android:background="#FFFFFF"
     >
 
     <TextView

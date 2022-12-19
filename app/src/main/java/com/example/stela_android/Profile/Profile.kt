@@ -97,6 +97,7 @@ public class Profile : Fragment() {
     private fun btnKeluarListener(){
        val btn_keluar = requireActivity().findViewById<Button>(R.id.btn_keluar)
         btn_keluar.setOnClickListener {
+//            showDialog()
             getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
             if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                 val intent = Intent(activity, Homepage::class.java)
