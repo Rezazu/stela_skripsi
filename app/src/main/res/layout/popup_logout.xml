@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="260dp"
-    android:layout_height="130dp"
+    android:layout_width="290dp"
+    android:layout_height="150dp"
     android:padding="5dp"
 
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="#FFFFFF"
+    android:background="@drawable/popup_layout"
     >
 
     <TextView
         android:layout_width="240dp"
         android:layout_height="34dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="35dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Apakah anda yakin ingin keluar dari akun anda?"
         android:textAlignment="center" />
 
     <Button
+
         android:id="@+id/btn_cancel"
         android:layout_width="78dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="50dp"
         android:layout_marginBottom="18dp"
         android:text="Tidak"
+        app:strokeColor="#5F9DF7"
+        android:textColor="#5F9DF7"
+        android:backgroundTint="@color/white"
         android:textAllCaps="false"
         app:cornerRadius="5dp" />
 
@@ -36,9 +43,10 @@
         android:id="@+id/btn_logout"
         android:layout_width="78dp"
         android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="18dp"
         android:layout_toEndOf="@+id/btn_cancel"
         android:backgroundTint="#FF0000"

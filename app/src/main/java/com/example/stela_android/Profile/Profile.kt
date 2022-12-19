@@ -1,6 +1,8 @@
 package com.example.stela_android.Profile
 
+//import android.R
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -13,9 +15,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Homepage
+import com.example.stela_android.Login.Login
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
@@ -27,7 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-public class Profile : Fragment() {
+public open class Profile : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -68,12 +70,12 @@ public class Profile : Fragment() {
                     tv_nama_profil.text = nama
                     tv_departemen_profil.text = departemen
 //
-                    tv_username2.text = ": " + username
-                    tv_email2.text = ": " + email
-                    tv_departemen2.text = ": " + departemen
-                    tv_bagian2.text = ": " + bagian
-                    tv_telepon2.text = ": " + telepon
-                    tv_hp2.text = ": " + nomorhp
+                    tv_username2.text = ":   " + username
+                    tv_email2.text = ":   " + email
+                    tv_departemen2.text = ":   " + departemen
+                    tv_bagian2.text = ":   " + bagian
+                    tv_telepon2.text = ":   " + telepon
+                    tv_hp2.text = ":   " + nomorhp
                 }
             }
 
@@ -91,21 +93,27 @@ public class Profile : Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(R.layout.popup_logout)
+        val logout = dialog.findViewById<Button>(R.id.btn_logout)
+        val dismiss = dialog.findViewById<Button>(R.id.btn_cancel)
         dialog.show()
+        logout.setOnClickListener {
+            getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+            if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+                val intent = Intent(activity, Login::class.java)
+                startActivity(intent)
+            }
+        }
+        dismiss.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
     private fun btnKeluarListener(){
        val btn_keluar = requireActivity().findViewById<Button>(R.id.btn_keluar)
         btn_keluar.setOnClickListener {
-//            showDialog()
-            getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
-            if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                val intent = Intent(activity, Homepage::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-                startActivity(intent)
-            }
+            showDialog()
         }
     }
 
 }
+

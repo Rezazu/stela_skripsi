@@ -16,7 +16,7 @@ data class Notification (
     val keterangan: String? = null,
 
     @field:SerializedName("dibaca")
-    val dibaca: Boolean? = null,
+    val dibaca: Int? = null,
 
     @field:SerializedName("tanggal")
     val tanggal: String? = null,

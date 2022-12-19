@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
@@ -17,12 +19,24 @@ class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Ada
     inner class PostViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         fun bind(notificationResponse: Notification){
             with(itemView){
+                val rlItem: RelativeLayout = findViewById(R.id.item_notification)
+                val bellIcon : ImageView = findViewById(R.id.bell)
                 val tv_no_tiket : TextView = itemView.findViewById(R.id.no_tiket)
                 val tv_keterangan : TextView = itemView.findViewById(R.id.keterangan)
+                val tv_tanggal : TextView = itemView.findViewById(R.id.tanggal)
                 tv_no_tiket.text = notificationResponse.no_tiket
                 tv_keterangan.text = notificationResponse.keterangan
+                tv_tanggal.text = notificationResponse.tanggal
+
+                if (notificationResponse.dibaca == 1){
+                    bellIcon.setVisibility(View.GONE);
+                } else {
+                    bellIcon.visibility = View.VISIBLE
+                }
             }
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
