@@ -13,7 +13,7 @@
     <item
         android:id="@+id/btn_ticket"
         android:title="Tiket"
-        android:icon="@drawable/ic_ticket_64"
+        android:icon="@drawable/ic_ticket_btn"
         android:fontFamily="@font/montserrat_regular"
         />
     <item

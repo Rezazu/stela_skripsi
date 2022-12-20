@@ -16,6 +16,16 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Stelaandroid">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/stela_logo_small"
+            />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/purple_700"
+            />
+
         <activity
             android:name=".Tracking.LainnyaActivity"
             android:exported="false" />
@@ -87,14 +97,23 @@
         </activity>
         <service android:name=".Homepage.Notification.MyFirebaseMessagingService"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.android.cwdm.intent.Receiver"/>
             </intent-filter>
 
         </service>
-
-
+<!--        <receiver-->
+<!--            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"-->
+<!--            android:exported="true"-->
+<!--            android:permission="com.google.android.c2dm.permission.SEND" >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
     </application>
 
