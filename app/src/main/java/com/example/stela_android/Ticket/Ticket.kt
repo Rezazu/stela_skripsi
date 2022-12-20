@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,13 +44,11 @@ class Ticket : AppCompatActivity() {
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
         val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
 
+        val myToast = Toast.makeText(applicationContext, "Tiket " + kodeTiket + " ✨", Toast.LENGTH_LONG)
+        myToast.show()
+
         Log.d("DOKUMEN NAMES", "data: " + dokumenLampiranNames)
         Log.d("DOKUMEN PATHS", "data: " + dokumenLampiranPaths)
-//        val dokumenLampiran = intent.getParcelableArrayListExtra("dokumen_lampiran", DokumenLampiranResponse::class.java)
-//        Log.d("DOKUMEN LAMPIRAN", "msg: " + dokumenLampiran)
-
-//        val filelist = intent.getParcelableArrayExtra("DOKUMEN_LAMPIRAN")
-//        Log.d("DOKUMEN LAMPIRAN", "data: " + filelist)
 
         rvDokumen.apply {
             // set a LinearLayoutManager to handle Android
