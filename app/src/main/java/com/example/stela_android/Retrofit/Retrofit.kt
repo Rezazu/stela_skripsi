@@ -12,12 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Retrofit {
 
-<<<<<<< HEAD
     val BASE_URL = "http://192.168.204.193:8000/api/"
-=======
-    val BASE_URL = "http://192.168.43.249:8000/api/"
 
->>>>>>> 5005335fcfa1fbd74cd6fde52e6934df535c0351
     fun getRetroLogin() : Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
