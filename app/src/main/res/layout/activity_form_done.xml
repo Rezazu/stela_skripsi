@@ -44,16 +44,6 @@
         android:layout_marginEnd="57dp"
         app:srcCompat="@drawable/process_optimization_4_removebg_preview__1__1" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="62dp"
-        android:background="@null"
-        app:srcCompat="@drawable/ic_lacak_status_btn" />
-
     <TextView
         android:id="@+id/tv_proses"
         android:layout_width="288dp"

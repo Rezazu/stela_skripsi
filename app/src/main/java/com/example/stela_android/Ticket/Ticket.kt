@@ -67,7 +67,9 @@ class Ticket : AppCompatActivity() {
 
     private fun back_btn2ClickHandler() {
         back_btn2.setOnClickListener {
-            startActivity(Intent(this, ActiveTicketPage::class.java))
+            val i = Intent(this, ActiveTicketPage::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
         }
     }
 

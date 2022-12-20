@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.R
+import com.example.stela_android.Ticket.ActiveTicketPage
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 
 class NotificationsPage : AppCompatActivity() {
@@ -40,7 +41,8 @@ class NotificationsPage : AppCompatActivity() {
 
     private fun backBtnListener() {
         back_btn.setOnClickListener {
-            startActivity(Intent(this, Homepage::class.java))
+            val activeTicket = ActiveTicketPage()
+
         }
     }
 }
