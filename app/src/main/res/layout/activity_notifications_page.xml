@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Homepage.NotificationsPage">
+    tools:context=".Homepage.Notification.NotificationsPage"
+    android:backgroundTint="#D9D9D9">
 
     <RelativeLayout
         android:id="@+id/header_section"
