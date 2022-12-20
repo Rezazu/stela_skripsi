@@ -1,11 +1,11 @@
-package com.example.stela_android.Retrofit.Ticket
+package com.example.stela_android.Retrofit.Ticket.DokumenLampiran
 
 import com.google.gson.annotations.SerializedName
 
-data class DokumenLampiranResponse(
+data class DokumenLampiranResponse (
 
     @field:SerializedName("id_dokumen")
-    val id_dokumen: Int,
+    val id_dokumen: String?,
 
     @field:SerializedName("original_name")
     val original_name: String,
@@ -16,4 +16,4 @@ data class DokumenLampiranResponse(
     @field:SerializedName("path")
     val path: String,
 
-)
+    )

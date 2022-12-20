@@ -71,6 +71,7 @@
             android:name=".Login.Login"
             android:exported="false" />
         <activity
+            android:requestLegacyExternalStorage="true"
             android:name=".Form.FormActivity"
             android:exported="false" />
         <activity

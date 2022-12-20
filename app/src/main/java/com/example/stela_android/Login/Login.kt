@@ -46,6 +46,7 @@ class Login : AppCompatActivity() {
                 if (response.isSuccessful()) {
                     val result = response.body()
                     if (result != null) {
+                        Log.d("test", result.toString())
                         SharedPrefManager.getInstance(applicationContext).saveUser(result.data?.user!!)
                         SharedPrefManager.getInstance(applicationContext).saveToken(result.data?.token)
                         val myToast = Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)

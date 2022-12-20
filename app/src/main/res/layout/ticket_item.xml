@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ticket"
+    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
     android:layout_height="100sp"
     android:layout_marginBottom="15sp"
@@ -17,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/keterangan_tiket"
+            android:id="@+id/judul_tiket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
@@ -40,11 +41,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:text="On Process"
-            android:textColor="#43A241"
+            android:textColor="#858383"
             android:textSize="11sp" />
 
     </LinearLayout>
 
+    <!-- Ticket's date on bottom corner of right is active when rating is null and status is not 6 -->
     <TextView
         android:id="@+id/tanggal_tiket"
         android:layout_width="wrap_content"
@@ -55,6 +57,64 @@
         android:text="22 September 2022 | 20.58"
         android:textColor="@color/black"
         android:textSize="10sp" />
+
+    <!-- Rating Section, this view will display if the ticket's status is done -->
+    <LinearLayout
+    android:id="@+id/ll_ticket_success"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="25sp"
+        android:layout_height="25sp"
+        android:layout_marginLeft="35sp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_success" />
+
+    <RelativeLayout
+        android:id="@+id/btn_nilai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/btn_nilai"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="5sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2sp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Beri Nilai"
+            android:textColor="#FFF"
+            android:textSize="11dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+    <!-- Star Rating Section, this view will display if the ticket's rating is not null and status is done -->
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:rating="0"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:max="5"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="-50dp"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_gravity="bottom"
+        android:theme="@style/smallRatingBar"
+        />
 
 
 </RelativeLayout>
