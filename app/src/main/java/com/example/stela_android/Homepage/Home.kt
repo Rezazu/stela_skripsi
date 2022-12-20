@@ -66,15 +66,8 @@ class Home : Fragment(){
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-<<<<<<< HEAD
-
-
                     val nama = prefs?.getString("nama_lengkap", "")
-=======
-                    val nama = prefs?.getString("nama_lengkap", "DefaultValue")
->>>>>>> 3b8a80d (tiket and rating)
                     tv_name.text = nama
-
                     val dept = prefs?.getString("kd_departemen", "")
                     tv_dept.text = dept
                 }

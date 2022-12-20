@@ -21,9 +21,7 @@ import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.activity_notifications_page.back_btn
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,7 +29,6 @@ import retrofit2.Response
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class FormActivity : AppCompatActivity() {
@@ -85,7 +82,10 @@ class FormActivity : AppCompatActivity() {
                     val body = response.body()
                     val no_tiket = body?.data?.no_tiket
                     intent.putExtra("no_tiket", no_tiket)
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_TASK_ON_HOME
                     startActivity(intent)
+                    this@FormActivity.finish()
                 }else{
                     val myToast = Toast.makeText(applicationContext, "Pastikan form tidak ada yang kosong", Toast.LENGTH_LONG)
                     myToast.show()
