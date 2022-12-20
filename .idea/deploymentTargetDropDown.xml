@@ -7,11 +7,15 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\rezky\.android\avd\Pixel_4_API_30.avd" />
+            <value value="$USER_HOME$/.android/avd/Pixel_4_XL_Edited_API_30.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
+<<<<<<< HEAD
     <timeTargetWasSelectedWithDropDown value="2022-12-15T14:04:49.367963300Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2022-12-19T08:01:26.414499Z" />
+>>>>>>> 3b8a80d (tiket and rating)
   </component>
 </project>

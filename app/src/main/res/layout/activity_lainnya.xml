@@ -45,83 +45,147 @@
             android:layout_height="match_parent"
             >
 
-            <RelativeLayout
-                android:id="@+id/information_system_section"
+            <ImageButton
+                android:id="@+id/btn_permohonan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="10dp"
-                >
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:background="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_permohonan_baru_btn" />
 
-                <ImageButton
-                    android:id="@+id/btn_permohonan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="25dp"
-                    android:background="@null"
-                    android:layout_centerHorizontal="true"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/ic_permohonan_baru_btn" />
+<!--            <RelativeLayout-->
+<!--                android:layout_below="@id/btn_permohonan"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/ticket_menu"-->
+<!--                android:layout_marginTop="30sp"-->
+<!--                >-->
 
-                <RelativeLayout
-                    android:id="@+id/header_ticket_section24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="20sp"
-                    android:paddingVertical="22sp"
-                    android:layout_below="@+id/btn_permohonan">
+<!--                <TextView-->
+<!--                    android:id="@+id/btn_aktif"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginLeft="50sp"-->
+<!--                    android:background="@drawable/shadow_banner"-->
+<!--                    android:fontFamily="@font/montserrat_semibold"-->
+<!--                    android:paddingHorizontal="30sp"-->
+<!--                    android:paddingVertical="10sp"-->
+<!--                    android:text="Tiket Aktif"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="14sp" />-->
 
-                    <RelativeLayout
-                        android:id="@+id/heading_ticket24"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+<!--                <TextView-->
+<!--                    android:id="@+id/btn_selesai"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginRight="50sp"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:fontFamily="@font/montserrat_semibold"-->
+<!--                    android:text="Tiket Selesai"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:background="@drawable/border_blue"-->
+<!--                    android:paddingVertical="10sp"-->
+<!--                    android:paddingHorizontal="27sp"-->
+<!--                    />-->
 
-                        <ImageView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
-                            android:src="@drawable/ic_lainnya" />
+<!--            </RelativeLayout>-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="50sp"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="Lainnya"
-                            android:textColor="@color/black"
-                            android:textSize="14sp" />
+            <fragment
+                android:name="com.example.stela_android.Fragments.LainnyaFragment"
+                android:id="@+id/fr_lainnya"
+                android:layout_weight="1"
+                android:layout_below="@+id/btn_permohonan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
-                    </RelativeLayout>
 
-                </RelativeLayout>
+            <!--            <RelativeLayout-->
+<!--                android:id="@+id/information_system_section"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:elevation="10dp"-->
+<!--                >-->
 
-                <RelativeLayout
-                    android:id="@+id/tickets_section4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/header_ticket_section24"
-                    android:paddingHorizontal="15sp"
-                    android:paddingBottom="10sp">
+<!--                <ImageButton-->
+<!--                    android:id="@+id/btn_permohonan"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:layout_marginStart="0dp"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:background="@null"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:srcCompat="@drawable/ic_permohonan_baru_btn" />-->
 
-                    <TextView
-                        android:id="@+id/date24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:gravity="center"
-                        android:paddingHorizontal="30sp"
-                        android:paddingTop="20sp"
-                        android:paddingBottom="40sp"
-                        android:text="Anda tidak memliki layanan aktif \ndalam kategori Lainnya"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/header_ticket_section24"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingHorizontal="20sp"-->
+<!--                    android:paddingVertical="22sp"-->
+<!--                    android:layout_below="@+id/btn_permohonan">-->
 
-                </RelativeLayout>
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/heading_ticket24"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content">-->
 
-            </RelativeLayout>
+<!--                        <ImageView-->
+<!--                            android:layout_width="40sp"-->
+<!--                            android:layout_height="40sp"-->
+<!--                            android:src="@drawable/ic_lainnya" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:layout_marginLeft="50sp"-->
+<!--                            android:fontFamily="@font/montserrat_semibold"-->
+<!--                            android:text="Lainnya"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="14sp" />-->
+
+<!--                    </RelativeLayout>-->
+
+<!--                </RelativeLayout>-->
+
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/tickets_section4"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/header_ticket_section24"-->
+<!--                    android:paddingHorizontal="15sp"-->
+<!--                    android:paddingBottom="10sp">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/date24"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:fontFamily="@font/montserrat_semibold"-->
+<!--                        android:gravity="center"-->
+<!--                        android:paddingHorizontal="30sp"-->
+<!--                        android:paddingTop="20sp"-->
+<!--                        android:paddingBottom="40sp"-->
+<!--                        android:text="Anda tidak memliki layanan aktif \ndalam kategori Lainnya"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13sp" />-->
+
+<!--                </RelativeLayout>-->
+
+<!--            </RelativeLayout>-->
 
         </RelativeLayout>
 

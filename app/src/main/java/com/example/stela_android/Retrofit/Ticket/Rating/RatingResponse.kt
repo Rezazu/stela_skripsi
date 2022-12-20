@@ -1,11 +1,8 @@
-package com.example.stela_android.Retrofit.Ticket
+package com.example.stela_android.Retrofit.Ticket.Rating
 
 import com.google.gson.annotations.SerializedName
 
-data class TiketResponse(
-
-    @field:SerializedName("data")
-    val data: ArrayList<Tiket>? = null,
+data class RatingResponse(
 
     @field:SerializedName("success")
     val success: Boolean? = null,
@@ -13,4 +10,4 @@ data class TiketResponse(
     @field:SerializedName("message")
     val message: String? = null,
 
-    )
+)

@@ -1,9 +1,10 @@
 package com.example.stela_android.Retrofit.Ticket
 
+import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranResponse
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Ticket(
+data class Tiket(
 
     @field:SerializedName("id")
     val id: Int,
@@ -87,10 +88,10 @@ data class Ticket(
     val keterangan_revisi: String? = null,
 
     @field:SerializedName("tanggal_input")
-    val tanggal_input: Date? = null,
+    val tanggal_input: String? = null,
 
     @field:SerializedName("dokumen_lampiran")
-    val dokumen_lampiran: DokumenLampiranResponse? = null,
+    val dokumen_lampiran: ArrayList<DokumenLampiranResponse>? = null,
 
     )
 

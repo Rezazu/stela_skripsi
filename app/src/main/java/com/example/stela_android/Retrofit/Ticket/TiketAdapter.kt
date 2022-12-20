@@ -1,39 +1,87 @@
 package com.example.stela_android.Retrofit.Ticket
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.content.Context
+import android.os.Bundle
+import android.view.*
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.example.stela_android.Fragments.DialogRate
 import com.example.stela_android.R
+import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.ticket_item.view.*
 
-class TicketAdapter(private val list: ArrayList<TiketResponse>): RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
-
+class TiketAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val kategori: String?, private val onTicketClickListener: OnTicketClickListener): RecyclerView.Adapter<TiketAdapter.TicketViewHolder>() {
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(aTicketResponse: TiketResponse) {
+        fun bind(ticketResponse: Tiket) {
             with(itemView) {
-                // Data Header Tiket
-                val keteranganTiket = aTicketResponse.data?.keterangan
-                val noTiket = aTicketResponse.data?.no_tiket
-                val statusTiket = aTicketResponse.data?.status
+                // get all data ticket
+                var judul = ticketResponse.keterangan
+                val ratingTiket = ticketResponse.rating
+                val noTiket = ticketResponse.no_tiket
+                val statusTiket = ticketResponse.id_status_tiket
+                val tanggalInputTiket = ticketResponse.tanggal_input
 
-                // Data Pelapor
-                val nama_pelapor = aTicketResponse.data?.nama_pelapor
-                val jabatan_pelapor = aTicketResponse.data?.bagian_pelapor
-                val unit_kerja_pelapor = aTicketResponse.data?.unit_kerja_pelapor
-                val gedung_pelapor = aTicketResponse.data?.gedung_pelapor
-                val lantai_pelapor = aTicketResponse.data?.lantai_pelapor
-                val ruangan_pelapor = aTicketResponse.data?.ruangan_pelapor
+                // get container of item
+                val rvTiket: RelativeLayout = findViewById(R.id.ticket)
+                // get tv status tiket
+                val tvStatusTiket: TextView = findViewById(R.id.status_tiket)
 
-                // Data Lengkap Tiket
-                val judul = aTicketResponse.data?.keterangan
-                val deskripsi = aTicketResponse.data?.keterangan
-                val tanggalTiket = aTicketResponse.data?.tanggal_input
+                // checking if judul which is taken through keterangan is not bigger than equal 35
+                if(judul?.length!! >= 35) {
+                    judul = Service.judulSubStr(judul)
+                    judul_tiket.text = "$judul ..."
+                } else {
+                    judul_tiket.text = judul
+                }
 
-                keterangan_tiket.text = judul
+                // setting timestamp retrieved to the format asked
+                val tanggalTiket = Service.date(tanggalInputTiket)
+
+                // setting border of ticket container based on its category
+                if(kategori == "Sistem Informasi") {
+                    rvTiket.background = resources.getDrawable(R.drawable.border_blue)
+                } else if(kategori == "Infrastruktur Jaringan") {
+                    rvTiket.background = resources.getDrawable(R.drawable.border_red)
+                } else if(kategori == "Tata Kelola TI") {
+                    rvTiket.background = resources.getDrawable(R.drawable.border_green)
+                } else if(kategori == "Lainnya") {
+                    rvTiket.background = resources.getDrawable(R.drawable.border_purple)
+                }
+
+                // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
+                if(statusTiket != 6 && ratingTiket == null) {
+                    // displaying tanggal tiket
+                    tanggal_tiket.text = tanggalTiket
+                    // displaying status tiket on ticket_item
+                    Service.statusTiketDisplay(statusTiket, tvStatusTiket)
+                    // hide rating bar
+                    rating_bar.visibility = View.GONE
+                    // hide ticket success section
+                    ll_ticket_success.visibility = View.GONE
+                } else {
+                    // hide tanggal tiket on bottom right cornere
+                    tanggal_tiket.visibility = View.GONE
+                    // setting if ticket has been rated, so display the stars not btn rate ticket
+                    if(statusTiket == 6 && ratingTiket != null) {
+                        // hide ticket success section
+                        ll_ticket_success.visibility = View.GONE
+                        // displaying rating bar
+                        rating_bar.visibility = View.VISIBLE
+                        rating_bar.rating = ratingTiket.toFloat()
+                        // displaying status tiket as tanggal tiket
+                        tvStatusTiket.text = tanggalTiket.toString()
+                    } else {
+                        // displaying status tiket as tanggal tiket
+                        tvStatusTiket.text = tanggalTiket.toString()
+                        // displaying ticket success section
+                        ll_ticket_success.visibility = View.VISIBLE
+                        // hide rating bar
+                        rating_bar.visibility = View.GONE
+                    }
+                }
+
                 no_tiket.text = noTiket
-                status_tiket.text = statusTiket.toString()
-                tanggal_tiket.text = tanggalTiket.toString()
+
             }
         }
     }
@@ -45,8 +93,15 @@ class TicketAdapter(private val list: ArrayList<TiketResponse>): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
         holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+            onTicketClickListener.onTicketItemClicked(position)
+        }
+        holder.itemView.btn_nilai.setOnClickListener {
+            val bundle = Bundle()
+            DialogRate(context, list[position]?.id).show()
+        }
     }
 
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = list.size
 
 }
