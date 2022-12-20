@@ -10,6 +10,7 @@ import com.example.stela_android.R
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.ticket_item.view.*
 
+
 class TiketAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val kategori: String?, private val onTicketClickListener: OnTicketClickListener): RecyclerView.Adapter<TiketAdapter.TicketViewHolder>() {
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(ticketResponse: Tiket) {

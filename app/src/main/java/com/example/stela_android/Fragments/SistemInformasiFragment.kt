@@ -36,6 +36,7 @@ class SistemInformasiFragment: Fragment(), OnTicketClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val args = this.arguments
         return inflater.inflate(R.layout.fragment_sistem_informasi, container, false)
     }
 

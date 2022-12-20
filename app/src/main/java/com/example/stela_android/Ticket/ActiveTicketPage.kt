@@ -7,8 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Fragments.InfrastrukturJaringanFragment
 import com.example.stela_android.Fragments.SistemInformasiFragment
@@ -36,8 +38,8 @@ class ActiveTicketPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnTiketAktifListener()
-        btnTiketSelesaiListener()
+//        btnTiketAktifListener()
+//        btnTiketSelesaiListener()
     }
 
     fun btnTiketAktifListener() {
@@ -47,7 +49,6 @@ class ActiveTicketPage : Fragment() {
 
             btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
             btn_selesai.setTextColor(Color.parseColor("#000000"))
-
         }
     }
 
@@ -58,14 +59,6 @@ class ActiveTicketPage : Fragment() {
 
             btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
             btn_aktif.setTextColor(Color.parseColor("#000000"))
-
-            val ijFragment = InfrastrukturJaringanFragment()
-            val bundle = Bundle()
-            bundle.putBoolean("isBtnAktifClicked", false)
-            bundle.putBoolean("isBtnSelesaiClicked", true)
-
-            ijFragment.arguments = bundle
-            fragmentManager?.beginTransaction()?.add(R.id.rvTicketInfrastukturJaringan, ijFragment)?.commit()
         }
     }
 
