@@ -11,7 +11,7 @@ import retrofit2.create
 
 object Retrofit {
 
-    val BASE_URL = "http://192.168.137.1:8000/api/"
+    val BASE_URL = "http://192.168.43.179:8000/api/"
     fun getRetroLogin() : Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()

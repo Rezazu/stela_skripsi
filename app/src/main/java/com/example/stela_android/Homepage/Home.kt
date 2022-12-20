@@ -67,9 +67,13 @@ class Home : Fragment(){
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+<<<<<<< HEAD
 
 
                     val nama = prefs?.getString("nama_lengkap", "")
+=======
+                    val nama = prefs?.getString("nama_lengkap", "DefaultValue")
+>>>>>>> 3b8a80d (tiket and rating)
                     tv_name.text = nama
 
                     val dept = prefs?.getString("kd_departemen", "")
@@ -78,7 +82,7 @@ class Home : Fragment(){
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("Home", "onFailure: "+t.message)
+                Log.d("Home", "onFailure: "+ t.message)
             }
 
         })

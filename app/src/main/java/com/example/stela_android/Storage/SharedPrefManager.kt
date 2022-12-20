@@ -4,6 +4,7 @@ package com.example.stela_android.Storage
 import android.content.Context
 import android.media.session.MediaSession.Token
 import com.example.stela_android.Retrofit.Data
+import com.example.stela_android.Retrofit.Ticket.Tiket
 import com.example.stela_android.Retrofit.User
 
 class SharedPrefManager private constructor(private val mCtx: Context) {
@@ -32,6 +33,41 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("email", null),
                 sharedPreferences.getString("username", null),
                 sharedPreferences.getString("status", null)
+            )
+        }
+
+    val tickets: Tiket
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return Tiket(
+                sharedPreferences.getInt("id", 0),
+                sharedPreferences.getString("no_tiket", null),
+                sharedPreferences.getInt("id_sub_kategori", 0),
+                sharedPreferences.getInt("id_status_tiket", 0),
+                sharedPreferences.getInt("id_via", 0),
+                sharedPreferences.getInt("id_tim_programmer", 0),
+                sharedPreferences.getInt("id_aplikasi", 0),
+                sharedPreferences.getInt("id_pelapor", 0),
+                sharedPreferences.getInt("id_urgensi", 0),
+                sharedPreferences.getInt("id_status_tiket_internal", 0),
+                sharedPreferences.getString("nama_pelapor", null),
+                sharedPreferences.getString("bagian_pelapor", null),
+                sharedPreferences.getString("gedung_pelapor", null),
+                sharedPreferences.getString("unit_kerja_pelapor", null),
+                sharedPreferences.getString("ruang_pelapor", null),
+                sharedPreferences.getString("lantai_pelapor", null),
+                sharedPreferences.getString("telepon_pelapor", null),
+                sharedPreferences.getString("hp_pelapor", null),
+                sharedPreferences.getString("email_pelapor", null),
+                sharedPreferences.getString("keterangan", null),
+                sharedPreferences.getString("permasalahan_akhir", null),
+                sharedPreferences.getString("solusi", null),
+                sharedPreferences.getString("tanggal_pelaksanaan", null),
+                sharedPreferences.getInt("rating", 0),
+                sharedPreferences.getInt("status", 0),
+                sharedPreferences.getString("status_revisi", null),
+                sharedPreferences.getString("keterangan_revisi", null),
+                sharedPreferences.getString("tanggal_input", null),
             )
         }
 

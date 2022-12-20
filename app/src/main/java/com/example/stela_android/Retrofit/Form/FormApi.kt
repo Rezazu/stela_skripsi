@@ -1,24 +1,17 @@
 package com.example.stela_android.Retrofit.Form
 
-import retrofit2.Call
+import android.text.Editable
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.internal.io.FileSystem
+import retrofit2.Call
 import retrofit2.http.*
+import java.io.File
+
 
 interface FormApi {
-
-    @GET("permintaan")
-    fun getPermintaan(
-        @Field("id") id: String
-    ): Call<PostResponse>
-
-    @Multipart
     @POST("permintaan")
     fun createPermintaan(
-        @Part("bagian") bagian: String,
-        @Part("gedung") gedung: String,
-        @Part("ruangan") ruangan: String,
-        @Part("lantai") lantai: String,
-        @Part("keterangan") keterangan: String,
-        @Part dokumen: Array<MultipartBody.Part>
-    ): Call<PostResponse>
+        @Body body: RequestBody
+    ): Call<PostPermintaanResponse>
 }

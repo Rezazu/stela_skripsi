@@ -10,5 +10,4 @@
     <string name="ruangan">Ruangan<font color='#FF0000'>*</font></string>
     <string name="judul">Judul<font color='#FF0000'>*</font></string>
     <string name="keterangan">keterangan<font color='#FF0000'>*</font></string>
-    <string name="permohonan_">Permohonan baru</string>
 </resources>

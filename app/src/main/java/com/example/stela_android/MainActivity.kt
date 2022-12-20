@@ -12,9 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button = findViewById<Button>(R.id.goTo)
+
         button.setOnClickListener{
             val intent = Intent(this, FormActivity::class.java)
             startActivity(intent)
         }
     }
+
 }

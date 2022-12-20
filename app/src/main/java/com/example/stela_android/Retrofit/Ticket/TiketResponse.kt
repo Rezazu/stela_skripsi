@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class TiketResponse(
 
     @field:SerializedName("data")
-    val data: Ticket? = null,
+    val data: ArrayList<Tiket>? = null,
 
     @field:SerializedName("success")
     val success: Boolean? = null,
