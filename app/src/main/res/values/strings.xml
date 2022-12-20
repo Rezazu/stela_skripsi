@@ -9,5 +9,6 @@
     <string name="lantai">Lantai<font color='#FF0000'>*</font></string>
     <string name="ruangan">Ruangan<font color='#FF0000'>*</font></string>
     <string name="judul">Judul<font color='#FF0000'>*</font></string>
-    <string name="keterangan">keterangan<font color='#FF0000'>*</font></string>
+    <string name="keterangan">Keterangan<font color='#FF0000'>*</font></string>
+    <string name="bagian">Bagian<font color='#FF0000'>*</font></string>
 </resources>
