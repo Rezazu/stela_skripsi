@@ -45,7 +45,9 @@ class SistemInformasiActivity : AppCompatActivity() {
 
     private fun backBtnListener() {
         back_btn.setOnClickListener {
-            startActivity(Intent(this, Homepage::class.java))
+            val i = Intent(this, Homepage::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
         }
     }
 

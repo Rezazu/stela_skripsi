@@ -15,6 +15,6 @@ data class PostPermintaanResponse (
 )
 
 data class nomorTiket(
-    @field:SerializedName("no_tiket")
-    val no_tiket: String? = null
+    @field:SerializedName("nomor_tiket")
+    val nomor_tiket: String? = null
 )

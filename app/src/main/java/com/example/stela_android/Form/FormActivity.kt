@@ -80,7 +80,7 @@ class FormActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     val intent = Intent(applicationContext, FormDone::class.java)
                     val body = response.body()
-                    val no_tiket = body?.data?.no_tiket
+                    val no_tiket = body?.data?.nomor_tiket
                     intent.putExtra("no_tiket", no_tiket)
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_TASK_ON_HOME
@@ -129,7 +129,9 @@ class FormActivity : AppCompatActivity() {
 
     private fun backBtnListener() {
         back_btn.setOnClickListener {
-            startActivity(Intent(this, Homepage::class.java))
+            val i = Intent(this, Homepage::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(i)
         }
     }
 
