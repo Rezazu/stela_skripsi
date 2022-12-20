@@ -110,14 +110,35 @@ class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
         intent.putExtra("keterangan", list[position]?.keterangan)
         intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
         intent.putExtra("solusi", list[position]?.solusi)
-//
-//        intent.putExtra("dokumen_lampiran", list[position]?.dokumen_lampiran)
-        val imageName = list[position]?.dokumen_lampiran?.get(0)?.image_name
+        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
+        intent.putExtra("rating", list[position]?.rating)
 
-        Log.d("Dokumen Lampiran", "data: " + imageName)
+        if(list[position]?.dokumen_lampiran != null) {
+            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
 
-//        val fileList: ArrayList<DokumenLampiranResponse> = ArrayList<DokumenLampiranResponse>()
-       // intent.putStringArrayListExtra("DOKUMEN_LAMPIRAN", list[position]?.dokumen_lampiran as java.util.ArrayList<String>)
+            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
+            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
+
+            for(nums in 0 until sizeOfDokumenLampiran!!) {
+                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
+                    dokumenLampiranNames.add(nums,
+                        it
+                    )
+                }
+
+                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
+                    dokumenLampiranPaths.add(nums,
+                        it
+                    )
+                }
+            }
+
+            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
+            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
+        } else {
+            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
+            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
+        }
 
         startActivity(intent)
     }
