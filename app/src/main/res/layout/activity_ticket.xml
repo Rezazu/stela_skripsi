@@ -607,7 +607,7 @@
                                     android:background="@drawable/edit_text_unfill_border_gray"
                                     android:id="@+id/tv_keterangan"
                                     android:layout_width="match_parent"
-                                    android:layout_height="80sp"
+                                    android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     android:fontFamily="@font/montserrat_regular"
                                     android:text="test"
@@ -639,7 +639,7 @@
                                 android:background="@drawable/edit_text_unfill_border_gray"
                                 android:id="@+id/tv_permasalahan_akhir"
                                 android:layout_width="match_parent"
-                                android:layout_height="80sp"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:fontFamily="@font/montserrat_regular"
                                 android:text="test"
@@ -671,7 +671,7 @@
                                 android:background="@drawable/edit_text_unfill_border_gray"
                                 android:id="@+id/tv_solusi"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:fontFamily="@font/montserrat_regular"
                                 android:text="test"
@@ -722,10 +722,13 @@
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvDokumen"
+                                android:paddingHorizontal="15sp"
+                                android:background="@drawable/edit_text_unfill_border_gray"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15sp"
-                                android:paddingBottom="10sp" />
+                                android:paddingTop="15sp"
+                                android:paddingBottom="24sp"/>
 
                         </LinearLayout>
 
