@@ -1,27 +1,19 @@
 package com.example.stela_android.Ticket
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Fragments.InfrastrukturJaringanFragment
-import com.example.stela_android.Fragments.SistemInformasiFragment
+import androidx.fragment.app.FragmentTransaction
+import com.example.stela_android.Fragments.ActiveTicketFragment
+import com.example.stela_android.Fragments.TiketSelesaiFragment
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
-import kotlinx.android.synthetic.main.activity_active_ticket_page.*;
+import kotlinx.android.synthetic.main.activity_active_ticket_page.*
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ActiveTicketPage : Fragment() {
 
@@ -38,29 +30,53 @@ class ActiveTicketPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        btnTiketAktifListener()
-//        btnTiketSelesaiListener()
+        btnTiketAktifListener()
+        btnTiketSelesaiListener()
+
+        ll_selesai.visibility = View.GONE
     }
 
-//    fun btnTiketAktifListener() {
-//        btn_aktif.setOnClickListener {
-//            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner)
-//            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
-//
-//            btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
-//            btn_selesai.setTextColor(Color.parseColor("#000000"))
-//        }
-//    }
+    fun btnTiketAktifListener() {
+        btn_aktif.setOnClickListener {
+            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner)
+            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
 
-//    fun btnTiketSelesaiListener() {
-//        btn_selesai.setOnClickListener {
-//            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner)
-//            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
+            btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
+            btn_selesai.setTextColor(Color.parseColor("#000000"))
+
+            ll_selesai.visibility = View.GONE
+
+            if(ll_aktif.visibility == View.GONE) {
+                ll_aktif.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    fun btnTiketSelesaiListener() {
+        btn_selesai.setOnClickListener {
+            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner)
+            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
+
+            btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
+            btn_aktif.setTextColor(Color.parseColor("#000000"))
+
+//            val tiketSelesaiFragment: TiketSelesaiFragment = TiketSelesaiFragment()
+//            val tiketAktifFragment: ActiveTicketFragment = ActiveTicketFragment()
 //
-//            btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
-//            btn_aktif.setTextColor(Color.parseColor("#000000"))
-//        }
-//    }
+//            val ft: FragmentTransaction? = fragmentManager?.beginTransaction()
+//
+//            if (tiketAktifFragment.isHidden() != false) {
+//                ft?.hide(tiketAktifFragment);
+//                ll_aktif.setVisibility(View.GONE);
+//            }
+
+
+            ll_selesai.visibility = View.VISIBLE
+            ll_aktif.visibility = View.GONE
+//            ft?.commit();
+
+        }
+    }
 
 }
 

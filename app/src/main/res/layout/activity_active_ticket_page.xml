@@ -39,52 +39,77 @@
             android:layout_height="match_parent"
             >
 
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/ticket_menu"-->
-<!--                android:layout_marginTop="30sp"-->
-<!--                >-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ticket_menu"
+                android:layout_marginTop="30sp"
+                >
 
-<!--                <TextView-->
-<!--                    android:id="@+id/btn_aktif"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:layout_marginLeft="50sp"-->
-<!--                    android:background="@drawable/shadow_banner"-->
-<!--                    android:fontFamily="@font/montserrat_semibold"-->
-<!--                    android:paddingHorizontal="30sp"-->
-<!--                    android:paddingVertical="10sp"-->
-<!--                    android:text="Tiket Aktif"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="14sp" />-->
+                <TextView
+                    android:id="@+id/btn_aktif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50sp"
+                    android:background="@drawable/shadow_banner"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:paddingHorizontal="30sp"
+                    android:paddingVertical="10sp"
+                    android:text="Tiket Aktif"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/btn_selesai"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:layout_marginRight="50sp"-->
-<!--                    android:layout_alignParentRight="true"-->
-<!--                    android:fontFamily="@font/montserrat_semibold"-->
-<!--                    android:text="Tiket Selesai"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="14sp"-->
-<!--                    android:background="@drawable/border_blue"-->
-<!--                    android:paddingVertical="10sp"-->
-<!--                    android:paddingHorizontal="27sp"-->
-<!--                    />-->
+                <TextView
+                    android:id="@+id/btn_selesai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="50sp"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Tiket Selesai"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:background="@drawable/border_blue"
+                    android:paddingVertical="10sp"
+                    android:paddingHorizontal="27sp"
+                    />
 
-<!--            </RelativeLayout>-->
+            </RelativeLayout>
 
-            <fragment
+            <LinearLayout
+                android:layout_below="@+id/ticket_menu"
+                android:id="@+id/ll_aktif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <fragment
+                    android:layout_below="@+id/ticket_menu"
                     android:name="com.example.stela_android.Fragments.ActiveTicketFragment"
-                    android:id="@+id/ticket_active_section"
                     android:layout_weight="1"
+                    android:layout_marginTop="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20sp"
+                android:id="@+id/ll_selesai"
+                android:layout_below="@+id/ll_aktif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <fragment
+                    android:name="com.example.stela_android.Fragments.TiketSelesaiFragment"
+                    android:id="@+id/ticket_selesai_section"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
 
         </RelativeLayout>
 
