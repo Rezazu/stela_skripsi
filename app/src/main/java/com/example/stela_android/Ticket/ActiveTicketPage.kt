@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.stela_android.Fragments.ActiveTicketFragment
@@ -44,6 +45,9 @@ class ActiveTicketPage : Fragment() {
             btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
             btn_selesai.setTextColor(Color.parseColor("#000000"))
 
+            val myToast = Toast.makeText(context, "Tiket Aktif ✨", Toast.LENGTH_LONG)
+            myToast.show()
+
             ll_selesai.visibility = View.GONE
 
             if(ll_aktif.visibility == View.GONE) {
@@ -70,6 +74,8 @@ class ActiveTicketPage : Fragment() {
 //                ll_aktif.setVisibility(View.GONE);
 //            }
 
+            val myToast = Toast.makeText(context, "Tiket Selesai ✨", Toast.LENGTH_LONG)
+            myToast.show()
 
             ll_selesai.visibility = View.VISIBLE
             ll_aktif.visibility = View.GONE
