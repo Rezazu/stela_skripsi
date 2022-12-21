@@ -6,15 +6,18 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
-import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranResponse
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.activity_ticket.*
+import kotlinx.android.synthetic.main.dokumen_item.*
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
+import kotlinx.android.synthetic.main.ticket_item.view.*
+
 
 class Ticket : AppCompatActivity() {
 
@@ -35,21 +38,33 @@ class Ticket : AppCompatActivity() {
         val keterangan = intent.getStringExtra("keterangan")
         val permasalahanAkhir = intent.getStringExtra("permasalahan_akhir")
         val solusi = intent.getStringExtra("solusi")
+        val statusTiket = intent.getIntExtra("statusTiket", 0)
+        val rating = intent.getIntExtra("rating", 0)
 
-//        val dokumenLampiran = intent.getParcelableArrayListExtra("dokumen_lampiran", DokumenLampiranResponse::class.java)
-//        Log.d("DOKUMEN LAMPIRAN", "msg: " + dokumenLampiran)
+        val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
+        val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
 
-//        val filelist = intent.getParcelableArrayExtra("DOKUMEN_LAMPIRAN")
-//        Log.d("DOKUMEN LAMPIRAN", "data: " + filelist)
-//        rvTicketInfrastukturJaringan.apply {
-//            // set a LinearLayoutManager to handle Android
-//            // RecyclerView behavior
-//            layoutManager = LinearLayoutManager(context)
-//            // set the custom adapter to the RecyclerView
-//            adapter = filelist?.let { DokumenLampiranAdapter(it) }
-//        }
+        val myToast = Toast.makeText(applicationContext, "Tiket " + kodeTiket + " ✨", Toast.LENGTH_LONG)
+        myToast.show()
 
-        tv_judul_tiket.setText(judul)
+        Log.d("DOKUMEN NAMES", "data: " + dokumenLampiranNames)
+        Log.d("DOKUMEN PATHS", "data: " + dokumenLampiranPaths)
+
+        rvDokumen.apply {
+            // set a LinearLayoutManager to handle Android
+            // RecyclerView behavior
+            layoutManager = LinearLayoutManager(context)
+            // set the custom adapter to the RecyclerView
+            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!)
+            rvDokumen.adapter = adapter
+        }
+
+        if(judul?.length!! >= 45) {
+            tv_judul_tiket.setText(Service.judulSubStr(judul))
+        } else {
+            tv_judul_tiket.setText(judul)
+        }
+
         tv_kode_tiket.text = kodeTiket
         tv_tanggal_tiket.text = tanggalTiket
         tv_nama_pelapor.text = namaPelapor
@@ -62,15 +77,20 @@ class Ticket : AppCompatActivity() {
         tv_permasalahan_akhir.text = permasalahanAkhir
         tv_solusi.text = solusi
 
-        back_btn2ClickHandler()
-    }
-
-    private fun back_btn2ClickHandler() {
-        back_btn2.setOnClickListener {
-            val i = Intent(this, ActiveTicketPage::class.java)
-            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(i)
+        if(statusTiket != 6 && rating == null) {
+            rating_container.visibility = View.GONE
+        } else {
+            // setting if ticket has been rated, so display the stars not btn rate ticket
+            if(statusTiket == 6 && rating != null) {
+                rating_container.visibility = View.VISIBLE
+                rating_bar.rating = rating.toFloat()
+            } else {
+                rating_container.visibility = View.GONE
+            }
         }
+
+        Service.statusTiketDisplay(statusTiket, tv_status_tiket)
+
     }
 
     fun whatsapp(view: View) {
@@ -80,6 +100,7 @@ class Ticket : AppCompatActivity() {
         bukeBrowser.data = Uri.parse(url)
         startActivity(bukeBrowser)
     }
+
 }
 
 

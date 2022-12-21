@@ -57,24 +57,4 @@ class SistemInformasiActivity : AppCompatActivity() {
         }
     }
 
-    fun btnTiketAktifListener() {
-        btn_aktif.setOnClickListener {
-            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner)
-            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
-
-            btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
-            btn_selesai.setTextColor(Color.parseColor("#000000"))
-        }
-    }
-
-    fun btnTiketSelesaiListener() {
-        btn_selesai.setOnClickListener {
-            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner)
-            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
-
-            btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
-            btn_aktif.setTextColor(Color.parseColor("#000000"))
-        }
-    }
-
 }
