@@ -59,16 +59,16 @@ public open class Profile : Fragment() {
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
 
-                    val nama = prefs?.getString("nama_lengkap", "DefaultValue")
-                    val departemen = prefs?.getString("kd_departemen", "DefaultValue")
-                    val username = prefs?.getString("username", "Data username")
-                    val email = prefs?.getString("email", "Data email")
-                    val bagian = prefs?.getString("bagian", "Data bagian")
-                    val telepon = prefs?.getString("telepon", "Data telepon")
-                    val nomorhp = prefs?.getString("hp", "Data nomorhp")
+                    val nama = prefs?.getString("nama_lengkap", "")
+                    val departemen = prefs?.getString("kd_departemen", "")
+                    val username = prefs?.getString("username", "")
+                    val email = prefs?.getString("email", "")
+                    val bagian = prefs?.getString("bagian", "")
+                    val telepon = prefs?.getString("telepon", "")
+                    val nomorhp = prefs?.getString("hp", "")
 
                     tv_nama_profil.text = nama
-                    tv_departemen_profil.text = departemen
+                    tv_departemen_profil.text = bagian
 //
                     tv_username2.text = ":   " + username
                     tv_email2.text = ":   " + email

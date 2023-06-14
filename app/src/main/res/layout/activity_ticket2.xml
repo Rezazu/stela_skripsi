@@ -126,7 +126,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.237" />
+            app:layout_constraintVertical_bias="0.237"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_jabatan_pelapor"
@@ -141,7 +142,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.268" />
+            app:layout_constraintVertical_bias="0.268"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_unit_kerja_pelapor"
@@ -156,7 +158,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.299" />
+            app:layout_constraintVertical_bias="0.299"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_gedung_pelapor"
@@ -171,7 +174,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.356" />
+            app:layout_constraintVertical_bias="0.356"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_lantai_pelapor"
@@ -186,7 +190,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.387" />
+            app:layout_constraintVertical_bias="0.387"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_ruangan_pelapor"
@@ -201,7 +206,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.416" />
+            app:layout_constraintVertical_bias="0.416"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_status_tiket"
@@ -216,7 +222,8 @@
             app:layout_constraintHorizontal_bias="0.675"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintVertical_bias="0.475"
+            tools:ignore="NotSibling" />
 
 
 
@@ -232,7 +239,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
             app:layout_constraintVertical_bias="0.215"
-            app:srcCompat="@drawable/garis" />
+            app:srcCompat="@drawable/garis"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView"
@@ -247,7 +255,8 @@
             app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.240" />
+            app:layout_constraintVertical_bias="0.240"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView12"
@@ -262,7 +271,8 @@
             app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.244" />
+            app:layout_constraintVertical_bias="0.244"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView7"
@@ -277,7 +287,8 @@
             app:layout_constraintHorizontal_bias="0.088"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.270" />
+            app:layout_constraintVertical_bias="0.270"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -291,7 +302,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.262" />
+            app:layout_constraintVertical_bias="0.262"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView8"
@@ -306,7 +318,8 @@
             app:layout_constraintHorizontal_bias="0.091"
             app:layout_constraintStart_toStartOf="@id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView15"
@@ -321,7 +334,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="NotSibling" />
 
         <ImageView
             android:id="@+id/imageView13"
@@ -333,7 +347,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
             app:layout_constraintVertical_bias="0.333"
-            app:srcCompat="@drawable/garis" />
+            app:srcCompat="@drawable/garis"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView9"
@@ -348,7 +363,8 @@
             app:layout_constraintHorizontal_bias="0.086"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.357" />
+            app:layout_constraintVertical_bias="0.357"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView18"
@@ -363,7 +379,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.356" />
+            app:layout_constraintVertical_bias="0.356"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView16"
@@ -378,7 +395,8 @@
             app:layout_constraintHorizontal_bias="0.086"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.388" />
+            app:layout_constraintVertical_bias="0.388"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -392,7 +410,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.416" />
+            app:layout_constraintVertical_bias="0.416"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -406,7 +425,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.416" />
+            app:layout_constraintVertical_bias="0.416"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -420,7 +440,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintVertical_bias="0.475"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView19"
@@ -435,7 +456,8 @@
             app:layout_constraintHorizontal_bias="0.086"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.417" />
+            app:layout_constraintVertical_bias="0.417"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView20"
@@ -450,7 +472,8 @@
             app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.387" />
+            app:layout_constraintVertical_bias="0.387"
+            tools:ignore="NotSibling" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -462,7 +485,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
             app:layout_constraintVertical_bias="0.447"
-            app:srcCompat="@drawable/garis" />
+            app:srcCompat="@drawable/garis"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/textView11"
@@ -477,7 +501,8 @@
             app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintVertical_bias="0.475"
+            tools:ignore="NotSibling" />
 
 
         <TextView
@@ -493,7 +518,8 @@
             app:layout_constraintHorizontal_bias="0.107"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.547" />
+            app:layout_constraintVertical_bias="0.547"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -507,7 +533,8 @@
             app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
-            app:layout_constraintVertical_bias="0.645" />
+            app:layout_constraintVertical_bias="0.645"
+            tools:ignore="NotSibling" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -519,7 +546,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
             app:layout_constraintVertical_bias="0.597"
-            app:srcCompat="@drawable/rectangle_fft" />
+            app:srcCompat="@drawable/rectangle_fft"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -545,7 +573,8 @@
             app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/header_section"
             app:layout_constraintVertical_bias="0.817"
-            app:srcCompat="@drawable/rectangle_67" />
+            app:srcCompat="@drawable/rectangle_67"
+            tools:ignore="NotSibling,UnknownIdInLayout" />
 
         <ImageView
             android:id="@+id/imageView"

@@ -47,6 +47,7 @@ class FormActivity : AppCompatActivity() {
     val filePaths: ArrayList<String> = ArrayList()
 
     fun createPermintaan() {
+        btn_submit.isEnabled = false
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "").toString()
         val bagian = ed_bagian.text.toString()
@@ -80,13 +81,14 @@ class FormActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     val intent = Intent(applicationContext, FormDone::class.java)
                     val body = response.body()
-                    val no_tiket = body?.data?.nomor_tiket
+                    val no_tiket = body?.data?.no_tiket
                     intent.putExtra("no_tiket", no_tiket)
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_TASK_ON_HOME
                     startActivity(intent)
                     this@FormActivity.finish()
                 }else{
+                    btn_submit.isEnabled = true
                     val myToast = Toast.makeText(applicationContext, "Pastikan form tidak ada yang kosong", Toast.LENGTH_LONG)
                     myToast.show()
                 }
@@ -94,6 +96,7 @@ class FormActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<PostPermintaanResponse>, t: Throwable) {
                 Log.d("form", "onFailure: " + t.message)
+                btn_submit.isEnabled = true
             }
 
         })

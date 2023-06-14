@@ -25,12 +25,12 @@ class Homepage : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if(!SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(applicationContext, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
-        }
+//        if(!SharedPrefManager.getInstance(this).isLoggedIn){
+//            val intent = Intent(applicationContext, Login::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//
+//            startActivity(intent)
+//        }
     }
 
     fun ticketActiveBtnHandler() {
@@ -40,7 +40,7 @@ class Homepage : AppCompatActivity() {
         val profile = Profile()
         val home = Home()
         val activeTicket = ActiveTicketPage()
-        val myToast = Toast.makeText(applicationContext, "Fitur ini masih dikembangkan, sabar yaa", Toast.LENGTH_LONG)
+        val myToast = Toast.makeText(applicationContext, "Fitur ini masih dikembangkan", Toast.LENGTH_LONG)
         setCurrentFragment(home)
 
         bottomNavigationView.setOnItemSelectedListener {

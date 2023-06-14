@@ -12,27 +12,31 @@
         android:id="@+id/fr_sistem_informasi"
         android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_sistem_informasi" />
 
     <fragment
         android:name="com.example.stela_android.Fragments.InfrastrukturJaringanFragment"
         android:id="@+id/fr_infrastruktur_jaringan"
         android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_infrastruktur_jaringan" />
 
     <fragment
         android:name="com.example.stela_android.Fragments.TataKelolaTiFragment"
         android:id="@+id/fr_tata_kelola_ti"
         android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_tata_kelola_ti" />
 
     <fragment
         android:name="com.example.stela_android.Fragments.LainnyaFragment"
         android:id="@+id/fr_lainnya"
         android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_lainnya" />
 
 </LinearLayout>

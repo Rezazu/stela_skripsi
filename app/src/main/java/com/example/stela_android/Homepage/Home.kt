@@ -69,8 +69,8 @@ class Home : Fragment(){
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val nama = prefs?.getString("nama_lengkap", "")
                     tv_name.text = nama
-                    val dept = prefs?.getString("kd_departemen", "")
-                    tv_dept.text = dept
+                    val dept = prefs?.getString("bagian", "")
+                    tv_dept.text = dept.toString()
                 }
             }
 

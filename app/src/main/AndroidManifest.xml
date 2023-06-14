@@ -63,8 +63,7 @@
             tools:ignore="Instantiatable"/>
         <activity
             android:name=".Homepage.Homepage"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".Homepage.HomepagePrakom"
             android:exported="false" />
@@ -74,7 +73,7 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".Login.Login"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:requestLegacyExternalStorage="true"
             android:name=".Form.FormActivity"
@@ -90,17 +89,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".Homepage.Notification.MyFirebaseMessagingService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND"
-            tools:ignore="Instantiatable">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-                <action android:name="com.google.android.cwdm.intent.Receiver"/>
-            </intent-filter>
-
-        </service>
 <!--        <receiver-->
 <!--            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"-->
 <!--            android:exported="true"-->

@@ -25,15 +25,17 @@ class Login : AppCompatActivity() {
 
     fun initAction(){
         btn_masuk.setOnClickListener{
+            val intent = Intent(this, Homepage::class.java)
+            startActivity(intent)
             val username = et_username.text.toString().trim()
             val password = et_password.text.toString().trim()
-            if(username.isEmpty() || password.isEmpty() || username.isEmpty() && password.isEmpty()){
-                val myToast =
-                    Toast.makeText(applicationContext, "Username atau Password tidak boleh kosong", Toast.LENGTH_LONG)
-                myToast.show()
-            } else {
-                login()
-            }
+//            if(username.isEmpty() || password.isEmpty() || username.isEmpty() && password.isEmpty()){
+//                val myToast =
+//                    Toast.makeText(applicationContext, "Username atau Password tidak boleh kosong", Toast.LENGTH_LONG)
+//                myToast.show()
+//            } else {
+//                login()
+//            }
         }
     }
 

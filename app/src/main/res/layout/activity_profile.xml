@@ -27,7 +27,7 @@
         android:id="@+id/main_section"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:background="#5F9DF7"
+        android:background="#3C99AB"
         android:paddingBottom="30dp">
 
         <TextView

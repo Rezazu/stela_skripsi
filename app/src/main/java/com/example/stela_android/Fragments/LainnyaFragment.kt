@@ -58,7 +58,7 @@ class LainnyaFragment: Fragment(), OnTicketClickListener {
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
 
-        retro.getTicketsByCategory(4).enqueue(object: Callback<TiketResponse> {
+        retro.getTicketsByCategory(8).enqueue(object: Callback<TiketResponse> {
             override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
                 response.body()?.data?.let { list.addAll(it) }
 
