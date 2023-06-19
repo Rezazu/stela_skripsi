@@ -3,6 +3,7 @@ package com.example.stela_android.Homepage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils.replace
 // import androidx.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,18 +12,22 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.stela_android.Form.FormActivity
 import com.example.stela_android.Homepage.Notification.NotificationsPage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
+import com.example.stela_android.Stela.StelaPage
 import com.example.stela_android.Storage.SharedPrefManager
 import com.example.stela_android.Tracking.InfrastrukturJaringanActivity
 import com.example.stela_android.Tracking.LainnyaActivity
 import com.example.stela_android.Tracking.SistemInformasiActivity
 import com.example.stela_android.Tracking.TataKelolaActivity
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_home.btn_notification
+import kotlinx.android.synthetic.main.activity_home_2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,21 +43,23 @@ class Home : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_home, container,false)
+        return inflater.inflate(R.layout.activity_home_2, container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
-        btn_permohonan.setOnClickListener{
-            val intent_permohonan = Intent(activity, FormActivity::class.java)
-            startActivity(intent_permohonan)
-        }
+//        btn_permohonan.setOnClickListener{
+//            val intent_permohonan = Intent(activity, FormActivity::class.java)
+//            startActivity(intent_permohonan)
+//        }
         btnNotificationListener()
-        btnInformationSystemListener()
-        btnInfrastructureJaringanListener()
-        btnTataKelolaTIListener()
-        btnLainnyaListener()
+        btnStelaListener()
+//        btnInformationSystemListener()
+//        btnInfrastructureJaringanListener()
+//        btnTataKelolaTIListener()
+//        btnLainnyaListener()
         getResult()
     }
 
@@ -88,27 +95,40 @@ class Home : Fragment(){
         }
     }
 
-    private fun btnInformationSystemListener() {
-        btn_sistem_informasi.setOnClickListener{
-            startActivity(Intent(activity, SistemInformasiActivity::class.java))
+    private fun btnStelaListener(){
+        val stelapage = StelaPage()
+        btn_stela.setOnClickListener{
+            setCurrentFragment(stelapage)
         }
     }
 
-    private fun btnInfrastructureJaringanListener() {
-        btn_infrastruktur_jaringan.setOnClickListener{
-            startActivity(Intent(activity, InfrastrukturJaringanActivity::class.java))
-        }
-    }
-
-    private fun btnTataKelolaTIListener() {
-        btn_tata_kelola.setOnClickListener{
-            startActivity(Intent(activity, TataKelolaActivity::class.java))
-        }
-    }
-
-    private fun btnLainnyaListener() {
-        btn_lainnya.setOnClickListener{
-            startActivity(Intent(activity, LainnyaActivity::class.java))
-        }
+    fun setCurrentFragment(fragment: Fragment) {
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.flFragment, fragment)
+        transaction.commit()
     }
 }
+//
+//    private fun btnInformationSystemListener() {
+//        btn_sistem_informasi.setOnClickListener{
+//            startActivity(Intent(activity, SistemInformasiActivity::class.java))
+//        }
+//    }
+//
+//    private fun btnInfrastructureJaringanListener() {
+//        btn_infrastruktur_jaringan.setOnClickListener{
+//            startActivity(Intent(activity, InfrastrukturJaringanActivity::class.java))
+//        }
+//    }
+//
+//    private fun btnTataKelolaTIListener() {
+//        btn_tata_kelola.setOnClickListener{
+//            startActivity(Intent(activity, TataKelolaActivity::class.java))
+//        }
+//    }
+//
+//    private fun btnLainnyaListener() {
+//        btn_lainnya.setOnClickListener{
+//            startActivity(Intent(activity, LainnyaActivity::class.java))
+//        }
+//    }
