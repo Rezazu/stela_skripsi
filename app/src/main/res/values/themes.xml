@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Stelaandroid" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Stelaandroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF5F9DF7</item>
-        <item name="colorPrimaryVariant">#FF5F9DF7</item>
+        <item name="colorPrimary">#3C99AB</item>
+        <item name="colorPrimaryVariant">#3C99AB</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
