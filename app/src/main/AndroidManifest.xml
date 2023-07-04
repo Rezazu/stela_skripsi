@@ -65,10 +65,10 @@
             android:name=".Homepage.Homepage"
             android:exported="true"/>
         <activity
-            android:name=".Homepage.HomepagePrakom"
+            android:name=".Petugas.HomepagePrakom"
             android:exported="false" />
         <activity
-            android:name=".Homepage.HomePrakom"
+            android:name=".Petugas.HomePrakom"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity

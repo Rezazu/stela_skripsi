@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.stela_android.Homepage.Homepage
+import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.*
 import com.example.stela_android.Storage.SharedPrefManager
@@ -53,9 +54,15 @@ class Login : AppCompatActivity() {
                         SharedPrefManager.getInstance(applicationContext).saveToken(result.data?.token)
                         val myToast = Toast.makeText(applicationContext, "Berhasil", Toast.LENGTH_LONG)
                         myToast.show()
-
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(intent)
+                        if (SharedPrefManager.getInstance(applicationContext).user.id_peran  == 7 ) {
+                            val intentPetugas = Intent(applicationContext, HomepagePrakom::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intentPetugas)
+                        } else if (SharedPrefManager.getInstance(applicationContext).user.id_peran  == 2 ) {
+                            val intentUser = Intent(applicationContext, Homepage::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intentUser)
+                        }
                     } else {
                         val myToast =
                             Toast.makeText(applicationContext, "Null", Toast.LENGTH_LONG)

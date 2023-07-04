@@ -108,27 +108,3 @@ class Home : Fragment(){
         transaction.commit()
     }
 }
-//
-//    private fun btnInformationSystemListener() {
-//        btn_sistem_informasi.setOnClickListener{
-//            startActivity(Intent(activity, SistemInformasiActivity::class.java))
-//        }
-//    }
-//
-//    private fun btnInfrastructureJaringanListener() {
-//        btn_infrastruktur_jaringan.setOnClickListener{
-//            startActivity(Intent(activity, InfrastrukturJaringanActivity::class.java))
-//        }
-//    }
-//
-//    private fun btnTataKelolaTIListener() {
-//        btn_tata_kelola.setOnClickListener{
-//            startActivity(Intent(activity, TataKelolaActivity::class.java))
-//        }
-//    }
-//
-//    private fun btnLainnyaListener() {
-//        btn_lainnya.setOnClickListener{
-//            startActivity(Intent(activity, LainnyaActivity::class.java))
-//        }
-//    }

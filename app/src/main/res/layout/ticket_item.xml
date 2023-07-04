@@ -3,7 +3,7 @@
     android:id="@+id/ticket"
     android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
-    android:layout_height="100sp"
+    android:layout_height="120sp"
     android:layout_marginBottom="15sp"
     android:background="@drawable/border_blue"
     android:paddingHorizontal="20sp"
@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
+        android:layout_marginStart="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -49,9 +50,11 @@
     <!-- Ticket's date on bottom corner of right is active when rating is null and status is not 6 -->
     <TextView
         android:id="@+id/tanggal_tiket"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:fontFamily="@font/montserrat_regular"
         android:text="22 September 2022 | 20.58"

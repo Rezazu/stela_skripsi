@@ -32,13 +32,14 @@
 
         <TextView
             android:id="@+id/tv_nama_profil"
-            android:layout_width="84dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_photo"
-            android:layout_marginStart="-81dp"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/iv_photo"
+            android:layout_marginEnd="243dp"
+            android:layout_weight='1'
             android:fontFamily="@font/montserrat_semibold"
+            android:gravity="center"
             android:text="Nama"
             android:textAlignment="center"
             android:textColor="@color/white"
