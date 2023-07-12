@@ -116,7 +116,7 @@
         android:layout_marginRight="-50dp"
         android:layout_alignWithParentIfMissing="true"
         android:layout_gravity="bottom"
-        android:theme="@style/smallRatingBar"
+
         />
 
 

@@ -49,21 +49,17 @@ class Home : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
+//        val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
 //        btn_permohonan.setOnClickListener{
 //            val intent_permohonan = Intent(activity, FormActivity::class.java)
 //            startActivity(intent_permohonan)
 //        }
         btnNotificationListener()
         btnStelaListener()
-//        btnInformationSystemListener()
-//        btnInfrastructureJaringanListener()
-//        btnTataKelolaTIListener()
-//        btnLainnyaListener()
-        getResult()
+        getData()
     }
 
-    private fun getResult(){
+    private fun getData(){
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(UserApi::class.java)

@@ -38,6 +38,7 @@
         android:textSize="16sp"/>
 
     <TextView
+        android:id="@+id/tv_dept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/sv_home"
@@ -87,7 +88,20 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:text="Halo Aan!"/>
+                android:text="Halo"/>
+
+            <TextView
+                android:id="@+id/welcomenama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/welcomeText"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginStart="5dp"
+                android:textSize="14dp"
+                android:text="Aan!"/>
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -159,22 +173,28 @@
                     />
 
             </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rv_prakom"
+            <FrameLayout
+                android:id="@+id/flFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_below="@+id/ticket_menu"
-                tools:ignore="NotSibling"
-                android:layout_marginTop="20dp">
+>
+            </FrameLayout>
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/rv_prakom"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/ticket_menu"-->
+<!--                tools:ignore="NotSibling"-->
+<!--                android:layout_marginTop="20dp">-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="15sp"
-                    android:paddingBottom="10sp"/>
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingHorizontal="15sp"-->
+<!--                    android:paddingBottom="10sp"/>-->
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
         </RelativeLayout>
 

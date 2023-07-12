@@ -3,12 +3,10 @@ package com.example.stela_android.Fragments
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,13 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
-import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranResponse
 import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.btn_dropdown
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.container_tiket
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.tv_empty_tiket
-import kotlinx.android.synthetic.main.fragment_lainnya.*
 import retrofit2.*
 
 

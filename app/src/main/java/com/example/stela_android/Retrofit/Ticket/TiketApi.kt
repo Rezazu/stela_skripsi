@@ -13,6 +13,7 @@ interface TiketApi {
 
     @Headers("Content-type: application/json",
         "Authorization: Bearer my token")
+
     @GET("tiket")
     fun getTicketsByCategory(
         @Query("kategori") kategori: Int,

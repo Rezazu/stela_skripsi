@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.example.stela_android.Fragments.ActiveTicketFragment
-import com.example.stela_android.Fragments.TiketSelesaiFragment
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.*
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*
@@ -33,8 +30,29 @@ class ActiveTicketPage : Fragment() {
 
         btnTiketAktifListener()
         btnTiketSelesaiListener()
-
+        refreshAction()
         ll_selesai.visibility = View.GONE
+    }
+
+    fun refreshAction() {
+        refreshTiket.setOnRefreshListener {
+            val activeTicket = ActiveTicketPage()
+            val myToast = Toast.makeText(context, "Refresh berhasil", Toast.LENGTH_LONG)
+            myToast.show()
+            refreshFragmentUI(activeTicket)
+            refreshTiket.isRefreshing = false
+        }
+    }
+
+    fun refreshFragmentUI(fragment: Fragment?) {
+        if (fragment != null) {
+            parentFragmentManager
+                .beginTransaction()
+                .detach(fragment)
+                .attach(fragment)
+                .commit()
+        }
+
     }
 
     fun btnTiketAktifListener() {

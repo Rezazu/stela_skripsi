@@ -2,7 +2,6 @@ package com.example.stela_android.Fragments
 
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,12 +17,13 @@ import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.btn_dropdown
 import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.*
+import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.container_tiket
+import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
-
     private val list = ArrayList<Tiket>()
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
@@ -33,23 +33,24 @@ class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val args = this.arguments
         return inflater.inflate(R.layout.fragment_tata_kelola_ti, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getTickets()
-        hideShowTicketTataKelolaTi()
+        hideShowTicketsTatakelolaTI()
     }
 
-    private fun hideShowTicketTataKelolaTi() {
+    private fun hideShowTicketsTatakelolaTI() {
         btn_dropdown.setOnClickListener {
             if(container_tiket.isVisible) {
                 container_tiket.visibility = View.GONE
-                btn_dropdown.setImageResource(R.drawable.ic_chevron_down_tkt)
+                btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
             } else  {
                 container_tiket.visibility = View.VISIBLE
-                btn_dropdown.setImageResource(R.drawable.ic_chevron_up_tkt)
+                btn_dropdown.setImageResource(R.drawable.ic_chevron_up_is)
             }
         }
     }
@@ -63,9 +64,9 @@ class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
             override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
                 response.body()?.data?.let { list.addAll(it) }
 
-                if(response?.body()?.success == null) {
+                if(response.body()?.success == null) {
                     container_tiket.visibility = View.GONE
-                    btn_dropdown.setImageResource(R.drawable.ic_chevron_down_tkt)
+                    btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
                     tv_empty_tiket.visibility = View.VISIBLE
                     tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Tata Kelola TI"
                 } else {
@@ -75,10 +76,13 @@ class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
                         // RecyclerView behavior
                         layoutManager = LinearLayoutManager(activity)
                         // set the custom adapter to the RecyclerView
-                        adapter = TiketAdapter(context ,list, "Tata Kelola TI", this@TataKelolaTiFragment)
+                        adapter = TiketAdapter(context, list, "Tata Kelola", this@TataKelolaTiFragment)
+
+                        val ticketAdapter = adapter
+                        rvTicketTataKelolaTI.adapter = ticketAdapter
+                        ticketAdapter?.notifyDataSetChanged()
                     }
                 }
-
             }
 
             override fun onFailure(call: Call<TiketResponse>, t: Throwable) {

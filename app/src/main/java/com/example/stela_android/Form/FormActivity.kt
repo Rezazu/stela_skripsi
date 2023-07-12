@@ -32,6 +32,9 @@ import java.util.*
 
 
 class FormActivity : AppCompatActivity() {
+    var selectedFile = ""
+    val filePaths: ArrayList<String> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
@@ -43,8 +46,11 @@ class FormActivity : AppCompatActivity() {
         }
     }
 
-    var selectedFile = ""
-    val filePaths: ArrayList<String> = ArrayList()
+    private fun postPermintaan(){
+        btn_submit.setOnClickListener {
+            createPermintaan()
+        }
+    }
 
     fun createPermintaan() {
         btn_submit.isEnabled = false
@@ -123,11 +129,6 @@ class FormActivity : AppCompatActivity() {
             }
 
         })
-    }
-    private fun postPermintaan(){
-        btn_submit.setOnClickListener {
-            createPermintaan()
-        }
     }
 
     private fun backBtnListener() {

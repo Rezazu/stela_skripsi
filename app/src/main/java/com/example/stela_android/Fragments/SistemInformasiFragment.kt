@@ -19,8 +19,6 @@ import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
 import kotlinx.android.synthetic.main.fragment_sistem_informasi.btn_dropdown
 import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.container_tiket
 import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
-import kotlinx.android.synthetic.main.rate_dialog.*
-import kotlinx.android.synthetic.main.ticket_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

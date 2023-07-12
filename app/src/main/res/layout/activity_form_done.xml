@@ -70,7 +70,7 @@
         app:srcCompat="@drawable/rectangle_6" />
 
     <TextView
-        android:id="@+id/kode_tiket"
+        android:id="@+id/tv_no_tiket"
         android:layout_width="85dp"
         android:layout_height="25dp"
         android:layout_alignStart="@+id/imageView5"

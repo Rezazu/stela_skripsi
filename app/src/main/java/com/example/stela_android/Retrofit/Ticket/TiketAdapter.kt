@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.*
-import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Fragments.DialogRate
 import com.example.stela_android.R
@@ -47,7 +46,7 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                         rvTiket.background = resources.getDrawable(R.drawable.border_blue)
                     } else if(kategori == "Infrastruktur Jaringan") {
                         rvTiket.background = resources.getDrawable(R.drawable.border_red)
-                    } else if(kategori == "Tata Kelola TI") {
+                    } else if(kategori == "Tata Kelola") {
                         rvTiket.background = resources.getDrawable(R.drawable.border_green)
                     } else if(kategori == "Lainnya") {
                         rvTiket.background = resources.getDrawable(R.drawable.border_purple)
