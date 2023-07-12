@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_stela_page"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_below="@+id/ticket_menu"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/header_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="20sp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:src="@drawable/ic_back_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="STELA"
+            android:textColor="#3C99AB"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Stela"
+            android:textColor="#3C99AB"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="false"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/stela"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btn_baru"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:radius="20sp"
+            android:layout_below="@+id/textView5"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#3C99AB"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Tiket baru"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_aktif"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:radius="20sp"
+            android:layout_below="@+id/btn_baru"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#5EC75C"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Daftar tiket"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv_panduan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_aktif"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Panduan permintaan" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_panduan"
+            android:padding="20dp">
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdfView"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:clickable="true"
+            />
+
+            <Button
+                android:id="@+id/btn_bacapdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pdfView"
+                android:text="Baca >>"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:background="@null"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
