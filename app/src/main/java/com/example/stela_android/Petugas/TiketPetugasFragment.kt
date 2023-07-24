@@ -1,4 +1,4 @@
-package com.example.stela_android.Petugas.Tiket
+package com.example.stela_android.Petugas
 
 import android.content.Context
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.Tiket
-import com.example.stela_android.Retrofit.Ticket.TiketAdapter
 import com.example.stela_android.Retrofit.Ticket.TiketApi
 import com.example.stela_android.Retrofit.Ticket.TiketResponse
 import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
@@ -22,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TiketPetugas : Fragment() {
+class TiketPetugasFragment : Fragment() {
     private val list = ArrayList<Tiket>()
 
     override fun onCreateView(

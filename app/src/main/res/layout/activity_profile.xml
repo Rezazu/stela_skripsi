@@ -28,33 +28,34 @@
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:background="#3C99AB"
-        android:paddingBottom="30dp">
+        android:paddingBottom="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_nama_profil"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_photo"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="243dp"
+            android:layout_marginTop="15dp"
             android:layout_weight='1'
+            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_semibold"
-            android:gravity="center"
             android:text="Nama"
             android:textAlignment="center"
             android:textColor="@color/white"
+            android:includeFontPadding="false"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_departemen_profil"
-            android:layout_width="135dp"
+            android:layout_width="wrap_content"
+            android:layout_weight='1'
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_nama_profil"
-            android:layout_alignEnd="@+id/tv_nama_profil"
-            android:layout_marginStart="-106dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="-27dp"
-            android:layout_toEndOf="@+id/iv_photo"
+            android:includeFontPadding="false"
             android:fontFamily="@font/montserrat_regular"
             android:text="Unit kerja"
             android:textAlignment="center"
@@ -65,12 +66,7 @@
             android:id="@+id/iv_photo"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="25dp"
 
-            android:foregroundGravity="center_horizontal"
             app:srcCompat="@drawable/circle_1" />
     </RelativeLayout>
 
