@@ -12,10 +12,10 @@ data class TiketPetugas(
     @field:SerializedName("no_tiket")
     val no_tiket: String? = null,
 
-    @field:SerializedName("nama_pelapor")
+    @field:SerializedName("pelapor")
     val nama_pelapor: String? = null,
 
-    @field:SerializedName("bagian_pelapor")
+    @field:SerializedName("bagian")
     val bagian_pelapor: String? = null,
 
 

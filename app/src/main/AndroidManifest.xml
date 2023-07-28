@@ -15,13 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".TiketPetugasItem"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -29,7 +23,13 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/purple_700" />
-
+        <activity
+            android:name=".Petugas.Tiket.TiketPetugasItem"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Tracking.LainnyaActivity"
             android:exported="false" />

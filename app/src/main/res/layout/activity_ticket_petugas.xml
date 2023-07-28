@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="25sp"
-    tools:context=".Petugas.Ticket">
+    tools:context=".Petugas.Tiket.TiketPetugasItem">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,6 +27,12 @@
                 android:layout_marginTop="15sp"
                 tools:ignore="MissingConstraints">
 
+                <ImageView
+                    android:id="@+id/back_btn"
+                    android:layout_width="35sp"
+                    android:layout_height="35sp"
+                    android:src="@drawable/ic_back_btn_petugas" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -36,6 +42,7 @@
                     android:textColor="#2954A8"
                     android:textSize="20sp" />
 
+
             </RelativeLayout>
 
             <!-- Main Section Tiket -->
@@ -44,7 +51,7 @@
                 android:layout_below="@+id/header_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25sp"
+                android:layout_marginHorizontal="15sp"
                 android:layout_marginTop="5sp"
                 android:paddingBottom="20sp"
                 android:background="@drawable/border_blue_prakom">
@@ -83,9 +90,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5sp"
-                        android:layout_marginBottom="10sp"
+                        android:layout_marginBottom="5sp"
                         android:fontFamily="@font/montserrat_regular"
                         android:text="63a062e6c9444"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_tanggal_tiket"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0sp"
+                        android:layout_marginBottom="10sp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="TanggalTiket"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
@@ -147,53 +166,7 @@
                                     android:textSize="11sp" />
 
                                 <TextView
-                                    android:id="@+id/tv_nama_pelapor"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_marginLeft="15sp"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text="test"
-                                    android:textColor="#000000"
-                                    android:textSize="10sp" />
-
-                            </LinearLayout>
-
-                        </TableRow>
-
-                        <!-- Jabatan Pelapor -->
-                        <TableRow
-                            android:layout_width="fill_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginTop="1dp"
-                            android:layout_marginBottom="10sp"
-                            android:layout_weight="1">
-
-                            <TextView
-                                android:id="@+id/tv_jabatan_pelapor_label"
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_semibold"
-                                android:text="Jabatan"
-                                android:textColor="#000000"
-                                android:textSize="10sp" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserrat_regular"
-                                    android:text=":"
-                                    android:textColor="#000000"
-                                    android:textSize="11sp" />
-
-                                <TextView
-                                    android:id="@+id/tv_jabatan_pelapor"
+                                    android:id="@+id/tv_nama_pelapor_2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
@@ -216,7 +189,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                android:id="@+id/tv_unit_kerja_pelapor_label"
+                                android:id="@+id/tv_unit_kerja_label"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_semibold"
@@ -253,6 +226,144 @@
 
                         </TableRow>
 
+                        <!-- Bagian Pelapor -->
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_bagian_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Bagian"
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_bagian_pelapor_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_hp_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Nomor HP"
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_hp_pelapor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_email_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Email"
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_email_pelapor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+
                     </LinearLayout>
 
                     <!-- Border -->
@@ -261,6 +372,7 @@
 
                     <!-- Border -->
                     <ImageView
+                        android:id="@+id/garis"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15sp"
@@ -272,8 +384,155 @@
                         app:layout_constraintVertical_bias="0.447"
                         app:srcCompat="@drawable/garis" />
 
+                    <!-- Data Tempat -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20sp"
+                        android:orientation="vertical">
+
+                        <!-- Nama Pelapor -->
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_gedung_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Gedung "
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_gedung_pelapor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <!-- Jabatan Pelapor -->
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_lantai_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Lantai"
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_lantai_pelapor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <!-- Unit Kerja Pelapor -->
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_ruangan_label"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Ruangan"
+                                android:textColor="#000000"
+                                android:textSize="10sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text=":"
+                                    android:textColor="#000000"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_ruangan_pelapor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginLeft="15sp"
+                                    android:fontFamily="@font/montserrat_regular"
+                                    android:text="test"
+                                    android:textColor="#000000"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+                    </LinearLayout>
                     <!-- Data Detail -->
                     <LinearLayout
+                        android:id="@+id/keterangan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
