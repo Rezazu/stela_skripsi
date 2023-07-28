@@ -11,26 +11,20 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Homepage.Notification.NotificationsPage
+import com.example.stela_android.Retrofit.Petugas.OnTicketPetugasClickListener
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
-import com.example.stela_android.Retrofit.Petugas.PermintaanResponse
-import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
-import com.example.stela_android.Retrofit.Petugas.TiketPetugasAdapter
+import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
-import com.example.stela_android.Retrofit.Ticket.*
-import com.example.stela_android.Retrofit.Petugas.TiketPetugas
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.activity_home.btn_notification
-import kotlinx.android.synthetic.main.activity_home_prakom.*
-import kotlinx.android.synthetic.main.activity_home_prakom.view.*
-import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomePrakom : Fragment(), OnTicketClickListener {
+class HomePrakom : Fragment() {
 
     private val list = ArrayList<TiketPetugas>()
     private val layoutManager: RecyclerView.LayoutManager? = null
@@ -54,6 +48,7 @@ class HomePrakom : Fragment(), OnTicketClickListener {
         getData()
         getTicketPetugas()
         btnNotificationListener()
+//        onTicketItemClicked()
     }
 
     private fun getData(){
@@ -113,53 +108,53 @@ class HomePrakom : Fragment(), OnTicketClickListener {
     }
 
 
-    override fun onTicketItemClicked(position: Int) {
-        val intent = Intent(activity, Ticket::class.java)
-//
+//    override fun onTicketPetugasItemClicked(position: Int) {
+//        val intent = Intent(activity, Ticket::class.java)
+////
 //        intent.putExtra("judul", list[position]?.keterangan)
 //        intent.putExtra("kode_tiket", list[position]?.no_tiket)
 //        intent.putExtra("tanggal_permintaan", list[position]?.tanggal)
-//        intent.putExtra("nama", list[position]?.)
+//        intent.putExtra("nama", list[position]?.nama_pelapor)
 //        intent.putExtra("jabatan", list[position]?.bagian_pelapor)
 //        intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
 //        intent.putExtra("gedung", list[position]?.gedung_pelapor)
 //        intent.putExtra("lantai", list[position]?.lantai_pelapor)
 //        intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
-//        intent.putExtra("status", list[position]?.status)
+//        intent.putExtra("status", list[position]?.id_status_tiket)
 //
 //        intent.putExtra("keterangan", list[position]?.keterangan)
 //        intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
 //        intent.putExtra("solusi", list[position]?.solusi)
 //        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
 //        intent.putExtra("rating", list[position]?.rating)
+////
+////        if(list[position]?.dokumen_lampiran != null) {
+////            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
+////            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
+////            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
+////            for(nums in 0 until sizeOfDokumenLampiran!!) {
+////                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
+////                    dokumenLampiranNames.add(nums,
+////                        it
+////                    )
+////                }
+////
+////                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
+////                    dokumenLampiranPaths.add(nums,
+////                        it
+////                    )
+////                }
+////            }
 //
-//        if(list[position]?.dokumen_lampiran != null) {
-//            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
-//            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
-//            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
-//            for(nums in 0 until sizeOfDokumenLampiran!!) {
-//                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
-//                    dokumenLampiranNames.add(nums,
-//                        it
-//                    )
-//                }
+////            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
+////            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
+////        } else {
+////            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
+////            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
+////        }
 //
-//                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
-//                    dokumenLampiranPaths.add(nums,
-//                        it
-//                    )
-//                }
-//            }
-//
-//            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
-//            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
-//        } else {
-//            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
-//            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
-//        }
-
-        startActivity(intent)
-    }
+//        startActivity(intent)
+//    }
 
 }
 
