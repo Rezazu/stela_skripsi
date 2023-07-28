@@ -109,11 +109,9 @@
                 android:layout_below="@+id/welcomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginTop="13dp"
-
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Anda memiliki 4 permintaan baru yang belum di kerjakan"
+                android:text="Anda memiliki 0 permintaan baru yang belum di kerjakan"
                 android:textSize="12dp" />
 
             <RelativeLayout
@@ -173,13 +171,7 @@
                     />
 
             </RelativeLayout>
-            <FrameLayout
-                android:id="@+id/flFragment"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_below="@+id/ticket_menu"
->
-            </FrameLayout>
+
             <RelativeLayout
                 android:id="@+id/container_tiket_prakom"
                 android:layout_width="match_parent"
@@ -188,12 +180,14 @@
                 tools:ignore="NotSibling"
                 android:layout_marginTop="20dp">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <fragment
                     android:id="@+id/rvTicketPetugas"
+                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="15sp"
-                    android:paddingBottom="10sp"/>
+                    android:paddingBottom="10sp"
+                    tools:layout="@layout/fragment_tiket_petugas"/>
 
             </RelativeLayout>
 

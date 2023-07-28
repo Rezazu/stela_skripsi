@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stelaandroid"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".TiketPetugasItem"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

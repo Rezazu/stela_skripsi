@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ticket"
+    android:id="@+id/ticket_petugas"
     android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
     android:layout_height="120sp"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -29,7 +29,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/no_tiket"
+            android:id="@+id/kode_tiket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
@@ -38,11 +38,11 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/status_tiket"
+            android:id="@+id/status_tiket_petugas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
-            android:text="On Process"
+            android:text="Status Tiket"
             android:textColor="#858383"
             android:textSize="11sp" />
 
@@ -50,7 +50,7 @@
 
     <!-- Ticket's date on bottom corner of left is active when rating is null and status is not 6 -->
     <TextView
-        android:id="@+id/tanggal_tiket"
+        android:id="@+id/tanggal_tiket_petugas"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="2dp"
         android:layout_width="wrap_content"
@@ -61,28 +61,6 @@
         android:text="22 September 2022 | 20.58"
         android:textColor="@color/black"
         android:textSize="10sp" />
-
-    <RelativeLayout
-        android:id="@+id/btn_nilai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/btn_kerjakan"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:paddingHorizontal="18dp"
-        android:paddingVertical="5sp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-2sp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="Beri Nilai"
-            android:textColor="#FFF"
-            android:textSize="11dp" />
-
-    </RelativeLayout>
 
 
 </RelativeLayout>

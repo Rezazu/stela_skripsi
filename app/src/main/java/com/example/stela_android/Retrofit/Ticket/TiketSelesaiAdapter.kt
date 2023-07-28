@@ -4,12 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.*
-import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Fragments.DialogRate
 import com.example.stela_android.R
 import com.example.stela_android.Service.Service
-import kotlinx.android.synthetic.main.rate_dialog.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.rating_bar
 

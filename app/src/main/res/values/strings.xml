@@ -12,4 +12,6 @@
     <string name="keterangan">Keterangan<font color='#FF0000'>*</font></string>
     <string name="bagian">Bagian<font color='#FF0000'>*</font></string>
     <string name="stela">Stela merupakan sistem eskalasi layanan Sekretariat Jenderal DPR RI yang dibuat oleh Pusat Teknologi Informasi untuk membantu mengatasi permasalahan terkait teknologi informasi yang ada pada lingkungan Sekretariat Jenderal DPR RI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
