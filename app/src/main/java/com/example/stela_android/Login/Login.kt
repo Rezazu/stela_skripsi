@@ -84,7 +84,7 @@ class Login : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(SharedPrefManager.getInstance(this).isLoggedIn){
-            if (SharedPrefManager.getInstance(applicationContext).user.id_peran  == 7 ) {
+            if (SharedPrefManager.getInstance(applicationContext).user.id_peran  == 5 ) {
                 val intentPetugas = Intent(applicationContext, HomepagePrakom::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intentPetugas)
