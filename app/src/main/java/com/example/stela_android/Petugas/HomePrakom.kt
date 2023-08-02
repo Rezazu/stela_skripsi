@@ -2,6 +2,7 @@ package com.example.stela_android.Petugas
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,7 +20,13 @@ import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import com.example.stela_android.Ticket.Ticket
+import kotlinx.android.synthetic.main.activity_active_ticket_page.*
 import kotlinx.android.synthetic.main.activity_home.btn_notification
+import kotlinx.android.synthetic.main.activity_home_prakom.*
+import kotlinx.android.synthetic.main.activity_home_prakom.btn_aktif
+import kotlinx.android.synthetic.main.activity_home_prakom.btn_selesai
+import kotlinx.android.synthetic.main.activity_home_prakom.ll_aktif
+import kotlinx.android.synthetic.main.activity_home_prakom.ll_selesai
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +40,7 @@ class HomePrakom : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(
@@ -41,14 +49,19 @@ class HomePrakom : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.activity_home_prakom, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getData()
+
         getTicketPetugas()
         btnNotificationListener()
 //        onTicketItemClicked()
+        btnTiketAktifListener()
+        btnTiketSelesaiListener()
+        ll_selesai.visibility = View.GONE
     }
 
     private fun getData(){
@@ -82,7 +95,7 @@ class HomePrakom : Fragment() {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
-        val tv_permintaan: TextView = requireActivity().findViewById(R.id.tv_permintaan) as TextView
+
         retro.getPermintaan().enqueue(object : Callback<PermintaanResponse> {
             override fun onResponse(
                 call: Call<PermintaanResponse>,
@@ -90,8 +103,6 @@ class HomePrakom : Fragment() {
             ) {
 
                 response.body()?.data?.let { list.addAll(it) }
-                val jumlah_tiket: Int = list.count()
-                tv_permintaan.setText("Anda memiliki " + jumlah_tiket + " permintaan baru yang belum di kerjakan")
 
             }
 
@@ -107,54 +118,45 @@ class HomePrakom : Fragment() {
         }
     }
 
+    fun btnTiketAktifListener() {
+        btn_aktif.setOnClickListener {
+            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
+            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
 
-//    override fun onTicketPetugasItemClicked(position: Int) {
-//        val intent = Intent(activity, Ticket::class.java)
-////
-//        intent.putExtra("judul", list[position]?.keterangan)
-//        intent.putExtra("kode_tiket", list[position]?.no_tiket)
-//        intent.putExtra("tanggal_permintaan", list[position]?.tanggal)
-//        intent.putExtra("nama", list[position]?.nama_pelapor)
-//        intent.putExtra("jabatan", list[position]?.bagian_pelapor)
-//        intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
-//        intent.putExtra("gedung", list[position]?.gedung_pelapor)
-//        intent.putExtra("lantai", list[position]?.lantai_pelapor)
-//        intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
-//        intent.putExtra("status", list[position]?.id_status_tiket)
+            btn_selesai.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_selesai.setTextColor(Color.parseColor("#000000"))
+
+            ll_selesai.visibility = View.GONE
+
+            if(ll_aktif.visibility == View.GONE) {
+                ll_aktif.visibility = View.VISIBLE
+            }
+        }
+    }
+    fun btnTiketSelesaiListener() {
+        btn_selesai.setOnClickListener {
+            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
+            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
+
+            btn_aktif.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_aktif.setTextColor(Color.parseColor("#000000"))
+
+//            val tiketSelesaiFragment: TiketSelesaiFragment = TiketSelesaiFragment()
+//            val tiketAktifFragment: ActiveTicketFragment = ActiveTicketFragment()
 //
-//        intent.putExtra("keterangan", list[position]?.keterangan)
-//        intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
-//        intent.putExtra("solusi", list[position]?.solusi)
-//        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
-//        intent.putExtra("rating", list[position]?.rating)
-////
-////        if(list[position]?.dokumen_lampiran != null) {
-////            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
-////            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
-////            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
-////            for(nums in 0 until sizeOfDokumenLampiran!!) {
-////                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
-////                    dokumenLampiranNames.add(nums,
-////                        it
-////                    )
-////                }
-////
-////                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
-////                    dokumenLampiranPaths.add(nums,
-////                        it
-////                    )
-////                }
-////            }
+//            val ft: FragmentTransaction? = fragmentManager?.beginTransaction()
 //
-////            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
-////            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
-////        } else {
-////            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
-////            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
-////        }
-//
-//        startActivity(intent)
-//    }
+//            if (tiketAktifFragment.isHidden() != false) {
+//                ft?.hide(tiketAktifFragment);
+//                ll_aktif.setVisibility(View.GONE);
+//            }
+
+            ll_selesai.visibility = View.VISIBLE
+            ll_aktif.visibility = View.GONE
+//            ft?.commit();
+
+        }
+    }
 
 }
 

@@ -39,7 +39,7 @@ class TiketPetugasItem : AppCompatActivity() {
         setContentView(R.layout.activity_ticket_petugas)
         val judul = intent.getStringExtra("judul")
         val kodeTiket = intent.getStringExtra("kode_tiket")
-        val tanggalTiket = Service.date(intent.getStringExtra("tanggal_permintaan"))
+        val tanggalTiket = intent.getStringExtra("tanggal_permintaan")
         val namaPelapor = intent.getStringExtra("nama")
         val jabatanPelapor = intent.getStringExtra("jabatan")
         val unitKerjaPelapor = intent.getStringExtra("unit_kerja")
@@ -88,17 +88,17 @@ class TiketPetugasItem : AppCompatActivity() {
         tv_permasalahan_akhir.text = permasalahanAkhir
         tv_solusi.text = solusi
 
-//        if(statusTiket != 6 && rating == null) {
-//            rating_container.visibility = View.GONE
-//        } else {
-//            // setting if ticket has been rated, so display the stars not btn rate ticket
-//            if(statusTiket == 6 && rating != null) {
+        if(statusTiket != 6 && rating == null) {
+            rating_container.visibility = View.GONE
+        } else {
+            // setting if ticket has been rated, so display the stars not btn rate ticket
+            if(statusTiket == 6 && rating != null) {
 //                rating_container.visibility = View.VISIBLE
 //                rating_bar.rating = rating.toFloat()
-//            } else {
+            } else {
 //                rating_container.visibility = View.GONE
-//            }
-//        }
+            }
+        }
 
 //        Service.statusTiketDisplay(statusTiket, tv_status_tiket)
         backBtnListener()

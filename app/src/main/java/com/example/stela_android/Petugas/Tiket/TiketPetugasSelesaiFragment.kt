@@ -14,17 +14,17 @@ import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
-import kotlinx.android.synthetic.main.fragment_tiket_petugas.*
+import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
+class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
 
     private val list = ArrayList<TiketPetugas>()
     private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<TiketPetugasAdapter.TicketViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<TiketPetugasSelesaiAdapter.TicketViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tiket_petugas, container, false)
+        return inflater.inflate(R.layout.fragment_tiket_petugas_selesai, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,23 +56,19 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
                 response: Response<PermintaanResponse>
             ) {
                 response.body()?.data?.let { list.addAll(it) }
-                val jumlah_tiket: Int = list.count()
-//                tv_permintaan.setText("Anda memiliki " + jumlah_tiket + " permintaan baru yang belum di kerjakan")
-
+               
                 if (response.body()?.success == null) {
 //                    container_tiket_prakom.visibility = View.GONE
                     tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki permintaan aktif"
+                    tv_empty_tiket.text = "Anda tidak memiliki permintaan selesai"
                 } else {
                     tv_empty_tiket.visibility = View.GONE
-                    rvTicketPetugas.apply {
+                    rvTicketPetugasSelesai.apply {
                         // set a LinearLayoutManager to handle Android
                         // RecyclerView behavior
                         layoutManager = LinearLayoutManager(activity)
                         // set the custom adapter to the RecyclerView
-                        adapter = context?.let { TiketPetugasAdapter(it, list, this@TiketPetugasFragment) }
-                        val ticketAdapter = adapter
-                        rvTicketPetugas.adapter = ticketAdapter
+                        adapter = TiketPetugasSelesaiAdapter(context, list, this@TiketPetugasSelesaiFragment)
 //                        ticketAdapter?.notifyDataSetChanged()
                     }
                 }

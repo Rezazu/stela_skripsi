@@ -149,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginLeft="30sp"
                     android:background="@drawable/shadow_banner_prakom"
                     android:fontFamily="@font/montserrat_semibold"
                     android:paddingHorizontal="30sp"
@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="20sp"
+                    android:layout_marginRight="30sp"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Tiket Selesai"
@@ -176,8 +176,8 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/container_tiket_prakom"
+            <LinearLayout
+                android:id="@+id/ll_aktif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ticket_menu"
@@ -185,7 +185,7 @@
                 android:layout_marginTop="20dp">
 
                 <fragment
-                    android:id="@+id/rvTicketPetugas"
+                    android:id="@+id/ticket_petugas_aktif"
                     android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,7 +193,26 @@
                     android:paddingBottom="10sp"
                     tools:layout="@layout/fragment_tiket_petugas"/>
 
-            </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_selesai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ticket_menu"
+                tools:ignore="NotSibling"
+                android:layout_marginTop="20dp">
+
+                <fragment
+                    android:id="@+id/ticket_petugas_selesai"
+                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasSelesaiFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="15sp"
+                    android:paddingBottom="10sp"
+                    tools:layout="@layout/fragment_tiket_petugas"/>
+
+            </LinearLayout>
 
         </RelativeLayout>
 

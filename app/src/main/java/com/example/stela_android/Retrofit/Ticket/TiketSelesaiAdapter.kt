@@ -6,13 +6,14 @@ import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Fragments.DialogRate
+import com.example.stela_android.Fragments.TiketSelesaiFragment
 import com.example.stela_android.R
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.ticket_item.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.rating_bar
 
 
-class TiketSelesaiAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val onTicketClickListener: OnTicketClickListener): RecyclerView.Adapter<TiketSelesaiAdapter.TicketViewHolder>() {
+class TiketSelesaiAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val onTicketClickListener: TiketSelesaiFragment): RecyclerView.Adapter<TiketSelesaiAdapter.TicketViewHolder>() {
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(ticketResponse: Tiket) {
             with(itemView) {
