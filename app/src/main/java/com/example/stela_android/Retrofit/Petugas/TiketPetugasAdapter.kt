@@ -51,11 +51,11 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 val tanggalTiket = Service.date(tanggalInputTiket)
 
                 // setting border of ticket container based on its category
-                if(ratingTiket != null) {
-                    rvTiket.background = resources.getDrawable(R.drawable.border_gray)
-                } else {
-                    rvTiket.background = resources.getDrawable(R.drawable.border_blue)
-                }
+//                if(ratingTiket != null) {
+//                    rvTiket.background = resources.getDrawable(R.drawable.border_gray)
+//                } else {
+//                    rvTiket.background = resources.getDrawable(R.drawable.border_shadow)
+//                }
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket != 6 && ratingTiket == null) {
                     // displaying tanggal tiket

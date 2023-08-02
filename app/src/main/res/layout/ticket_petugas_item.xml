@@ -6,7 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="120sp"
     android:layout_marginBottom="15sp"
-    android:background="@drawable/border_blue_prakom"
+    android:layout_marginHorizontal="5dp"
+    android:background="@drawable/border_shadow"
+    android:layout_gravity="center_horizontal"
+    android:elevation="12dp"
+    android:clipChildren="false"
     android:paddingHorizontal="20sp"
     android:paddingVertical="20sp"
     >

@@ -1,20 +1,27 @@
 package com.example.stela_android.Petugas.Tiket
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Homepage.Homepage
+import com.example.stela_android.Login.Login
 import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
+import com.example.stela_android.Storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
 import kotlinx.android.synthetic.main.activity_ticket.rvDokumen
@@ -101,16 +108,33 @@ class TiketPetugasItem : AppCompatActivity() {
         }
 
 //        Service.statusTiketDisplay(statusTiket, tv_status_tiket)
-        backBtnListener()
-
+    kerjakanBtnListenebr()
+    }
+    private fun showDialog(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setContentView(R.layout.popup_laporan_petugas)
+//        val logout = dialog.findViewById<Button>(R.id.btn_logout)
+        val dismiss = dialog.findViewById<Button>(R.id.btn_kembali)
+        dialog.show()
+//        logout.setOnClickListener {
+//            getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+//            if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+//                val intent = Intent(activity, Login::class.java)
+//                startActivity(intent)
+//            }
+//        }
+        dismiss.setOnClickListener {
+            dialog.dismiss()
+        }
     }
 
-    fun whatsapp(view: View) {
-        val url =
-            "https://api.whatsapp.com/send/?phone=081952434368&text&type=phone_number&app_absent=0"
-        val bukeBrowser = Intent(Intent.ACTION_VIEW)
-        bukeBrowser.data = Uri.parse(url)
-        startActivity(bukeBrowser)
+    private fun kerjakanBtnListenebr(){
+        val btn_kerjakan = findViewById<Button>(R.id.btn_kerjakan)
+        btn_kerjakan.setOnClickListener {
+            showDialog()
+        }
     }
 
     private fun backBtnListener() {
