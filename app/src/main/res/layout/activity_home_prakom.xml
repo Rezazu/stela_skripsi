@@ -141,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ticket_menu"
                 android:layout_marginTop="20sp"
+                android:padding="5dp"
                 android:layout_below="@+id/layout_laporan"
                 >
 
@@ -199,7 +200,7 @@
 
             <LinearLayout
                 android:id="@+id/ll_selesai"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ticket_menu"

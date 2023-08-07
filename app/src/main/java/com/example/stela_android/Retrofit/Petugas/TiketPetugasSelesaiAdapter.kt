@@ -9,6 +9,7 @@ import com.example.stela_android.Fragments.DialogRate
 import com.example.stela_android.Petugas.Tiket.TiketPetugasSelesaiFragment
 import com.example.stela_android.R
 import com.example.stela_android.Service.Service
+import kotlinx.android.synthetic.main.activity_ticket_petugas.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.judul_tiket
 import kotlinx.android.synthetic.main.ticket_petugas_item.view.*

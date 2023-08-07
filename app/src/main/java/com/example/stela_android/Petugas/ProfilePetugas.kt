@@ -43,7 +43,7 @@ public open class ProfilePetugas : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_profile, container, false)
+        return inflater.inflate(R.layout.activity_profile_petugas, container, false)
     }
 
     private fun getResult(){

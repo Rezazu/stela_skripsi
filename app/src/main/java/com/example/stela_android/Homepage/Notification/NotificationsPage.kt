@@ -30,6 +30,7 @@ class NotificationsPage : AppCompatActivity() {
         setContentView(R.layout.activity_notifications_page)
         backBtnListener()
         getNotification()
+        recycleviewBuilder()
     }
 
     private fun getNotification(){

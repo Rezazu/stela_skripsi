@@ -39,7 +39,7 @@ class HomepagePrakom : AppCompatActivity() {
         val bottomnav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomnav.itemIconTintList = null
 
-        val profile = Profile()
+        val profile = ProfilePetugas()
         val home = HomePrakom()
         val activeTicket = ActiveTicketPage()
 

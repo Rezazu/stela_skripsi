@@ -40,7 +40,7 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
 
                 // setting border of ticket container based on its category
                 if(ratingTiket != null) {
-                    rvTiket.background = resources.getDrawable(R.drawable.border_gray)
+                    rvTiket.background = resources.getDrawable(R.drawable.border_shadow)
                 } else {
                     if(kategori == "Sistem Informasi") {
                         rvTiket.background = resources.getDrawable(R.drawable.border_blue)

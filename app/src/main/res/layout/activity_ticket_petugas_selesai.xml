@@ -753,7 +753,6 @@
                         android:backgroundTint="#E21C1C"
                         android:textColor="@color/white"
                         android:textAllCaps="false"
-                        android:visibility="visible"
                         app:cornerRadius="5dp" />
 
                     <Button
@@ -770,7 +769,6 @@
                         android:backgroundTint="#2954A8"
                         android:text="Kerjakan"
                         android:textAllCaps="false"
-                        android:visibility="visible"
                         app:cornerRadius="5dp" />
 
 
