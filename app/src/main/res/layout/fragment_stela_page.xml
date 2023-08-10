@@ -12,7 +12,7 @@
         android:id="@+id/header_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/border_bottom"
         android:padding="20sp"
         tools:ignore="MissingConstraints">
 
@@ -121,13 +121,14 @@
 
             <Button
                 android:id="@+id/btn_bacapdf"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_below="@+id/pdfView"
-                android:text="Baca >>"
+                android:text="Baca"
+                android:background="@drawable/shadow_banner"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:background="@null"
                 />
         </RelativeLayout>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,120 +8,139 @@
     android:background="#3C99AB"
     tools:context=".Login.Login">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/stelalogo"
+            android:layout_width="165dp"
+            android:layout_height="115dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/stelalogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stelalogo"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Sistem Tiket dan Eskalasi Layanan"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            tools:ignore="NotSibling" />
 
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="340dp"
-        android:layout_height="470dp"
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/login_background"
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:padding="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626"
-        app:srcCompat="@drawable/rectangle" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.153"
-        app:srcCompat="@drawable/logo_setjen" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="150dp"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596"
-        app:srcCompat="@drawable/stelalogo" />
-
-    <TextView
-        android:id="@+id/tv_sistemtiket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sistem Tiket dan Eskalasi Layanan"
-        android:textColor="#FFFFFF"
-        app:fontFamily="@font/montserrat_regular"
-        app:layout_constraintEnd_toEndOf="@+id/imageView12"
-        app:layout_constraintStart_toStartOf="@+id/imageView12"
-        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
-
-    <TextView
-        android:id="@+id/tv_dpr2022"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text="Sekretariat Jenderal DPR RI 2022"
-
-        android:textColor="#FFFFFF"
-
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.771" />
-
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/rectangle_2"
-        android:hint="Username"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="10dp"
-        android:inputType="text"
-        android:textColorHint="#FFB5B5B5"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:fontFamily="@font/montserrat_regular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/rectangle_2"
-        android:hint="Password"
-        android:fontFamily="@font/montserrat_regular"
-        android:inputType="textPassword"
-        android:textColorHint="#FFB5B5B5"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="10dp"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username" />
+        android:elevation="4dp">
 
 
-    <ImageButton
-        android:id="@+id/btn_masuk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:background="@null"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintStart_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"
-        app:srcCompat="@drawable/ic_login_btn_2" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ic_email"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/mdi_email"/>
+        <TextView
+            android:id="@+id/fill_tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ic_email"
+            android:textColor="#417E87"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="13sp"
+            android:text="E - Mail"
+            android:layout_marginLeft="8dp"/>
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_2"
+            android:fontFamily="@font/montserrat_regular"
+            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/fill_tv_email"
+            android:layout_centerHorizontal="true"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ic_password"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/et_email"
+            android:src="@drawable/material_symbols_lock"/>
+        <TextView
+            android:id="@+id/fill_tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ic_password"
+            android:layout_below="@+id/et_email"
+            android:textColor="#417E87"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="13sp"
+            android:text="Password"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="8dp"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/et_email"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rectangle_2"
+            android:fontFamily="@font/montserrat_regular"
+            android:inputType="text"
+            android:layout_centerHorizontal="true"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_masuk"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_password"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/login_btn"
+            android:elevation="12dp"
+            android:translationZ="12dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:text="Masuk"
+            app:backgroundTint="@null" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/btn_masuk"
+            android:layout_centerInParent="true"
+            android:src="@drawable/pustekinfo"/>
+    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

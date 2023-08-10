@@ -7,19 +7,14 @@
     android:viewportWidth="325"
     android:viewportHeight="40"
     >
-
     <group>
-
         <clip-path
-            android:pathData="M20 0H305C316.046 0 325 8.95431 325 20C325 31.0457 316.046 40 305 40H20C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0Z"
+            android:pathData="M10 0H315C320.523 0 325 4.47715 325 10V30C325 35.5228 320.523 40 315 40H10C4.47715 40 0 35.5228 0 30V10C0 4.47715 4.47715 0 10 0Z"
             />
-
         <path
-            android:pathData="M20 0H305C316.046 0 325 8.95431 325 20C325 31.0457 316.046 40 305 40H20C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0Z"
-            android:strokeWidth="2"
-            android:strokeColor="#ABABAB"
+            android:pathData="M10 0H315C320.523 0 325 4.47715 325 10V30C325 35.5228 320.523 40 315 40H10C4.47715 40 0 35.5228 0 30V10C0 4.47715 4.47715 0 10 0Z"
+            android:strokeWidth="2.5"
+            android:strokeColor="#417E87"
             />
-
     </group>
-
 </vector>

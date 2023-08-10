@@ -28,9 +28,9 @@ class Login : AppCompatActivity() {
         btn_masuk.setOnClickListener{
 //            val intent = Intent(this, Homepage::class.java)
 //            startActivity(intent)
-            val username = et_username.text.toString().trim()
+            val email = et_email.text.toString().trim()
             val password = et_password.text.toString().trim()
-            if(username.isEmpty() || password.isEmpty() || username.isEmpty() && password.isEmpty()){
+            if(email.isEmpty() || password.isEmpty() || email.isEmpty() && password.isEmpty()){
                 val myToast =
                     Toast.makeText(applicationContext, "Username atau Password tidak boleh kosong", Toast.LENGTH_LONG)
                 myToast.show()
@@ -42,7 +42,7 @@ class Login : AppCompatActivity() {
 
     fun login(){
         val retro = Retrofit.getRetroLogin().create(UserApi::class.java)
-        val username = et_username.text.toString().trim()
+        val username = et_email.text.toString().trim()
         val password = et_password.text.toString().trim()
         retro.login(username, password).enqueue(object : Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
