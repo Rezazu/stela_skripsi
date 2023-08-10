@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/ic_email"
-            android:textColor="#417E87"
+            android:textColor="#3C99AB"
             android:layout_marginTop="45dp"
             android:fontFamily="@font/montserrat_medium"
             android:textSize="13sp"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/ic_password"
             android:layout_below="@+id/et_email"
-            android:textColor="#417E87"
+            android:textColor="#3C99AB"
             android:fontFamily="@font/montserrat_medium"
             android:textSize="13sp"
             android:text="Password"
@@ -123,23 +123,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/et_password"
             android:layout_centerInParent="true"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="160dp"
             android:background="@drawable/login_btn"
             android:elevation="12dp"
-            android:translationZ="12dp"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:stateListAnimator="@null"
             android:text="Masuk"
+            android:translationZ="12dp"
             app:backgroundTint="@null" />
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:layout_below="@+id/btn_masuk"
             android:layout_centerInParent="true"
-            android:src="@drawable/pustekinfo"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pustekinfo" />
     </RelativeLayout>
 
 
