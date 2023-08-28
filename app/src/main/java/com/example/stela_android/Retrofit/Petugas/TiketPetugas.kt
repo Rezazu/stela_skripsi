@@ -6,8 +6,8 @@ import java.util.*
 
 data class TiketPetugas(
 
-    @field:SerializedName("id")
-    val id: Int,
+    @field:SerializedName("id_tiket")
+    val id_tiket: Int,
 
     @field:SerializedName("no_tiket")
     val no_tiket: String? = null,

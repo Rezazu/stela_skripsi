@@ -1,9 +1,9 @@
 package com.example.stela_android.Retrofit.Petugas
 
 import com.example.stela_android.Retrofit.Ticket.TiketResponse
+import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
+import retrofit2.http.*
 
 interface PetugasTiketApi {
 
@@ -12,8 +12,4 @@ interface PetugasTiketApi {
     @GET("helpdesk/permintaan")
     fun getPermintaan(): retrofit2.Call<PermintaanResponse>
 
-//    @Headers("Content-type: application/json",
-//        "Authorization: Bearer my token")
-//    @GET("servicedesk/permintaan")
-//    fun getPermintaan(): Call<TiketResponse>
 }

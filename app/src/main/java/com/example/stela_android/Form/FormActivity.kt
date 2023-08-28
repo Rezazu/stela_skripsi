@@ -145,7 +145,6 @@ class FormActivity : AppCompatActivity() {
             .setAction(Intent.ACTION_GET_CONTENT).putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         takeFile.launch(intent)
     }
-
     private val takeFile = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
 

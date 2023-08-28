@@ -1,36 +1,37 @@
 package com.example.stela_android.Petugas.Tiket
 
 import android.app.Dialog
+import android.content.ContentResolver
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Homepage.Homepage
-import com.example.stela_android.Login.Login
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
+import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
+import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Service.Service
-import com.example.stela_android.Storage.SharedPrefManager
+import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
-import kotlinx.android.synthetic.main.activity_ticket.rvDokumen
 import kotlinx.android.synthetic.main.activity_ticket.tv_gedung_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_judul_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_keterangan
 import kotlinx.android.synthetic.main.activity_ticket.tv_kode_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_lantai_pelapor
-import kotlinx.android.synthetic.main.activity_ticket.tv_nama_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_permasalahan_akhir
 import kotlinx.android.synthetic.main.activity_ticket.tv_ruangan_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
@@ -38,8 +39,22 @@ import kotlinx.android.synthetic.main.activity_ticket.tv_tanggal_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_unit_kerja_pelapor
 import kotlinx.android.synthetic.main.activity_ticket_petugas.*
 import kotlinx.android.synthetic.main.activity_ticket_petugas.back_btn
+import kotlinx.android.synthetic.main.popup_laporan_petugas.*
+import kotlinx.android.synthetic.main.ticket_item.view.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TiketPetugasItem : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    var selectedFile = ""
+    val filePaths: ArrayList<String> = ArrayList()
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,8 +97,8 @@ class TiketPetugasItem : AppCompatActivity() {
         } else {
             tv_judul_tiket.setText(judul)
         }
-
-        tv_kode_tiket.text = kodeTiket
+        val id = intent.getIntExtra("id", 193)
+        tv_kode_tiket.text = id.toString()
         tv_tanggal_tiket.text = tanggalTiket
         tv_nama_pelapor_2.text = namaPelapor
         tv_bagian_pelapor_2.text = jabatanPelapor
@@ -107,34 +122,95 @@ class TiketPetugasItem : AppCompatActivity() {
             }
         }
 
-//        Service.statusTiketDisplay(statusTiket, tv_status_tiket)
-    kerjakanBtnListenebr()
+        val btn_kerjakan = findViewById<Button>(R.id.btn_kerjakan)
+        btn_kerjakan.setOnClickListener {
+            DialogKerjakan(this, id, keterangan).show()
+        }
     }
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun showDialog(){
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(R.layout.popup_laporan_petugas)
-//        val logout = dialog.findViewById<Button>(R.id.btn_logout)
-        val dismiss = dialog.findViewById<Button>(R.id.btn_kembali)
+        val keterangan = intent.getStringExtra("keterangan")
+        val tv_keterangan = dialog.findViewById<TextView>(R.id.tv_permaslahan_awal)
+        tv_keterangan.text = keterangan
         dialog.show()
-//        logout.setOnClickListener {
-//            getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
-//            if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-//                val intent = Intent(activity, Login::class.java)
-//                startActivity(intent)
-//            }
-//        }
-        dismiss.setOnClickListener {
-            dialog.dismiss()
-        }
     }
 
-    private fun kerjakanBtnListenebr(){
-        val btn_kerjakan = findViewById<Button>(R.id.btn_kerjakan)
-        btn_kerjakan.setOnClickListener {
-            showDialog()
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun updateSelesai(){
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.popup_laporan_petugas)
+        val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "").toString()
+        val permasalahan_akhir = dialog.ed_permasalahan_akhir.getText().toString()
+        val solusi = dialog.ed_solusi.getText().toString()
+        val id_status_tiket = "6"
+        val id_status_tiket_internal = "9"
+
+        val builder = MultipartBody.Builder()
+        builder.setType(MultipartBody.FORM)
+            .addFormDataPart("permasalahan_akhir", permasalahan_akhir)
+            .addFormDataPart("solusi", solusi)
+            .addFormDataPart("id_status_tiket", id_status_tiket)
+            .addFormDataPart("id_status_tiket_internal", id_status_tiket_internal)
+
+        if(selectedFile != "" || filePaths.isNotEmpty()){
+            if(filePaths.isEmpty()){
+                val dokumen = convertFile(this.selectedFile.toUri())
+                builder.addFormDataPart("dokumen[]", dokumen.name, dokumen.asRequestBody())
+            }else{
+                for(item in filePaths){
+                    val dokumen = convertFile(item.toUri())
+                    builder.addFormDataPart("dokumen[]", dokumen.name, dokumen.asRequestBody())
+                }
+            }
         }
+        val requestBody = builder.build()
+        val retro = Retrofit.postRetro(token, requestBody).create(PetugasTiketApi::class.java)
+//        retro.updateSolusi(id, requestBody).enqueue(object : retrofit2.Callback<PutSolusiResponse> {
+//            override fun onResponse(call: Call<PutSolusiResponse>, response: Response<PutSolusiResponse>){
+//                if(response.isSuccessful){
+//                    val body = response.body()
+//                    val id_tiket = body?.data?.id_tiket
+//                    intent.flags =
+//                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_TASK_ON_HOME
+//                    startActivity(intent)
+//                    this@TiketPetugasItem.finish()
+//                } else {
+//                    btn_submit.isEnabled = true
+//                    val myToast = Toast.makeText(applicationContext, "Pastikan form tidak ada yang kosong", Toast.LENGTH_LONG)
+//                    myToast.show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<PutSolusiResponse>, t: Throwable) {
+//                Log.d("form", "onFailure: " + t.message)
+//                btn_submit.isEnabled = true
+//            }
+//        })
+
+    }
+
+    private fun convertFile(selectedFile: Uri): File {
+        val contentResolver: ContentResolver = this.contentResolver
+        val type = (contentResolver.getType(selectedFile) ?: "").split("/")
+        val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+        val fileNameFormat = "dd-MM-yyyy"
+        val timestamp: String =
+            SimpleDateFormat(fileNameFormat, Locale.getDefault()).format(System.currentTimeMillis())
+        val myFile = File.createTempFile(timestamp, ".${type.last()}")
+        val inputStream = contentResolver.openInputStream(selectedFile) as InputStream
+        val outputStream: OutputStream = FileOutputStream(myFile)
+        val buff = ByteArray(1024)
+        var length: Int
+        while (inputStream.read(buff).also { length = it } > 0)
+            outputStream.write(buff, 0, length)
+        inputStream.close()
+        outputStream.close()
+        return myFile
     }
 
     private fun backBtnListener() {

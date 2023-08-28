@@ -17,7 +17,7 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
         fun bind(permintaanResponse: TiketPetugas) {
             with(itemView) {
                 // get all data ticket
-                var id = permintaanResponse.id
+                var id = permintaanResponse.id_tiket
                 var noTiket = permintaanResponse.no_tiket
                 var judul = permintaanResponse.keterangan
                 var tanggalInputTiket = permintaanResponse.tanggal

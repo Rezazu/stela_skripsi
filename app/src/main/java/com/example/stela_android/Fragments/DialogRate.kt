@@ -4,15 +4,11 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.Window
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.OnTicketClickListener
 import com.example.stela_android.Retrofit.Ticket.Rating.RatingResponse
-import com.example.stela_android.Retrofit.Ticket.TiketAdapter
 import com.example.stela_android.Retrofit.Ticket.TiketApi
 import com.example.stela_android.Retrofit.Ticket.TiketResponse
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
@@ -25,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DialogRate(context: Context, id: Int): Dialog(context), OnTicketClickListener {
+class DialogRate(context:Context, id: Int): Dialog(context), OnTicketClickListener {
 
     init {
         setCancelable(false)
@@ -87,8 +83,5 @@ class DialogRate(context: Context, id: Int): Dialog(context), OnTicketClickListe
     }
 
     override fun onTicketItemClicked(position: Int) {
-
     }
-
-
 }

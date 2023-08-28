@@ -1,11 +1,20 @@
 package com.example.stela_android.Service
 
+import android.content.ContentResolver
 import android.graphics.Color
+import android.net.Uri
+import android.os.Environment
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.view.View
 import com.example.stela_android.R
 import kotlinx.android.synthetic.main.ticket_item.view.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Service {
 
@@ -71,5 +80,6 @@ object Service {
             tv.setTextColor(Color.parseColor("#47BB8A"))
         }
     }
+
 
 }
