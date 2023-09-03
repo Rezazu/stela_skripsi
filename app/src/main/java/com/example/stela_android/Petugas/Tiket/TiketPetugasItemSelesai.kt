@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,23 +13,16 @@ import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Homepage.Homepage
-import com.example.stela_android.Login.Login
 import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
-import com.example.stela_android.Storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
-import kotlinx.android.synthetic.main.activity_ticket.rvDokumen
 import kotlinx.android.synthetic.main.activity_ticket.tv_gedung_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_judul_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_keterangan
 import kotlinx.android.synthetic.main.activity_ticket.tv_kode_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_lantai_pelapor
-import kotlinx.android.synthetic.main.activity_ticket.tv_nama_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_permasalahan_akhir
 import kotlinx.android.synthetic.main.activity_ticket.tv_ruangan_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
@@ -119,7 +111,7 @@ class TiketPetugasItemSelesai : AppCompatActivity() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.setContentView(R.layout.popup_laporan_petugas)
+        dialog.setContentView(R.layout.popup_laporan_selesai)
 //        val logout = dialog.findViewById<Button>(R.id.btn_logout)
         val dismiss = dialog.findViewById<Button>(R.id.btn_kembali)
         dialog.show()

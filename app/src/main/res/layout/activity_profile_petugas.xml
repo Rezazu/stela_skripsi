@@ -27,7 +27,7 @@
         android:id="@+id/main_section"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:background="#2954A8"
+        android:background="#073D5F"
         android:paddingBottom="50dp"
         android:gravity="center"
         android:orientation="vertical">

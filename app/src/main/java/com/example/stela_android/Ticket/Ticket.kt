@@ -10,9 +10,12 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.stela_android.Homepage.Homepage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
+import com.example.stela_android.Stela.StelaPage
+import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
 import kotlinx.android.synthetic.main.dokumen_item.*
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
@@ -100,6 +103,7 @@ class Ticket : AppCompatActivity() {
         bukeBrowser.data = Uri.parse(url)
         startActivity(bukeBrowser)
     }
+
 
 }
 

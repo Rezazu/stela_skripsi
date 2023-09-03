@@ -1,10 +1,8 @@
 package com.example.stela_android.Petugas.Tiket
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.ContentResolver
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -16,17 +14,15 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
 import com.example.stela_android.Retrofit.Petugas.PostSolusiResponse
 import com.example.stela_android.Retrofit.Petugas.UpdateSelesaiApi
 import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.notification.*
-import kotlinx.android.synthetic.main.popup_laporan_petugas.*
+import kotlinx.android.synthetic.main.popup_laporan_terkendala.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
@@ -38,7 +34,7 @@ import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DialogKerjakan (context: Context, id_tiket:Int, keterangan:String?): Dialog(context) {
+class DialogTerkendala (context: Context, id_tiket:Int, keterangan:String?): Dialog(context) {
 
     private var idTiket = id_tiket
     private var Keterangan = keterangan
@@ -50,7 +46,7 @@ class DialogKerjakan (context: Context, id_tiket:Int, keterangan:String?): Dialo
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        setContentView(R.layout.popup_laporan_petugas)
+        setContentView(R.layout.popup_laporan_terkendala)
         val dismiss = findViewById<Button>(R.id.btn_kembali)
         val selesai = findViewById<Button>(R.id.btn_update_selesai)
         val upload = findViewById<ImageButton>(R.id.btn_upload)
@@ -62,8 +58,8 @@ class DialogKerjakan (context: Context, id_tiket:Int, keterangan:String?): Dialo
             dismiss()
         }
         selesai.setOnClickListener {
-            updateSelesai()
-//            dismiss()
+            updateTerkendala()
+            dismiss()
         }
         upload.setOnClickListener{
 //            selectFile()
@@ -73,19 +69,19 @@ class DialogKerjakan (context: Context, id_tiket:Int, keterangan:String?): Dialo
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private fun updateSelesai(){
+    private fun updateTerkendala(){
         val prefs = context.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "").toString()
         val permasalahan_akhir = ed_permasalahan_akhir.getText().toString()
-        val solusi = ed_solusi.getText().toString()
+        val kendala = ed_kendala.getText().toString()
         val id_status_tiket = "6"
-        val id_status_tiket_internal = "9"
+        val id_status_tiket_internal = "2"
 
         val builder = MultipartBody.Builder()
         builder.setType(MultipartBody.FORM)
             .addFormDataPart("id", idTiket.toString())
             .addFormDataPart("permasalahan_akhir", permasalahan_akhir)
-            .addFormDataPart("solusi", solusi)
+            .addFormDataPart("kendala", kendala)
             .addFormDataPart("id_status_tiket", id_status_tiket)
             .addFormDataPart("id_status_tiket_internal", id_status_tiket_internal)
 
@@ -102,7 +98,7 @@ class DialogKerjakan (context: Context, id_tiket:Int, keterangan:String?): Dialo
         }
         val requestBody = builder.build()
         val retro = Retrofit.postRetro(token, requestBody).create(UpdateSelesaiApi::class.java)
-        retro.updateSolusi(requestBody).enqueue(object : retrofit2.Callback<PostSolusiResponse> {
+        retro.updateTerkendala(requestBody).enqueue(object : retrofit2.Callback<PostSolusiResponse> {
             override fun onResponse(call: Call<PostSolusiResponse>, response: Response<PostSolusiResponse>){
                 if(response.isSuccessful){
                     Log.d("Success", "onUpdate: " + response.body()?.message)

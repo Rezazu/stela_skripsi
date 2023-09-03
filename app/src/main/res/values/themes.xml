@@ -19,7 +19,7 @@
         <item name="colorControlNormal">#4D000000</item>
 
         <!-- Selected star color -->
-        <item name="colorControlActivated">#FDD736</item>
+        <item name="colorControlActivated">#FFB800</item>
     </style>
 
     <style name="smallRatingBar"
@@ -28,6 +28,6 @@
         <item name="colorControlNormal">#4D000000</item>
 
         <!-- Selected star color -->
-        <item name="colorControlActivated">#FDD736</item>
+        <item name="colorControlActivated">#FFB800</item>
     </style>
 </resources>

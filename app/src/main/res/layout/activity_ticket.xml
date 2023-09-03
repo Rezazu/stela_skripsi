@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:padding="20sp"
+                android:paddingHorizontal="25sp"
+                android:paddingVertical="15sp"
                 android:layout_marginTop="15sp"
                 tools:ignore="MissingConstraints">
 
@@ -33,7 +34,7 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Tiket"
-                    android:textColor="#2954A8"
+                    android:textColor="#3C99AB"
                     android:textSize="20sp" />
 
             </RelativeLayout>

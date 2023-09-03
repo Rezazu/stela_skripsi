@@ -35,6 +35,8 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 // get tv tanggal tiket
                 var tvTanggalTiket: TextView = findViewById(R.id.tanggal_tiket_petugas)
 
+                var tvBelumDinilai :TextView = findViewById(R.id.belum_dinilai)
+
                 //put data on item
                 tvKodeTiket.text = noTiket.toString()
                 tvTanggalTiket.text = tanggalInputTiket.toString()
@@ -61,12 +63,12 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                     // displaying tanggal tiket
                     // displaying status tiket on ticket_item
                     // hide rating bar
-//                    rating_bar.visibility = View.GONE
+                    rating_bar_petugas_selesai.visibility = View.GONE
                     // hide ticket success section
-//                    ll_ticket_success.visibility = View.GONE
+                    tvBelumDinilai.visibility = View.GONE
                 } else {
-                    // hide tanggal tiket on bottom right cornere
-//                    tanggal_tiket.visibility = View.GONE
+                    // hide tanggal tiket on bottom right corner
+                    tvTanggalTiket.visibility = View.GONE
                     // setting if ticket has been rated, so display the stars not btn rate ticket
                     if(statusTiket == 6 && ratingTiket != null) {
                         ticket_petugas.visibility = View.GONE
@@ -79,7 +81,9 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
 //                        tvStatusTiket.text = tanggalTiket.toString()
                     } else {
                         // displaying status tiket as tanggal tiket
-                        tvStatusTiket.text = tanggalTiket.toString()
+                        tvTanggalTiket.visibility = View.VISIBLE
+                        rating_bar_petugas_selesai.visibility = View.GONE
+
                         // displaying ticket success section
 //                        ll_ticket_success.visibility = View.VISIBLE
                         // hide rating bar

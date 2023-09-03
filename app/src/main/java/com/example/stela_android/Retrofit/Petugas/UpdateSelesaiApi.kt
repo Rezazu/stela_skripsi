@@ -9,4 +9,9 @@ interface UpdateSelesaiApi {
     fun updateSolusi(
         @Body body: RequestBody,
     ): Call<PostSolusiResponse>
+
+    @POST("update-terkendala")
+    fun updateTerkendala(
+        @Body body: RequestBody,
+    ): Call<PostSolusiResponse>
 }

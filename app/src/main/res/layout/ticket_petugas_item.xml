@@ -66,5 +66,35 @@
         android:textColor="@color/black"
         android:textSize="10sp" />
 
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating_bar_petugas_selesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:rating="1"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:max="5"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="-65dp"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_gravity="bottom"
+        />
+
+    <TextView
+        android:id="@+id/belum_dinilai"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Belum Dinilai"
+        android:textColor="#FF731D"
+        android:textSize="13sp" />
+
 
 </RelativeLayout>
