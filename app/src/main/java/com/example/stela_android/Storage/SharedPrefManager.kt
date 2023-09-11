@@ -33,7 +33,8 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getInt("id_peran", 2),
                 sharedPreferences.getString("email", null),
                 sharedPreferences.getString("username", null),
-                sharedPreferences.getString("status", null)
+                sharedPreferences.getString("status", null),
+                sharedPreferences.getInt("jumlah_tiket", 0)
             )
         }
 

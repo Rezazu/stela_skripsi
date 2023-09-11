@@ -1,4 +1,4 @@
-package com.example.stela_android.Retrofit.Ticket.DokumenLampiran
+package com.example.stela_android.Retrofit.Ticket.LaporanPetugas
 
 import android.content.Context
 import android.content.Intent
@@ -19,14 +19,14 @@ import kotlinx.android.synthetic.main.dokumen_item.view.*
 import kotlinx.android.synthetic.main.ticket_item.view.*
 import java.util.ArrayList
 
-class DokumenLampiranAdapter(private val context: Context, private val listName: ArrayList<String>, private val listPath: ArrayList<String>): RecyclerView.Adapter<DokumenLampiranAdapter.DokumenLampiranViewHolder>() {
-    inner class DokumenLampiranViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(dokumenLampiranName: String, dokumenLampiranPath: String) {
+class LaporanPetugasAdapter(private val context: Context, private val listName: ArrayList<String>, private val listPath: ArrayList<String>): RecyclerView.Adapter<LaporanPetugasAdapter.LaporanPetugasViewHolder>() {
+    inner class LaporanPetugasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        fun bind(LaporanPetugasName: String, LaporanPetugasPath: String) {
             with(itemView) {
-                val nameDokumen = dokumenLampiranName
+                val nameDokumen = LaporanPetugasName
                 tv_dokumen_lampiran.text = nameDokumen
 
-                val pathDokumen = dokumenLampiranPath
+                val pathDokumen = LaporanPetugasPath
                 tv_url.text = pathDokumen
 
                 ll_ticket.setOnClickListener {
@@ -50,13 +50,13 @@ class DokumenLampiranAdapter(private val context: Context, private val listName:
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): DokumenLampiranViewHolder {
+    ): LaporanPetugasViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.dokumen_item, parent, false)
-        return DokumenLampiranViewHolder(view)
+        return LaporanPetugasViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: DokumenLampiranViewHolder,
+        holder: LaporanPetugasViewHolder,
         position: Int
     ) {
         holder.bind(listName[position], listPath[position])

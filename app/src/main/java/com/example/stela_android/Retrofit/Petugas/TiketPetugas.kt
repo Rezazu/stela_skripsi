@@ -1,6 +1,7 @@
 package com.example.stela_android.Retrofit.Petugas
 
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranResponse
+import com.example.stela_android.Retrofit.Ticket.LaporanPetugas.LaporanPetugasResponse
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
@@ -63,6 +64,9 @@ data class TiketPetugas(
 
     @field:SerializedName("dokumen_lampiran")
     val dokumen_lampiran: ArrayList<DokumenLampiranResponse>? = null,
+
+    @field:SerializedName("laporan_petugas")
+    val laporan_petugas: ArrayList<LaporanPetugasResponse>? = null,
 
     )
 

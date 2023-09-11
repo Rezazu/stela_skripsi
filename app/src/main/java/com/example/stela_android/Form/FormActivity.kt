@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -29,10 +30,12 @@ import retrofit2.Response
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class FormActivity : AppCompatActivity() {
     var selectedFile = ""
+    var allFile: ArrayList<String> = ArrayList()
     val filePaths: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +47,17 @@ class FormActivity : AppCompatActivity() {
         btn_upload.setOnClickListener{
             selectFile()
         }
+        ll_lampiran.visibility = View.GONE
     }
 
     private fun postPermintaan(){
         btn_submit.setOnClickListener {
+            allFile.forEach(){
+                println(it)
+            }
+            filePaths.forEach(){
+                println(it)
+            }
             createPermintaan()
         }
     }
@@ -80,6 +90,21 @@ class FormActivity : AppCompatActivity() {
                 }
             }
         }
+//        if (allFile.isNotEmpty() || filePaths.isNotEmpty()){
+//            var dokumen: ArrayList<File> = ArrayList()
+//            dokumen.forEach(){
+//                convertFile(this.selectedFile.toUri())
+//                builder.addFormDataPart("dokumen[]",it.name, it.asRequestBody())
+//            }
+//        }  else {
+//            filePaths.forEach(){
+//                var dokumen: ArrayList<File> = ArrayList()
+//                dokumen.forEach(){
+//                    convertFile(this.selectedFile.toUri())
+//                    builder.addFormDataPart("dokumen[]",it.name, it.asRequestBody())
+//                }
+//            }
+//        }
         val requestBody = builder.build()
         val retro = Retrofit.postRetro(token, requestBody).create(FormApi::class.java)
         retro.createPermintaan(requestBody).enqueue(object : Callback<PostPermintaanResponse> {
@@ -141,10 +166,11 @@ class FormActivity : AppCompatActivity() {
 
     private fun selectFile(){
         val intent = Intent()
-            .setType("application/pdf")
+            .setType("*/*")
             .setAction(Intent.ACTION_GET_CONTENT).putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         takeFile.launch(intent)
     }
+
     private val takeFile = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
 
@@ -162,8 +188,12 @@ class FormActivity : AppCompatActivity() {
                 var path = result.data?.data as Uri
                 var nameFile = result.data?.data?.lastPathSegment.toString()
                 this.selectedFile = path.toString()
+                allFile.add(selectedFile)
                 tv_file.setText(nameFile.substring(nameFile.lastIndexOf("/")+1))
+                ll_lampiran.visibility = View.VISIBLE
+//                tv_file.setText(nameFile)
             }
+
 
         }
     }

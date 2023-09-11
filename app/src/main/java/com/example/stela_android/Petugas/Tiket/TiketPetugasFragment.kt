@@ -130,6 +130,30 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
             intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
         }
 
+        if(list[position]?.laporan_petugas != null){
+            val sizeOfLaporanPetugas: Int? = list[position]?.laporan_petugas?.size
+            val laporanPetugasNames: ArrayList<String> = ArrayList<String>()
+            val laporanPetugasPaths: ArrayList<String> = ArrayList<String>()
+            for(nums in 0 until sizeOfLaporanPetugas!!) {
+                list[position]?.laporan_petugas?.get(nums)?.original_name?.let {
+                    laporanPetugasNames.add(nums,
+                        it
+                    )
+                }
+
+                list[position]?.laporan_petugas?.get(nums)?.path?.let {
+                    laporanPetugasPaths.add(nums,
+                        it
+                    )
+                }
+            }
+            intent.putExtra("laporanPetugasNames", laporanPetugasNames)
+            intent.putExtra("laporanPetugasPaths", laporanPetugasPaths)
+        } else {
+            intent.putExtra("laporanPetugasNames", ArrayList<String>())
+            intent.putExtra("laporanPetugasPaths", ArrayList<String>())
+        }
+
         startActivity(intent)
     }
 

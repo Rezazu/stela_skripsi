@@ -50,6 +50,14 @@ object Service {
         return newJudul
     }
 
+    fun idKategori(id_sub_kategori: Int?): Int {
+        var id_kategori = 0
+        if (id_sub_kategori == 1 || id_sub_kategori == 6 ){
+            id_kategori = 1
+        }
+        return id_kategori
+    }
+
     fun statusTiketDisplay(statusTiket: Int?, tv: TextView) {
         if(statusTiket == 1) {
             tv.text = "Open"

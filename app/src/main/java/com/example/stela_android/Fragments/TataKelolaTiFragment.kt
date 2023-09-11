@@ -25,6 +25,7 @@ import retrofit2.Response
 
 class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
     private val list = ArrayList<Tiket>()
+    private val kategoriTatakelola : IntArray = intArrayOf(9,11,12)
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
 
@@ -59,37 +60,47 @@ class TataKelolaTiFragment: Fragment(), OnTicketClickListener {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
+        kategoriTatakelola.forEach {
+            retro.getTicketsByCategory(it).enqueue(object : Callback<TiketResponse> {
+                override fun onResponse(
+                    call: Call<TiketResponse>,
+                    response: Response<TiketResponse>
+                ) {
+                    response.body()?.data?.let { list.addAll(it) }
 
-        retro.getTicketsByCategory(3).enqueue(object: Callback<TiketResponse> {
-            override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
-                response.body()?.data?.let { list.addAll(it) }
+                    if (response.body()?.success == null) {
+                        container_tiket.visibility = View.GONE
+                        btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
+                        tv_empty_tiket.visibility = View.VISIBLE
+                        tv_empty_tiket.text =
+                            "Anda tidak memiliki layanan aktif dalam kategori Tata Kelola TI"
+                    } else {
+                        tv_empty_tiket.visibility = View.GONE
+                        rvTicketTataKelolaTI.apply {
+                            // set a LinearLayoutManager to handle Android
+                            // RecyclerView behavior
+                            layoutManager = LinearLayoutManager(activity)
+                            // set the custom adapter to the RecyclerView
+                            adapter = TiketAdapter(
+                                context,
+                                list,
+                                "Tata Kelola",
+                                this@TataKelolaTiFragment
+                            )
 
-                if(response.body()?.success == null) {
-                    container_tiket.visibility = View.GONE
-                    btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
-                    tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Tata Kelola TI"
-                } else {
-                    tv_empty_tiket.visibility = View.GONE
-                    rvTicketTataKelolaTI.apply {
-                        // set a LinearLayoutManager to handle Android
-                        // RecyclerView behavior
-                        layoutManager = LinearLayoutManager(activity)
-                        // set the custom adapter to the RecyclerView
-                        adapter = TiketAdapter(context, list, "Tata Kelola", this@TataKelolaTiFragment)
-
-                        val ticketAdapter = adapter
-                        rvTicketTataKelolaTI.adapter = ticketAdapter
-                        ticketAdapter?.notifyDataSetChanged()
+                            val ticketAdapter = adapter
+                            rvTicketTataKelolaTI.adapter = ticketAdapter
+                            ticketAdapter?.notifyDataSetChanged()
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
-                Log.d("Ticket", "onFailure: " + t.message)
-            }
+                override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
+                    Log.d("Ticket", "onFailure: " + t.message)
+                }
 
-        })
+            })
+        }
     }
 
     override fun onTicketItemClicked(position: Int) {

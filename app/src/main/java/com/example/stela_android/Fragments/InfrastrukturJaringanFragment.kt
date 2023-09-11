@@ -25,6 +25,7 @@ import retrofit2.*
 class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
 
     private val list = ArrayList<Tiket>()
+    private val kategoriInfrasturktur : IntArray = intArrayOf(2,3,5,7,10)
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
 
@@ -58,34 +59,35 @@ class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
+        kategoriInfrasturktur.forEach {
+            retro.getTicketsByCategory(it).enqueue(object: Callback<TiketResponse> {
+                override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
+                    response.body()?.data?.let { list.addAll(it) }
 
-        retro.getTicketsByCategory(2).enqueue(object: Callback<TiketResponse> {
-            override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
-                response.body()?.data?.let { list.addAll(it) }
+                    if(response.body()?.success == null) {
+                        container_tiket.visibility = View.GONE
+                        btn_dropdown.setImageResource(R.drawable.ic_chevron_down_ij)
+                        tv_empty_tiket.visibility = View.VISIBLE
+                        tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Infrastruktur Jaringan"
+                    } else {
+                        tv_empty_tiket.visibility = View.GONE
 
-                if(response.body()?.success == null) {
-                    container_tiket.visibility = View.GONE
-                    btn_dropdown.setImageResource(R.drawable.ic_chevron_down_ij)
-                    tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Infrastruktur Jaringan"
-                } else {
-                    tv_empty_tiket.visibility = View.GONE
-
-                    rvTicketInfrastukturJaringan.apply {
-                        // set a LinearLayoutManager to handle Android
-                        // RecyclerView behavior
-                        layoutManager = LinearLayoutManager(activity)
-                        // set the custom adapter to the RecyclerView
-                        adapter = TiketAdapter(context, list, "Infrastruktur Jaringan", this@InfrastrukturJaringanFragment)
+                        rvTicketInfrastukturJaringan.apply {
+                            // set a LinearLayoutManager to handle Android
+                            // RecyclerView behavior
+                            layoutManager = LinearLayoutManager(activity)
+                            // set the custom adapter to the RecyclerView
+                            adapter = TiketAdapter(context, list, "Infrastruktur Jaringan", this@InfrastrukturJaringanFragment)
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
-                Log.d("Ticket", "onFailure: " + t.message)
-            }
+                override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
+                    Log.d("Ticket", "onFailure: " + t.message)
+                }
 
-        })
+            })
+        }
 
 
     }

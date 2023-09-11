@@ -33,7 +33,7 @@
 
         android:layout_toEndOf="@+id/iv_photo"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Nama Lengkap"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="16sp"/>
 
@@ -48,7 +48,7 @@
         android:layout_marginBottom="14dp"
         android:layout_toEndOf="@+id/iv_photo"
         android:fontFamily="@font/montserrat_regular"
-        android:text="Unit Kerja"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="10sp"/>
 

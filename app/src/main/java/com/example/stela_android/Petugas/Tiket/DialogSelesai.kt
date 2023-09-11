@@ -1,10 +1,13 @@
 package com.example.stela_android.Petugas.Tiket
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,17 +17,21 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.PostSolusiResponse
 import com.example.stela_android.Retrofit.Petugas.UpdateSelesaiApi
 import com.example.stela_android.Retrofit.Retrofit
+import com.google.android.material.internal.ContextUtils.getActivity
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.notification.*
 import kotlinx.android.synthetic.main.popup_laporan_selesai.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.internal.http2.ErrorCode
 import retrofit2.Call
 import retrofit2.Response
 import java.io.File
@@ -39,7 +46,7 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
     private var idTiket = id_tiket
     private var Keterangan = keterangan
     var selectedFile = ""
-    val filePaths: ArrayList<String> = ArrayList()
+    var filePaths: ArrayList<String> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,16 +60,22 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
         val tv_keterangan = findViewById<TextView>(R.id.tv_permaslahan_awal)
         tv_keterangan.text = Keterangan
 
+        Log.d("LAPORAN NAMES", "data: " + selectedFile)
+        Log.d("LAPORAN PATHS", "data: " + filePaths)
+
 
         dismiss.setOnClickListener {
             dismiss()
         }
         selesai.setOnClickListener {
+            selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
+            filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateSelesai()
             dismiss()
+
         }
         upload.setOnClickListener{
-//            selectFile()
+            (getActivity(context) as TiketPetugasItem).selectFile()
         }
 
     }
@@ -76,6 +89,8 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
         val solusi = ed_solusi.getText().toString()
         val id_status_tiket = "6"
         val id_status_tiket_internal = "9"
+
+
 
         val builder = MultipartBody.Builder()
         builder.setType(MultipartBody.FORM)
@@ -115,6 +130,8 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
         })
 
     }
+
+
 
     private fun convertFile(selectedFile: Uri): File {
         val contentResolver: ContentResolver = context.contentResolver

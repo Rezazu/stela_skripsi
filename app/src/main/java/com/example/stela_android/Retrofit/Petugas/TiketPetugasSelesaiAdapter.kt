@@ -54,7 +54,7 @@ class TiketPetugasSelesaiAdapter(private val context: Context, private val list:
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket == 6 && ratingTiket != null) {
                     // displaying tanggal tiket
-                    status_tiket_petugas.text = tanggalTiket
+//                    status_tiket_petugas.text = tanggalTiket
                     // hide rating bar
                     rating_bar_petugas_selesai.visibility = View.VISIBLE
                     rating_bar_petugas_selesai.rating = ratingTiket.toFloat()

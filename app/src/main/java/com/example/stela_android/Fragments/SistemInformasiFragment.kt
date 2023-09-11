@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
+import com.example.stela_android.Service.Service.idKategori
 import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
 import kotlinx.android.synthetic.main.fragment_sistem_informasi.btn_dropdown
@@ -26,6 +27,7 @@ import retrofit2.Response
 class SistemInformasiFragment: Fragment(), OnTicketClickListener {
 
     private val list = ArrayList<Tiket>()
+    private val kategoriSistemInformasi : IntArray = intArrayOf(1,4,6)
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
 
@@ -60,37 +62,50 @@ class SistemInformasiFragment: Fragment(), OnTicketClickListener {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
+        val id_sub_kategori = prefs?.getInt("id_sub_kategori", 6)
+        val counter = 0
+        kategoriSistemInformasi.forEach {
+            retro.getTicketsByCategory(it).enqueue(object : Callback<TiketResponse> {
+                override fun onResponse(
+                    call: Call<TiketResponse>,
+                    response: Response<TiketResponse>
+                ) {
+                    response.body()?.data?.let { list.addAll(it) }
 
-        retro.getTicketsByCategory(1).enqueue(object: Callback<TiketResponse> {
-            override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
-                response.body()?.data?.let { list.addAll(it) }
+                    if (response.body()?.success == null) {
+                        container_tiket.visibility = View.GONE
+                        btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
+                        tv_empty_tiket.visibility = View.VISIBLE
+                        tv_empty_tiket.text =
+                            "Anda tidak memiliki layanan aktif dalam kategori Sistem Informasi"
+                    } else {
+                        tv_empty_tiket.visibility = View.GONE
+                        rvTicketInformationSystem.apply {
+                            // set a LinearLayoutManager to handle Android
+                            // RecyclerView behavior
+                            layoutManager = LinearLayoutManager(activity)
+                            // set the custom adapter to the RecyclerView
+                            adapter = TiketAdapter(
+                                context,
+                                list,
+                                "Sistem Informasi",
+                                this@SistemInformasiFragment
+                            )
 
-                if(response.body()?.success == null) {
-                    container_tiket.visibility = View.GONE
-                    btn_dropdown.setImageResource(R.drawable.ic_chevron_down_is)
-                    tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Sistem Informasi"
-                } else {
-                    tv_empty_tiket.visibility = View.GONE
-                    rvTicketInformationSystem.apply {
-                        // set a LinearLayoutManager to handle Android
-                        // RecyclerView behavior
-                        layoutManager = LinearLayoutManager(activity)
-                        // set the custom adapter to the RecyclerView
-                        adapter = TiketAdapter(context, list, "Sistem Informasi", this@SistemInformasiFragment)
-
-                        val ticketAdapter = adapter
-                        rvTicketInformationSystem.adapter = ticketAdapter
-                        ticketAdapter?.notifyDataSetChanged()
+                            val ticketAdapter = adapter
+                            rvTicketInformationSystem.adapter = ticketAdapter
+                            ticketAdapter?.notifyDataSetChanged()
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
-                Log.d("Ticket", "onFailure: " + t.message)
-            }
+                override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
+                    Log.d("Ticket", "onFailure: " + t.message)
+                }
 
-        })
+            })
+        }
+
     }
 
     override fun onTicketItemClicked(position: Int) {

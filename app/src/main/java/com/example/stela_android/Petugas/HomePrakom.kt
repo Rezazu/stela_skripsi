@@ -37,9 +37,9 @@ class HomePrakom : Fragment() {
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketPetugasAdapter.TicketViewHolder>? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
     }
 
@@ -55,7 +55,6 @@ class HomePrakom : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getData()
-
         getTicketPetugas()
         btnNotificationListener()
 //        onTicketItemClicked()
@@ -95,13 +94,13 @@ class HomePrakom : Fragment() {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
+        var tv_permintaan : TextView = requireActivity().findViewById(R.id.tv_permintaan) as TextView
 
         retro.getPermintaan().enqueue(object : Callback<PermintaanResponse> {
             override fun onResponse(
                 call: Call<PermintaanResponse>,
                 response: Response<PermintaanResponse>
             ) {
-
                 response.body()?.data?.let { list.addAll(it) }
 
             }
@@ -153,7 +152,6 @@ class HomePrakom : Fragment() {
 
             ll_selesai.visibility = View.VISIBLE
             ll_aktif.visibility = View.GONE
-//            ft?.commit();
 
         }
     }

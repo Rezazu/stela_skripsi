@@ -1,6 +1,7 @@
 package com.example.stela_android.Petugas.Tiket
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Dialog
 import android.content.ContentResolver
 import android.content.Context
@@ -17,13 +18,17 @@ import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
 import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
+import com.example.stela_android.Retrofit.Ticket.LaporanPetugas.LaporanPetugasAdapter
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.activity_notifications_page.*
@@ -49,6 +54,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class TiketPetugasItem : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -78,20 +84,36 @@ class TiketPetugasItem : AppCompatActivity() {
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
         val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
 
+        val laporanPetugasNames = intent.getStringArrayListExtra("laporanPetugasNames")
+        val laporanPetugasPaths = intent.getStringArrayListExtra("laporanPetugasPaths")
+
         val myToast = Toast.makeText(applicationContext, "Tiket " + kodeTiket + " ✨", Toast.LENGTH_LONG)
         myToast.show()
 
         Log.d("DOKUMEN NAMES", "data: " + dokumenLampiranNames)
         Log.d("DOKUMEN PATHS", "data: " + dokumenLampiranPaths)
 
-//        rvDokumen.apply {
-//            // set a LinearLayoutManager to handle Android
-//            // RecyclerView behavior
-//            layoutManager = LinearLayoutManager(context)
-//            // set the custom adapter to the RecyclerView
-//            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!)
-//            rvDokumen.adapter = adapter
-//        }
+        Log.d("LAPORAN NAMES", "data: " + laporanPetugasNames)
+        Log.d("LAPORAN PATHS", "data: " + laporanPetugasPaths)
+
+
+        rvDokumenPetugas.apply {
+            // set a LinearLayoutManager to handle Android
+            // RecyclerView behavior
+            layoutManager = LinearLayoutManager(context)
+            // set the custom adapter to the RecyclerView
+            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!)
+            rvDokumenPetugas.adapter = adapter
+        }
+
+        if (laporanPetugasNames != null) {
+            rvLaporanPetugas.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter =
+                    LaporanPetugasAdapter(context, laporanPetugasNames!!, laporanPetugasPaths!!)
+                rvLaporanPetugas.adapter = adapter
+            }
+        }
 
         if(judul?.length!! >= 45) {
             tv_judul_tiket.setText(Service.judulSubStr(judul))
@@ -111,8 +133,8 @@ class TiketPetugasItem : AppCompatActivity() {
         tv_permasalahan_akhir.text = permasalahanAkhir
         tv_solusi.text = solusi
 
-        if(statusTiket != 6 && rating == null) {
-            rating_container.visibility = View.GONE
+        if(statusTiket != 6 && rating == 0) {
+            rating_bar_petugas.visibility = View.GONE
         } else {
             // setting if ticket has been rated, so display the stars not btn rate ticket
             if(statusTiket == 6 && rating != null) {
@@ -129,11 +151,70 @@ class TiketPetugasItem : AppCompatActivity() {
         val btn_kendala = findViewById<Button>(R.id.btn_kendala)
         btn_kerjakan.setOnClickListener {
             DialogSelesai(this, id, keterangan).show()
+
         }
         btn_kendala.setOnClickListener {
             DialogTerkendala(this, id, keterangan).show()
         }
         backBtnListener()
+
+    }
+
+    internal fun selectFile(){
+        val intent = Intent()
+            .setType("application/pdf")
+            .setAction(Intent.ACTION_GET_CONTENT).putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        takeFile.launch(intent)
+    }
+
+    internal fun getSelectedFile(): String {
+        return selectedFile
+    }
+
+    internal fun getFilePaths(): ArrayList<String> {
+        return filePaths
+    }
+
+    private val takeFile = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+
+            if(result.data?.clipData != null){
+                var count = result.data?.clipData?.itemCount
+                var currentItem = 0
+                Log.d("data", ":"+count)
+                while(currentItem < count!!){
+                    var selectedFile = result.data?.clipData?.getItemAt(currentItem)?.uri
+                    filePaths.add(selectedFile.toString())
+                    currentItem++
+                }
+                tv_file.setText(count.toString()+" files selected")
+            }else if(result.data != null){
+                var path = result.data?.data as Uri
+                var nameFile = result.data?.data?.lastPathSegment.toString()
+                this.selectedFile = path.toString()
+//                tv_file.setText(nameFile.substring(nameFile.lastIndexOf("/")+1))
+            }
+
+        }
+    }
+
+    private fun convertFile(selectedFile: Uri): File {
+        val contentResolver: ContentResolver = this.contentResolver
+        val type = (contentResolver.getType(selectedFile) ?: "").split("/")
+        val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+        val fileNameFormat = "dd-MM-yyyy"
+        val timestamp: String =
+            SimpleDateFormat(fileNameFormat, Locale.getDefault()).format(System.currentTimeMillis())
+        val myFile = File.createTempFile(timestamp, ".${type.last()}")
+        val inputStream = contentResolver.openInputStream(selectedFile) as InputStream
+        val outputStream: OutputStream = FileOutputStream(myFile)
+        val buff = ByteArray(1024)
+        var length: Int
+        while (inputStream.read(buff).also { length = it } > 0)
+            outputStream.write(buff, 0, length)
+        inputStream.close()
+        outputStream.close()
+        return myFile
     }
 
     private fun backBtnListener() {

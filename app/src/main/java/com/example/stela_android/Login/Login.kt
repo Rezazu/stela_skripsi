@@ -26,8 +26,6 @@ class Login : AppCompatActivity() {
 
     fun initAction(){
         btn_masuk.setOnClickListener{
-//            val intent = Intent(this, Homepage::class.java)
-//            startActivity(intent)
             val email = et_email.text.toString().trim()
             val password = et_password.text.toString().trim()
             if(email.isEmpty() || password.isEmpty() || email.isEmpty() && password.isEmpty()){

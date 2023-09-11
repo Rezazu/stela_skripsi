@@ -48,12 +48,6 @@ class Home : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        val btn_permohonan = requireActivity().findViewById<ImageButton>(R.id.btn_permohonan)
-//        btn_permohonan.setOnClickListener{
-//            val intent_permohonan = Intent(activity, FormActivity::class.java)
-//            startActivity(intent_permohonan)
-//        }
         btnNotificationListener()
         btnStelaListener()
         getData()
@@ -79,6 +73,7 @@ class Home : Fragment(){
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Home", "onFailure: "+ t.message)
+
             }
 
         })

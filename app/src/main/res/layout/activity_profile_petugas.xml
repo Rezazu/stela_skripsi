@@ -42,6 +42,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_semibold"
             android:text="Nama"
+
             android:textAlignment="center"
             android:textColor="@color/white"
             android:includeFontPadding="false"
@@ -222,7 +223,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="28dp"
-            android:src="@drawable/mdi_user_circle" />
+            android:src="@drawable/mdi_user_circle_petugas" />
 
         <ImageView
             android:id="@+id/imageViewEmail"
@@ -232,7 +233,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="19dp"
-            android:src="@drawable/mdi_email" />
+            android:src="@drawable/mdi_email_petugas" />
 
         <ImageView
             android:id="@+id/imageViewWork"
@@ -242,7 +243,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="19dp"
-            android:src="@drawable/material_symbols_work" />
+            android:src="@drawable/material_symbols_work_petugas" />
 
         <ImageView
             android:id="@+id/imageViewPhone"
@@ -252,7 +253,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="62dp"
-            android:src="@drawable/material_symbols_phone_iphone" />
+            android:src="@drawable/material_symbols_phone_iphone_petugas" />
 
         <ImageView
             android:id="@+id/imageViewTelephone"
@@ -262,7 +263,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="35dp"
             android:layout_marginTop="19dp"
-            android:src="@drawable/ic_baseline_local_phone" />
+            android:src="@drawable/ic_baseline_local_phone_petugas" />
 
     </RelativeLayout>
 

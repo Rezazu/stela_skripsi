@@ -20,6 +20,7 @@ import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.PostSolusiResponse
 import com.example.stela_android.Retrofit.Petugas.UpdateSelesaiApi
 import com.example.stela_android.Retrofit.Retrofit
+import com.google.android.material.internal.ContextUtils.getActivity
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.notification.*
 import kotlinx.android.synthetic.main.popup_laporan_terkendala.*
@@ -39,7 +40,7 @@ class DialogTerkendala (context: Context, id_tiket:Int, keterangan:String?): Dia
     private var idTiket = id_tiket
     private var Keterangan = keterangan
     var selectedFile = ""
-    val filePaths: ArrayList<String> = ArrayList()
+    var filePaths: ArrayList<String> = ArrayList()
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,11 +59,14 @@ class DialogTerkendala (context: Context, id_tiket:Int, keterangan:String?): Dia
             dismiss()
         }
         selesai.setOnClickListener {
+            selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
+            filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateTerkendala()
             dismiss()
+
         }
         upload.setOnClickListener{
-//            selectFile()
+            (getActivity(context) as TiketPetugasItem).selectFile()
         }
 
     }

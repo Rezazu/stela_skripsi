@@ -47,5 +47,8 @@ data class User(
     val username: String? = null,
 
     @field:SerializedName("status")
-    val status: String? = null
+    val status: String? = null,
+
+    @field:SerializedName("jumlah_tiket")
+    val jumlah_tiket: Int,
 )
