@@ -1,14 +1,24 @@
 package com.example.stela_android.Homepage.Notification
 
+import android.app.AlertDialog.Builder
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Homepage.Homepage
@@ -32,12 +42,20 @@ class NotificationsPage : AppCompatActivity() {
         backBtnListener()
         getNotification()
         recycleviewBuilder()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
+        BtnNotif.setOnClickListener {
+            makeNotification()
+        }
     }
 
     private fun getNotification(){
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
-        Log.d("test", "test:"+token)
         val retro = Retrofit.getRetroData(token!!).create(NotificationApi::class.java)
         retro.getNotifikasi().enqueue(object: Callback<NotificationResponse> {
             override fun onResponse(
@@ -48,8 +66,6 @@ class NotificationsPage : AppCompatActivity() {
                 rvnotification.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = PostAdapter(notif)
-
-                    val notifAdapter = adapter
                     rvnotification.adapter = adapter
 
                     Log.d("Success", "msg: " + response?.body()?.message)
@@ -62,6 +78,39 @@ class NotificationsPage : AppCompatActivity() {
         })
     }
 
+    fun makeNotification (){
+        val channelID = "CHANNEL_ID_NOTIFICATION"
+        val builder = NotificationCompat.Builder(applicationContext, channelID)
+            .setSmallIcon(R.drawable.ic_notifications_page)
+            .setContentTitle("Title")
+            .setContentText("Some text")
+            .setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        val intent = Intent(this, NotificationsPage::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra("data", "somedata")
+        val pendingIntent = PendingIntent.getActivity(this,
+            0,intent, PendingIntent.FLAG_MUTABLE)
+        builder.setContentIntent(pendingIntent)
+        val notifManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
+            var notifChannel : NotificationChannel? =
+                notifManager.getNotificationChannel(channelID)
+            if (notifChannel == null){
+                val importance = NotificationManager.IMPORTANCE_HIGH
+                notifChannel = NotificationChannel(channelID, "text", importance)
+                notifChannel.setLightColor(Color.GREEN)
+                notifChannel.enableVibration(true)
+                notifManager.createNotificationChannel(notifChannel)
+            }
+        }
+        notifManager.notify(0, builder.build())
+
+
+    }
+
     private fun recycleviewBuilder(){
         val rvNotification = findViewById<View>(R.id.rvnotification) as RecyclerView
 
@@ -72,6 +121,7 @@ class NotificationsPage : AppCompatActivity() {
         val adapter = PostAdapter(notif)
         rvNotification.adapter = adapter
     }
+
 
     private fun backBtnListener() {
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)

@@ -14,6 +14,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.example.stela_android.R
@@ -62,7 +63,6 @@ class DialogTerkendala (context: Context, id_tiket:Int, keterangan:String?): Dia
             selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
             filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateTerkendala()
-            dismiss()
 
         }
         upload.setOnClickListener{
@@ -108,7 +108,8 @@ class DialogTerkendala (context: Context, id_tiket:Int, keterangan:String?): Dia
                     Log.d("Success", "onUpdate: " + response.body()?.message)
                     dismiss()
                 } else {
-
+                    val myToast = Toast.makeText(context, "Pastikan form tidak ada yang kosong", Toast.LENGTH_LONG)
+                    myToast.show()
                 }
             }
 

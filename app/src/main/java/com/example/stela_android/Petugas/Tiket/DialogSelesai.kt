@@ -17,6 +17,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -71,7 +72,6 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
             selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
             filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateSelesai()
-            dismiss()
 
         }
         upload.setOnClickListener{
@@ -119,7 +119,8 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?): Dialog
                     Log.d("Success", "onUpdate: " + response.body()?.message)
                     dismiss()
                 } else {
-
+                    val myToast = Toast.makeText(context, "Pastikan form tidak ada yang kosong", Toast.LENGTH_LONG)
+                    myToast.show()
                 }
             }
 

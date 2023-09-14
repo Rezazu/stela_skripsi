@@ -9,9 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Homepage.Notification.NotificationsPage
+import com.example.stela_android.Petugas.Tiket.TiketPetugasFragment
 import com.example.stela_android.Retrofit.Petugas.OnTicketPetugasClickListener
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
@@ -60,6 +63,7 @@ class HomePrakom : Fragment() {
 //        onTicketItemClicked()
         btnTiketAktifListener()
         btnTiketSelesaiListener()
+        refreshFragment()
         ll_selesai.visibility = View.GONE
     }
 
@@ -140,19 +144,17 @@ class HomePrakom : Fragment() {
             btn_aktif.background = resources.getDrawable(R.drawable.border_blue_prakom)
             btn_aktif.setTextColor(Color.parseColor("#000000"))
 
-//            val tiketSelesaiFragment: TiketSelesaiFragment = TiketSelesaiFragment()
-//            val tiketAktifFragment: ActiveTicketFragment = ActiveTicketFragment()
-//
-//            val ft: FragmentTransaction? = fragmentManager?.beginTransaction()
-//
-//            if (tiketAktifFragment.isHidden() != false) {
-//                ft?.hide(tiketAktifFragment);
-//                ll_aktif.setVisibility(View.GONE);
-//            }
-
             ll_selesai.visibility = View.VISIBLE
             ll_aktif.visibility = View.GONE
+        }
+    }
 
+    fun refreshFragment(){
+        swipeToRefrestTiket.setOnRefreshListener {
+            parentFragmentManager.beginTransaction().detach(this).commit()
+            parentFragmentManager.beginTransaction().attach(this).commit()
+            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
+            swipeToRefrestTiket.isRefreshing = false
         }
     }
 

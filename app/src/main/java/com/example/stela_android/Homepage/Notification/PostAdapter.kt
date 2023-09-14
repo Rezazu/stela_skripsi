@@ -26,7 +26,7 @@ class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Ada
                 val tv_tanggal : TextView = itemView.findViewById(R.id.tanggal)
                 tv_no_tiket.text = notificationResponse.no_tiket
                 tv_keterangan.text = notificationResponse.keterangan
-                tv_tanggal.text = notificationResponse.tanggal
+                tv_tanggal.text = notificationResponse.tanggal.toString()
 
                 if (notificationResponse.dibaca == 1){
                     bellIcon.setVisibility(View.GONE);

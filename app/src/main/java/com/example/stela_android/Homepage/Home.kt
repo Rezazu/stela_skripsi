@@ -31,6 +31,13 @@ import kotlinx.android.synthetic.main.activity_home_2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 
 class Home : Fragment(){
@@ -64,8 +71,12 @@ class Home : Fragment(){
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val nama = prefs?.getString("nama_lengkap", "")
-                    tv_name.text = nama
+                    val tgl = "2023-09-11 13:29:26"
+                    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                    val date = sdf.parse(tgl)
+                    val notifStamp = java.sql.Timestamp(date.time)
+                    val currentStamp = Timestamp(System.currentTimeMillis() - 60*1000)
+                    tv_name.text = currentStamp.toString()
                     val dept = prefs?.getString("bagian", "")
                     tv_dept.text = dept.toString()
                 }
@@ -79,6 +90,7 @@ class Home : Fragment(){
         })
 
     }
+
 
     private fun btnNotificationListener() {
         btn_notification.setOnClickListener{

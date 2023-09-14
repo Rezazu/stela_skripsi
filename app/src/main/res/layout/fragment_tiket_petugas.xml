@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_gravity="center_horizontal"
     android:layout_height="match_parent">
-
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/swipeToRefresh1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
     <RelativeLayout
         android:id="@+id/container_tiket"
         android:layout_width="match_parent"
@@ -19,7 +22,10 @@
             android:id="@+id/tv_empty_tiket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="54dp"
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center"
             android:paddingHorizontal="30sp"
@@ -30,5 +36,6 @@
             android:textSize="13sp" />
 
     </RelativeLayout>
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
 </RelativeLayout>
