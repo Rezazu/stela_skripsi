@@ -31,29 +31,19 @@
             android:textSize="20sp" />
 
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header_section">
-    <Button
-        android:id="@+id/BtnNotif"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MakeNotif()"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvnotification"
         android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/BtnNotif"
+        android:layout_below="@+id/header_section"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="-3dp"
         android:layout_marginBottom="-72dp" />
-    </RelativeLayout>
 
     <!--    <ScrollView-->
 <!--        android:id="@+id/main_section"-->

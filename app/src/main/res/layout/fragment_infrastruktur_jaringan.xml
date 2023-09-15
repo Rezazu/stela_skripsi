@@ -61,7 +61,7 @@
             android:paddingBottom="10sp" />
 
         <TextView
-            android:id="@+id/tv_empty_tiket"
+            android:id="@+id/tv_empty_tiket_infra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -70,7 +70,7 @@
             android:paddingHorizontal="30sp"
             android:paddingTop="20sp"
             android:paddingBottom="40sp"
-            android:text="Anda tidak memliki layanan aktif \ndalam kategori Lainnya"
+            android:text="Anda tidak memliki layanan aktif \ndalam kategori Infrastruktur Jaringan"
             android:textColor="@color/black"
             android:textSize="13sp" />
 

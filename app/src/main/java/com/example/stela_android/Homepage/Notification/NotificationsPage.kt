@@ -48,9 +48,6 @@ class NotificationsPage : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
         }
-        BtnNotif.setOnClickListener {
-            makeNotification()
-        }
     }
 
     private fun getNotification(){

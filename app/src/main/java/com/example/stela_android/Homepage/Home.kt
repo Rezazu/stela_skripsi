@@ -71,12 +71,8 @@ class Home : Fragment(){
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val tgl = "2023-09-11 13:29:26"
-                    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                    val date = sdf.parse(tgl)
-                    val notifStamp = java.sql.Timestamp(date.time)
-                    val currentStamp = Timestamp(System.currentTimeMillis() - 60*1000)
-                    tv_name.text = currentStamp.toString()
+                    val name = prefs?.getString("nama_lengkap","")
+                    tv_name.text = name.toString()
                     val dept = prefs?.getString("bagian", "")
                     tv_dept.text = dept.toString()
                 }

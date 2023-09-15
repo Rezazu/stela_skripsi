@@ -18,7 +18,6 @@ import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.btn_dropdown
 import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.container_tiket
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.tv_empty_tiket
 import retrofit2.*
 
 
@@ -67,10 +66,10 @@ class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
                     if(response.body()?.success == null) {
                         container_tiket.visibility = View.GONE
                         btn_dropdown.setImageResource(R.drawable.ic_chevron_down_ij)
-                        tv_empty_tiket.visibility = View.VISIBLE
-                        tv_empty_tiket.text = "Anda tidak memiliki layanan aktif dalam kategori Infrastruktur Jaringan"
+                        tv_empty_tiket_infra.visibility = View.VISIBLE
+                        tv_empty_tiket_infra.text = "Anda tidak memiliki layanan aktif dalam kategori Infrastruktur Jaringan"
                     } else {
-                        tv_empty_tiket.visibility = View.GONE
+                        tv_empty_tiket_infra.visibility = View.GONE
 
                         rvTicketInfrastukturJaringan.apply {
                             // set a LinearLayoutManager to handle Android
