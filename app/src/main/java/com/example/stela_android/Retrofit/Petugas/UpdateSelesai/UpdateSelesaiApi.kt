@@ -1,5 +1,6 @@
-package com.example.stela_android.Retrofit.Petugas
+package com.example.stela_android.Retrofit.Petugas.UpdateSelesai
 
+import com.example.stela_android.Retrofit.Petugas.PostSolusiResponse
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*

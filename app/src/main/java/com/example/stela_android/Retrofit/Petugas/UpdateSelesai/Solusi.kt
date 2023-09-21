@@ -1,4 +1,4 @@
-package com.example.stela_android.Retrofit.Petugas
+package com.example.stela_android.Retrofit.Petugas.UpdateSelesai
 
 import com.google.gson.annotations.SerializedName
 
@@ -16,5 +16,5 @@ data class Solusi (
     val id_status_tiket_internal: Int? = null,
 
     @field:SerializedName("keterangan_tiket")
-    val kterangan_tiket: String? =null
+    val keterangan_tiket: String? =null
     )

@@ -41,7 +41,6 @@ class StelaPage: Fragment() {
     }
     fun pdfView(){
         pdfView = requireView().findViewById(R.id.pdfView)
-
         pdfView.fromAsset("Panduan_Penggunaan_stela.pdf")
             .pages(0)
             .enableSwipe(true) // allows to block changing pages using swipe

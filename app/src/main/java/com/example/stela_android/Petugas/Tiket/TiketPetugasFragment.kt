@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
 import kotlinx.android.synthetic.main.fragment_tiket_petugas.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,8 +22,6 @@ import retrofit2.Response
 class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
 
     private val list = ArrayList<TiketPetugas>()
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<TiketPetugasAdapter.TicketViewHolder>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

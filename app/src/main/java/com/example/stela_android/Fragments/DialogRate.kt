@@ -11,11 +11,6 @@ import com.example.stela_android.Retrofit.Ticket.OnTicketClickListener
 import com.example.stela_android.Retrofit.Ticket.Rating.RatingResponse
 import com.example.stela_android.Retrofit.Ticket.TiketApi
 import com.example.stela_android.Retrofit.Ticket.TiketResponse
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.*
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.btn_dropdown
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.container_tiket
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
 import kotlinx.android.synthetic.main.rate_dialog.*
 import retrofit2.Call
 import retrofit2.Callback

@@ -151,12 +151,16 @@ class TiketPetugasItem : AppCompatActivity() {
 
         val btn_kerjakan = findViewById<Button>(R.id.btn_kerjakan)
         val btn_kendala = findViewById<Button>(R.id.btn_kendala)
+        var eskalasi = ""
         btn_kerjakan.setOnClickListener {
-            DialogSelesai(this, id, keterangan).show()
+            eskalasi = "selesai"
+            DialogSelesai(this, id, keterangan, eskalasi).show()
+
 
         }
         btn_kendala.setOnClickListener {
-            DialogTerkendala(this, id, keterangan).show()
+            eskalasi = "kendala"
+            DialogSelesai(this, id, keterangan, eskalasi).show()
         }
         backBtnListener()
 
@@ -198,25 +202,6 @@ class TiketPetugasItem : AppCompatActivity() {
             }
 
         }
-    }
-
-    private fun convertFile(selectedFile: Uri): File {
-        val contentResolver: ContentResolver = this.contentResolver
-        val type = (contentResolver.getType(selectedFile) ?: "").split("/")
-        val storageDir: File? = this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
-        val fileNameFormat = "dd-MM-yyyy"
-        val timestamp: String =
-            SimpleDateFormat(fileNameFormat, Locale.getDefault()).format(System.currentTimeMillis())
-        val myFile = File.createTempFile(timestamp, ".${type.last()}")
-        val inputStream = contentResolver.openInputStream(selectedFile) as InputStream
-        val outputStream: OutputStream = FileOutputStream(myFile)
-        val buff = ByteArray(1024)
-        var length: Int
-        while (inputStream.read(buff).also { length = it } > 0)
-            outputStream.write(buff, 0, length)
-        inputStream.close()
-        outputStream.close()
-        return myFile
     }
 
     private fun backBtnListener() {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     android:id="@+id/container_tiket"
-    android:layout_below="@id/header_ticket_section"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,8 +10,7 @@
         android:id="@+id/rvTicketSelesai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="15sp"
-        android:paddingBottom="10sp" />
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:id="@+id/tv_empty_tiket_selesai"

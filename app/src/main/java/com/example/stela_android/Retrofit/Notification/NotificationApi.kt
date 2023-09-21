@@ -13,8 +13,4 @@ interface NotificationApi {
     fun getNotifikasi(
     ): Call<NotificationResponse>
 
-    @POST("notifikasi")
-    fun receivedNotifikasi(
-
-    )
 }

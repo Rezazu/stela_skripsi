@@ -15,16 +15,15 @@ import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Ticket.Ticket
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.btn_dropdown
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.container_tiket
-import retrofit2.*
+import kotlinx.android.synthetic.main.fragment_tiket.*
+import kotlinx.android.synthetic.main.fragment_tiket.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-
-class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
+class TiketFragment: Fragment(), OnTicketClickListener {
 
     private val list = ArrayList<Tiket>()
-    private val kategoriInfrasturktur : IntArray = intArrayOf(2,3,5,7,10)
     private val layoutManager: RecyclerView.LayoutManager? = null
     private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
 
@@ -33,50 +32,47 @@ class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_infrastruktur_jaringan, container, false)
+        val args = this.arguments
+        return inflater.inflate(R.layout.fragment_tiket, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getTickets()
-        hideShowTicketsInfrastrukturJaringan()
-    }
-
-    private fun hideShowTicketsInfrastrukturJaringan() {
-        btn_dropdown.setOnClickListener {
-            if(container_tiket.isVisible) {
-                container_tiket.visibility = View.GONE
-                btn_dropdown.setImageResource(R.drawable.ic_chevron_down_ij)
-            } else  {
-                container_tiket.visibility = View.VISIBLE
-                btn_dropdown.setImageResource(R.drawable.ic_chevron_up_ij)
-            }
-        }
     }
 
     private fun getTickets() {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
-        kategoriInfrasturktur.forEach {
-            retro.getTicketsByCategory(it).enqueue(object: Callback<TiketResponse> {
-                override fun onResponse(call: Call<TiketResponse>, response: Response<TiketResponse>) {
+        val id_sub_kategori = prefs?.getInt("id_sub_kategori", 6)
+        val counter = 0
+            retro.getTickets().enqueue(object : Callback<TiketResponse> {
+                override fun onResponse(
+                    call: Call<TiketResponse>,
+                    response: Response<TiketResponse>
+                ) {
                     response.body()?.data?.let { list.addAll(it) }
 
-                    if(response.body()?.success == null) {
+                    if (response.body()?.success == null) {
                         container_tiket.visibility = View.GONE
-                        btn_dropdown.setImageResource(R.drawable.ic_chevron_down_ij)
-                        tv_empty_tiket_infra.visibility = View.VISIBLE
-                        tv_empty_tiket_infra.text = "Anda tidak memiliki layanan aktif dalam kategori Infrastruktur Jaringan"
+                        tv_empty_tiket.visibility = View.VISIBLE
                     } else {
-                        tv_empty_tiket_infra.visibility = View.GONE
-
-                        rvTicketInfrastukturJaringan.apply {
+                        tv_empty_tiket.visibility = View.GONE
+                        rvTicketFragment.apply {
                             // set a LinearLayoutManager to handle Android
                             // RecyclerView behavior
                             layoutManager = LinearLayoutManager(activity)
                             // set the custom adapter to the RecyclerView
-                            adapter = TiketAdapter(context, list, "Infrastruktur Jaringan", this@InfrastrukturJaringanFragment)
+                            adapter = TiketAdapter(
+                                context,
+                                list,
+                                this@TiketFragment
+                            )
+
+                            val ticketAdapter = adapter
+                            rvTicketFragment.adapter = ticketAdapter
+                            ticketAdapter?.notifyDataSetChanged()
                         }
                     }
                 }
@@ -86,8 +82,6 @@ class InfrastrukturJaringanFragment: Fragment(), OnTicketClickListener {
                 }
 
             })
-        }
-
 
     }
 

@@ -18,6 +18,8 @@ import androidx.fragment.app.Fragment
 import com.example.stela_android.Login.Login
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
+import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
+import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.ProfileResponse
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
@@ -35,6 +37,7 @@ public open class ProfilePetugas : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getResult()
+//        getRatingPetugas()
         btnKeluarListener()
     }
 
@@ -83,6 +86,27 @@ public open class ProfilePetugas : Fragment() {
 
         })
 
+    }
+
+    private fun getRatingPetugas(){
+        val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "").toString()
+        val retro = Retrofit.getRetroData(token).create(PetugasTiketApi::class.java)
+
+        retro.getProfile().enqueue(object : Callback<ProfileResponse> {
+            override fun onResponse(
+                call: Call<ProfileResponse>,
+                response: Response<ProfileResponse>
+            ) {
+                val petugas = prefs?.getString("id_petugas", "")
+                tv_nama_profil.text = petugas
+            }
+
+            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                Log.d("Home", "onFailure: "+t.message)
+            }
+
+        })
     }
 
 

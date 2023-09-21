@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -95,17 +93,16 @@
 
                 <fragment
                     android:layout_below="@+id/ticket_menu"
-                    android:name="com.example.stela_android.Fragments.ActiveTicketFragment"
+                    android:name="com.example.stela_android.Fragments.TiketFragment"
                     android:layout_weight="1"
                     android:layout_marginTop="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:layout="@layout/fragment_ticket_active" />
+                    tools:layout="@layout/fragment_tiket" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20sp"
                 android:id="@+id/ll_selesai"
                 android:layout_below="@+id/ll_aktif"
                 android:layout_width="wrap_content"

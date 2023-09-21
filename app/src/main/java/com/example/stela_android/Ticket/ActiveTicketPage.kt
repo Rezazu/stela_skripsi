@@ -11,7 +11,6 @@ import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.*
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.fragment_sistem_informasi.*
 
 class ActiveTicketPage : Fragment() {
 
@@ -81,16 +80,6 @@ class ActiveTicketPage : Fragment() {
 
             btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
             btn_aktif.setTextColor(Color.parseColor("#000000"))
-
-//            val tiketSelesaiFragment: TiketSelesaiFragment = TiketSelesaiFragment()
-//            val tiketAktifFragment: ActiveTicketFragment = ActiveTicketFragment()
-//
-//            val ft: FragmentTransaction? = fragmentManager?.beginTransaction()
-//
-//            if (tiketAktifFragment.isHidden() != false) {
-//                ft?.hide(tiketAktifFragment);
-//                ll_aktif.setVisibility(View.GONE);
-//            }
 
             val myToast = Toast.makeText(context, "Tiket Selesai ✨", Toast.LENGTH_LONG)
             myToast.show()

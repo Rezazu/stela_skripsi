@@ -11,7 +11,12 @@ import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.ticket_item.view.*
 
 
-class TiketAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val kategori: String?, private val onTicketClickListener: OnTicketClickListener): RecyclerView.Adapter<TiketAdapter.TicketViewHolder>() {
+class TiketAdapter(private val context: Context, private val list: ArrayList<Tiket>, private val onTicketClickListener: OnTicketClickListener): RecyclerView.Adapter<TiketAdapter.TicketViewHolder>() {
+    private val kategoriSistemInformasi : IntArray = intArrayOf(1,4,6)
+    private val kategoriInfrasturktur : IntArray = intArrayOf(2,3,5,7,10)
+    private val kategoriTatakelola : IntArray = intArrayOf(9,11,12)
+    private val kategoriLainnya : IntArray = intArrayOf(8, 13)
+
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(ticketResponse: Tiket) {
             with(itemView) {
@@ -21,11 +26,13 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                 val noTiket = ticketResponse.no_tiket
                 val statusTiket = ticketResponse.id_status_tiket
                 val tanggalInputTiket = ticketResponse.tanggal_input
+                var idSubKategori = ticketResponse.id_sub_kategori
 
                 // get container of item
                 val rvTiket: RelativeLayout = findViewById(R.id.ticket)
                 // get tv status tiket
                 val tvStatusTiket: TextView = findViewById(R.id.status_tiket)
+                val iconKategori: ImageView = findViewById(R.id.iv_kategori)
 
                 // checking if judul which is taken through keterangan is not bigger than equal 35
                 if(judul?.length!! >= 35) {
@@ -35,23 +42,22 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                     judul_tiket.text = judul
                 }
 
+                if (kategoriSistemInformasi.contains(idSubKategori)){
+                    iconKategori.setBackgroundResource(R.drawable.icon_sistem_informasi)
+                } else if (kategoriInfrasturktur.contains(idSubKategori)){
+                    iconKategori.setBackgroundResource(R.drawable.icon_infrastruktur)
+                } else if (kategoriTatakelola.contains(idSubKategori)){
+                    iconKategori.setBackgroundResource(R.drawable.icon_tata_kelola)
+                } else if (kategoriLainnya.contains(idSubKategori)) {
+                    iconKategori.setBackgroundResource(R.drawable.icon_lainnya)
+                } else {
+                    iconKategori.setBackgroundResource(R.drawable.icon_tidak_kategori)
+                }
+
                 // setting timestamp retrieved to the format asked
                 val tanggalTiket = Service.date(tanggalInputTiket)
 
                 // setting border of ticket container based on its category
-                if(ratingTiket != null) {
-                    rvTiket.background = resources.getDrawable(R.drawable.border_shadow)
-                } else {
-                    if(kategori == "Sistem Informasi") {
-                        rvTiket.background = resources.getDrawable(R.drawable.border_blue)
-                    } else if(kategori == "Infrastruktur Jaringan") {
-                        rvTiket.background = resources.getDrawable(R.drawable.border_red)
-                    } else if(kategori == "Tata Kelola") {
-                        rvTiket.background = resources.getDrawable(R.drawable.border_green)
-                    } else if(kategori == "Lainnya") {
-                        rvTiket.background = resources.getDrawable(R.drawable.border_purple)
-                    }
-                }
 
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket != 6 && ratingTiket == null) {

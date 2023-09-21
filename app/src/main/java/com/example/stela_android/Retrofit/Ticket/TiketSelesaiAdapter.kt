@@ -43,13 +43,14 @@ class TiketSelesaiAdapter(private val context: Context, private val list: ArrayL
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket == 6 && ratingTiket != null) {
                     // displaying tanggal tiket
-                    status_tiket.text = tanggalTiket
+//                    status_tiket.text = tanggalTiket
                     // hide rating bar
+                    Service.statusTiketDisplay(statusTiket, tvStatusTiket)
                     rating_bar.visibility = View.VISIBLE
                     rating_bar.rating = ratingTiket.toFloat()
                     ll_ticket_success.visibility = View.GONE
-                    tanggal_tiket.visibility = View.GONE
-                    ticket.setBackground(resources.getDrawable(R.drawable.border_gray))
+                    tanggal_tiket.text = tanggalTiket
+                    ticket.setBackground(resources.getDrawable(R.drawable.border_gray2))
                 } else {
                     if(statusTiket != 6  && ratingTiket == null) {
                         ticket.visibility = View.GONE

@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ticket"
-    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
-    android:layout_height="120sp"
-    android:layout_marginBottom="15sp"
-    android:background="@drawable/border_blue"
-    android:paddingHorizontal="20sp"
+    android:layout_height="140sp"
+    android:background="@drawable/border_gray2"
+    android:paddingHorizontal="10sp"
+    android:paddingVertical="10dp"
     android:elevation="12dp"
     android:clipChildren="false"
-    android:paddingVertical="20sp"
     >
 
+    <ImageView
+        android:id="@+id/iv_kategori"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+<!--    <RelativeLayout-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/judul_tiket"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toEndOf="@id/iv_kategori"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:text="Judul tiket"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:fontFamily="@font/montserrat_semibold"-->
+<!--            android:textSize="14sp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Kode tiket"/>-->
+
+
+<!--    </RelativeLayout>-->
     <LinearLayout
         android:id="@+id/ticket_info"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/iv_kategori"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
         android:orientation="vertical">
 
         <TextView
@@ -27,10 +56,11 @@
             android:fontFamily="@font/montserrat_semibold"
             android:text="Redesign tampilan dpr.go.id"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/no_tiket"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
@@ -42,7 +72,7 @@
             android:id="@+id/status_tiket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_medium"
             android:text="On Process"
             android:textColor="#858383"
             android:textSize="11sp" />
@@ -52,13 +82,12 @@
     <!-- Ticket's date on bottom corner of right is active when rating is null and status is not 6 -->
     <TextView
         android:id="@+id/tanggal_tiket"
-        android:layout_marginStart="5dp"
         android:layout_marginBottom="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_regular"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="22 September 2022 | 20.58"
         android:textColor="@color/black"
         android:textSize="10sp" />
@@ -113,6 +142,7 @@
         android:scaleY=".5"
         android:max="5"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="-50dp"

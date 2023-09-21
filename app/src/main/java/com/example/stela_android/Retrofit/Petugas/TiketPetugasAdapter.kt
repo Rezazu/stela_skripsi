@@ -1,6 +1,7 @@
 package com.example.stela_android.Retrofit.Petugas
 
 import android.content.Context
+import android.media.Image
 import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
@@ -17,30 +18,32 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
         fun bind(permintaanResponse: TiketPetugas) {
             with(itemView) {
                 // get all data ticket
-                var id = permintaanResponse.id_tiket
                 var noTiket = permintaanResponse.no_tiket
                 var judul = permintaanResponse.keterangan
                 var tanggalInputTiket = permintaanResponse.tanggal
-                var kategori = permintaanResponse.id_sub_kategori
                 var statusTiket = permintaanResponse.id_status_tiket
-                var urgensi = permintaanResponse.id_urgensi
+                var urgensi = permintaanResponse.urgensi
                 var ratingTiket = permintaanResponse.rating
+                var gedung = permintaanResponse.gedung_pelapor
+                var lantai = permintaanResponse.lantai_pelapor
+                var ruangan = permintaanResponse.ruangan_pelapor
 
-                // get container of item
-                val rvTiket: RelativeLayout = findViewById(R.id.ticket_petugas)
-                // get tv status tiket
                 var tvStatusTiket: TextView = findViewById(R.id.status_tiket_petugas)
-                // get tv kode tiket
                 var tvKodeTiket: TextView = findViewById(R.id.kode_tiket)
-                // get tv tanggal tiket
                 var tvTanggalTiket: TextView = findViewById(R.id.tanggal_tiket_petugas)
-
                 var tvBelumDinilai :TextView = findViewById(R.id.belum_dinilai)
+                var tvUrgensi : TextView = findViewById(R.id.tv_urgensi)
+                var ivUrgensi : ImageView = findViewById(R.id.iv_urgensi)
+                var tvLokasi : TextView = findViewById(R.id.tv_lokasi)
 
                 //put data on item
                 tvKodeTiket.text = noTiket.toString()
-                tvTanggalTiket.text = tanggalInputTiket.toString()
+
+                tvLokasi.text = "$gedung, Lantai $lantai, Ruang $ruangan"
                 Service.statusTiketDisplay(statusTiket, tvStatusTiket)
+                Service.urgensiDisplay(urgensi,ivUrgensi,tvUrgensi )
+
+                val tanggalTiket = Service.date(tanggalInputTiket)
 
 //                 checking if judul which is taken through keterangan is not bigger than equal 35
                 if(judul?.length!! >= 35) {
@@ -49,8 +52,6 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 } else {
                     judul_tiket.text = judul
                 }
-                // setting timestamp retrieved to the format asked
-                val tanggalTiket = Service.date(tanggalInputTiket)
 
                 // setting border of ticket container based on its category
 //                if(ratingTiket != null) {
@@ -61,6 +62,7 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket != 6 && ratingTiket == null) {
                     // displaying tanggal tiket
+                    tanggal_tiket_petugas.text = tanggalTiket
                     // displaying status tiket on ticket_item
                     // hide rating bar
                     rating_bar_petugas_selesai.visibility = View.GONE

@@ -4,6 +4,7 @@ import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiran
 import com.example.stela_android.Retrofit.Ticket.LaporanPetugas.LaporanPetugasResponse
 import com.google.gson.annotations.SerializedName
 import java.util.*
+import kotlin.collections.ArrayList
 
 data class TiketPetugas(
 
@@ -67,6 +68,9 @@ data class TiketPetugas(
 
     @field:SerializedName("laporan_petugas")
     val laporan_petugas: ArrayList<LaporanPetugasResponse>? = null,
+
+    @field:SerializedName("urgensi")
+    val urgensi:String? = null
 
     )
 

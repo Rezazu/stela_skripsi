@@ -33,18 +33,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Tracking.LainnyaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Tracking.TataKelolaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Tracking.InfrastrukturJaringanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Tracking.SistemInformasiActivity"
-            android:exported="false" />
-        <activity
             android:name=".Form.FormDone"
             android:exported="false">
             <meta-data

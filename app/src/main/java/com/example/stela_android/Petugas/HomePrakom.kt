@@ -26,10 +26,6 @@ import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*
 import kotlinx.android.synthetic.main.activity_home.btn_notification
 import kotlinx.android.synthetic.main.activity_home_prakom.*
-import kotlinx.android.synthetic.main.activity_home_prakom.btn_aktif
-import kotlinx.android.synthetic.main.activity_home_prakom.btn_selesai
-import kotlinx.android.synthetic.main.activity_home_prakom.ll_aktif
-import kotlinx.android.synthetic.main.activity_home_prakom.ll_selesai
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,9 +33,6 @@ import retrofit2.Response
 class HomePrakom : Fragment() {
 
     private val list = ArrayList<TiketPetugas>()
-    private val layoutManager: RecyclerView.LayoutManager? = null
-    private val adapter: RecyclerView.Adapter<TiketPetugasAdapter.TicketViewHolder>? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,22 +51,20 @@ class HomePrakom : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getData()
-        getTicketPetugas()
+//        getTicketPetugas()
         btnNotificationListener()
-//        onTicketItemClicked()
         btnTiketAktifListener()
         btnTiketSelesaiListener()
-        refreshFragment()
-        ll_selesai.visibility = View.GONE
+//        refreshFragment()
+        ll_selesaiP.visibility = View.GONE
     }
 
     private fun getData(){
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(UserApi::class.java)
-        val tv_name : TextView = requireActivity().findViewById(R.id.tv_name) as TextView
-        val tv_welcomeNama : TextView = requireActivity().findViewById(R.id.welcomenama) as TextView
-        val tv_dept : TextView = requireActivity().findViewById(R.id.tv_dept) as TextView
+        val tv_name : TextView = requireActivity().findViewById(R.id.tv_nameP) as TextView
+        val tv_dept : TextView = requireActivity().findViewById(R.id.tv_deptP) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 val responseData = response.body()?.data
@@ -81,7 +72,6 @@ class HomePrakom : Fragment() {
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val nama = prefs?.getString("nama_lengkap", "")
                     tv_name.text = nama
-                    tv_welcomeNama.text = nama
                     val dept = prefs?.getString("bagian", "")
                     tv_dept.text = dept.toString()
                 }
@@ -98,7 +88,6 @@ class HomePrakom : Fragment() {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
-        var tv_permintaan : TextView = requireActivity().findViewById(R.id.tv_permintaan) as TextView
 
         retro.getPermintaan().enqueue(object : Callback<PermintaanResponse> {
             override fun onResponse(
@@ -122,41 +111,41 @@ class HomePrakom : Fragment() {
     }
 
     fun btnTiketAktifListener() {
-        btn_aktif.setOnClickListener {
-            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
-            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
+        btn_aktifP.setOnClickListener {
+            btn_aktifP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
+            btn_aktifP.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_selesai.background = resources.getDrawable(R.drawable.border_blue_prakom)
-            btn_selesai.setTextColor(Color.parseColor("#000000"))
+            btn_selesaiP.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_selesaiP.setTextColor(Color.parseColor("#000000"))
 
-            ll_selesai.visibility = View.GONE
+            ll_selesaiP.visibility = View.GONE
 
-            if(ll_aktif.visibility == View.GONE) {
-                ll_aktif.visibility = View.VISIBLE
+            if(ll_aktifP.visibility == View.GONE) {
+                ll_aktifP.visibility = View.VISIBLE
             }
         }
     }
     fun btnTiketSelesaiListener() {
-        btn_selesai.setOnClickListener {
-            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
-            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
+        btn_selesaiP.setOnClickListener {
+            btn_selesaiP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
+            btn_selesaiP.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_aktif.background = resources.getDrawable(R.drawable.border_blue_prakom)
-            btn_aktif.setTextColor(Color.parseColor("#000000"))
+            btn_aktifP.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_aktifP.setTextColor(Color.parseColor("#000000"))
 
-            ll_selesai.visibility = View.VISIBLE
-            ll_aktif.visibility = View.GONE
+            ll_selesaiP.visibility = View.VISIBLE
+            ll_aktifP.visibility = View.GONE
         }
     }
 
-    fun refreshFragment(){
-        swipeToRefrestTiket.setOnRefreshListener {
-            parentFragmentManager.beginTransaction().detach(this).commit()
-            parentFragmentManager.beginTransaction().attach(this).commit()
-            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
-            swipeToRefrestTiket.isRefreshing = false
-        }
-    }
+//    fun refreshFragment(){
+//        swipeToRefrestTiket.setOnRefreshListener {
+//            parentFragmentManager.beginTransaction().detach(this).commit()
+//            parentFragmentManager.beginTransaction().attach(this).commit()
+//            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
+//            swipeToRefrestTiket.isRefreshing = false
+//        }
+//    }
 
 }
 

@@ -18,7 +18,6 @@ import com.example.stela_android.Stela.StelaPage
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
 import kotlinx.android.synthetic.main.dokumen_item.*
-import kotlinx.android.synthetic.main.fragment_infrastruktur_jaringan.*
 import kotlinx.android.synthetic.main.ticket_item.view.*
 
 

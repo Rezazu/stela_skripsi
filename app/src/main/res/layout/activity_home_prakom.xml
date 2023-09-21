@@ -9,52 +9,50 @@
 <RelativeLayout
     android:id="@+id/HeaderPetugas"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="140dp"
+    android:background="@drawable/rectangle_4_prakom">
 
-    <ImageView
-        android:id="@+id/iv_header"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_4_prakom" />
-    <ImageView
-        android:id="@+id/iv_photo"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/circle_1" />
-    <TextView
-        android:id="@+id/tv_name"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/circle_1" />
+        <TextView
+            android:id="@+id/tv_nameP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/iv_photo"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Farhan"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
 
-        android:layout_toEndOf="@+id/iv_photo"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text=""
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_dept"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_name"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="14dp"
-        android:layout_toEndOf="@+id/iv_photo"
-        android:fontFamily="@font/montserrat_regular"
-        android:text=""
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"/>
+        <TextView
+            android:id="@+id/tv_deptP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_nameP"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@+id/iv_photo"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Pranata Komputer"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"/>
+    </RelativeLayout>
 
 
     <ImageButton
@@ -69,168 +67,234 @@
         app:srcCompat="@drawable/ic_notification_btn" />
     </RelativeLayout>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeToRefrestTiket"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/HeaderPetugas">
-
-    <ScrollView
-        android:id="@+id/sv_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/iv_header"
-        android:fillViewport="true"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/iv_header">
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/swipeToRefrestTiket"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/HeaderPetugas">-->
 
         <RelativeLayout
-            android:id="@+id/layout_welcome"
+            android:id="@+id/topMenu"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@id/HeaderPetugas"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/border_gray2">
+
+
+            <TextView
+                android:id="@+id/tv_permintaan_layanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar permintaan layanan"
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/btn_aktifP"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/tv_permintaan_layanan"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:background="@drawable/shadow_banner_prakom"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="10sp"
+                android:paddingVertical="5sp"
+                android:text="Tiket Aktif"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/btn_selesaiP"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/tv_permintaan_layanan"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/btn_aktifP"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Tiket Selesai"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:background="@drawable/border_blue_prakom"
+                android:paddingVertical="5sp"
+                android:paddingHorizontal="10sp"
+                />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/sv_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topMenu"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="15dp">
-            <TextView
-                android:id="@+id/welcomeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="14dp"
-                android:text="Halo"/>
-
-            <TextView
-                android:id="@+id/welcomenama"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/welcomeText"
-                android:fontFamily="@font/montserrat_regular"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginStart="5dp"
-                android:textSize="14dp"
-                android:text=""/>
-
-
-            <TextView
-                android:id="@+id/tv_permintaan"
-                android:textColor="@color/black"
-                android:layout_below="@+id/welcomeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="13dp"
-                android:layout_marginHorizontal="5dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Anda memiliki 0 permintaan baru yang belum di kerjakan"
-                android:textSize="12dp" />
-
-            <RelativeLayout
-                android:id="@+id/layout_laporan"
-                android:layout_below="@+id/tv_permintaan"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="5dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/laporan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:text="Daftar Permintaan"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ticket_menu"
-                android:layout_marginTop="20sp"
-                android:padding="5dp"
-                android:layout_below="@+id/layout_laporan"
-                >
-
-                <TextView
-                    android:id="@+id/btn_aktif"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="30sp"
-                    android:elevation="5dp"
-                    android:background="@drawable/shadow_banner_prakom"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:paddingHorizontal="30sp"
-                    android:paddingVertical="10sp"
-                    android:text="Tiket Aktif"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/btn_selesai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="30sp"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Tiket Selesai"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:background="@drawable/border_blue_prakom"
-                    android:paddingVertical="10sp"
-                    android:paddingHorizontal="27sp"
-                    />
-
-            </RelativeLayout>
+            android:layout_below="@id/topMenu">
 
             <LinearLayout
-                android:id="@+id/ll_aktif"
+                android:id="@+id/ll_aktifP"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ticket_menu"
+                android:layout_below="@+id/topMenu"
                 tools:ignore="NotSibling"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="5dp">
 
                 <fragment
                     android:id="@+id/ticket_petugas_aktif"
                     android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasFragment"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="15sp"
-                    android:paddingBottom="10sp"
                     tools:layout="@layout/fragment_tiket_petugas"/>
 
             </LinearLayout>
-
             <LinearLayout
-                android:id="@+id/ll_selesai"
+                android:id="@+id/ll_selesaiP"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ticket_menu"
+                android:layout_below="@+id/topMenu"
                 tools:ignore="NotSibling"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="5dp">
 
                 <fragment
                     android:id="@+id/ticket_petugas_selesai"
                     android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasSelesaiFragment"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="15sp"
-                    android:paddingBottom="10sp"
                     tools:layout="@layout/fragment_tiket_petugas"/>
 
             </LinearLayout>
 
         </RelativeLayout>
 
+
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/layout_welcome"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:paddingVertical="15dp">-->
+<!--            <TextView-->
+<!--                android:id="@+id/welcomeText"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/montserrat_regular"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="14dp"-->
+<!--                android:text="Halo"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/welcomenama"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_toEndOf="@id/welcomeText"-->
+<!--                android:fontFamily="@font/montserrat_regular"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:textSize="14dp"-->
+<!--                android:text=""/>-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_permintaan"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_below="@+id/welcomeText"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="13dp"-->
+<!--                android:layout_marginHorizontal="5dp"-->
+<!--                android:fontFamily="@font/montserrat_regular"-->
+<!--                android:text="Anda memiliki 0 permintaan baru yang belum di kerjakan"-->
+<!--                android:textSize="12dp" />-->
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/layout_laporan"-->
+<!--                android:layout_below="@+id/tv_permintaan"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_marginHorizontal="5dp"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <TextView-->
+<!--                    android:id="@+id/laporan"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:fontFamily="@font/montserrat_regular"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="14dp"-->
+<!--                    android:text="Daftar Permintaan"/>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/ticket_menu"-->
+<!--                android:layout_marginTop="20sp"-->
+<!--                android:padding="5dp"-->
+<!--                android:layout_below="@+id/layout_laporan"-->
+<!--                >-->
+
+
+<!--            </RelativeLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/ll_aktif"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/ticket_menu"-->
+<!--                tools:ignore="NotSibling"-->
+<!--                android:layout_marginTop="20dp">-->
+
+<!--                <fragment-->
+<!--                    android:id="@+id/ticket_petugas_aktif"-->
+<!--                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasFragment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:layout="@layout/fragment_tiket_petugas"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/ll_selesai"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/ticket_menu"-->
+<!--                tools:ignore="NotSibling"-->
+<!--                android:layout_marginTop="20dp">-->
+
+<!--                <fragment-->
+<!--                    android:id="@+id/ticket_petugas_selesai"-->
+<!--                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasSelesaiFragment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:layout="@layout/fragment_tiket_petugas"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
     </ScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
 </RelativeLayout>

@@ -13,7 +13,7 @@ data class Tiket(
     val no_tiket: String? = null,
 
     @field:SerializedName("id_sub_kategori")
-    val id_sub_kategori: Int? = null,
+    val id_sub_kategori: Int = 0,
 
     @field:SerializedName("id_status_tiket")
     val id_status_tiket: Int? = null,

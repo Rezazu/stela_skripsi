@@ -3,17 +3,13 @@ package com.example.stela_android.Homepage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 // import androidx.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.example.stela_android.Form.FormActivity
 import com.example.stela_android.Homepage.Notification.NotificationsPage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
@@ -21,23 +17,11 @@ import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Stela.StelaPage
 import com.example.stela_android.Storage.SharedPrefManager
-import com.example.stela_android.Tracking.InfrastrukturJaringanActivity
-import com.example.stela_android.Tracking.LainnyaActivity
-import com.example.stela_android.Tracking.SistemInformasiActivity
-import com.example.stela_android.Tracking.TataKelolaActivity
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.btn_notification
 import kotlinx.android.synthetic.main.activity_home_2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.sql.Timestamp
-import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 
 
 class Home : Fragment(){
@@ -71,9 +55,9 @@ class Home : Fragment(){
                 val responseData = response.body()?.data
                 val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val name = prefs?.getString("nama_lengkap","")
+                    val name = prefs.getString("nama_lengkap","")
                     tv_name.text = name.toString()
-                    val dept = prefs?.getString("bagian", "")
+                    val dept = prefs.getString("bagian", "")
                     tv_dept.text = dept.toString()
                 }
             }

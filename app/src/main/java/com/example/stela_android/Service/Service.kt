@@ -7,6 +7,7 @@ import android.os.Environment
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.view.View
+import android.widget.ImageView
 import com.example.stela_android.R
 import kotlinx.android.synthetic.main.ticket_item.view.*
 import java.io.File
@@ -48,14 +49,23 @@ object Service {
     fun judulSubStr(judul: String?): String? {
         val newJudul = judul?.subSequence(0, 30) as String?
         return newJudul
+
     }
 
-    fun idKategori(id_sub_kategori: Int?): Int {
-        var id_kategori = 0
-        if (id_sub_kategori == 1 || id_sub_kategori == 6 ){
-            id_kategori = 1
+    fun urgensiDisplay(urgensi: String?, circle: ImageView, tvUrgensi: TextView){
+        if (urgensi == "Critical") {
+            circle.setColorFilter(Color.parseColor("#FF0000"))
+            tvUrgensi.text="Critical"
+        } else if (urgensi == "High") {
+            circle.setColorFilter(Color.parseColor("#FF731D"))
+            tvUrgensi.text="High"
+        } else if (urgensi == "Normal") {
+            circle.setColorFilter(Color.parseColor("#FFE600"))
+            tvUrgensi.text="Normal"
+        } else if (urgensi == "Low") {
+            circle.setColorFilter(Color.parseColor("#43A241"))
+            tvUrgensi.text="Low"
         }
-        return id_kategori
     }
 
     fun statusTiketDisplay(statusTiket: Int?, tv: TextView) {

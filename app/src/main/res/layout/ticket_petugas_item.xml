@@ -4,23 +4,20 @@
     android:id="@+id/ticket_petugas"
     android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
-    android:layout_height="120sp"
-    android:layout_marginBottom="15sp"
-    android:layout_marginHorizontal="5dp"
-    android:background="@drawable/border_shadow"
+    android:layout_height="140sp"
+    android:background="@drawable/border_gray2"
     android:layout_gravity="center_horizontal"
-    android:elevation="12dp"
     android:clipChildren="false"
     android:paddingHorizontal="20sp"
-    android:paddingVertical="20sp"
+    android:paddingVertical="10sp"
     >
 
     <LinearLayout
         android:id="@+id/ticket_info"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentLeft="true"
         android:orientation="vertical">
 
         <TextView
@@ -37,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
+            android:layout_marginTop="5dp"
             android:text="Kode tiket"
             android:textColor="@color/black"
             android:textSize="13sp" />
@@ -44,6 +42,7 @@
         <TextView
             android:id="@+id/status_tiket_petugas"
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:text="Status Tiket"
@@ -55,13 +54,12 @@
     <!-- Ticket's date on bottom corner of left is active when rating is null and status is not 6 -->
     <TextView
         android:id="@+id/tanggal_tiket_petugas"
-        android:layout_marginStart="5dp"
         android:layout_marginBottom="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_regular"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="22 September 2022 | 20.58"
         android:textColor="@color/black"
         android:textSize="10sp" />
@@ -70,7 +68,6 @@
         android:id="@+id/rating_bar_petugas_selesai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:rating="1"
         android:scaleX=".5"
         android:scaleY=".5"
@@ -83,6 +80,27 @@
         android:layout_gravity="bottom"
         />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/iv_urgensi"
+            android:layout_centerHorizontal="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/circle_kategori"/>
+        <TextView
+            android:id="@+id/tv_urgensi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_urgensi"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_centerHorizontal="true"
+            android:textSize="8sp"
+            android:text="Urgensi"/>
+    </RelativeLayout>
     <TextView
         android:id="@+id/belum_dinilai"
         android:layout_marginStart="5dp"
@@ -95,6 +113,33 @@
         android:text="Belum Dinilai"
         android:textColor="#FF731D"
         android:textSize="13sp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/iv_lokasi"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_location"/>
+        <TextView
+            android:id="@+id/tv_lokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_lokasi"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textSize="10sp"
+            android:text="Nusantara II, Lantai 2, Ruang Pustekinfo"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>

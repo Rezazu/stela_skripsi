@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
-import kotlinx.android.synthetic.main.fragment_tata_kelola_ti.tv_empty_tiket
 import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.*
 import retrofit2.Call
 import retrofit2.Callback
