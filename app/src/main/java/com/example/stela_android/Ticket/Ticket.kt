@@ -1,5 +1,7 @@
 package com.example.stela_android.Ticket
 
+import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -10,24 +12,30 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Homepage.Homepage
+import com.example.stela_android.Homepage.Notification.PostAdapter
 import com.example.stela_android.R
+import com.example.stela_android.Retrofit.Notification.Notification
+import com.example.stela_android.Retrofit.Notification.NotificationApi
+import com.example.stela_android.Retrofit.Notification.NotificationResponse
+import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
-import com.example.stela_android.Stela.StelaPage
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
-import kotlinx.android.synthetic.main.dokumen_item.*
-import kotlinx.android.synthetic.main.ticket_item.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class Ticket : AppCompatActivity() {
+    private val petugas = ArrayList<Petugas>()
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ticket)
 
+        val id = intent.getIntExtra("id",0)
         val judul = intent.getStringExtra("judul")
         val kodeTiket = intent.getStringExtra("kode_tiket")
         val tanggalTiket = Service.date(intent.getStringExtra("tanggal_permintaan"))
@@ -69,7 +77,7 @@ class Ticket : AppCompatActivity() {
 
         tv_kode_tiket.text = kodeTiket
         tv_tanggal_tiket.text = tanggalTiket
-        tv_nama_pelapor.text = namaPelapor
+//        tv_nama_pelapor.text = namaPelapor
         tv_jabatan_pelapor.text = jabatanPelapor
         tv_unit_kerja_pelapor.text = unitKerjaPelapor
         tv_gedung_pelapor.text = gedungPelapor
@@ -92,7 +100,31 @@ class Ticket : AppCompatActivity() {
         }
 
         Service.statusTiketDisplay(statusTiket, tv_status_tiket)
+        getPetugas(id)
+    }
 
+    private fun getPetugas(id: Int){
+        val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "")
+        val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
+        retro.getPetugasById(id).enqueue(object: Callback<ListPetugasResponse> {
+            override fun onResponse(
+                call: Call<ListPetugasResponse>,
+                response: Response<ListPetugasResponse>
+            ) {
+                response.body()?.data?.let { petugas.addAll(it) }
+                fun setPetugas(petugas: Petugas){
+                    tv_namapetugas.text = petugas.nama
+                    tv_ratingpetugas.text = petugas.rating.toString()
+                    rating_petugas.rating = petugas.rating!!
+                }
+                setPetugas(petugas.first())
+            }
+
+            override fun onFailure(call: Call<ListPetugasResponse>, t: Throwable) {
+                Log.d(ContentValues.TAG, "Exception: " + t.message)
+            }
+        })
     }
 
     fun whatsapp(view: View) {

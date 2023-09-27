@@ -19,6 +19,11 @@ interface TiketApi {
         @Query("kategori") kategori: Int,
     ): Call<TiketResponse>
 
+    @GET("petugas/{id}")
+    fun getPetugasById(
+        @Query("id") id: Int,
+    ): Call<ListPetugasResponse>
+
     @Headers("Content-type: application/json",
         "Authorization: Bearer my token")
     @GET("tiket")

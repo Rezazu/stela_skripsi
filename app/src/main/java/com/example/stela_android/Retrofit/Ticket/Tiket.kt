@@ -12,6 +12,9 @@ data class Tiket(
     @field:SerializedName("no_tiket")
     val no_tiket: String? = null,
 
+    @field:SerializedName("id_kategori")
+    val id_kategori: Int? = 0,
+
     @field:SerializedName("id_sub_kategori")
     val id_sub_kategori: Int = 0,
 

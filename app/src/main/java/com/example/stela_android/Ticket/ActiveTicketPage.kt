@@ -59,7 +59,7 @@ class ActiveTicketPage : Fragment() {
             btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner)
             btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_selesai.background = resources.getDrawable(R.drawable.border_blue)
+            btn_selesai.background = resources.getDrawable(R.drawable.border_blue_rounded)
             btn_selesai.setTextColor(Color.parseColor("#000000"))
 
             val myToast = Toast.makeText(context, "Tiket Aktif ✨", Toast.LENGTH_LONG)
@@ -78,7 +78,7 @@ class ActiveTicketPage : Fragment() {
             btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner)
             btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_aktif.background = resources.getDrawable(R.drawable.border_blue)
+            btn_aktif.background = resources.getDrawable(R.drawable.border_blue_rounded)
             btn_aktif.setTextColor(Color.parseColor("#000000"))
 
             val myToast = Toast.makeText(context, "Tiket Selesai ✨", Toast.LENGTH_LONG)

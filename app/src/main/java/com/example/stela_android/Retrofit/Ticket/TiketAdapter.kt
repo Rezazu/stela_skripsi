@@ -27,6 +27,7 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                 val statusTiket = ticketResponse.id_status_tiket
                 val tanggalInputTiket = ticketResponse.tanggal_input
                 var idSubKategori = ticketResponse.id_sub_kategori
+                val idKategori = ticketResponse.id_kategori
 
                 // get container of item
                 val rvTiket: RelativeLayout = findViewById(R.id.ticket)
@@ -42,13 +43,13 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                     judul_tiket.text = judul
                 }
 
-                if (kategoriSistemInformasi.contains(idSubKategori)){
+                if (idKategori == 1){
                     iconKategori.setBackgroundResource(R.drawable.icon_sistem_informasi)
-                } else if (kategoriInfrasturktur.contains(idSubKategori)){
+                } else if (idKategori == 2){
                     iconKategori.setBackgroundResource(R.drawable.icon_infrastruktur)
-                } else if (kategoriTatakelola.contains(idSubKategori)){
+                } else if (idKategori == 3){
                     iconKategori.setBackgroundResource(R.drawable.icon_tata_kelola)
-                } else if (kategoriLainnya.contains(idSubKategori)) {
+                } else if (idKategori == 4) {
                     iconKategori.setBackgroundResource(R.drawable.icon_lainnya)
                 } else {
                     iconKategori.setBackgroundResource(R.drawable.icon_tidak_kategori)

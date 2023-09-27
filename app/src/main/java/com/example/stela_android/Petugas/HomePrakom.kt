@@ -115,7 +115,7 @@ class HomePrakom : Fragment() {
             btn_aktifP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
             btn_aktifP.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_selesaiP.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_selesaiP.background = resources.getDrawable(R.drawable.border_blue_prakom2)
             btn_selesaiP.setTextColor(Color.parseColor("#000000"))
 
             ll_selesaiP.visibility = View.GONE
@@ -130,7 +130,7 @@ class HomePrakom : Fragment() {
             btn_selesaiP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
             btn_selesaiP.setTextColor(Color.parseColor("#FFFFFF"))
 
-            btn_aktifP.background = resources.getDrawable(R.drawable.border_blue_prakom)
+            btn_aktifP.background = resources.getDrawable(R.drawable.border_blue_prakom2)
             btn_aktifP.setTextColor(Color.parseColor("#000000"))
 
             ll_selesaiP.visibility = View.VISIBLE

@@ -45,8 +45,6 @@ class TiketFragment: Fragment(), OnTicketClickListener {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
-        val id_sub_kategori = prefs?.getInt("id_sub_kategori", 6)
-        val counter = 0
             retro.getTickets().enqueue(object : Callback<TiketResponse> {
                 override fun onResponse(
                     call: Call<TiketResponse>,
@@ -88,6 +86,7 @@ class TiketFragment: Fragment(), OnTicketClickListener {
     override fun onTicketItemClicked(position: Int) {
         val intent = Intent(activity, Ticket::class.java)
 
+        intent.putExtra("id", list[position]?.id)
         intent.putExtra("judul", list[position]?.keterangan)
         intent.putExtra("kode_tiket", list[position]?.no_tiket)
         intent.putExtra("tanggal_permintaan", list[position]?.tanggal_input)

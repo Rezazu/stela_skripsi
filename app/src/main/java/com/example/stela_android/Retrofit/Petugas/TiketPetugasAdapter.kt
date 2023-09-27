@@ -29,21 +29,18 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 var ruangan = permintaanResponse.ruangan_pelapor
 
                 var tvStatusTiket: TextView = findViewById(R.id.status_tiket_petugas)
-                var tvKodeTiket: TextView = findViewById(R.id.kode_tiket)
                 var tvTanggalTiket: TextView = findViewById(R.id.tanggal_tiket_petugas)
                 var tvBelumDinilai :TextView = findViewById(R.id.belum_dinilai)
-                var tvUrgensi : TextView = findViewById(R.id.tv_urgensi)
+//                var tvUrgensi : TextView = findViewById(R.id.tv_urgensi)
                 var ivUrgensi : ImageView = findViewById(R.id.iv_urgensi)
                 var tvLokasi : TextView = findViewById(R.id.tv_lokasi)
 
                 //put data on item
-                tvKodeTiket.text = noTiket.toString()
-
                 tvLokasi.text = "$gedung, Lantai $lantai, Ruang $ruangan"
                 Service.statusTiketDisplay(statusTiket, tvStatusTiket)
-                Service.urgensiDisplay(urgensi,ivUrgensi,tvUrgensi )
+                Service.urgensiDisplay(urgensi,ivUrgensi)
 
-                val tanggalTiket = Service.date(tanggalInputTiket)
+                val tanggalTiket = Service.datePetugas(tanggalInputTiket)
 
 //                 checking if judul which is taken through keterangan is not bigger than equal 35
                 if(judul?.length!! >= 35) {

@@ -2,143 +2,148 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ticket_petugas"
-    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
     android:layout_height="140sp"
-    android:background="@drawable/border_gray2"
-    android:layout_gravity="center_horizontal"
+    android:background="@drawable/rectangle_round"
     android:clipChildren="false"
-    android:paddingHorizontal="20sp"
     android:paddingVertical="10sp"
-    >
+    android:layout_marginBottom="5dp">
 
-    <LinearLayout
-        android:id="@+id/ticket_info"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentLeft="true"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/item_top"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:paddingHorizontal="20dp"
+        android:background="@drawable/border_black2">
 
         <TextView
-            android:id="@+id/judul_tiket"
+            android:id="@+id/tanggal_tiket_petugas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Redesign tampilan dpr.go.id"
+            android:text="22 September 2022 | 20.58"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="9sp" />
 
-        <TextView
-            android:id="@+id/kode_tiket"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_marginTop="5dp"
-            android:text="Kode tiket"
-            android:textColor="@color/black"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true">
+            <ImageView
+                android:id="@+id/iv_urgensi"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/circle_kategori"/>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_urgensi"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/iv_urgensi"-->
+<!--                android:fontFamily="@font/montserrat_semibold"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:textSize="8sp"-->
+<!--                android:text="Urgensi"/>-->
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/item_top"
+        android:paddingHorizontal="20dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ticket_info"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/judul_tiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Redesign tampilan dpr.go.id"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/status_tiket_petugas"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Status Tiket"
+                android:textColor="#858383"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- Ticket's date on bottom corner of left is active when rating is null and status is not 6 -->
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rating_bar_petugas_selesai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="1"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:max="5"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="-65dp"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_gravity="bottom"
+            />
+
+        <TextView
+            android:id="@+id/belum_dinilai"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Belum Dinilai"
+            android:textColor="#FF731D"
             android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/status_tiket_petugas"
-            android:layout_width="wrap_content"
 
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="Status Tiket"
-            android:textColor="#858383"
-            android:textSize="11sp" />
-
-    </LinearLayout>
-
-    <!-- Ticket's date on bottom corner of left is active when rating is null and status is not 6 -->
-    <TextView
-        android:id="@+id/tanggal_tiket_petugas"
-        android:layout_marginBottom="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text="22 September 2022 | 20.58"
-        android:textColor="@color/black"
-        android:textSize="10sp" />
-
-    <androidx.appcompat.widget.AppCompatRatingBar
-        android:id="@+id/rating_bar_petugas_selesai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rating="1"
-        android:scaleX=".5"
-        android:scaleY=".5"
-        android:max="5"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="-65dp"
-        android:layout_alignWithParentIfMissing="true"
-        android:layout_gravity="bottom"
-        />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true">
-        <ImageView
-            android:id="@+id/iv_urgensi"
-            android:layout_centerHorizontal="true"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/circle_kategori"/>
-        <TextView
-            android:id="@+id/tv_urgensi"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_urgensi"
-            android:fontFamily="@font/montserrat_semibold"
-            android:layout_centerHorizontal="true"
-            android:textSize="8sp"
-            android:text="Urgensi"/>
-    </RelativeLayout>
-    <TextView
-        android:id="@+id/belum_dinilai"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Belum Dinilai"
-        android:textColor="#FF731D"
-        android:textSize="13sp" />
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_alignParentBottom="true">
-        <ImageView
-            android:id="@+id/iv_lokasi"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/icon_location"/>
-        <TextView
-            android:id="@+id/tv_lokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/iv_lokasi"
-            android:fontFamily="@font/montserrat_semibold"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/black"
-            android:maxLines="1"
-            android:maxLength="30"
-            android:textSize="10sp"
-            android:text="Nusantara II, Lantai 2, Ruang Pustekinfo"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:id="@+id/iv_lokasi"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_location_2"/>
+            <TextView
+                android:id="@+id/tv_lokasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iv_lokasi"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                android:maxLength="35"
+                android:textSize="10sp"
+                android:text="Nusantara II, Lantai 2, Ruang Pustekinfo"/>
+        </RelativeLayout>
     </RelativeLayout>
 
 

@@ -48,6 +48,7 @@ class NotificationsPage : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
         }
+
     }
 
     private fun getNotification(){
@@ -73,39 +74,6 @@ class NotificationsPage : AppCompatActivity() {
                 Log.d(TAG, "Exception: " + t.message)
             }
         })
-    }
-
-    fun makeNotification (){
-        val channelID = "CHANNEL_ID_NOTIFICATION"
-        val builder = NotificationCompat.Builder(applicationContext, channelID)
-            .setSmallIcon(R.drawable.ic_notifications_page)
-            .setContentTitle("Title")
-            .setContentText("Some text")
-            .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        val intent = Intent(this, NotificationsPage::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.putExtra("data", "somedata")
-        val pendingIntent = PendingIntent.getActivity(this,
-            0,intent, PendingIntent.FLAG_MUTABLE)
-        builder.setContentIntent(pendingIntent)
-        val notifManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-            var notifChannel : NotificationChannel? =
-                notifManager.getNotificationChannel(channelID)
-            if (notifChannel == null){
-                val importance = NotificationManager.IMPORTANCE_HIGH
-                notifChannel = NotificationChannel(channelID, "text", importance)
-                notifChannel.setLightColor(Color.GREEN)
-                notifChannel.enableVibration(true)
-                notifManager.createNotificationChannel(notifChannel)
-            }
-        }
-        notifManager.notify(0, builder.build())
-
-
     }
 
     private fun recycleviewBuilder(){

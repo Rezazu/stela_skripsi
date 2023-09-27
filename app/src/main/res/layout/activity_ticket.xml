@@ -4,28 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="25sp"
+    android:background="@drawable/border_blue_prakom"
     tools:context=".Ticket.Ticket">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <!-- Header Tiket -->
             <RelativeLayout
                 android:id="@+id/header_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff"
+                android:background="@drawable/border_blue_prakom"
                 android:paddingHorizontal="25sp"
-                android:paddingVertical="15sp"
-                android:layout_marginTop="15sp"
+                android:paddingVertical="20sp"
                 tools:ignore="MissingConstraints">
 
                 <TextView
@@ -39,15 +29,22 @@
 
             </RelativeLayout>
 
+            <ScrollView
+                android:id="@+id/sv_tiketPetugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header_section"
+                android:layout_above="@id/rl_quickresponse"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
             <!-- Main Section Tiket -->
             <RelativeLayout
                 android:id="@+id/main_section"
                 android:layout_below="@+id/header_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15sp"
-                android:layout_marginTop="5sp"
-                android:paddingBottom="20sp"
+                android:paddingBottom="5sp"
                 android:background="@drawable/border_blue">
 
                 <!-- Header Ticket -->
@@ -93,13 +90,89 @@
 
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:id="@+id/pelapor_tiket"
+                    android:layout_below="@id/header_tiket"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/border_gray2"
+                    android:paddingVertical="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_height="100dp">
+
+                    <ImageView
+                        android:id="@+id/iv_petugas"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/circle_2"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/iv_petugas"
+                        android:layout_marginLeft="15dp"
+                        android:layout_centerVertical="true">
+
+                        <TextView
+                            android:id="@+id/tv_namapetugas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:textSize="14sp"
+                            android:textColor="#464646"
+                            android:text="Disini nama"/>
+                        <TextView
+                            android:id="@+id/tv_jabatanpetugas"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_namapetugas"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textColor="#464646"
+                            android:textSize="11sp"
+                            android:text="disini jabatan"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RatingBar
+                            android:id="@+id/rating_petugas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="-30dp"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:max="5"
+                            android:padding="0dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_ratingpetugas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="-30dp"
+                            android:layout_marginTop="-10dp"
+                            android:layout_below="@id/rating_petugas"
+                            android:layout_alignStart="@+id/rating_petugas"
+                            android:layout_alignEnd="@+id/rating_petugas"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:text="disini rating"
+                            android:textColor="#464646"
+                            android:textSize="11sp" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
                 <!-- Body Ticket -->
                 <LinearLayout
                     android:id="@+id/body_tiket"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/header_tiket"
-                    android:layout_marginTop="25sp"
+                    android:layout_below="@+id/pelapor_tiket"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical"
                     android:paddingHorizontal="25sp">
 
@@ -240,7 +313,6 @@
                                     android:layout_marginLeft="-50sp"
                                     android:layout_alignWithParentIfMissing="true"
                                     android:layout_gravity="bottom"
-
                                     />
 
                             </LinearLayout>
@@ -738,21 +810,28 @@
 
                 </LinearLayout>
 
+
+        </RelativeLayout>
+            </ScrollView>
+
+            <RelativeLayout
+                android:id="@+id/rl_quickresponse"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:background="@drawable/border_blue_prakom"
+                android:layout_alignParentBottom="true">
                 <ImageView
-                    android:layout_below="@+id/body_tiket"
-                    android:id="@+id/imageView"
+                    android:id="@+id/btn_quickresponse"
                     android:layout_width="200dp"
                     android:layout_height="82dp"
                     android:background="@null"
                     android:onClick="whatsapp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    app:srcCompat="@drawable/btn_hubungi" />
-
+                    app:srcCompat="@drawable/btn_hubungi"
+                    tools:ignore="NotSibling" />
             </RelativeLayout>
 
-        </RelativeLayout>
 
-    </ScrollView>
 
 </RelativeLayout>

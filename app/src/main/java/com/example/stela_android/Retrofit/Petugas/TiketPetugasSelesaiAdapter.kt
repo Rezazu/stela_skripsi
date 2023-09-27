@@ -30,13 +30,9 @@ class TiketPetugasSelesaiAdapter(private val context: Context, private val list:
                 val rvTiket: RelativeLayout = findViewById(R.id.ticket_petugas)
                 // get tv status tiket
                 var tvStatusTiket: TextView = findViewById(R.id.status_tiket_petugas)
-                // get tv kode tiket
-                var tvKodeTiket: TextView = findViewById(R.id.kode_tiket)
                 // get tv tanggal tiket
                 var tvTanggalTiket: TextView = findViewById(R.id.tanggal_tiket_petugas)
 
-
-                tvKodeTiket.text = noTiket.toString()
                 tvTanggalTiket.text = tanggalInputTiket.toString()
                 Service.statusTiketDisplay(statusTiket, tvStatusTiket)
 
@@ -49,18 +45,18 @@ class TiketPetugasSelesaiAdapter(private val context: Context, private val list:
                 }
 
                 // setting timestamp retrieved to the format asked
-                val tanggalTiket = Service.date(tanggalInputTiket)
+                val tanggalTiket = Service.datePetugas(tanggalInputTiket)
 
                 // setting displaying of ticket's date is in bottom right corner if status is not 6 and rating is null
                 if(statusTiket == 6 && ratingTiket != null) {
                     // displaying tanggal tiket
-//                    status_tiket_petugas.text = tanggalTiket
                     // hide rating bar
                     rating_bar_petugas_selesai.visibility = View.VISIBLE
                     rating_bar_petugas_selesai.rating = ratingTiket.toFloat()
                     belum_dinilai.visibility = View.GONE
-                    tvTanggalTiket.visibility = View.GONE
-                    ticket_petugas.setBackground(resources.getDrawable(R.drawable.border_gray))
+                    tanggal_tiket_petugas.text = tanggalTiket
+                    iv_urgensi.visibility = View.GONE
+//                    ticket_petugas.setBackground(resources.getDrawable(R.drawable.border_gray))
                 } else {
                     if(statusTiket != 6  && ratingTiket == null) {
                         ticket_petugas.visibility = View.GONE
@@ -72,9 +68,6 @@ class TiketPetugasSelesaiAdapter(private val context: Context, private val list:
                         ticket_petugas.layoutParams.height = 0
                     }
                 }
-
-                kode_tiket.text = noTiket
-
             }
         }
     }

@@ -34,6 +34,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.ArrayList
 
 class HomepagePrakom : AppCompatActivity() {
@@ -45,8 +47,8 @@ class HomepagePrakom : AppCompatActivity() {
         val timerHandler = Handler()
         val timerRunnable = object : Runnable{
             override fun run() {
-//                getNewNotif()
-//                timerHandler.postDelayed(this, second_in_milli.toLong())
+                getNewNotif()
+                timerHandler.postDelayed(this, second_in_milli.toLong())
             }
         }
         timerHandler.postDelayed(timerRunnable,second_in_milli.toLong())
@@ -106,7 +108,7 @@ class HomepagePrakom : AppCompatActivity() {
         val notifManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-            var notifChannel : NotificationChannel =
+            var notifChannel : NotificationChannel? =
                 notifManager.getNotificationChannel(channelID)
             if (notifChannel == null){
                 val importance = NotificationManager.IMPORTANCE_HIGH
@@ -120,6 +122,7 @@ class HomepagePrakom : AppCompatActivity() {
     }
 
     fun getNewNotif() {
+        val time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
         val notif = ArrayList<Notification>()
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
@@ -131,30 +134,24 @@ class HomepagePrakom : AppCompatActivity() {
                 response: Response<NotificationResponse>
             ) {
                 response.body()?.data?.let { notif.addAll(it) }
-                takeNotif(notif.first())
-            }
-            fun takeNotif (notificationResponse: Notification){
-                val no = notificationResponse.no_tiket.toString()
-                val ket = notificationResponse.keterangan.toString()
-                val tgl = notificationResponse.tanggal
-                val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                val date = sdf.parse(tgl)
-                val notifStamp = java.sql.Timestamp(date.time)
-                val currentStamp = Timestamp(System.currentTimeMillis() - 15*1000)
-                if (notifStamp >= currentStamp) {
-                    makeNotification(no, ket)
+                fun takeNotif (notificationResponse: Notification){
+                    val no = notificationResponse.no_tiket.toString()
+                    val ket = notificationResponse.keterangan.toString()
+                    val tgl = notificationResponse.tanggal
+                    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                    val date = sdf.parse(tgl)
+                    val notifStamp = java.sql.Timestamp(date.time)
+                    val currentStamp = Timestamp(System.currentTimeMillis() - 15*1000)
+                    if (notifStamp >= currentStamp) {
+                        makeNotification(no, ket)
+                    }
                 }
+                notif.firstOrNull()?.let { takeNotif(it) }
             }
 
             override fun onFailure(call: Call<NotificationResponse>, t: Throwable) {
                 Log.d(ContentValues.TAG, "Exception: " + t.message)
             }
-
         })
-
     }
-
-
-
-
 }

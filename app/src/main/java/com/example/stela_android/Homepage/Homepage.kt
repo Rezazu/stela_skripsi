@@ -46,6 +46,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 class Homepage : AppCompatActivity() {
+    val timer = Timer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +61,6 @@ class Homepage : AppCompatActivity() {
             }
         }
         timerHandler.postDelayed(timerRunnable,second_in_milli.toLong())
-
     }
 
     override fun onStart() {
@@ -123,7 +123,7 @@ class Homepage : AppCompatActivity() {
         val notifManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
-            var notifChannel : NotificationChannel =
+            var notifChannel : NotificationChannel? =
                 notifManager.getNotificationChannel(channelID)
             if (notifChannel == null){
                 val importance = NotificationManager.IMPORTANCE_HIGH
@@ -137,6 +137,7 @@ class Homepage : AppCompatActivity() {
     }
 
     fun getNewNotif() {
+        val time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
         val notif = ArrayList<Notification>()
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
@@ -148,19 +149,19 @@ class Homepage : AppCompatActivity() {
                 response: Response<NotificationResponse>
             ) {
                 response.body()?.data?.let { notif.addAll(it) }
-                    fun takeNotif (notificationResponse: Notification){
-                        val no = notificationResponse.no_tiket.toString()
-                        val ket = notificationResponse.keterangan.toString()
-                        val tgl = notificationResponse.tanggal
-                        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                        val date = sdf.parse(tgl)
-                        val notifStamp = java.sql.Timestamp(date.time)
-                        val currentStamp = Timestamp(System.currentTimeMillis() - 15*1000)
-                        if (notifStamp >= currentStamp) {
-                            makeNotification(no, ket)
-                        }
+                fun takeNotif (notificationResponse: Notification){
+                    val no = notificationResponse.no_tiket.toString()
+                    val ket = notificationResponse.keterangan.toString()
+                    val tgl = notificationResponse.tanggal
+                    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                    val date = sdf.parse(tgl)
+                    val notifStamp = java.sql.Timestamp(date.time)
+                    val currentStamp = Timestamp(System.currentTimeMillis() - 15*1000)
+                    if (notifStamp >= currentStamp) {
+                        makeNotification(no, ket)
                     }
-                    takeNotif(notif.first())
+                }
+                notif.firstOrNull()?.let { takeNotif(it) }
             }
 
             override fun onFailure(call: Call<NotificationResponse>, t: Throwable) {

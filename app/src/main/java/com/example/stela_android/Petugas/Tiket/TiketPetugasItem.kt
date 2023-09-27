@@ -82,6 +82,7 @@ class TiketPetugasItem : AppCompatActivity() {
         val solusi = intent.getStringExtra("solusi")
         val statusTiket = intent.getIntExtra("statusTiket", 0)
         val rating = intent.getIntExtra("rating", 0)
+        val hpPelapor = intent.getIntExtra("hp",0)
 
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
         val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
@@ -128,9 +129,8 @@ class TiketPetugasItem : AppCompatActivity() {
         tv_nama_pelapor_2.text = namaPelapor
         tv_bagian_pelapor_2.text = jabatanPelapor
         tv_unit_kerja_pelapor.text = unitKerjaPelapor
-        tv_gedung_pelapor.text = gedungPelapor
-        tv_lantai_pelapor.text = lantaiPelapor
-        tv_ruangan_pelapor.text = ruanganPelapor
+        tv_hp_pelapor.text = hpPelapor.toString()
+        tv_lokasi2.text = "$gedungPelapor, Lantai $lantaiPelapor, Ruang $ruanganPelapor"
         tv_keterangan.text = keterangan
         tv_permasalahan_akhir.text = permasalahanAkhir
         tv_solusi.text = solusi
@@ -210,5 +210,14 @@ class TiketPetugasItem : AppCompatActivity() {
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(i)
         }
+    }
+
+    fun whatsappPetugas(view: View) {
+        val hpPelapor = intent.getIntExtra("hp",0)
+        val url =
+            "https://api.whatsapp.com/send/?phone=$hpPelapor&text&type=phone_number&app_absent=0"
+        val bukeBrowser = Intent(Intent.ACTION_VIEW)
+        bukeBrowser.data = Uri.parse(url)
+        startActivity(bukeBrowser)
     }
 }

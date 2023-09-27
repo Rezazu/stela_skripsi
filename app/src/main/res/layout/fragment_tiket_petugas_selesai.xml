@@ -13,7 +13,7 @@
             android:id="@+id/rvTicketPetugasSelesai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10sp"/>
+            android:paddingHorizontal="15dp" />
 
         <TextView
             android:id="@+id/tv_empty_tiket"

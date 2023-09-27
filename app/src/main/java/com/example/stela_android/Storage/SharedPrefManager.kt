@@ -2,9 +2,8 @@ package com.example.stela_android.Storage
 
 
 import android.content.Context
-import android.media.session.MediaSession.Token
-import com.example.stela_android.Retrofit.Data
 import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.Profile
+import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.Ticket.Tiket
 import com.example.stela_android.Retrofit.User
 
@@ -53,12 +52,25 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
             )
         }
 
+    val listPetugas : Petugas
+        get() {
+            val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return Petugas(
+//                sharedPreferences.getInt("id_tiket", 0),
+//                sharedPreferences.getString("no_tiket", null),
+                sharedPreferences.getInt("id",0),
+                sharedPreferences.getString("nama", null)
+
+            )
+        }
+
     val tickets: Tiket
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return Tiket(
                 sharedPreferences.getInt("id", 0),
                 sharedPreferences.getString("no_tiket", null),
+                sharedPreferences.getInt("id_kategori",0),
                 sharedPreferences.getInt("id_sub_kategori", 0),
                 sharedPreferences.getInt("id_status_tiket", 0),
                 sharedPreferences.getInt("id_via", 0),

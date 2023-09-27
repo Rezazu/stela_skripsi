@@ -19,6 +19,32 @@ import java.util.*
 
 object Service {
 
+    fun datePetugas(date:String?): String{
+        val time = date?.subSequence(0,8)
+        val d = date?.subSequence(9,11)
+        val m = date?.subSequence(12,14)
+        val y = date?.subSequence(15,19)
+
+        var monthName: String? = ""
+
+        when(m) {
+            "01" -> monthName = "Jan"
+            "02" -> monthName = "Feb"
+            "03" -> monthName = "Mar"
+            "04" -> monthName = "Apr"
+            "05" -> monthName = "Mei"
+            "06" -> monthName = "Jun"
+            "07" -> monthName = "Jul"
+            "08" -> monthName = "Agu"
+            "09" -> monthName = "Sep"
+            "10" -> monthName = "Okt"
+            "11" -> monthName = "Nov"
+            "12" -> monthName = "Des"
+        }
+
+        return "$d $monthName $y, $time"
+    }
+
     fun date(date: String?): String {
         val m = date?.subSequence(5,7)
         val d = date?.subSequence(8,10)
@@ -43,7 +69,6 @@ object Service {
         }
 
         return "$d $monthName $y, $time"
-
     }
 
     fun judulSubStr(judul: String?): String? {
@@ -52,19 +77,19 @@ object Service {
 
     }
 
-    fun urgensiDisplay(urgensi: String?, circle: ImageView, tvUrgensi: TextView){
+    fun urgensiDisplay(urgensi: String?, circle: ImageView){
         if (urgensi == "Critical") {
             circle.setColorFilter(Color.parseColor("#FF0000"))
-            tvUrgensi.text="Critical"
+//            tvUrgensi.text="Critical"
         } else if (urgensi == "High") {
             circle.setColorFilter(Color.parseColor("#FF731D"))
-            tvUrgensi.text="High"
+//            tvUrgensi.text="High"
         } else if (urgensi == "Normal") {
             circle.setColorFilter(Color.parseColor("#FFE600"))
-            tvUrgensi.text="Normal"
+//            tvUrgensi.text="Normal"
         } else if (urgensi == "Low") {
             circle.setColorFilter(Color.parseColor("#43A241"))
-            tvUrgensi.text="Low"
+//            tvUrgensi.text="Low"
         }
     }
 

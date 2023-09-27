@@ -91,6 +91,7 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         intent.putExtra("nama", list[position]?.nama_pelapor)
         intent.putExtra("jabatan", list[position]?.bagian_pelapor)
         intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
+        intent.putExtra("hp", list[position]?.hp_pelapor)
         intent.putExtra("gedung", list[position]?.gedung_pelapor)
         intent.putExtra("lantai", list[position]?.lantai_pelapor)
         intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
