@@ -7,14 +7,16 @@
     android:background="@drawable/rectangle_round"
     android:clipChildren="false"
     android:paddingVertical="10sp"
-    android:layout_marginBottom="5dp">
+    android:layout_marginHorizontal="5dp"
+    android:elevation="4dp"
+    android:layout_marginTop="10dp">
 
     <RelativeLayout
         android:id="@+id/item_top"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="21dp"
         android:paddingHorizontal="20dp"
-        android:background="@drawable/border_black2">
+        android:background="@drawable/border_black">
 
         <TextView
             android:id="@+id/tanggal_tiket_petugas"
@@ -38,16 +40,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:elevation="8dp"
                 android:src="@drawable/circle_kategori"/>
-<!--            <TextView-->
-<!--                android:id="@+id/tv_urgensi"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@id/iv_urgensi"-->
-<!--                android:fontFamily="@font/montserrat_semibold"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:textSize="8sp"-->
-<!--                android:text="Urgensi"/>-->
+
         </RelativeLayout>
 
 
@@ -69,7 +64,7 @@
                 android:id="@+id/judul_tiket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Redesign tampilan dpr.go.id"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
@@ -77,12 +72,11 @@
             <TextView
                 android:id="@+id/status_tiket_petugas"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="Status Tiket"
                 android:textColor="#858383"
-                android:textSize="11sp" />
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -96,11 +90,11 @@
             android:scaleX=".5"
             android:scaleY=".5"
             android:max="5"
+            android:progressTint="#FFB800"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginRight="-65dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="-55dp"
             android:layout_alignWithParentIfMissing="true"
             android:layout_gravity="bottom"
             />
@@ -136,6 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/iv_lokasi"
+                android:layout_marginLeft="5dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/black"

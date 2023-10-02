@@ -46,9 +46,8 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("nama", null),
                 sharedPreferences.getInt("jumlah_tiekt",0),
                 sharedPreferences.getInt("jumlah_tiket_nilai",0),
-                sharedPreferences.getInt("rating",0),
+                sharedPreferences.getFloat("rating",0.00f),
                 sharedPreferences.getString("status",null),
-                sharedPreferences.getString("peran",null)
             )
         }
 
@@ -56,8 +55,6 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return Petugas(
-//                sharedPreferences.getInt("id_tiket", 0),
-//                sharedPreferences.getString("no_tiket", null),
                 sharedPreferences.getInt("id",0),
                 sharedPreferences.getString("nama", null)
 

@@ -26,48 +26,45 @@
     <RelativeLayout
         android:id="@+id/main_section"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="220dp"
         android:background="#3C99AB"
-        android:paddingBottom="50dp"
-        android:gravity="center"
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_nama_profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_photo"
-            android:layout_marginTop="15dp"
-            android:layout_weight='1'
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="Nama"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:includeFontPadding="false"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tv_departemen_profil"
-            android:layout_width="wrap_content"
-            android:layout_weight='1'
-            android:layout_gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_nama_profil"
-            android:layout_marginTop="12dp"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/montserrat_regular"
-            android:text="Unit kerja"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/iv_photo"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:id="@+id/iv_profil"
+            android:layout_width="65dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="65dp"
+            android:background="@drawable/circle_1"/>
 
-            app:srcCompat="@drawable/circle_1" />
+
+            <TextView
+                android:id="@+id/tv_namaprofil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama"
+                android:textColor="@color/white"
+                android:layout_below="@id/iv_profil"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/tv_unitkerja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unit kerja"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:layout_below="@id/tv_namaprofil"/>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,7 +73,7 @@
         android:layout_height="310dp"
         android:layout_below="@+id/main_section"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-80dp"
+        android:layout_marginTop="-30dp"
         android:background="@drawable/shadow_profile">
 
         <TextView

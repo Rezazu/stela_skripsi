@@ -84,26 +84,6 @@ class HomePrakom : Fragment() {
         })
     }
 
-    private fun getTicketPetugas() {
-        val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
-        val token = prefs?.getString("token", "")
-        val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
-
-        retro.getPermintaan().enqueue(object : Callback<PermintaanResponse> {
-            override fun onResponse(
-                call: Call<PermintaanResponse>,
-                response: Response<PermintaanResponse>
-            ) {
-                response.body()?.data?.let { list.addAll(it) }
-
-            }
-
-            override fun onFailure(call: Call<PermintaanResponse>, t: Throwable) {
-                Log.d("Ticket", "onFailure: " + t.message)
-            }
-        })
-    }
-
     private fun btnNotificationListener() {
         btn_notification.setOnClickListener{
             startActivity(Intent(activity, NotificationsPage::class.java))

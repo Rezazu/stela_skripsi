@@ -24,6 +24,7 @@ class DialogRate(context:Context, id: Int): Dialog(context), OnTicketClickListen
 
     private var idTiket = id
     private var ratingTiket: Float? = null
+    private var ratingKeterangan: String? = "Decoy rating"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +59,14 @@ class DialogRate(context:Context, id: Int): Dialog(context), OnTicketClickListen
         }
 
         btn_beri_nilai.setOnClickListener {
-            Log.d("Success", "btn $idTiket clicked, with rating : $ratingTiket")
+            Log.d("Success", "btn $idTiket clicked, with rating : $ratingTiket dan $ratingKeterangan")
             val prefs = context?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
             val token = prefs?.getString("token", "")
             val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
 
-            retro.giveRating(idTiket, ratingTiket?.toInt()).enqueue(object: Callback<RatingResponse> {
+            ratingKeterangan = ed_keterangan_rating.text.toString()
+
+            retro.giveRating(idTiket, ratingTiket?.toInt(), ratingKeterangan).enqueue(object: Callback<RatingResponse> {
                 override fun onResponse(call: Call<RatingResponse>, response: Response<RatingResponse>) {
                     Log.d("Success", "onRated: " + response?.body()?.message)
                     dismiss()

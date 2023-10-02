@@ -67,8 +67,8 @@ public open class Profile : Fragment() {
                     val telepon = prefs?.getString("telepon", "")
                     val nomorhp = prefs?.getString("hp", "")
 
-                    tv_nama_profil.text = nama
-                    tv_departemen_profil.text = bagian
+                    tv_namaprofil.text = nama
+                    tv_unitkerja.text = bagian
 //
                     tv_username2.text = ":   " + username
                     tv_email2.text = ":   " + email

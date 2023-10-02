@@ -82,6 +82,7 @@ class TiketPetugasItem : AppCompatActivity() {
         val solusi = intent.getStringExtra("solusi")
         val statusTiket = intent.getIntExtra("statusTiket", 0)
         val rating = intent.getIntExtra("rating", 0)
+        val keteranganRating = intent.getStringExtra("keterangan_rating")
         val hpPelapor = intent.getIntExtra("hp",0)
 
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
@@ -123,8 +124,9 @@ class TiketPetugasItem : AppCompatActivity() {
         } else {
             tv_judul_tiket.setText(judul)
         }
-        val id = intent.getIntExtra("id", 193)
-        tv_kode_tiket.text = id.toString()
+
+        val id = intent.getIntExtra("id", 0)
+        tv_kode_tiket.text = kodeTiket.toString()
         tv_tanggal_tiket.text = tanggalTiket
         tv_nama_pelapor_2.text = namaPelapor
         tv_bagian_pelapor_2.text = jabatanPelapor
@@ -144,6 +146,9 @@ class TiketPetugasItem : AppCompatActivity() {
                 rating_bar_petugas.rating = rating.toFloat()
                 button_section.visibility = View.GONE
                 bottom_container.visibility = View.GONE
+                btn_wa.visibility = View.GONE
+                tv_rating_keterangan.text = keteranganRating
+
             } else {
 //                rating_container.visibility = View.GONE
             }

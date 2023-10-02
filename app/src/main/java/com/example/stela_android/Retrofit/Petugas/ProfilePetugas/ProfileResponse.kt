@@ -13,5 +13,5 @@ data class ProfileResponse (
     val message: String? = null,
 
     @field:SerializedName("data")
-    val data: ArrayList<Profile>? = null
+    val data: Profile? = null
 )

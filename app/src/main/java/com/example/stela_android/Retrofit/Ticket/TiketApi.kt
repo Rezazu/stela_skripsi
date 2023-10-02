@@ -37,6 +37,7 @@ interface TiketApi {
     fun giveRating (
         @Path("id") id: Int,
         @Field("rating") rating: Int?,
+        @Field("ratingKeterangan") ratingKeterangan: String?,
     ): Call<RatingResponse>
 
 }

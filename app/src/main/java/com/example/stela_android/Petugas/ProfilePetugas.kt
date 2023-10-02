@@ -19,11 +19,23 @@ import com.example.stela_android.Login.Login
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
+import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.Profile
 import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.ProfileResponse
 import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.Ticket.ListPetugasResponse
+import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_profile.tv_bagian2
+import kotlinx.android.synthetic.main.activity_profile.tv_departemen2
+import kotlinx.android.synthetic.main.activity_profile.tv_email2
+import kotlinx.android.synthetic.main.activity_profile.tv_hp2
+import kotlinx.android.synthetic.main.activity_profile.tv_telepon2
+import kotlinx.android.synthetic.main.activity_profile.tv_unitkerja
+import kotlinx.android.synthetic.main.activity_profile.tv_username2
+import kotlinx.android.synthetic.main.activity_profile_petugas.*
+import kotlinx.android.synthetic.main.activity_ticket.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +49,7 @@ public open class ProfilePetugas : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getResult()
-//        getRatingPetugas()
+        getRatingPetugas()
         btnKeluarListener()
     }
 
@@ -64,13 +76,14 @@ public open class ProfilePetugas : Fragment() {
                     val departemen = prefs?.getString("kd_departemen", "")
                     val username = prefs?.getString("username", "")
                     val email = prefs?.getString("email", "")
-                    val bagian = prefs?.getString("bagian", "")
+                    val unit_kerja = prefs?.getString("unit_kerja", "")
+                    val bagian = prefs?.getString("bagian","")
                     val telepon = prefs?.getString("telepon", "")
                     val nomorhp = prefs?.getString("hp", "")
 
-                    tv_nama_profil.text = nama
-                    tv_departemen_profil.text = bagian
-//
+                    tv_namaprofilpetugas.text = nama
+                    tv_unitkerja.text = unit_kerja
+
                     tv_username2.text = ":   " + username
                     tv_email2.text = ":   " + email
                     tv_departemen2.text = ":   " + departemen
@@ -85,7 +98,6 @@ public open class ProfilePetugas : Fragment() {
             }
 
         })
-
     }
 
     private fun getRatingPetugas(){
@@ -98,8 +110,9 @@ public open class ProfilePetugas : Fragment() {
                 call: Call<ProfileResponse>,
                 response: Response<ProfileResponse>
             ) {
-                val petugas = prefs?.getString("id_petugas", "")
-                tv_nama_profil.text = petugas
+                var petugas: Profile
+                petugas = response.body()?.data!!
+                rating_profil.rating = petugas.rating!!
             }
 
             override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {

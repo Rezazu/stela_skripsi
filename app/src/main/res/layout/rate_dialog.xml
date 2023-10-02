@@ -2,8 +2,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/border"
     >
 
     <androidx.cardview.widget.CardView
@@ -55,8 +56,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rate Performa Kami"
-                android:layout_marginTop="10dp"
+                android:text="Nilai Performa Kami"
+                android:layout_marginTop="-25dp"
                 android:textColor="#CC000000"
                 android:textSize="20sp"
                 android:fontFamily="@font/montserrat_bold"
@@ -82,19 +83,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
                 android:rating="0"
                 style="@style/MyRatingBar"
+                android:progressTint="#FFB800"
                 />
+            <TextView
+                android:id="@+id/tv_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Keterangan"
+                android:textColor="#000000" />
 
+            <EditText
+                android:id="@+id/ed_keterangan_rating"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text_unfill_border_gray"
+                android:textSize="14sp"
+                android:ems="10"
+                android:layout_marginHorizontal="20dp"
+                android:lines="2"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"/>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:gravity="end"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="10dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"

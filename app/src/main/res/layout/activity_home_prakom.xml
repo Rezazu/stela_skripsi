@@ -34,7 +34,7 @@
             android:layout_marginStart="19dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/iv_photo"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_bold"
             android:text="Farhan"
             android:textColor="#FFFFFF"
             android:textSize="16sp"/>
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="Daftar permintaan layanan"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/montserrat_semibold"
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/black"
                 android:textSize="14sp"/>
 
@@ -102,7 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:background="@drawable/shadow_banner_prakom"
-                android:fontFamily="@font/montserrat_semibold"
+                android:fontFamily="@font/montserrat_bold"
                 android:paddingHorizontal="10sp"
                 android:paddingVertical="5sp"
                 android:text="Tiket Aktif"
@@ -118,7 +118,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toEndOf="@+id/btn_aktifP"
-                android:fontFamily="@font/montserrat_semibold"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Tiket Selesai"
                 android:textColor="@color/black"
                 android:textSize="10sp"

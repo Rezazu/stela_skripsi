@@ -102,6 +102,7 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         intent.putExtra("solusi", list[position]?.solusi)
         intent.putExtra("statusTiket", list[position]?.id_status_tiket)
         intent.putExtra("rating", list[position]?.rating)
+        intent.putExtra("keterangan_rating",list[position]?.keterangan_rating)
 //
         if(list[position]?.dokumen_lampiran != null) {
             val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size

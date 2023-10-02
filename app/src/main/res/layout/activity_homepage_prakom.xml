@@ -22,16 +22,17 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="#073D5F"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="6dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        app:itemIconSize="@dimen/design_bottom_navigation_icon_size"
+        app:itemIconSize="40dp"
         app:itemTextColor="#000000"
         app:menu="@menu/bottom_nav_menu_petugas"/>
 

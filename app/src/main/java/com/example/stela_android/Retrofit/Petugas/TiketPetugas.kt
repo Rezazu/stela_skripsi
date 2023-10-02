@@ -57,6 +57,9 @@ data class TiketPetugas(
     @field:SerializedName("rating")
     val rating: Int? = null,
 
+    @field:SerializedName("keterangan_rating")
+    val keterangan_rating: String? = null,
+
     @field:SerializedName("permasalahan_akhir")
     val permasalahan_akhir: String? = null,
 

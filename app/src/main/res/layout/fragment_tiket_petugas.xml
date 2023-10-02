@@ -12,7 +12,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTicketPetugas"
             android:layout_width="match_parent"
-            android:paddingHorizontal="15dp"
+            android:paddingHorizontal="10dp"
             android:layout_height="wrap_content" />
 
         <TextView
