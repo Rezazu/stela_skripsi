@@ -26,6 +26,4 @@ interface UserApi {
     @GET("user")
     fun getUser(
     ): Call<LoginResponse>
-
-
 }

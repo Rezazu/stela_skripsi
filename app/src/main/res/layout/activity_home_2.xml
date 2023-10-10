@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_4" />
     <ImageView
-        android:id="@+id/iv_photo"
+        android:id="@+id/iv_photo_pengguna"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentStart="true"
@@ -31,7 +31,7 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="25dp"
 
-        android:layout_toEndOf="@+id/iv_photo"
+        android:layout_toEndOf="@+id/iv_photo_pengguna"
         android:fontFamily="@font/montserrat_semibold"
         android:text=""
         android:textColor="#FFFFFF"
@@ -46,7 +46,7 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="14dp"
-        android:layout_toEndOf="@+id/iv_photo"
+        android:layout_toEndOf="@+id/iv_photo_pengguna"
         android:fontFamily="@font/montserrat_regular"
         android:text=""
         android:textColor="#FFFFFF"

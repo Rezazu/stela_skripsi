@@ -81,14 +81,7 @@
     android:layout_alignParentBottom="true"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="25sp"
-        android:layout_height="25sp"
-        android:layout_marginLeft="35sp"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/ic_success" />
-
-    <RelativeLayout
+        <RelativeLayout
         android:id="@+id/btn_nilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,6 +119,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
+        android:isIndicator="true"
         android:layout_marginRight="-50dp"
         android:layout_alignWithParentIfMissing="true"
         android:layout_gravity="bottom"

@@ -33,11 +33,7 @@ class StelaPage: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pdfView()
-        btnFormListener()
-        btnActiveTicketListener()
-        btn_bacapdf.setOnClickListener{
-            startActivity(Intent(activity, com.example.stela_android.Stela.PDFView::class.java))
-        }
+        btnListener()
     }
     fun pdfView(){
         pdfView = requireView().findViewById(R.id.pdfView)
@@ -59,16 +55,16 @@ class StelaPage: Fragment() {
             .load()
     }
 
-    private fun btnFormListener() {
-        btn_baru.setOnClickListener{
-            startActivity(Intent(activity, FormActivity::class.java))
-        }
-    }
-
-    private fun btnActiveTicketListener(){
+    private fun btnListener() {
         val activeTicket = ActiveTicketPage()
         btn_aktif.setOnClickListener{
             setCurrentFragment(activeTicket)
+        }
+        btn_baru.setOnClickListener{
+            startActivity(Intent(activity, FormActivity::class.java))
+        }
+        btn_bacapdf.setOnClickListener{
+            startActivity(Intent(activity, com.example.stela_android.Stela.PDFView::class.java))
         }
     }
 
@@ -77,6 +73,4 @@ class StelaPage: Fragment() {
         transaction.replace(R.id.flFragment, fragment)
         transaction.commit()
     }
-
-
 }

@@ -14,6 +14,7 @@ data class LoginResponse(
 	@field:SerializedName("message")
 	val message: String? = null
 
+
 )
 
 data class Data(

@@ -31,18 +31,12 @@ class DokumenLampiranAdapter(private val context: Context, private val listName:
 
                 ll_ticket.setOnClickListener {
                     Log.d("DATA", "data: " + pathDokumen)
-//                    val url = pathDokumen
-//                    val bukeBrowser = Intent(Intent.ACTION_VIEW)
-//                    bukeBrowser.data = Uri.parse(url)
-//                    startActivity(context,  bukeBrowser, null)
 
                     val uri: Uri = Uri.parse(Environment.getExternalStorageDirectory().toString()+nameDokumen)
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setDataAndType(uri, "*/*")
                     startActivity(context,Intent.createChooser(intent, "Open folder"),null)
-//                    startActivity(Intent.createChooser(intent, "Open folder"))
                 }
-
             }
         }
     }

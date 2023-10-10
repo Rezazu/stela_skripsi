@@ -26,6 +26,8 @@ import com.example.stela_android.Retrofit.Ticket.ListPetugasResponse
 import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile.tv_bagian2
 import kotlinx.android.synthetic.main.activity_profile.tv_departemen2
@@ -80,6 +82,7 @@ public open class ProfilePetugas : Fragment() {
                     val bagian = prefs?.getString("bagian","")
                     val telepon = prefs?.getString("telepon", "")
                     val nomorhp = prefs?.getString("hp", "")
+                    val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
 
                     tv_namaprofilpetugas.text = nama
                     tv_unitkerja.text = unit_kerja
@@ -90,6 +93,11 @@ public open class ProfilePetugas : Fragment() {
                     tv_bagian2.text = ":   " + bagian
                     tv_telepon2.text = ":   " + telepon
                     tv_hp2.text = ":   " + nomorhp
+
+                    Picasso.get().load(url)
+                        .placeholder(R.drawable.circle_1)
+                        .transform(CropCircleTransformation())
+                        .into(iv_profil_petugas)
                 }
             }
 

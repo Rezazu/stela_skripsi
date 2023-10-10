@@ -78,7 +78,6 @@ class HomepagePrakom : AppCompatActivity() {
             when(it.itemId){
                 R.id.btn_profile -> setCurrentFragment(profile)
                 R.id.btn_home -> setCurrentFragment(home)
-//                R.id.btn_ticket -> setCurrentFragment(activeTicket)
             }
             true
         }
@@ -90,6 +89,7 @@ class HomepagePrakom : AppCompatActivity() {
             commit()
         }
     }
+
     fun makeNotification (title:String, text:String){
         val channelID = "CHANNEL_ID_NOTIFICATION"
         val builder = NotificationCompat.Builder(applicationContext, channelID)

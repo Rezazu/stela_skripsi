@@ -46,12 +46,11 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 class Homepage : AppCompatActivity() {
-    val timer = Timer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
-        ticketActiveBtnHandler()
+        navBtnHandler()
         val second_in_milli = 15000
         val timerHandler = Handler()
         val timerRunnable = object : Runnable{
@@ -67,7 +66,6 @@ class Homepage : AppCompatActivity() {
         super.onStart()
         if(!SharedPrefManager.getInstance(this).isLoggedIn){
             val intent = Intent(applicationContext, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -77,14 +75,13 @@ class Homepage : AppCompatActivity() {
         }
     }
 
-    fun ticketActiveBtnHandler() {
+    fun navBtnHandler() {
         val bottomnav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomnav.itemIconTintList = null
 
         val profile = Profile()
         val home = Home()
         val activeTicket = ActiveTicketPage()
-        val myToast = Toast.makeText(applicationContext, "Fitur ini masih dikembangkan", Toast.LENGTH_LONG)
         setCurrentFragment(home)
 
         bottomNavigationView.setOnItemSelectedListener {
@@ -92,7 +89,6 @@ class Homepage : AppCompatActivity() {
                 R.id.btn_profile -> setCurrentFragment(profile)
                 R.id.btn_home -> setCurrentFragment(home)
                 R.id.btn_ticket -> setCurrentFragment(activeTicket)
-                R.id.btn_disable -> myToast.show()
             }
             true
         }

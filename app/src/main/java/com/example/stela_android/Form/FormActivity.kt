@@ -42,23 +42,18 @@ class FormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
         getDataForm()
-        postPermintaan()
-        backBtnListener()
+        btnListener()
+        ll_lampiran.visibility = View.GONE
+    }
+    fun btnListener(){
         btn_upload.setOnClickListener{
             selectFile()
         }
-        ll_lampiran.visibility = View.GONE
-    }
-
-    private fun postPermintaan(){
         btn_submit.setOnClickListener {
-            allFile.forEach(){
-                println(it)
-            }
-            filePaths.forEach(){
-                println(it)
-            }
             createPermintaan()
+        }
+        back_btn.setOnClickListener {
+            finish()
         }
     }
 
@@ -90,21 +85,7 @@ class FormActivity : AppCompatActivity() {
                 }
             }
         }
-//        if (allFile.isNotEmpty() || filePaths.isNotEmpty()){
-//            var dokumen: ArrayList<File> = ArrayList()
-//            dokumen.forEach(){
-//                convertFile(this.selectedFile.toUri())
-//                builder.addFormDataPart("dokumen[]",it.name, it.asRequestBody())
-//            }
-//        }  else {
-//            filePaths.forEach(){
-//                var dokumen: ArrayList<File> = ArrayList()
-//                dokumen.forEach(){
-//                    convertFile(this.selectedFile.toUri())
-//                    builder.addFormDataPart("dokumen[]",it.name, it.asRequestBody())
-//                }
-//            }
-//        }
+
         val requestBody = builder.build()
         val retro = Retrofit.postRetro(token, requestBody).create(FormApi::class.java)
         retro.createPermintaan(requestBody).enqueue(object : Callback<PostPermintaanResponse> {
@@ -156,14 +137,6 @@ class FormActivity : AppCompatActivity() {
         })
     }
 
-    private fun backBtnListener() {
-        back_btn.setOnClickListener {
-            val i = Intent(this, Homepage::class.java)
-            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(i)
-        }
-    }
-
     private fun selectFile(){
         val intent = Intent()
             .setType("*/*")
@@ -191,10 +164,7 @@ class FormActivity : AppCompatActivity() {
                 allFile.add(selectedFile)
                 tv_file.setText(nameFile.substring(nameFile.lastIndexOf("/")+1))
                 ll_lampiran.visibility = View.VISIBLE
-//                tv_file.setText(nameFile)
             }
-
-
         }
     }
 

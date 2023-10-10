@@ -35,8 +35,6 @@ class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Ada
                 }
             }
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {

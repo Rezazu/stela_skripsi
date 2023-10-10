@@ -17,7 +17,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DialogRate(context:Context, id: Int): Dialog(context), OnTicketClickListener {
-
     init {
         setCancelable(false)
     }
@@ -75,7 +74,6 @@ class DialogRate(context:Context, id: Int): Dialog(context), OnTicketClickListen
                 override fun onFailure(call: Call<RatingResponse>, t: Throwable) {
                     Log.d("Rating", "onFailure: " + t.message)
                 }
-
             })
         }
     }

@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -23,8 +24,11 @@ import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import com.example.stela_android.Ticket.Ticket
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*
 import kotlinx.android.synthetic.main.activity_home.btn_notification
+import kotlinx.android.synthetic.main.activity_home_2.*
 import kotlinx.android.synthetic.main.activity_home_prakom.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,13 +71,17 @@ class HomePrakom : Fragment() {
         val tv_dept : TextView = requireActivity().findViewById(R.id.tv_deptP) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                val responseData = response.body()?.data
-                val header = responseData?.user
+
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val nama = prefs?.getString("nama_lengkap", "")
                     tv_name.text = nama
                     val dept = prefs?.getString("bagian", "")
                     tv_dept.text = dept.toString()
+                    val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
+                    Picasso.get().load(url)
+                        .placeholder(R.drawable.circle_1)
+                        .transform(CropCircleTransformation())
+                        .into(iv_photo_petugas)
                 }
             }
 

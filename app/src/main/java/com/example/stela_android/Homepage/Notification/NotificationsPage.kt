@@ -39,16 +39,11 @@ class NotificationsPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notifications_page)
-        backBtnListener()
         getNotification()
         recycleviewBuilder()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
-            }
+        back_btn.setOnClickListener {
+            finish()
         }
-
     }
 
     private fun getNotification(){
@@ -78,31 +73,11 @@ class NotificationsPage : AppCompatActivity() {
 
     private fun recycleviewBuilder(){
         val rvNotification = findViewById<View>(R.id.rvnotification) as RecyclerView
-
         rvnotification.setHasFixedSize(true)
         val llm = LinearLayoutManager(applicationContext)
         llm.orientation = LinearLayoutManager.VERTICAL
         rvNotification.layoutManager = LinearLayoutManager(applicationContext)
         val adapter = PostAdapter(notif)
         rvNotification.adapter = adapter
-    }
-
-
-    private fun backBtnListener() {
-        val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
-        val token = prefs?.getString("token", "").toString()
-        val id_peran = prefs?.getInt("id_peran", 0)
-        back_btn.setOnClickListener {
-            if (id_peran == 2){
-                val i = Intent(this, Homepage::class.java)
-                i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(i)
-            } else if (id_peran == 5){
-                val i = Intent(this, HomepagePrakom::class.java)
-                i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(i)
-            }
-
-        }
     }
 }

@@ -8,15 +8,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Notification.NotificationsPage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.User
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Stela.StelaPage
 import com.example.stela_android.Storage.SharedPrefManager
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.activity_home.btn_notification
 import kotlinx.android.synthetic.main.activity_home_2.*
 import retrofit2.Call
@@ -25,6 +29,7 @@ import retrofit2.Response
 
 
 class Home : Fragment(){
+    private lateinit var  imageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -42,6 +47,7 @@ class Home : Fragment(){
         btnNotificationListener()
         btnStelaListener()
         getData()
+
     }
 
     private fun getData(){
@@ -52,13 +58,21 @@ class Home : Fragment(){
         val tv_dept : TextView = requireActivity().findViewById(R.id.tv_dept) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                val responseData = response.body()?.data
-                val header = responseData?.user
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val name = prefs.getString("nama_lengkap","")
+                    val name = prefs.getString("nama_lengkap", "")
                     tv_name.text = name.toString()
-                    val dept = prefs.getString("bagian", "")
+                    val dept = prefs.getString("unit_kerja", "")
                     tv_dept.text = dept.toString()
+                    val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
+                    val photo : ImageView = requireActivity().findViewById(R.id.iv_photo_pengguna) as ImageView
+                    Picasso.get().load(url)
+                        .placeholder(R.drawable.circle_1)
+                        .transform(CropCircleTransformation())
+                        .into(iv_photo_pengguna)
+
+//                    Glide.with(context)
+//                        .load("https://imgur.com/ErSiEVt")
+//                        .into(photo)
                 }
             }
 
@@ -66,11 +80,9 @@ class Home : Fragment(){
                 Log.d("Home", "onFailure: "+ t.message)
 
             }
-
         })
 
     }
-
 
     private fun btnNotificationListener() {
         btn_notification.setOnClickListener{

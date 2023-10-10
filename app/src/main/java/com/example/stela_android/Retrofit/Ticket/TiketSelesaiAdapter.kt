@@ -23,11 +23,13 @@ class TiketSelesaiAdapter(private val context: Context, private val list: ArrayL
                 val noTiket = ticketResponse.no_tiket
                 val statusTiket = ticketResponse.id_status_tiket
                 val tanggalInputTiket = ticketResponse.tanggal_input
+                val idKategori = ticketResponse.id_kategori
 
                 // get container of item
                 val rvTiket: RelativeLayout = findViewById(R.id.ticket)
                 // get tv status tiket
                 val tvStatusTiket: TextView = findViewById(R.id.status_tiket)
+                val iconKategori: ImageView = findViewById(R.id.iv_kategori)
 
                 // checking if judul which is taken through keterangan is not bigger than equal 35
                 if(judul?.length!! >= 35) {
@@ -35,6 +37,17 @@ class TiketSelesaiAdapter(private val context: Context, private val list: ArrayL
                     judul_tiket.text = "$judul ..."
                 } else {
                     judul_tiket.text = judul
+                }
+                if (idKategori == 1){
+                    iconKategori.setBackgroundResource(R.drawable.icon_sistem_informasi)
+                } else if (idKategori == 2){
+                    iconKategori.setBackgroundResource(R.drawable.icon_infrastruktur)
+                } else if (idKategori == 3){
+                    iconKategori.setBackgroundResource(R.drawable.icon_tata_kelola)
+                } else if (idKategori == 4) {
+                    iconKategori.setBackgroundResource(R.drawable.icon_lainnya)
+                } else {
+                    iconKategori.setBackgroundResource(R.drawable.icon_tidak_kategori)
                 }
 
                 // setting timestamp retrieved to the format asked

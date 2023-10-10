@@ -12,5 +12,4 @@ interface NotificationApi {
     @GET("notifikasi")
     fun getNotifikasi(
     ): Call<NotificationResponse>
-
 }

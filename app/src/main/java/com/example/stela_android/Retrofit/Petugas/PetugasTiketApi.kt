@@ -17,5 +17,4 @@ interface PetugasTiketApi {
         "Authorization: Bearer my token")
     @GET("profile")
     fun getProfile(): retrofit2.Call<ProfileResponse>
-
 }

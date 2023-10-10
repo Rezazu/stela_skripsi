@@ -24,8 +24,6 @@ import retrofit2.Response
 class TiketFragment: Fragment(), OnTicketClickListener {
 
     private val list = ArrayList<Tiket>()
-    private val layoutManager: RecyclerView.LayoutManager? = null
-    private val adapter: RecyclerView.Adapter<TiketAdapter.TicketViewHolder>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

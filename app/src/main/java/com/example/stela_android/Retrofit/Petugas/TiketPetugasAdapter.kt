@@ -103,10 +103,6 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
         holder.itemView.setOnClickListener {
             onTicketPetugasClickListener.onTicketPetugasItemClicked(position)
         }
-//        holder.itemView.btn_nilai.setOnClickListener {
-//            val bundle = Bundle()
-//            DialogRate(context, list[position]?.id).show()
-//        }
     }
 
     override fun getItemCount(): Int = list.size

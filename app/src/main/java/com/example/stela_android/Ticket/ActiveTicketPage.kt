@@ -51,7 +51,6 @@ class ActiveTicketPage : Fragment() {
                 .attach(fragment)
                 .commit()
         }
-
     }
 
     fun btnTiketAktifListener() {

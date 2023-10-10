@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Homepage
 import com.example.stela_android.Login.Login
@@ -23,6 +24,8 @@ import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.activity_profile.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -66,6 +69,7 @@ public open class Profile : Fragment() {
                     val bagian = prefs?.getString("bagian", "")
                     val telepon = prefs?.getString("telepon", "")
                     val nomorhp = prefs?.getString("hp", "")
+                    val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
 
                     tv_namaprofil.text = nama
                     tv_unitkerja.text = bagian
@@ -76,6 +80,11 @@ public open class Profile : Fragment() {
                     tv_bagian2.text = ":   " + bagian
                     tv_telepon2.text = ":   " + telepon
                     tv_hp2.text = ":   " + nomorhp
+
+                    Picasso.get().load(url)
+                        .placeholder(R.drawable.circle_1)
+                        .transform(CropCircleTransformation())
+                        .into(iv_profil_pengguna)
                 }
             }
 

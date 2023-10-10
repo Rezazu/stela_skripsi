@@ -89,7 +89,8 @@ class Ticket : AppCompatActivity() {
 
         if(statusTiket != 6 && rating == null) {
             rating_container.visibility = View.GONE
-        } else {
+        }
+        else {
             // setting if ticket has been rated, so display the stars not btn rate ticket
             if(statusTiket == 6 && rating != null) {
                 rating_container.visibility = View.VISIBLE
@@ -118,7 +119,11 @@ class Ticket : AppCompatActivity() {
                     tv_ratingpetugas.text = petugas.rating.toString()
                     rating_petugas.rating = petugas.rating!!
                 }
-                setPetugas(petugas.first())
+                if (petugas.isNotEmpty()){
+                    setPetugas(petugas.first())
+                } else {
+                    petugas_tiket.visibility = View.GONE
+                }
             }
 
             override fun onFailure(call: Call<ListPetugasResponse>, t: Throwable) {

@@ -18,7 +18,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp">
         <ImageView
-            android:id="@+id/iv_photo"
+            android:id="@+id/iv_photo_petugas"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="19dp"
             android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/iv_photo"
+            android:layout_toEndOf="@+id/iv_photo_petugas"
             android:fontFamily="@font/montserrat_bold"
             android:text="Farhan"
             android:textColor="#FFFFFF"
@@ -47,7 +47,7 @@
             android:layout_marginStart="19dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="14dp"
-            android:layout_toEndOf="@+id/iv_photo"
+            android:layout_toEndOf="@+id/iv_photo_petugas"
             android:fontFamily="@font/montserrat_medium"
             android:text="Pranata Komputer"
             android:textColor="#FFFFFF"

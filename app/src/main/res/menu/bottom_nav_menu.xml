@@ -16,12 +16,6 @@
         android:fontFamily="@font/montserrat_regular"
         />
     <item
-        android:id="@+id/btn_disable"
-        android:title="Disabilitas"
-        android:icon="@drawable/ic_disable_64"
-        android:fontFamily="@font/montserrat_regular"
-        />
-    <item
         android:id="@+id/btn_profile"
         android:title="Profil"
         android:icon="@drawable/ic_profile_64"

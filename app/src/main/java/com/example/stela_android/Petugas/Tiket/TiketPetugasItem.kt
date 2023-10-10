@@ -61,8 +61,6 @@ class TiketPetugasItem : AppCompatActivity() {
     var selectedFile = ""
     val filePaths: ArrayList<String> = ArrayList()
 
-
-
     @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {

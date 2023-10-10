@@ -34,7 +34,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
                 sharedPreferences.getString("email", null),
                 sharedPreferences.getString("username", null),
                 sharedPreferences.getString("status", null),
-                sharedPreferences.getInt("jumlah_tiket", 0)
+                sharedPreferences.getString("profile", null)
             )
         }
 
@@ -117,6 +117,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
         editor.putString("email", user.email)
         editor.putString("username", user.username)
         editor.putString("status", user.status)
+        editor.putString("profile", user.profile)
         editor.apply()
 
     }

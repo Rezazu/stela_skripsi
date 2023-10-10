@@ -32,7 +32,6 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tiket_petugas, container, false)
     }
 
@@ -45,36 +44,25 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
-//        val tv_permintaan: TextView = requireActivity().findViewById(R.id.tv_permintaan) as TextView
-
         retro.getPermintaan().enqueue(object : Callback<PermintaanResponse> {
             override fun onResponse(
                 call: Call<PermintaanResponse>,
                 response: Response<PermintaanResponse>
             ) {
                 response.body()?.data?.let { list.addAll(it) }
-                val jumlah_tiket: Int = list.count()
-//                tv_permintaan.setText("Anda memiliki " + jumlah_tiket + " permintaan baru yang belum di kerjakan")
-
                 if (response.body()?.success == null) {
-//                    container_tiket_prakom.visibility = View.GONE
                     tv_empty_tiket.visibility = View.VISIBLE
                     tv_empty_tiket.text = "Anda tidak memiliki permintaan aktif"
                 } else {
                     tv_empty_tiket.visibility = View.GONE
                     rvTicketPetugas.apply {
-                        // set a LinearLayoutManager to handle Android
-                        // RecyclerView behavior
                         layoutManager = LinearLayoutManager(activity)
-                        // set the custom adapter to the RecyclerView
                         adapter = context?.let { TiketPetugasAdapter(it, list, this@TiketPetugasFragment) }
                         val ticketAdapter = adapter
                         rvTicketPetugas.adapter = ticketAdapter
-//                        ticketAdapter?.notifyDataSetChanged()
                     }
                 }
             }
-
             override fun onFailure(call: Call<PermintaanResponse>, t: Throwable) {
                 Log.d("Ticket", "onFailure: " + t.message)
             }
@@ -96,14 +84,13 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         intent.putExtra("lantai", list[position]?.lantai_pelapor)
         intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
         intent.putExtra("status", list[position]?.id_status_tiket)
-
         intent.putExtra("keterangan", list[position]?.keterangan)
         intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
         intent.putExtra("solusi", list[position]?.solusi)
         intent.putExtra("statusTiket", list[position]?.id_status_tiket)
         intent.putExtra("rating", list[position]?.rating)
-        intent.putExtra("keterangan_rating",list[position]?.keterangan_rating)
-//
+        intent.putExtra("keterangan_rating",list[position].keterangan_rating)
+
         if(list[position]?.dokumen_lampiran != null) {
             val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
             val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
@@ -152,10 +139,6 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
             intent.putExtra("laporanPetugasNames", ArrayList<String>())
             intent.putExtra("laporanPetugasPaths", ArrayList<String>())
         }
-
         startActivity(intent)
     }
-
-
-
 }

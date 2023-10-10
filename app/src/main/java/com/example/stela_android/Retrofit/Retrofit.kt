@@ -12,7 +12,7 @@ import retrofit2.create
 
 object Retrofit {
 
-    val BASE_URL = "http://10.200.55.249:8000/api/"
+    val BASE_URL = "http://10.200.179.97:8000/api/"
 //    val BASE_URL = "http://192.168.1.11:8000/api/"
 
     fun getRetroLogin() : Retrofit {
@@ -56,5 +56,4 @@ object Retrofit {
             .client(client)
             .build()
     }
-
 }

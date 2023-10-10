@@ -39,5 +39,4 @@ interface TiketApi {
         @Field("rating") rating: Int?,
         @Field("ratingKeterangan") ratingKeterangan: String?,
     ): Call<RatingResponse>
-
 }

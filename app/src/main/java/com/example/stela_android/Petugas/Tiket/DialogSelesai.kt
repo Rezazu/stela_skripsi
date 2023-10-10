@@ -44,7 +44,6 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
     private var eskalasi = eskalasi
     var selectedFile = ""
     var filePaths: ArrayList<String> = ArrayList()
-//    val eskalasi = (getActivity(context) as TiketPetugasItem).intent.getStringExtra("eskalasi")
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,9 +60,7 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
         Log.d("LAPORAN NAMES", "data: " + selectedFile)
         Log.d("LAPORAN PATHS", "data: " + filePaths)
 
-
         val tv_solusi = findViewById<TextView>(R.id.tv_solusi)
-
         when (eskalasi){
             "selesai"-> tv_solusi.text = "Keterangan solusi"
             "kendala"-> tv_solusi.text = "Keterangan terkendala"
@@ -76,12 +73,10 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
             selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
             filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateSelesai(eskalasi)
-
         }
         upload.setOnClickListener{
             (getActivity(context) as TiketPetugasItem).selectFile()
         }
-
     }
 
 
@@ -93,8 +88,6 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
         val solusi = ed_solusi.getText().toString()
         val id_status_tiket = "6"
         val id_status_tiket_internal = "9"
-
-
 
         val builder = MultipartBody.Builder()
         builder.setType(MultipartBody.FORM)
@@ -132,7 +125,6 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
 
                     override fun onFailure(call: Call<PostSolusiResponse>, t: Throwable) {
                         Log.d("form", "onFailure: " + t.message)
-//                btn_submit.isEnabled = true
                     }
                 })
             "kendala" ->
@@ -149,7 +141,6 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
 
                     override fun onFailure(call: Call<PostSolusiResponse>, t: Throwable) {
                         Log.d("form", "onFailure: " + t.message)
-//                btn_submit.isEnabled = true
                     }
                 })
         }

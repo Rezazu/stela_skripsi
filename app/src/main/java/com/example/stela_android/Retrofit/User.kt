@@ -1,5 +1,6 @@
 package com.example.stela_android.Retrofit
 
+import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.Profile
 import com.google.gson.annotations.SerializedName
 
 data class User(
@@ -49,6 +50,6 @@ data class User(
     @field:SerializedName("status")
     val status: String? = null,
 
-    @field:SerializedName("jumlah_tiket")
-    val jumlah_tiket: Int,
+    @field:SerializedName("profile")
+    val profile: String? = null,
 )
