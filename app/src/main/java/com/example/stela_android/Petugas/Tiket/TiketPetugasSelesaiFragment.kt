@@ -93,6 +93,7 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
             val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
             val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
             val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
+            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
             for(nums in 0 until sizeOfDokumenLampiran!!) {
                 list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
                     dokumenLampiranNames.add(nums,
@@ -104,9 +105,16 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
                         it
                     )
                 }
+                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
+                    dokumenLampiranExt.add(nums,
+                        it
+                    )
+                }
+//                http://192.168.1.11:8000/storage/index/dokumen-lampiran/10-10-20233290497667251421446/ext/jpeg
             }
             intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
             intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
+            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
         } else {
             intent.putExtra("dokumenLampiranNames", ArrayList<String>())
             intent.putExtra("dokumenLampiranPaths", ArrayList<String>())

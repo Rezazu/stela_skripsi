@@ -1,7 +1,5 @@
 package com.example.stela_android.Homepage
 
-import android.Manifest.permission.POST_NOTIFICATIONS
-import android.app.AlertDialog.Builder
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -15,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -29,18 +26,14 @@ import com.example.stela_android.Retrofit.Notification.Notification
 import com.example.stela_android.Retrofit.Notification.NotificationApi
 import com.example.stela_android.Retrofit.Notification.NotificationResponse
 import com.example.stela_android.Retrofit.Retrofit
-import com.example.stela_android.Retrofit.User
 import com.example.stela_android.Storage.SharedPrefManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_homepage.*
-import okhttp3.internal.notify
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.String.format
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*

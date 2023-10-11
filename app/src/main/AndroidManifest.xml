@@ -17,6 +17,20 @@
         android:theme="@style/Theme.Stelaandroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Petugas.DaftarRating"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Profile.DataPengguna"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Retrofit.Ticket.LaporanPetugas.Webview"
             android:exported="false">
             <meta-data

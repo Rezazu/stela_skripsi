@@ -1,6 +1,5 @@
 package com.example.stela_android.Login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log

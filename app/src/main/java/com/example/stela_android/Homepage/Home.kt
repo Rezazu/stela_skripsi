@@ -15,7 +15,6 @@ import com.example.stela_android.Homepage.Notification.NotificationsPage
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
-import com.example.stela_android.Retrofit.User
 import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Stela.StelaPage
 import com.example.stela_android.Storage.SharedPrefManager

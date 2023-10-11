@@ -26,8 +26,8 @@
         parent="android:style/Widget.Material.RatingBar.Small">
         <!-- Non selected star color -->
         <item name="colorControlNormal">#4D000000</item>
-
         <!-- Selected star color -->
         <item name="colorControlActivated">#FFB800</item>
     </style>
+
 </resources>
