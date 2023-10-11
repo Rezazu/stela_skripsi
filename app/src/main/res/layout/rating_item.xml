@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rating_item"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/border_gray2"
+    android:paddingHorizontal="10sp"
+    android:paddingVertical="10dp"
+    android:clipChildren="false"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ticket_info"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_keterangan_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Redesign tampilan dpr.go.id"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_nama_rating"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Pelapor"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <!-- Ticket's date on bottom corner of right is active when rating is null and status is not 6 -->
+    <TextView
+        android:id="@+id/tv_tanggal_rating"
+        android:layout_marginBottom="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="22 September 2022 | 20.58"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_no_tiket"
+        android:layout_marginBottom="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="nomortiket"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+
+    <!-- Rating Section, this view will display if the ticket's status is done -->
+    <LinearLayout
+    android:id="@+id/ll_ticket_success"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical"/>
+
+    <!-- Star Rating Section, this view will display if the ticket's rating is not null and status is done -->
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating_bar_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="0"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        android:max="5"
+        android:layout_marginRight="-30dp"
+        android:progressTint="#FFB800"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:isIndicator="true"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_gravity="bottom"
+
+        />
+
+
+</RelativeLayout>

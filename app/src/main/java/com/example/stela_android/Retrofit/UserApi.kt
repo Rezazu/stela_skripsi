@@ -1,15 +1,7 @@
 package com.example.stela_android.Retrofit
 
-import com.example.stela_android.Retrofit.Form.PostPermintaanResponse
-import com.example.stela_android.Retrofit.Ticket.ListPetugasResponse
-import com.example.stela_android.Retrofit.Ticket.Petugas
-import com.google.gson.annotations.SerializedName
-import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
-import retrofit2.http.Part
-import retrofit2.http.Multipart
-import java.io.File
 
 interface UserApi {
     @FormUrlEncoded

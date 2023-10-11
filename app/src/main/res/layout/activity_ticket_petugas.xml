@@ -34,8 +34,6 @@
                     android:text="Tiket"
                     android:textColor="#2954A8"
                     android:textSize="20sp" />
-
-
             </RelativeLayout>
             <ScrollView
                 android:id="@+id/sv_tiketPetugas"

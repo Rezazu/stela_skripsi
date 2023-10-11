@@ -14,7 +14,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/back_btn"
+            android:id="@+id/back_btn_pengguna"
             android:layout_width="35sp"
             android:layout_height="35sp"
             android:src="@drawable/ic_back_btn_white" />
@@ -67,7 +67,7 @@
             android:layout_below="@id/ll_nama"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
-            android:background="gray"
+            android:textColor="@color/black"
             android:text="Nama Lengkap"/>
 
         <LinearLayout
@@ -100,6 +100,7 @@
             android:layout_below="@id/ll_unit"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
+            android:textColor="@color/black"
             android:text="Unit Kerja"/>
 
         <LinearLayout
@@ -120,7 +121,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Jabatan"/>
+                android:text="Bagian"/>
         </LinearLayout>
 
         <TextView
@@ -130,6 +131,7 @@
             android:layout_below="@id/ll_jabatan"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
+            android:textColor="@color/black"
             android:text="Jabatan"/>
 
         <LinearLayout
@@ -156,12 +158,13 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_email"
+            android:id="@+id/tv_email_petugas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_email"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
+            android:textColor="@color/black"
             android:text="Email"/>
 
         <LinearLayout
@@ -171,7 +174,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginVertical="5dp"
-            android:layout_below="@id/tv_email">
+            android:layout_below="@id/tv_email_petugas">
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -194,6 +197,7 @@
             android:layout_below="@id/ll_hp"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
+            android:textColor="@color/black"
             android:text="Nomor Hp"/>
 
         <LinearLayout
@@ -227,6 +231,7 @@
             android:layout_below="@id/ll_ruangan"
             android:layout_marginVertical="5dp"
             android:padding="5dp"
+            android:textColor="@color/black"
             android:text="Lokasi"/>
 
 

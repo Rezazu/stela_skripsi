@@ -13,13 +13,7 @@
         android:background="#073D5F"
         android:paddingHorizontal="20sp"
         android:paddingTop="15dp"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:id="@+id/back_btn"
-            android:layout_width="35sp"
-            android:layout_height="35sp"
-            android:src="@drawable/ic_back_btn_white" />
-    </RelativeLayout>
+        tools:ignore="MissingConstraints"/>
 
     <RelativeLayout
         android:id="@+id/main_section"
@@ -85,7 +79,7 @@
         </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
-        android:id="@+id/rv_pengguna"
+        android:id="@+id/rl_pengguna"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/border_gray2"
@@ -113,11 +107,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rv_rating"
+        android:id="@+id/rl_rating"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/border_gray2"
-        android:layout_below="@+id/rv_pengguna"
+        android:layout_below="@+id/rl_pengguna"
         android:paddingHorizontal="30dp"
         android:paddingVertical="10dp">
         <ImageView
@@ -140,11 +134,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rv_keluar"
+        android:id="@+id/rl_keluar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/border_gray2"
-        android:layout_below="@+id/rv_rating"
+        android:layout_below="@+id/rl_rating"
         android:paddingHorizontal="30dp"
         android:paddingVertical="10dp">
         <ImageView

@@ -88,9 +88,9 @@ public open class ProfilePetugas : Fragment() {
     }
 
     private fun btnListener(){
-        val btn_keluar = requireActivity().findViewById<RelativeLayout>(R.id.rv_keluar)
-        val btn_data_pengguna = requireActivity().findViewById<RelativeLayout>(R.id.rv_pengguna)
-        val btn_daftar_rating = requireActivity().findViewById<RelativeLayout>(R.id.rv_rating)
+        val btn_keluar = requireActivity().findViewById<RelativeLayout>(R.id.rl_keluar)
+        val btn_data_pengguna = requireActivity().findViewById<RelativeLayout>(R.id.rl_pengguna)
+        val btn_daftar_rating = requireActivity().findViewById<RelativeLayout>(R.id.rl_rating)
         btn_keluar.setOnClickListener {
             showDialog()
         }

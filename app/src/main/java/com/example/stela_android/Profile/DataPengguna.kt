@@ -13,6 +13,8 @@ import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.activity_daftar_rating.*
+import kotlinx.android.synthetic.main.activity_data_pengguna.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile_petugas.*
 import kotlinx.android.synthetic.main.activity_profile_petugas.tv_unitkerja
@@ -25,6 +27,9 @@ class DataPengguna : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_pengguna)
         getResult()
+        back_btn_pengguna.setOnClickListener {
+            finish()
+        }
     }
 
     private fun getResult(){
@@ -35,15 +40,22 @@ class DataPengguna : AppCompatActivity() {
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
                     val nama = prefs?.getString("nama_lengkap", "")
-                    val departemen = prefs?.getString("kd_departemen", "")
-                    val username = prefs?.getString("username", "")
                     val email = prefs?.getString("email", "")
                     val unit_kerja = prefs?.getString("unit_kerja", "")
-                    val bagian = prefs?.getString("bagian","")
-                    val telepon = prefs?.getString("telepon", "")
+                    val bagian = prefs?.getString("bagian", "")
                     val nomorhp = prefs?.getString("hp", "")
+                val ruangPelapor = prefs?.getString("ruangan", "")
+                val lantaiPelapor = prefs?.getString("lantai", "")
+                val gedungPelapor = prefs?.getString("gedung", "")
+
+                    tv_nama.text = nama
+                    tv_unit_kerja.text = unit_kerja
+                    tv_jabatan.text = bagian
+                    tv_email_petugas.text = email
+                tv_nomor_hp.text = nomorhp
+                tv_ruangan.text = "Gedung $gedungPelapor, Lantai $lantaiPelapor, Ruang $ruangPelapor"
+
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Home", "onFailure: "+t.message)
