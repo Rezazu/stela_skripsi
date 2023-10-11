@@ -2,57 +2,38 @@ package com.example.stela_android.Petugas.Tiket
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Dialog
-import android.content.ContentResolver
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.View
-import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Petugas.HomepagePrakom
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
-import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Retrofit.Ticket.LaporanPetugas.LaporanPetugasAdapter
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.activity_ticket.*
-import kotlinx.android.synthetic.main.activity_ticket.tv_gedung_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_judul_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_keterangan
 import kotlinx.android.synthetic.main.activity_ticket.tv_kode_tiket
-import kotlinx.android.synthetic.main.activity_ticket.tv_lantai_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_permasalahan_akhir
-import kotlinx.android.synthetic.main.activity_ticket.tv_ruangan_pelapor
 import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
 import kotlinx.android.synthetic.main.activity_ticket.tv_tanggal_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_unit_kerja_pelapor
 import kotlinx.android.synthetic.main.activity_ticket_petugas.*
 import kotlinx.android.synthetic.main.activity_ticket_petugas.back_btn
+import kotlinx.android.synthetic.main.popup_laporan_selesai.*
 import kotlinx.android.synthetic.main.ticket_item.view.*
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -81,13 +62,15 @@ class TiketPetugasItem : AppCompatActivity() {
         val statusTiket = intent.getIntExtra("statusTiket", 0)
         val rating = intent.getIntExtra("rating", 0)
         val keteranganRating = intent.getStringExtra("keterangan_rating")
-        val hpPelapor = intent.getIntExtra("hp",0)
+        val hpPelapor = intent.getStringExtra("hp")
 
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
         val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
+        val dokumenLampiranExt = intent.getStringArrayListExtra("dokumenLampiranExt")
 
         val laporanPetugasNames = intent.getStringArrayListExtra("laporanPetugasNames")
         val laporanPetugasPaths = intent.getStringArrayListExtra("laporanPetugasPaths")
+        val laporanPetugasExt = intent.getStringArrayListExtra("laporanPetugasExt")
 
         val myToast = Toast.makeText(applicationContext, "Tiket " + kodeTiket + " ✨", Toast.LENGTH_LONG)
         myToast.show()
@@ -104,7 +87,7 @@ class TiketPetugasItem : AppCompatActivity() {
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(context)
             // set the custom adapter to the RecyclerView
-            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!)
+            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!, dokumenLampiranExt!!)
             rvDokumenPetugas.adapter = adapter
         }
 
@@ -112,7 +95,7 @@ class TiketPetugasItem : AppCompatActivity() {
             rvLaporanPetugas.apply {
                 layoutManager = LinearLayoutManager(context)
                 adapter =
-                    LaporanPetugasAdapter(context, laporanPetugasNames!!, laporanPetugasPaths!!)
+                    LaporanPetugasAdapter(context, laporanPetugasNames!!, laporanPetugasPaths!!,laporanPetugasExt!!)
                 rvLaporanPetugas.adapter = adapter
             }
         }
@@ -140,15 +123,12 @@ class TiketPetugasItem : AppCompatActivity() {
         } else {
             // setting if ticket has been rated, so display the stars not btn rate ticket
             if(statusTiket == 6 && rating != null) {
-//                rating_container.visibility = View.VISIBLE
                 rating_bar_petugas.rating = rating.toFloat()
                 button_section.visibility = View.GONE
                 bottom_container.visibility = View.GONE
                 btn_wa.visibility = View.GONE
                 tv_rating_keterangan.text = keteranganRating
 
-            } else {
-//                rating_container.visibility = View.GONE
             }
         }
 
@@ -171,7 +151,7 @@ class TiketPetugasItem : AppCompatActivity() {
 
     internal fun selectFile(){
         val intent = Intent()
-            .setType("application/pdf")
+            .setType("*/*")
             .setAction(Intent.ACTION_GET_CONTENT).putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         takeFile.launch(intent)
     }
@@ -201,7 +181,8 @@ class TiketPetugasItem : AppCompatActivity() {
                 var path = result.data?.data as Uri
                 var nameFile = result.data?.data?.lastPathSegment.toString()
                 this.selectedFile = path.toString()
-//                tv_file.setText(nameFile.substring(nameFile.lastIndexOf("/")+1))
+                val tvLaporan = findViewById<TextView>(R.id.tv_filelaporan)
+//                tvLaporan.setText(nameFile.substring(nameFile.lastIndexOf("/")+1))
             }
 
         }

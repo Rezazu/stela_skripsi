@@ -3,46 +3,38 @@ package com.example.stela_android.Retrofit.Ticket.LaporanPetugas
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Environment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Ticket.OnTicketClickListener
-import kotlinx.android.synthetic.main.activity_form.view.*
-import kotlinx.android.synthetic.main.dokumen_item.*
+import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.dokumen_item.view.*
-import kotlinx.android.synthetic.main.ticket_item.view.*
-import java.util.ArrayList
 
-class LaporanPetugasAdapter(private val context: Context, private val listName: ArrayList<String>, private val listPath: ArrayList<String>): RecyclerView.Adapter<LaporanPetugasAdapter.LaporanPetugasViewHolder>() {
+
+class LaporanPetugasAdapter(
+    private val Activity: Context,
+    private val listName: ArrayList<String>,
+    private val listPath: ArrayList<String>,
+    private val listExt: ArrayList<String>,
+): RecyclerView.Adapter<LaporanPetugasAdapter.LaporanPetugasViewHolder>() {
     inner class LaporanPetugasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(LaporanPetugasName: String, LaporanPetugasPath: String) {
+        fun bind(LaporanPetugasName: String, LaporanPetugasPath: String, LaporanPetugasExt: String) {
             with(itemView) {
-                val nameDokumen = LaporanPetugasName
+                var nameDokumen = LaporanPetugasName
                 tv_dokumen_lampiran.text = nameDokumen
-
                 val pathDokumen = LaporanPetugasPath
-                tv_url.text = pathDokumen
+                val extDokumen = LaporanPetugasExt
+                val BaseUrl = Retrofit.BASE_URL.dropLast(4)
 
                 ll_ticket.setOnClickListener {
-                    Log.d("DATA", "data: " + pathDokumen)
-//                    val url = pathDokumen
-//                    val bukeBrowser = Intent(Intent.ACTION_VIEW)
-//                    bukeBrowser.data = Uri.parse(url)
-//                    startActivity(context,  bukeBrowser, null)
+                    val i = Intent(Intent.ACTION_VIEW)
+                    i.data = Uri.parse(BaseUrl + "storage/index/tiket-image-laporan/$nameDokumen/ext/$extDokumen")
+                    context.startActivity(i)
 
-                    val uri: Uri = Uri.parse(Environment.getExternalStorageDirectory().toString()+nameDokumen)
-                    val intent = Intent(Intent.ACTION_VIEW)
-                    intent.setDataAndType(uri, "*/*")
-                    startActivity(context,Intent.createChooser(intent, "Open folder"),null)
-//                    startActivity(Intent.createChooser(intent, "Open folder"))
+//                  http://10.200.177.211:8000/storage/index/tiket-image-laporan/2023-10-11%2001-24-28-65263f9cabae7/ext/pdf
+//                  http://10.200.177.211:8000/storage/index/tiket-image-laporan/2023-10-11%2001-24-28-65263f9cabae7/ext/pdf
                 }
-
             }
         }
     }
@@ -59,7 +51,7 @@ class LaporanPetugasAdapter(private val context: Context, private val listName: 
         holder: LaporanPetugasViewHolder,
         position: Int
     ) {
-        holder.bind(listName[position], listPath[position])
+        holder.bind(listName[position],listPath[position],listExt[position])
     }
 
     override fun getItemCount(): Int = listName.size

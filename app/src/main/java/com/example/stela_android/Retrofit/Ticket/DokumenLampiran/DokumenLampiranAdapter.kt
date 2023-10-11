@@ -8,34 +8,35 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.startActivityForResult
+import android.webkit.MimeTypeMap
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Ticket.OnTicketClickListener
-import kotlinx.android.synthetic.main.activity_form.view.*
-import kotlinx.android.synthetic.main.dokumen_item.*
+import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.dokumen_item.view.*
-import kotlinx.android.synthetic.main.ticket_item.view.*
 import java.util.ArrayList
+//http://10.200.49.54:8000/storage/index/tiket-image-laporan/2023-10-08%2007-53-53-6521fda1502dd/ext/pdf
+//http://10.200.49.54:8000/storage/index/dokumen-lampiran/08-10-20239060255266402013267/ext/pdf
 
-class DokumenLampiranAdapter(private val context: Context, private val listName: ArrayList<String>, private val listPath: ArrayList<String>): RecyclerView.Adapter<DokumenLampiranAdapter.DokumenLampiranViewHolder>() {
+class DokumenLampiranAdapter(
+    private val context: Context,
+    private val listName: ArrayList<String>,
+    private val listPath: ArrayList<String>,
+    private val listExt: ArrayList<String>,
+): RecyclerView.Adapter<DokumenLampiranAdapter.DokumenLampiranViewHolder>() {
     inner class DokumenLampiranViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(dokumenLampiranName: String, dokumenLampiranPath: String) {
+        fun bind(dokumenLampiranName: String, dokumenLampiranPath: String, dokumenLampiranExt: String) {
             with(itemView) {
                 val nameDokumen = dokumenLampiranName
                 tv_dokumen_lampiran.text = nameDokumen
 
-                val pathDokumen = dokumenLampiranPath
-                tv_url.text = pathDokumen
+                val extDokumen = dokumenLampiranExt
+                val BaseUrl = Retrofit.BASE_URL.dropLast(4)
 
                 ll_ticket.setOnClickListener {
-                    Log.d("DATA", "data: " + pathDokumen)
-
-                    val uri: Uri = Uri.parse(Environment.getExternalStorageDirectory().toString()+nameDokumen)
-                    val intent = Intent(Intent.ACTION_VIEW)
-                    intent.setDataAndType(uri, "*/*")
-                    startActivity(context,Intent.createChooser(intent, "Open folder"),null)
+                    val i = Intent(Intent.ACTION_VIEW)
+                    i.data = Uri.parse(BaseUrl + "storage/index/dokumen-lampiran/$nameDokumen/ext/$extDokumen")
+                    context.startActivity(i)
                 }
             }
         }
@@ -53,7 +54,7 @@ class DokumenLampiranAdapter(private val context: Context, private val listName:
         holder: DokumenLampiranViewHolder,
         position: Int
     ) {
-        holder.bind(listName[position], listPath[position])
+        holder.bind(listName[position], listPath[position], listExt[position])
     }
 
     override fun getItemCount(): Int = listName.size

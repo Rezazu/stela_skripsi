@@ -107,9 +107,10 @@ class TiketFragment: Fragment(), OnTicketClickListener {
 
             val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
             val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
+            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
 
             for(nums in 0 until sizeOfDokumenLampiran!!) {
-                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
+                list[position]?.dokumen_lampiran?.get(nums)?.doc_name?.let {
                     dokumenLampiranNames.add(nums,
                         it
                     )
@@ -120,10 +121,16 @@ class TiketFragment: Fragment(), OnTicketClickListener {
                         it
                     )
                 }
+                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
+                    dokumenLampiranExt.add(nums,
+                    it
+                    )
+                }
             }
 
             intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
             intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
+            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
         } else {
             intent.putExtra("dokumenLampiranNames", ArrayList<String>())
             intent.putExtra("dokumenLampiranPaths", ArrayList<String>())

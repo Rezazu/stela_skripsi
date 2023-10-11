@@ -67,13 +67,14 @@
 
         <RatingBar
             android:id="@+id/rating_profil"
+            style="@style/MyRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:progressTint="#FFB800"
             android:layout_below="@id/tv_unitkerja"
-            style="@style/MyRatingBar"
+            android:isIndicator="true"
             android:layout_centerInParent="true"
             android:max="5"
+            android:progressTint="#FFB800"
             android:scaleX="0.5"
             android:scaleY="0.5" />
 

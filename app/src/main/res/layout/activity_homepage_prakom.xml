@@ -28,11 +28,11 @@
         android:background="#073D5F"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="6dp"
-        android:paddingTop="2dp"
+        android:paddingTop="10dp"
         android:paddingBottom="2dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        app:itemIconSize="40dp"
+        app:itemIconSize="30dp"
         app:itemTextColor="#000000"
         app:menu="@menu/bottom_nav_menu_petugas"/>
 

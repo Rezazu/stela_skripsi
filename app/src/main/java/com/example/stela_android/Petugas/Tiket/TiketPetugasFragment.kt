@@ -95,8 +95,9 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
             val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
             val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
             val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
+            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
             for(nums in 0 until sizeOfDokumenLampiran!!) {
-                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
+                list[position]?.dokumen_lampiran?.get(nums)?.doc_name?.let {
                     dokumenLampiranNames.add(nums,
                         it
                     )
@@ -107,10 +108,16 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
                         it
                     )
                 }
+                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
+                    dokumenLampiranExt.add(nums,
+                        it
+                    )
+                }
             }
 
             intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
             intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
+            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
         } else {
             intent.putExtra("dokumenLampiranNames", ArrayList<String>())
             intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
@@ -120,8 +127,9 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
             val sizeOfLaporanPetugas: Int? = list[position]?.laporan_petugas?.size
             val laporanPetugasNames: ArrayList<String> = ArrayList<String>()
             val laporanPetugasPaths: ArrayList<String> = ArrayList<String>()
+            val laporanPetugasExt: ArrayList<String> = ArrayList<String>()
             for(nums in 0 until sizeOfLaporanPetugas!!) {
-                list[position]?.laporan_petugas?.get(nums)?.original_name?.let {
+                list[position]?.laporan_petugas?.get(nums)?.doc_name?.let {
                     laporanPetugasNames.add(nums,
                         it
                     )
@@ -132,9 +140,16 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
                         it
                     )
                 }
+
+                list[position]?.laporan_petugas?.get(nums)?.ext?.let {
+                    laporanPetugasExt.add(nums,
+                        it
+                    )
+                }
             }
             intent.putExtra("laporanPetugasNames", laporanPetugasNames)
             intent.putExtra("laporanPetugasPaths", laporanPetugasPaths)
+            intent.putExtra("laporanPetugasExt", laporanPetugasExt)
         } else {
             intent.putExtra("laporanPetugasNames", ArrayList<String>())
             intent.putExtra("laporanPetugasPaths", ArrayList<String>())

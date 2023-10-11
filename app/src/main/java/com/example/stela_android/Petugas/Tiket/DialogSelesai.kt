@@ -73,6 +73,7 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
             selectedFile = (getActivity(context) as TiketPetugasItem).getSelectedFile()
             filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateSelesai(eskalasi)
+            dismiss()
         }
         upload.setOnClickListener{
             (getActivity(context) as TiketPetugasItem).selectFile()

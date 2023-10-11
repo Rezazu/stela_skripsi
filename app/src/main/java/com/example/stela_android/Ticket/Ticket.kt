@@ -4,19 +4,13 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Homepage.Notification.PostAdapter
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Notification.Notification
-import com.example.stela_android.Retrofit.Notification.NotificationApi
-import com.example.stela_android.Retrofit.Notification.NotificationResponse
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
@@ -53,6 +47,7 @@ class Ticket : AppCompatActivity() {
 
         val dokumenLampiranNames = intent.getStringArrayListExtra("dokumenLampiranNames")
         val dokumenLampiranPaths = intent.getStringArrayListExtra("dokumenLampiranPaths")
+        val dokumenLampiranExt = intent.getStringArrayListExtra("dokumenLampiranExt")
 
         val myToast = Toast.makeText(applicationContext, "Tiket " + kodeTiket + " ✨", Toast.LENGTH_LONG)
         myToast.show()
@@ -65,7 +60,12 @@ class Ticket : AppCompatActivity() {
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(context)
             // set the custom adapter to the RecyclerView
-            adapter = DokumenLampiranAdapter(context, dokumenLampiranNames!!, dokumenLampiranPaths!!)
+            adapter = DokumenLampiranAdapter(
+                context,
+                dokumenLampiranNames!!,
+                dokumenLampiranPaths!!,
+                dokumenLampiranExt!!
+            )
             rvDokumen.adapter = adapter
         }
 

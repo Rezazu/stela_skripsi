@@ -71,7 +71,6 @@
             android:lines="5"
             android:gravity="top"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="test"
             android:padding="15sp"
             android:textColor="#000000"
             android:textSize="10sp" />
@@ -110,7 +109,6 @@
             android:gravity="top"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="test"
             android:padding="15sp"
             android:textColor="#000000"
             android:textSize="10sp" />
@@ -141,6 +139,11 @@
             android:layout_marginBottom="10dp"
             android:background="@null"
             android:src="@drawable/btn_upload_petugas" />
+
+        <TextView
+            android:id="@+id/tv_filelaporan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout

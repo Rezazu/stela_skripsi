@@ -13,6 +13,12 @@ data class LaporanPetugasResponse (
     @field:SerializedName("image_name")
     val image_name: String,
 
+    @field:SerializedName("doc_name")
+    val doc_name: String,
+
+    @field:SerializedName("ext")
+    val ext: String,
+
     @field:SerializedName("path")
     val path: String,
 
