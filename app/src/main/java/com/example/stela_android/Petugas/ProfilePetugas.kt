@@ -29,13 +29,7 @@ import com.example.stela_android.Storage.SharedPrefManager
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_profile.tv_bagian2
-import kotlinx.android.synthetic.main.activity_profile.tv_departemen2
-import kotlinx.android.synthetic.main.activity_profile.tv_email2
-import kotlinx.android.synthetic.main.activity_profile.tv_hp2
-import kotlinx.android.synthetic.main.activity_profile.tv_telepon2
 import kotlinx.android.synthetic.main.activity_profile.tv_unitkerja
-import kotlinx.android.synthetic.main.activity_profile.tv_username2
 import kotlinx.android.synthetic.main.activity_profile_petugas.*
 import kotlinx.android.synthetic.main.activity_ticket.*
 import retrofit2.Call
@@ -74,7 +68,7 @@ public open class ProfilePetugas : Fragment() {
                     val nama = prefs?.getString("nama_lengkap", "")
                     val unit_kerja = prefs?.getString("unit_kerja", "")
                     val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
-                    tv_namaprofilpetugas.text = nama
+                    tv_nama_profil_petugas.text = nama
                     tv_unitkerja.text = unit_kerja
                     Picasso.get().load(url)
                         .placeholder(R.drawable.circle_1)
@@ -115,25 +109,11 @@ public open class ProfilePetugas : Fragment() {
                 if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
                     val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
                     val nama = prefs?.getString("nama_lengkap", "")
-                    val departemen = prefs?.getString("kd_departemen", "")
-                    val username = prefs?.getString("username", "")
-                    val email = prefs?.getString("email", "")
                     val unit_kerja = prefs?.getString("unit_kerja", "")
-                    val bagian = prefs?.getString("bagian","")
-                    val telepon = prefs?.getString("telepon", "")
-                    val nomorhp = prefs?.getString("hp", "")
                     val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
 
-                    tv_namaprofilpetugas.text = nama
+                    tv_nama_profil_petugas.text = nama
                     tv_unitkerja.text = unit_kerja
-
-                    tv_username2.text = ":   " + username
-                    tv_email2.text = ":   " + email
-                    tv_departemen2.text = ":   " + departemen
-                    tv_bagian2.text = ":   " + bagian
-                    tv_telepon2.text = ":   " + telepon
-                    tv_hp2.text = ":   " + nomorhp
-
                     Picasso.get().load(url)
                         .placeholder(R.drawable.circle_1)
                         .transform(CropCircleTransformation())

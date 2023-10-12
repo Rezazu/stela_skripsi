@@ -14,8 +14,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Login.Login
+import com.example.stela_android.Petugas.DaftarRating
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
@@ -37,7 +39,7 @@ public open class Profile : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getResult()
-        btnKeluarListener()
+        btnListener()
     }
 
     override fun onCreateView(
@@ -60,28 +62,16 @@ public open class Profile : Fragment() {
                     val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
 
                     val nama = prefs?.getString("nama_lengkap", "")
-                    val departemen = prefs?.getString("kd_departemen", "")
-                    val username = prefs?.getString("username", "")
-                    val email = prefs?.getString("email", "")
-                    val bagian = prefs?.getString("bagian", "")
-                    val telepon = prefs?.getString("telepon", "")
-                    val nomorhp = prefs?.getString("hp", "")
+                    val unitKerja = prefs?.getString("unit_kerja", "")
                     val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
 
                     tv_namaprofil.text = nama
-                    tv_unitkerja.text = bagian
-//
-                    tv_username2.text = ":   " + username
-                    tv_email2.text = ":   " + email
-                    tv_departemen2.text = ":   " + departemen
-                    tv_bagian2.text = ":   " + bagian
-                    tv_telepon2.text = ":   " + telepon
-                    tv_hp2.text = ":   " + nomorhp
+                    tv_unitkerja.text = unitKerja
 
                     Picasso.get().load(url)
                         .placeholder(R.drawable.circle_1)
                         .transform(CropCircleTransformation())
-                        .into(iv_profil_pengguna)
+                        .into(iv_profil)
                 }
             }
 
@@ -114,10 +104,15 @@ public open class Profile : Fragment() {
         }
     }
 
-    private fun btnKeluarListener(){
-       val btn_keluar = requireActivity().findViewById<Button>(R.id.btn_keluar)
+    private fun btnListener(){
+        val btn_keluar = requireActivity().findViewById<RelativeLayout>(R.id.rl_keluar_pengguna)
+        val btn_data_pengguna = requireActivity().findViewById<RelativeLayout>(R.id.rl_pengguna_user)
         btn_keluar.setOnClickListener {
             showDialog()
+        }
+        btn_data_pengguna.setOnClickListener{
+            val intent = Intent(context, DataPengguna::class.java)
+            startActivity(intent)
         }
     }
 
