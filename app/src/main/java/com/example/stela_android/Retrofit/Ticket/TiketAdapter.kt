@@ -26,7 +26,6 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                 val noTiket = ticketResponse.no_tiket
                 val statusTiket = ticketResponse.id_status_tiket
                 val tanggalInputTiket = ticketResponse.tanggal_input
-                var idSubKategori = ticketResponse.id_sub_kategori
                 val idKategori = ticketResponse.id_kategori
 
                 // get container of item

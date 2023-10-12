@@ -10,30 +10,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.dokumen_item.view.*
+import kotlinx.android.synthetic.main.ticket_petugas_item.view.*
 
 
 class LaporanPetugasAdapter(
     private val Activity: Context,
-    private val listName: ArrayList<String>,
-    private val listPath: ArrayList<String>,
-    private val listExt: ArrayList<String>,
+    private val laporanList: ArrayList<LaporanPetugasResponse>,
 ): RecyclerView.Adapter<LaporanPetugasAdapter.LaporanPetugasViewHolder>() {
     inner class LaporanPetugasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(LaporanPetugasName: String, LaporanPetugasPath: String, LaporanPetugasExt: String) {
+        fun bind(laporan : LaporanPetugasResponse) {
             with(itemView) {
-                var nameDokumen = LaporanPetugasName
-                tv_dokumen_lampiran.text = nameDokumen
-                val pathDokumen = LaporanPetugasPath
-                val extDokumen = LaporanPetugasExt
+                val namaLaporan = laporan.doc_name
+                val pathLaporan = laporan.path
+                val extLaporan = laporan.ext
                 val BaseUrl = Retrofit.BASE_URL.dropLast(4)
+                tv_dokumen_lampiran.text = namaLaporan
 
-                ll_ticket.setOnClickListener {
+                rl_dokumen.setOnClickListener {
                     val i = Intent(Intent.ACTION_VIEW)
-                    i.data = Uri.parse(BaseUrl + "storage/index/tiket-image-laporan/$nameDokumen/ext/$extDokumen")
+                    i.data = Uri.parse(BaseUrl + "storage/index/tiket-image-laporan/$namaLaporan/ext/$extLaporan")
                     context.startActivity(i)
-
-//                  http://10.200.177.211:8000/storage/index/tiket-image-laporan/2023-10-11%2001-24-28-65263f9cabae7/ext/pdf
-//                  http://10.200.177.211:8000/storage/index/tiket-image-laporan/2023-10-11%2001-24-28-65263f9cabae7/ext/pdf
+                }
+                if (namaLaporan.isEmpty()) {
+                    rl_dokumen.visibility = View.GONE
+                    rl_dokumen.layoutParams.width = 0
+                    rl_dokumen.layoutParams.height = 0
                 }
             }
         }
@@ -51,9 +52,9 @@ class LaporanPetugasAdapter(
         holder: LaporanPetugasViewHolder,
         position: Int
     ) {
-        holder.bind(listName[position],listPath[position],listExt[position])
+        holder.bind(laporanList[position])
     }
 
-    override fun getItemCount(): Int = listName.size
+    override fun getItemCount(): Int = laporanList.size
 
 }

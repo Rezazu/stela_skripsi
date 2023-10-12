@@ -46,10 +46,7 @@ class HomePrakom : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getData()
-//        getTicketPetugas()
-        btnNotificationListener()
-        btnTiketAktifListener()
-        btnTiketSelesaiListener()
+        btnListener()
 //        refreshFragment()
         ll_selesaiP.visibility = View.GONE
     }
@@ -83,13 +80,10 @@ class HomePrakom : Fragment() {
         })
     }
 
-    private fun btnNotificationListener() {
+    private fun btnListener(){
         btn_notification.setOnClickListener{
             startActivity(Intent(activity, NotificationsPage::class.java))
         }
-    }
-
-    fun btnTiketAktifListener() {
         btn_aktifP.setOnClickListener {
             btn_aktifP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
             btn_aktifP.setTextColor(Color.parseColor("#FFFFFF"))
@@ -103,8 +97,6 @@ class HomePrakom : Fragment() {
                 ll_aktifP.visibility = View.VISIBLE
             }
         }
-    }
-    fun btnTiketSelesaiListener() {
         btn_selesaiP.setOnClickListener {
             btn_selesaiP.background = resources.getDrawable(R.drawable.shadow_banner_prakom)
             btn_selesaiP.setTextColor(Color.parseColor("#FFFFFF"))

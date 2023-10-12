@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
+import kotlinx.android.synthetic.main.fragment_tiket_petugas.*
 import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.*
+import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.tv_empty_tiket
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,11 +60,12 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
                     tv_empty_tiket.visibility = View.GONE
                     rvTicketPetugasSelesai.apply {
                         layoutManager = LinearLayoutManager(activity)
-                        adapter = TiketPetugasSelesaiAdapter(context, list, this@TiketPetugasSelesaiFragment)
+                        adapter = context?.let { TiketPetugasSelesaiAdapter(it,list, this@TiketPetugasSelesaiFragment) }
+                        val ticketAdapter = adapter
+                        rvTicketPetugasSelesai.adapter = ticketAdapter
                     }
                 }
             }
-
             override fun onFailure(call: Call<PermintaanResponse>, t: Throwable) {
                 Log.d("Ticket", "onFailure: " + t.message)
             }
@@ -71,54 +74,8 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
 
     override fun onTicketPetugasItemClicked(position: Int) {
         val intent = Intent(activity, TiketPetugasItem::class.java)
-
+        intent.putExtra("id", list[position]?.id_tiket)
         intent.putExtra("judul", list[position]?.keterangan)
-        intent.putExtra("kode_tiket", list[position]?.no_tiket)
-        intent.putExtra("tanggal_permintaan", list[position]?.tanggal)
-        intent.putExtra("nama", list[position]?.nama_pelapor)
-        intent.putExtra("jabatan", list[position]?.bagian_pelapor)
-        intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
-        intent.putExtra("gedung", list[position]?.gedung_pelapor)
-        intent.putExtra("lantai", list[position]?.lantai_pelapor)
-        intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
-        intent.putExtra("status", list[position]?.id_status_tiket)
-
-        intent.putExtra("keterangan", list[position]?.keterangan)
-        intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
-        intent.putExtra("solusi", list[position]?.solusi)
-        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
-        intent.putExtra("rating", list[position]?.rating)
-
-        if(list[position]?.dokumen_lampiran != null) {
-            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
-            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
-            for(nums in 0 until sizeOfDokumenLampiran!!) {
-                list[position]?.dokumen_lampiran?.get(nums)?.original_name?.let {
-                    dokumenLampiranNames.add(nums,
-                        it
-                    )
-                }
-                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
-                    dokumenLampiranPaths.add(nums,
-                        it
-                    )
-                }
-                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
-                    dokumenLampiranExt.add(nums,
-                        it
-                    )
-                }
-//                http://192.168.1.11:8000/storage/index/dokumen-lampiran/10-10-20233290497667251421446/ext/jpeg
-            }
-            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
-            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
-            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
-        } else {
-            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
-            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
-        }
         startActivity(intent)
     }
 }

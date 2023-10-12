@@ -15,6 +15,13 @@ interface PetugasTiketApi {
 
     @Headers("Content-type: application/json",
         "Authorization: Bearer my token")
+    @GET("helpdesk/permintaan")
+    fun getPermintaanById(
+        @Query("id") id: Int,
+    ): retrofit2.Call<PermintaanResponseById>
+
+    @Headers("Content-type: application/json",
+        "Authorization: Bearer my token")
     @GET("profile")
     fun getProfile(): retrofit2.Call<ProfileResponse>
 }

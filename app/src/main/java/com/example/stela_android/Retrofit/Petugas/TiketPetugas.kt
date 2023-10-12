@@ -39,8 +39,8 @@ data class TiketPetugas(
     @field:SerializedName("email_pelapor")
     val email_pelapor: String? = null,
 
-    @field:SerializedName("tanggal")
-    val tanggal: String? = null,
+    @field:SerializedName("tanggal_input")
+    val tanggal_input: String? = null,
 
     @field:SerializedName("id_sub_kategori")
     val id_sub_kategori: String? = null,

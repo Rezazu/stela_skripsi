@@ -71,89 +71,8 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
 
     override fun onTicketPetugasItemClicked(position: Int) {
         val intent = Intent(activity, TiketPetugasItem::class.java)
-
         intent.putExtra("id", list[position]?.id_tiket)
         intent.putExtra("judul", list[position]?.keterangan)
-        intent.putExtra("kode_tiket", list[position]?.no_tiket)
-        intent.putExtra("tanggal_permintaan", list[position]?.tanggal)
-        intent.putExtra("nama", list[position]?.nama_pelapor)
-        intent.putExtra("jabatan", list[position]?.bagian_pelapor)
-        intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
-        intent.putExtra("hp", list[position]?.hp_pelapor)
-        intent.putExtra("gedung", list[position]?.gedung_pelapor)
-        intent.putExtra("lantai", list[position]?.lantai_pelapor)
-        intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
-        intent.putExtra("status", list[position]?.id_status_tiket)
-        intent.putExtra("keterangan", list[position]?.keterangan)
-        intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
-        intent.putExtra("solusi", list[position]?.solusi)
-        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
-        intent.putExtra("rating", list[position]?.rating)
-        intent.putExtra("keterangan_rating",list[position].keterangan_rating)
-
-        if(list[position]?.dokumen_lampiran != null) {
-            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
-            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
-            for(nums in 0 until sizeOfDokumenLampiran!!) {
-                list[position]?.dokumen_lampiran?.get(nums)?.doc_name?.let {
-                    dokumenLampiranNames.add(nums,
-                        it
-                    )
-                }
-
-                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
-                    dokumenLampiranPaths.add(nums,
-                        it
-                    )
-                }
-                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
-                    dokumenLampiranExt.add(nums,
-                        it
-                    )
-                }
-            }
-
-            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
-            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
-            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
-        } else {
-            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
-            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
-        }
-
-        if(list[position]?.laporan_petugas != null){
-            val sizeOfLaporanPetugas: Int? = list[position]?.laporan_petugas?.size
-            val laporanPetugasNames: ArrayList<String> = ArrayList<String>()
-            val laporanPetugasPaths: ArrayList<String> = ArrayList<String>()
-            val laporanPetugasExt: ArrayList<String> = ArrayList<String>()
-            for(nums in 0 until sizeOfLaporanPetugas!!) {
-                list[position]?.laporan_petugas?.get(nums)?.doc_name?.let {
-                    laporanPetugasNames.add(nums,
-                        it
-                    )
-                }
-
-                list[position]?.laporan_petugas?.get(nums)?.path?.let {
-                    laporanPetugasPaths.add(nums,
-                        it
-                    )
-                }
-
-                list[position]?.laporan_petugas?.get(nums)?.ext?.let {
-                    laporanPetugasExt.add(nums,
-                        it
-                    )
-                }
-            }
-            intent.putExtra("laporanPetugasNames", laporanPetugasNames)
-            intent.putExtra("laporanPetugasPaths", laporanPetugasPaths)
-            intent.putExtra("laporanPetugasExt", laporanPetugasExt)
-        } else {
-            intent.putExtra("laporanPetugasNames", ArrayList<String>())
-            intent.putExtra("laporanPetugasPaths", ArrayList<String>())
-        }
         startActivity(intent)
     }
 }

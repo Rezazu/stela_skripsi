@@ -20,7 +20,7 @@ class TiketPetugasAdapter(private val context: Context, private val list: ArrayL
                 // get all data ticket
                 var noTiket = permintaanResponse.no_tiket
                 var judul = permintaanResponse.keterangan
-                var tanggalInputTiket = permintaanResponse.tanggal
+                var tanggalInputTiket = permintaanResponse.tanggal_input
                 var statusTiket = permintaanResponse.id_status_tiket
                 var urgensi = permintaanResponse.urgensi
                 var ratingTiket = permintaanResponse.rating

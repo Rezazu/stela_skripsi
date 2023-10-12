@@ -13,31 +13,28 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Retrofit.Ticket.LaporanPetugas.LaporanPetugasResponse
 import kotlinx.android.synthetic.main.dokumen_item.view.*
 import java.util.ArrayList
-//http://10.200.49.54:8000/storage/index/tiket-image-laporan/2023-10-08%2007-53-53-6521fda1502dd/ext/pdf
-//http://10.200.49.54:8000/storage/index/dokumen-lampiran/08-10-20239060255266402013267/ext/pdf
 
 class DokumenLampiranAdapter(
     private val context: Context,
-    private val listName: ArrayList<String>,
-    private val listPath: ArrayList<String>,
-    private val listExt: ArrayList<String>,
+    private val lampiranList: ArrayList<DokumenLampiranResponse>,
 ): RecyclerView.Adapter<DokumenLampiranAdapter.DokumenLampiranViewHolder>() {
     inner class DokumenLampiranViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(dokumenLampiranName: String, dokumenLampiranPath: String, dokumenLampiranExt: String) {
+        fun bind(lampiran : DokumenLampiranResponse) {
             with(itemView) {
-                val nameDokumen = dokumenLampiranName
-                tv_dokumen_lampiran.text = nameDokumen
-
-                val extDokumen = dokumenLampiranExt
+                val namaDokumen = lampiran.doc_name
+                tv_dokumen_lampiran.text = namaDokumen
+                val extDokumen = lampiran.ext
                 val BaseUrl = Retrofit.BASE_URL.dropLast(4)
 
-                ll_ticket.setOnClickListener {
+                rl_dokumen.setOnClickListener {
                     val i = Intent(Intent.ACTION_VIEW)
-                    i.data = Uri.parse(BaseUrl + "storage/index/dokumen-lampiran/$nameDokumen/ext/$extDokumen")
+                    i.data = Uri.parse(BaseUrl + "storage/index/dokumen-lampiran/$namaDokumen/ext/$extDokumen")
                     context.startActivity(i)
                 }
+
             }
         }
     }
@@ -54,9 +51,9 @@ class DokumenLampiranAdapter(
         holder: DokumenLampiranViewHolder,
         position: Int
     ) {
-        holder.bind(listName[position], listPath[position], listExt[position])
+        holder.bind(lampiranList[position])
     }
 
-    override fun getItemCount(): Int = listName.size
+    override fun getItemCount(): Int = lampiranList.size
 
 }

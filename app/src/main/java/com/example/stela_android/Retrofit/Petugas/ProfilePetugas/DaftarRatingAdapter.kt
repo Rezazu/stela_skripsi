@@ -17,7 +17,7 @@ class DaftarRatingAdapter(private val context: Context?, private val list: Array
         fun bind(ticketResponse: TiketPetugas){
             with(itemView){
                 //Get data rating
-                val tanggalTiket = ticketResponse.tanggal
+                val tanggalTiket = ticketResponse.tanggal_input
                 val ratingTiket = ticketResponse.rating
                 val keteranganRating = ticketResponse.keterangan_rating
                 val pelaporTiket = ticketResponse.nama_pelapor

@@ -49,93 +49,34 @@ class TiketFragment: Fragment(), OnTicketClickListener {
                     response: Response<TiketResponse>
                 ) {
                     response.body()?.data?.let { list.addAll(it) }
-
                     if (response.body()?.success == null) {
                         container_tiket.visibility = View.GONE
                         tv_empty_tiket.visibility = View.VISIBLE
                     } else {
                         tv_empty_tiket.visibility = View.GONE
                         rvTicketFragment.apply {
-                            // set a LinearLayoutManager to handle Android
-                            // RecyclerView behavior
                             layoutManager = LinearLayoutManager(activity)
-                            // set the custom adapter to the RecyclerView
                             adapter = TiketAdapter(
                                 context,
                                 list,
                                 this@TiketFragment
                             )
-
                             val ticketAdapter = adapter
                             rvTicketFragment.adapter = ticketAdapter
                             ticketAdapter?.notifyDataSetChanged()
                         }
                     }
                 }
-
                 override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
                     Log.d("Ticket", "onFailure: " + t.message)
                 }
-
             })
-
     }
 
     override fun onTicketItemClicked(position: Int) {
         val intent = Intent(activity, Ticket::class.java)
-
         intent.putExtra("id", list[position]?.id)
         intent.putExtra("judul", list[position]?.keterangan)
-        intent.putExtra("kode_tiket", list[position]?.no_tiket)
-        intent.putExtra("tanggal_permintaan", list[position]?.tanggal_input)
-        intent.putExtra("nama", list[position]?.nama_pelapor)
-        intent.putExtra("jabatan", list[position]?.bagian_pelapor)
-        intent.putExtra("unit_kerja", list[position]?.unit_kerja_pelapor)
-        intent.putExtra("gedung", list[position]?.gedung_pelapor)
-        intent.putExtra("lantai", list[position]?.lantai_pelapor)
-        intent.putExtra("ruangan", list[position]?.ruangan_pelapor)
-        intent.putExtra("status", list[position]?.status)
-
-        intent.putExtra("keterangan", list[position]?.keterangan)
-        intent.putExtra("permasalahan_akhir", list[position]?.permasalahan_akhir)
-        intent.putExtra("solusi", list[position]?.solusi)
-        intent.putExtra("statusTiket", list[position]?.id_status_tiket)
-        intent.putExtra("rating", list[position]?.rating)
-
-        if(list[position]?.dokumen_lampiran != null) {
-            val sizeOfDokumenLampiran: Int? = list[position]?.dokumen_lampiran?.size
-
-            val dokumenLampiranNames: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranPaths: ArrayList<String> = ArrayList<String>()
-            val dokumenLampiranExt: ArrayList<String> = ArrayList<String>()
-
-            for(nums in 0 until sizeOfDokumenLampiran!!) {
-                list[position]?.dokumen_lampiran?.get(nums)?.doc_name?.let {
-                    dokumenLampiranNames.add(nums,
-                        it
-                    )
-                }
-
-                list[position]?.dokumen_lampiran?.get(nums)?.path?.let {
-                    dokumenLampiranPaths.add(nums,
-                        it
-                    )
-                }
-                list[position]?.dokumen_lampiran?.get(nums)?.ext?.let {
-                    dokumenLampiranExt.add(nums,
-                    it
-                    )
-                }
-            }
-
-            intent.putExtra("dokumenLampiranNames", dokumenLampiranNames)
-            intent.putExtra("dokumenLampiranPaths", dokumenLampiranPaths)
-            intent.putExtra("dokumenLampiranExt", dokumenLampiranExt)
-        } else {
-            intent.putExtra("dokumenLampiranNames", ArrayList<String>())
-            intent.putExtra("dokumenLampiranPaths", ArrayList<String>())
-        }
-
         startActivity(intent)
     }
 

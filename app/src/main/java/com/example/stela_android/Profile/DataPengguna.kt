@@ -58,7 +58,7 @@ class DataPengguna : AppCompatActivity() {
 
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("Home", "onFailure: "+t.message)
+                Log.d("Data Pengguna", "onFailure: "+t.message)
             }
 
         })

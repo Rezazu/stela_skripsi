@@ -24,7 +24,7 @@ class TiketPetugasSelesaiAdapter(private val context: Context, private val list:
                 val ratingTiket = ticketResponse.rating
                 val noTiket = ticketResponse.no_tiket
                 val statusTiket = ticketResponse.id_status_tiket
-                val tanggalInputTiket = ticketResponse.tanggal
+                val tanggalInputTiket = ticketResponse.tanggal_input
 
                 // get container of item
                 val rvTiket: RelativeLayout = findViewById(R.id.ticket_petugas)

@@ -85,7 +85,7 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/tv_kode_tiket"
+                        android:id="@+id/tv_kode_tiket_petugas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5sp"
@@ -97,7 +97,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/tv_tanggal_tiket"
+                        android:id="@+id/tv_tanggal_tiket_petugas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0sp"
@@ -281,7 +281,7 @@
                                         android:textSize="11sp" />
 
                                     <TextView
-                                        android:id="@+id/tv_bagian_pelapor_2"
+                                        android:id="@+id/tv_jabatan_pelapor_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
@@ -326,7 +326,7 @@
                                         android:textSize="11sp" />
 
                                     <TextView
-                                        android:id="@+id/tv_hp_pelapor"
+                                        android:id="@+id/tv_hp_pelapor_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
@@ -373,7 +373,7 @@
                                         android:textSize="11sp" />
 
                                     <TextView
-                                        android:id="@+id/tv_email_pelapor"
+                                        android:id="@+id/tv_email_pelapor_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
@@ -403,9 +403,12 @@
 
                         <TextView
                             android:id="@+id/tv_rating_keterangan"
-                            android:layout_width="wrap_content"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:text="Review"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textColor="@color/black"
                             android:layout_alignParentBottom="true"
                             />
                     </RelativeLayout>
@@ -482,15 +485,15 @@
                                 <TextView
                                     android:layout_marginTop="10sp"
                                     android:background="@drawable/edit_text_unfill_border_gray"
-                                    android:id="@+id/tv_keterangan"
+                                    android:id="@+id/tv_keterangan_petugas"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:fontFamily="@font/montserrat_regular"
+                                    android:fontFamily="@font/montserrat_medium"
                                     android:text="test"
                                     android:padding="15sp"
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -515,15 +518,15 @@
                             <TextView
                                 android:layout_marginTop="10sp"
                                 android:background="@drawable/edit_text_unfill_border_gray"
-                                android:id="@+id/tv_permasalahan_akhir"
+                                android:id="@+id/tv_permasalahan_akhir_petugas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
-                                android:fontFamily="@font/montserrat_regular"
+                                android:fontFamily="@font/montserrat_medium"
                                 android:text="test"
                                 android:padding="15sp"
                                 android:textColor="#000000"
-                                android:textSize="10sp" />
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -548,15 +551,15 @@
                             <TextView
                                 android:layout_marginTop="10sp"
                                 android:background="@drawable/edit_text_unfill_border_gray"
-                                android:id="@+id/tv_solusi"
+                                android:id="@+id/tv_solusi_petugas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
-                                android:fontFamily="@font/montserrat_regular"
+                                android:fontFamily="@font/montserrat_medium"
                                 android:text="test"
                                 android:padding="15sp"
                                 android:textColor="#000000"
-                                android:textSize="10sp" />
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
