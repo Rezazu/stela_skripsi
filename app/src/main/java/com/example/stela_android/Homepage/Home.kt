@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Notification.NotificationsPage
+import com.example.stela_android.Login.Login
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Retrofit
@@ -68,15 +69,16 @@ class Home : Fragment(){
                         .placeholder(R.drawable.circle_1)
                         .transform(CropCircleTransformation())
                         .into(iv_photo_pengguna)
-
-//                    Glide.with(context)
-//                        .load("https://imgur.com/ErSiEVt")
-//                        .into(photo)
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Home", "onFailure: "+ t.message)
+                if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn) {
+                    val intent = Intent(context, Login::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
 
             }
         })

@@ -17,6 +17,13 @@
         android:theme="@style/Theme.Stelaandroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DialogPenggunaSelesai"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Petugas.DaftarRating"
             android:exported="false">
             <meta-data

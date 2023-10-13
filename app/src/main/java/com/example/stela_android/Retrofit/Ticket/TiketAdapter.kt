@@ -69,6 +69,7 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                     rating_bar.visibility = View.GONE
                     // hide ticket success section
                     ll_ticket_success.visibility = View.GONE
+                    tv_selesai_mandiri.visibility = View.GONE
                 } else {
                     // hide tanggal tiket on bottom right cornere
                     tanggal_tiket.visibility = View.GONE
@@ -84,13 +85,22 @@ class TiketAdapter(private val context: Context, private val list: ArrayList<Tik
                         rating_bar.rating = ratingTiket.toFloat()
                         // displaying status tiket as tanggal tiket
                         tvStatusTiket.text = tanggalTiket.toString()
-                    } else {
+                        tv_selesai_mandiri.visibility = View.GONE
+                    } else if (statusTiket == 6 && idKategori == null) {
+                        ticket.visibility = View.GONE
+                        ticket.layoutParams.width = 0
+                        ticket.layoutParams.height = 0
+                        tv_selesai_mandiri.visibility = View.GONE
+                    }
+                    else {
                         // displaying status tiket as tanggal tiket
+                        tv_selesai_mandiri.visibility = View.GONE
                         tvStatusTiket.text = tanggalTiket.toString()
                         // displaying ticket success section
                         ll_ticket_success.visibility = View.VISIBLE
                         // hide rating bar
                         rating_bar.visibility = View.GONE
+                        tv_selesai_mandiri.visibility = View.GONE
                     }
                 }
 

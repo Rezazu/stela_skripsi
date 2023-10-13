@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
-    android:layout_height="550dp"
+    android:layout_height="310dp"
     android:padding="10dp"
     android:paddingHorizontal="15dp"
     android:orientation="vertical"
@@ -35,7 +36,6 @@
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/montserrat_regular"
-            android:text="test"
             android:padding="15sp"
             android:textColor="#000000"
             android:textSize="10sp" />
@@ -71,86 +71,20 @@
             android:lines="5"
             android:gravity="top"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="test"
             android:padding="15sp"
             android:textColor="#000000"
             android:textSize="10sp" />
 
     </LinearLayout>
 
-
-
-    <LinearLayout
-        android:id="@+id/ll_solusi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10sp"
-        android:layout_below="@+id/ll_permasalahan_akhir"
-        android:orientation="vertical"
-        android:layout_weight="1">
-
-        <TextView
-            android:id="@+id/tv_terkendala"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="keterangan terkendala"
-            android:textColor="#000000"
-            android:textSize="13sp" />
-
-        <EditText
-            android:layout_marginTop="10sp"
-            android:background="@drawable/edit_text_border_gray"
-            android:id="@+id/ed_kendala"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:ems="10"
-            android:lines="5"
-            android:gravity="top"
-            android:layout_alignParentEnd="true"
-            android:fontFamily="@font/montserrat_regular"
-            android:hint="test"
-            android:padding="15sp"
-            android:textColor="#000000"
-            android:textSize="10sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_upload"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_solusi"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="Lampiran"
-            android:textColor="#000000"
-            android:textSize="13sp"/>
-
-        <ImageButton
-            android:id="@+id/btn_upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@null"
-            android:src="@drawable/btn_upload_petugas" />
-
-    </LinearLayout>
 
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/ll_upload"
+    android:layout_below="@+id/ll_permasalahan_akhir"
     android:layout_marginTop="10dp"
     android:gravity="center_horizontal"
-    >
+        tools:ignore="NotSibling">
     <Button
 
         android:id="@+id/btn_kembali"
@@ -176,7 +110,7 @@
         android:layout_marginBottom="18dp"
         android:layout_toEndOf="@+id/btn_kembali"
         android:backgroundTint="#43A241"
-        android:text="Lapor"
+        android:text="Selesai"
         android:textAllCaps="false"
         app:cornerRadius="5dp" />
 

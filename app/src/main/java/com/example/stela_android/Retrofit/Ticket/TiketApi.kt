@@ -1,6 +1,8 @@
 package com.example.stela_android.Retrofit.Ticket
 
+import com.example.stela_android.Retrofit.Petugas.PostPenggunaResponse
 import com.example.stela_android.Retrofit.Ticket.Rating.RatingResponse
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,6 +27,11 @@ interface TiketApi {
     fun getTicketsById(
         @Query("id") id: Int,
     ): Call<TiketResponseById>
+
+    @POST("update-pengguna")
+    fun updateSelesaiPengguna(
+        @Body body: RequestBody,
+    ): Call<PostPenggunaResponse>
 
     @GET("petugas/{id}")
     fun getPetugasById(

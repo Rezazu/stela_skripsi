@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.stela_android.Petugas.Tiket.DialogPenggunaSelesai
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.Retrofit
@@ -17,6 +18,9 @@ import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.activity_ticket.*
+import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
+import kotlinx.android.synthetic.main.popup_laporan_selesai.*
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +37,7 @@ class Ticket : AppCompatActivity() {
         setContentView(R.layout.activity_ticket)
         val id = intent.getIntExtra("id",0)
         val judul = intent.getStringExtra("judul")
+        btn_pengguna_selesai.visibility = View.GONE
 
         if(judul?.length!! >= 45) {
             tv_judul_tiket.setText(Service.judulSubStr(judul))
@@ -41,6 +46,9 @@ class Ticket : AppCompatActivity() {
         }
         getPetugas(id)
         getTicket(id)
+        btn_pengguna_selesai.setOnClickListener {
+            DialogPenggunaSelesai(this, id).show()
+        }
     }
 
     private fun getPetugas(id: Int){
@@ -91,6 +99,11 @@ class Ticket : AppCompatActivity() {
                     tv_keterangan.text = result.keterangan
                     tv_permasalahan_akhir.text = result.permasalahan_akhir
                     tv_solusi.text = result.solusi
+
+                    if (result.id_status_tiket == 7) {
+                        btn_pengguna_selesai.visibility = View.VISIBLE
+                    }
+
                     if(result?.dokumen_lampiran != null) {
                         val sizeOfDokumenLampiran: Int? = result.dokumen_lampiran?.size
                         for(nums in 0 until sizeOfDokumenLampiran!!) {
