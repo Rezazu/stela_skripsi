@@ -55,27 +55,16 @@ class TiketPetugasItem : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     var selectedFile = ""
     val filePaths: ArrayList<String> = ArrayList()
-    private val dokumenLampiranNames = ArrayList<String>()
-    private val dokumenLampiranPaths = ArrayList<String>()
-    private val dokumenLampiranExts = ArrayList<String>()
-    private val laporanPetugasNames = ArrayList<String>()
-    private val laporanPetugasPaths = ArrayList<String>()
-    private val laporanPetugasExts = ArrayList<String>()
 
     @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ticket_petugas)
-        val judul = intent.getStringExtra("judul")
         val id = intent.getIntExtra("id", 0)
+        val noTiket = intent.getStringExtra("no_tiket").toString()
         val keterangan = intent.getStringExtra("keterangan")
 
-        if(judul?.length!! >= 45) {
-            tv_judul_tiket.setText(Service.judulSubStr(judul))
-        } else {
-            tv_judul_tiket.setText(judul)
-        }
         val btn_kerjakan = findViewById<Button>(R.id.btn_kerjakan)
         val btn_kendala = findViewById<Button>(R.id.btn_kendala)
         var eskalasi = ""
@@ -90,19 +79,25 @@ class TiketPetugasItem : AppCompatActivity() {
         }
 
         backBtnListener()
-        getPermintaan(id)
+        getPermintaan(noTiket)
     }
-    private fun getPermintaan(id: Int){
+
+    private fun getPermintaan(no_tiket: String){
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(PetugasTiketApi::class.java)
-        retro.getPermintaanById(id).enqueue(object: Callback<PermintaanResponseById> {
+        retro.getPermintaanByNoTiket(no_tiket).enqueue(object: Callback<PermintaanResponseById> {
             override fun onResponse(
                 call: Call<PermintaanResponseById>,
                 response: Response<PermintaanResponseById>
             ) {
                 if (response.isSuccessful) {
                     val result = response.body()?.data!!
+                    if(result.keterangan?.length!! >= 45) {
+                        tv_judul_tiket.setText(Service.judulSubStr(result.keterangan))
+                    } else {
+                        tv_judul_tiket.setText(result.keterangan)
+                    }
                     tv_kode_tiket_petugas.text = result.no_tiket
                     tv_tanggal_tiket_petugas.text = Service.date(result.tanggal_input)
 //                    Service.statusTiketDisplay(result.id_status_tiket, tv_status_tiket)
@@ -209,9 +204,7 @@ class TiketPetugasItem : AppCompatActivity() {
 
     private fun backBtnListener() {
         back_btn.setOnClickListener {
-            val i = Intent(this, HomepagePrakom::class.java)
-            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(i)
+            finish()
         }
     }
 

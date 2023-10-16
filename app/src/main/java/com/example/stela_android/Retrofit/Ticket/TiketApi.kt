@@ -28,6 +28,13 @@ interface TiketApi {
         @Query("id") id: Int,
     ): Call<TiketResponseById>
 
+    @Headers("Content-type: application/json",
+        "Authorization: Bearer my token")
+    @GET("tiket")
+    fun getTicketsByNoTiket(
+        @Query("no_tiket") no_tiket: String,
+    ): Call<TiketResponseById>
+
     @POST("update-pengguna")
     fun updateSelesaiPengguna(
         @Body body: RequestBody,

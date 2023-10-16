@@ -12,13 +12,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.stela_android.Petugas.Tiket.DialogPenggunaSelesai
 import com.example.stela_android.R
+import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
 import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiranAdapter
 import com.example.stela_android.Service.Service
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_ticket.*
+import kotlinx.android.synthetic.main.activity_ticket.tv_judul_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
+import kotlinx.android.synthetic.main.activity_ticket.tv_unit_kerja_pelapor
+import kotlinx.android.synthetic.main.activity_ticket_petugas.*
 import kotlinx.android.synthetic.main.popup_laporan_selesai.*
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -28,24 +35,16 @@ import retrofit2.Response
 
 class Ticket : AppCompatActivity() {
     private val petugas = ArrayList<Petugas>()
-    private val dokumenLampiranNames = ArrayList<String>()
-    private val dokumenLampiranPaths = ArrayList<String>()
-    private val dokumenLampiranExts = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ticket)
         val id = intent.getIntExtra("id",0)
+        val noTiket = intent.getStringExtra("no_tiket").toString()
         val judul = intent.getStringExtra("judul")
         btn_pengguna_selesai.visibility = View.GONE
 
-        if(judul?.length!! >= 45) {
-            tv_judul_tiket.setText(Service.judulSubStr(judul))
-        } else {
-            tv_judul_tiket.setText(judul)
-        }
-        getPetugas(id)
-        getTicket(id)
+        getTicketbyNoTiket(noTiket)
         btn_pengguna_selesai.setOnClickListener {
             DialogPenggunaSelesai(this, id).show()
         }
@@ -63,8 +62,13 @@ class Ticket : AppCompatActivity() {
                 response.body()?.data?.let { petugas.addAll(it) }
                 fun setPetugas(petugas: Petugas){
                     tv_namapetugas.text = petugas.nama
+                    tv_jabatanpetugas.text = petugas.unit_kerja
                     tv_ratingpetugas.text = petugas.rating.toString()
                     rating_petugas.rating = petugas.rating!!
+                    Picasso.get().load(petugas.profile)
+                        .placeholder(R.drawable.circle_1)
+                        .transform(CropCircleTransformation())
+                        .into(iv_petugas)
                 }
                 if (petugas.isNotEmpty()){
                     setPetugas(petugas.first())
@@ -79,14 +83,23 @@ class Ticket : AppCompatActivity() {
         })
     }
 
-    private fun getTicket(id : Int) {
+    fun getTicketbyNoTiket(no_tiket: String) {
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
         val retro = Retrofit.getRetroData(token!!).create(TiketApi::class.java)
-        retro.getTicketsById(id).enqueue(object: Callback<TiketResponseById>{
-            override fun onResponse(call: Call<TiketResponseById>, response: Response<TiketResponseById>) {
-                if(response.isSuccessful) {
+        retro.getTicketsByNoTiket(no_tiket).enqueue(object: Callback<TiketResponseById>{
+            override fun onResponse(
+                call: Call<TiketResponseById>,
+                response: Response<TiketResponseById>
+            ) {
+                if (response.isSuccessful) {
                     val result = response.body()?.data!!
+                    getPetugas(result.id)
+                    if(result.keterangan?.length!! >= 45) {
+                        tv_judul_tiket.setText(Service.judulSubStr(result.keterangan))
+                    } else {
+                        tv_judul_tiket.setText(result.keterangan)
+                    }
                     tv_kode_tiket.text = result.no_tiket
                     tv_tanggal_tiket.text = Service.date(result.tanggal_input)
                     Service.statusTiketDisplay(result.id_status_tiket, tv_status_tiket)
@@ -105,33 +118,14 @@ class Ticket : AppCompatActivity() {
                     }
 
                     if(result?.dokumen_lampiran != null) {
-                        val sizeOfDokumenLampiran: Int? = result.dokumen_lampiran?.size
-                        for(nums in 0 until sizeOfDokumenLampiran!!) {
-                            result?.dokumen_lampiran?.get(nums)?.doc_name.let {
-                                dokumenLampiranNames.add(nums,
-                                    it
-                                )
-                            }
-
-                            result?.dokumen_lampiran?.get(nums)?.path.let {
-                                dokumenLampiranPaths.add(nums,
-                                    it
-                                )
-                            }
-                            result?.dokumen_lampiran?.get(nums)?.ext.let {
-                                dokumenLampiranExts.add(nums,
-                                    it
-                                )
-                            }
+                        rvDokumen?.apply {
+                            layoutManager = LinearLayoutManager(context)
+                            adapter = DokumenLampiranAdapter(
+                                context,
+                                result.dokumen_lampiran
+                            )
+                            rvDokumen.adapter = adapter
                         }
-                            rvDokumen?.apply {
-                                layoutManager = LinearLayoutManager(context)
-                                adapter = DokumenLampiranAdapter(
-                                    context,
-                                    result.dokumen_lampiran
-                                )
-                                rvDokumen.adapter = adapter
-                            }
                     }
 
                     if(result.id_status_tiket != 6 && result.rating == null) {
@@ -150,8 +144,10 @@ class Ticket : AppCompatActivity() {
             override fun onFailure(call: Call<TiketResponseById>, t: Throwable) {
                 Log.d("Tiket", "onFailure: "+t.message)
             }
+
         })
     }
+
 
     fun whatsapp(view: View) {
         val url =

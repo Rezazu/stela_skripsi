@@ -1,22 +1,19 @@
 package com.example.stela_android.Petugas
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.stela_android.Petugas.Tiket.TiketPetugasItem
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Petugas.PermintaanResponse
-import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
+import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Petugas.ProfilePetugas.DaftarRatingAdapter
-import com.example.stela_android.Retrofit.Petugas.TiketPetugas
-import com.example.stela_android.Retrofit.Petugas.TiketPetugasSelesaiAdapter
 import com.example.stela_android.Retrofit.Retrofit
-import com.example.stela_android.Retrofit.Ticket.Tiket
-import com.example.stela_android.Retrofit.Ticket.TiketApi
-import com.example.stela_android.Retrofit.Ticket.TiketResponse
-import com.example.stela_android.Retrofit.Ticket.TiketSelesaiAdapter
+import com.example.stela_android.Retrofit.Ticket.*
+import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.activity_daftar_rating.*
 import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.*
 import kotlinx.android.synthetic.main.fragment_tiket_selesai.*
@@ -24,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DaftarRating : AppCompatActivity() {
+class DaftarRating : AppCompatActivity(), OnTicketPetugasClickListener {
     private val list = ArrayList<TiketPetugas>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,5 +53,12 @@ class DaftarRating : AppCompatActivity() {
                 Log.d("Ticket", "onFailure: " + t.message)
             }
         })
+    }
+
+    override fun onTicketPetugasItemClicked(position: Int) {
+        val intent = Intent(this, TiketPetugasItem::class.java)
+        intent.putExtra("id", list[position]?.id_tiket)
+        intent.putExtra("judul", list[position]?.keterangan)
+        startActivity(intent)
     }
 }

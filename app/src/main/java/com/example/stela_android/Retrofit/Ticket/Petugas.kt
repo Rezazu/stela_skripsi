@@ -10,7 +10,13 @@ data class Petugas (
         @field:SerializedName("nama")
         val nama: String? = null,
 
+        @field:SerializedName("unit_kerja")
+        val unit_kerja: String? = null,
+
         @field:SerializedName("rating")
         val rating: Float? = 0.00f,
+
+        @field:SerializedName("profile")
+        val profile: String? = null,
 
         )

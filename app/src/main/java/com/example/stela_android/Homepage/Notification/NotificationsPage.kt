@@ -23,17 +23,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.Homepage.Homepage
 import com.example.stela_android.Petugas.HomepagePrakom
+import com.example.stela_android.Petugas.Tiket.TiketPetugasItem
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Notification.Notification
 import com.example.stela_android.Retrofit.Notification.NotificationApi
 import com.example.stela_android.Retrofit.Notification.NotificationResponse
+import com.example.stela_android.Retrofit.Notification.OnNotifikasiClickListener
 import com.example.stela_android.Retrofit.Retrofit
+import com.example.stela_android.Storage.SharedPrefManager
+import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.activity_notifications_page.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NotificationsPage : AppCompatActivity() {
+class NotificationsPage : AppCompatActivity(), OnNotifikasiClickListener {
 
     private val notif = ArrayList<Notification>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +62,7 @@ class NotificationsPage : AppCompatActivity() {
                 response.body()?.data?.let { notif.addAll(it) }
                 rvnotification.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = PostAdapter(notif)
+                    adapter = PostAdapter(notif, this@NotificationsPage)
                     rvnotification.adapter = adapter
 
                     Log.d("Success", "msg: " + response?.body()?.message)
@@ -76,8 +80,22 @@ class NotificationsPage : AppCompatActivity() {
         rvnotification.setHasFixedSize(true)
         val llm = LinearLayoutManager(applicationContext)
         llm.orientation = LinearLayoutManager.VERTICAL
-        rvNotification.layoutManager = LinearLayoutManager(applicationContext)
-        val adapter = PostAdapter(notif)
+        rvNotification.layoutManager = LinearLayoutManager(this@NotificationsPage)
+        val adapter = PostAdapter(notif,this@NotificationsPage)
         rvNotification.adapter = adapter
+    }
+
+    override fun onNotifikasiItemClicked(position: Int) {
+        if (SharedPrefManager.getInstance(this).user.id_peran  == 5 ) {
+            val intentPetugas = Intent(this, TiketPetugasItem::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intentPetugas.putExtra("no_tiket", notif[position]?.no_tiket)
+            startActivity(intentPetugas)
+        } else if (SharedPrefManager.getInstance(this).user.id_peran  == 2 ) {
+            val intentUser = Intent(this, Ticket::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intentUser.putExtra("no_tiket", notif[position]?.no_tiket)
+            startActivity(intentUser)
+        }
     }
 }

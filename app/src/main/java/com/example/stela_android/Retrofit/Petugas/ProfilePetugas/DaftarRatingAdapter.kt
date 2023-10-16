@@ -12,7 +12,7 @@ import com.example.stela_android.Service.Service
 import kotlinx.android.synthetic.main.rating_item.view.*
 import kotlinx.android.synthetic.main.ticket_petugas_item.view.*
 
-class DaftarRatingAdapter(private val context: Context?, private val list: ArrayList<TiketPetugas>, private val daftarRating: DaftarRating) : RecyclerView.Adapter<DaftarRatingAdapter.TicketViewHolder>() {
+class DaftarRatingAdapter(private val context: Context?, private val list: ArrayList<TiketPetugas>, private val onTicketPetugasClickListener: DaftarRating) : RecyclerView.Adapter<DaftarRatingAdapter.TicketViewHolder>() {
     inner class TicketViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(ticketResponse: TiketPetugas){
             with(itemView){
@@ -46,6 +46,9 @@ class DaftarRatingAdapter(private val context: Context?, private val list: Array
 
     override fun onBindViewHolder(holder: TicketViewHolder, position: Int) {
         holder.bind(list[position])
+        holder.itemView.setOnClickListener {
+            onTicketPetugasClickListener.onTicketPetugasItemClicked(position)
+        }
     }
 
     override fun getItemCount(): Int = list.size

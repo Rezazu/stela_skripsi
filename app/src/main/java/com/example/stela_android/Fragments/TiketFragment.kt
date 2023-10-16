@@ -76,8 +76,8 @@ class TiketFragment: Fragment(), OnTicketClickListener {
     override fun onTicketItemClicked(position: Int) {
         val intent = Intent(activity, Ticket::class.java)
         intent.putExtra("id", list[position]?.id)
+        intent.putExtra("no_tiket", list[position]?.no_tiket)
         intent.putExtra("judul", list[position]?.keterangan)
         startActivity(intent)
     }
-
 }

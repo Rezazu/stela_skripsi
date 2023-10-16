@@ -74,12 +74,10 @@ class Home : Fragment(){
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Home", "onFailure: "+ t.message)
-                if(!SharedPrefManager.getInstance(requireActivity()).isLoggedIn) {
-                    val intent = Intent(context, Login::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                }
-
+                getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+                val intent = Intent(context, Login::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
         })
 

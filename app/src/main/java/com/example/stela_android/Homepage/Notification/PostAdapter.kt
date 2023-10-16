@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Notification.Notification
 import com.example.stela_android.Retrofit.Notification.NotificationResponse
+import com.example.stela_android.Retrofit.Notification.OnNotifikasiClickListener
 
 
-
-class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
+class PostAdapter (private val notif: ArrayList<Notification>, private val onNotifikasiClickListener: OnNotifikasiClickListener): RecyclerView.Adapter<PostAdapter.PostViewHolder>(){
 
     inner class PostViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         fun bind(notificationResponse: Notification){
@@ -44,6 +44,9 @@ class PostAdapter (private val notif: ArrayList<Notification>): RecyclerView.Ada
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bind(notif[position])
+        holder.itemView.setOnClickListener {
+            onNotifikasiClickListener.onNotifikasiItemClicked(position)
+        }
     }
 
     override fun getItemCount(): Int {
