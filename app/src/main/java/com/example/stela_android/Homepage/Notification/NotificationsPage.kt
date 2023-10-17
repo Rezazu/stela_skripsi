@@ -86,6 +86,24 @@ class NotificationsPage : AppCompatActivity(), OnNotifikasiClickListener {
     }
 
     override fun onNotifikasiItemClicked(position: Int) {
+        val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
+        val token = prefs?.getString("token", "")
+        val retro = Retrofit.getRetroData(token!!).create(NotificationApi::class.java)
+        notif[position].id?.let {
+            retro.readNotifikasi(it).enqueue(object :Callback<NotificationResponse>{
+                override fun onResponse(
+                    call: Call<NotificationResponse>,
+                    response: Response<NotificationResponse>
+                ) {
+                    Log.d("Success", "msg: " + response?.body()?.message)
+                }
+
+                override fun onFailure(call: Call<NotificationResponse>, t: Throwable) {
+                    Log.d("False", "msg: " + "Failed")
+                }
+            })
+        }
+
         if (SharedPrefManager.getInstance(this).user.id_peran  == 5 ) {
             val intentPetugas = Intent(this, TiketPetugasItem::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

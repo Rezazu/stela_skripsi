@@ -58,17 +58,24 @@ class Home : Fragment(){
         val tv_dept : TextView = requireActivity().findViewById(R.id.tv_dept) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val name = prefs.getString("nama_lengkap", "")
-                    tv_name.text = name.toString()
-                    val dept = prefs.getString("unit_kerja", "")
-                    tv_dept.text = dept.toString()
-                    val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
-                    val photo : ImageView = requireActivity().findViewById(R.id.iv_photo_pengguna) as ImageView
-                    Picasso.get().load(url)
-                        .placeholder(R.drawable.circle_1)
-                        .transform(CropCircleTransformation())
-                        .into(iv_photo_pengguna)
+                if (response.isSuccessful) {
+                    if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+                        val name = prefs.getString("nama_lengkap", "")
+                        tv_name.text = name.toString()
+                        val dept = prefs.getString("unit_kerja", "")
+                        tv_dept.text = dept.toString()
+                        val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
+                        val photo : ImageView = requireActivity().findViewById(R.id.iv_photo_pengguna) as ImageView
+                        Picasso.get().load(url)
+                            .placeholder(R.drawable.circle_1)
+                            .transform(CropCircleTransformation())
+                            .into(iv_photo_pengguna)
+                    }
+                } else if (!response.isSuccessful) {
+                    getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+                    val intent = Intent(context, Login::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
                 }
             }
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Notification.NotificationsPage
+import com.example.stela_android.Login.Login
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.LoginResponse
 import com.example.stela_android.Retrofit.Petugas.*
@@ -59,17 +60,23 @@ class HomePrakom : Fragment() {
         val tv_dept : TextView = requireActivity().findViewById(R.id.tv_deptP) as TextView
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
-                if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val nama = prefs?.getString("nama_lengkap", "")
-                    tv_name.text = nama
-                    val dept = prefs?.getString("bagian", "")
-                    tv_dept.text = dept.toString()
-                    val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
-                    Picasso.get().load(url)
-                        .placeholder(R.drawable.circle_1)
-                        .transform(CropCircleTransformation())
-                        .into(iv_photo_petugas)
+                if (response.isSuccessful) {
+                    if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
+                        val nama = prefs?.getString("nama_lengkap", "")
+                        tv_name.text = nama
+                        val dept = prefs?.getString("bagian", "")
+                        tv_dept.text = dept.toString()
+                        val url = prefs.getString("profile", "https://i.imgur.com/Xlls8fG.png")
+                        Picasso.get().load(url)
+                            .placeholder(R.drawable.circle_1)
+                            .transform(CropCircleTransformation())
+                            .into(iv_photo_petugas)
+                    }
+                } else if (!response.isSuccessful) {
+                    getActivity()?.let { it1 -> SharedPrefManager.getInstance(it1.getApplicationContext()).clear() }
+                    val intent = Intent(context, Login::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
                 }
             }
 
