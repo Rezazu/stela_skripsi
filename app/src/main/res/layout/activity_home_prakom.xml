@@ -67,12 +67,6 @@
         app:srcCompat="@drawable/ic_notification_btn" />
     </RelativeLayout>
 
-<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--        android:id="@+id/swipeToRefrestTiket"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/HeaderPetugas">-->
-
         <RelativeLayout
             android:id="@+id/topMenu"
             android:layout_width="match_parent"
@@ -128,6 +122,11 @@
                 />
 
         </RelativeLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefrestTiket"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topMenu">
 
         <ScrollView
             android:id="@+id/sv_home"
@@ -178,120 +177,7 @@
             </LinearLayout>
 
         </RelativeLayout>
-
-
-
-<!--        <RelativeLayout-->
-<!--            android:id="@+id/layout_welcome"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:paddingVertical="15dp">-->
-<!--            <TextView-->
-<!--                android:id="@+id/welcomeText"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="14dp"-->
-<!--                android:text="Halo"/>-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/welcomenama"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_toEndOf="@id/welcomeText"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginStart="5dp"-->
-<!--                android:textSize="14dp"-->
-<!--                android:text=""/>-->
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_permintaan"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_below="@+id/welcomeText"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="13dp"-->
-<!--                android:layout_marginHorizontal="5dp"-->
-<!--                android:fontFamily="@font/montserrat_regular"-->
-<!--                android:text="Anda memiliki 0 permintaan baru yang belum di kerjakan"-->
-<!--                android:textSize="12dp" />-->
-
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/layout_laporan"-->
-<!--                android:layout_below="@+id/tv_permintaan"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_marginHorizontal="5dp"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <TextView-->
-<!--                    android:id="@+id/laporan"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="25dp"-->
-<!--                    android:fontFamily="@font/montserrat_regular"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="14dp"-->
-<!--                    android:text="Daftar Permintaan"/>-->
-
-<!--            </RelativeLayout>-->
-
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/ticket_menu"-->
-<!--                android:layout_marginTop="20sp"-->
-<!--                android:padding="5dp"-->
-<!--                android:layout_below="@+id/layout_laporan"-->
-<!--                >-->
-
-
-<!--            </RelativeLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/ll_aktif"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/ticket_menu"-->
-<!--                tools:ignore="NotSibling"-->
-<!--                android:layout_marginTop="20dp">-->
-
-<!--                <fragment-->
-<!--                    android:id="@+id/ticket_petugas_aktif"-->
-<!--                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasFragment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    tools:layout="@layout/fragment_tiket_petugas"/>-->
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/ll_selesai"-->
-<!--                android:gravity="center_horizontal"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/ticket_menu"-->
-<!--                tools:ignore="NotSibling"-->
-<!--                android:layout_marginTop="20dp">-->
-
-<!--                <fragment-->
-<!--                    android:id="@+id/ticket_petugas_selesai"-->
-<!--                    android:name="com.example.stela_android.Petugas.Tiket.TiketPetugasSelesaiFragment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    tools:layout="@layout/fragment_tiket_petugas"/>-->
-
-<!--            </LinearLayout>-->
-
-<!--        </RelativeLayout>-->
-
     </ScrollView>
-<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

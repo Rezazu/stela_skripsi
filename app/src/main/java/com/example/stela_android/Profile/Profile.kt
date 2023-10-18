@@ -74,15 +74,11 @@ public open class Profile : Fragment() {
                         .into(iv_profil)
                 }
             }
-
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("Home", "onFailure: "+t.message)
             }
-
         })
-
     }
-
 
     private fun showDialog(){
         val dialog = Dialog(requireActivity())

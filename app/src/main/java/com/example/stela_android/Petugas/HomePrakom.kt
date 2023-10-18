@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Homepage.Notification.NotificationsPage
 import com.example.stela_android.Login.Login
@@ -28,11 +29,8 @@ import retrofit2.Response
 
 class HomePrakom : Fragment() {
 
-    private val list = ArrayList<TiketPetugas>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -48,7 +46,7 @@ class HomePrakom : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getData()
         btnListener()
-//        refreshFragment()
+        refreshFragment()
         ll_selesaiP.visibility = View.GONE
     }
 
@@ -116,14 +114,14 @@ class HomePrakom : Fragment() {
         }
     }
 
-//    fun refreshFragment(){
-//        swipeToRefrestTiket.setOnRefreshListener {
-//            parentFragmentManager.beginTransaction().detach(this).commit()
-//            parentFragmentManager.beginTransaction().attach(this).commit()
-//            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
-//            swipeToRefrestTiket.isRefreshing = false
-//        }
-//    }
+    fun refreshFragment(){
+        swipeToRefrestTiket.setOnRefreshListener {
+            parentFragmentManager.beginTransaction().detach(this).commit()
+            parentFragmentManager.beginTransaction().attach(this).commit()
+            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
+            swipeToRefrestTiket.isRefreshing = false
+        }
+    }
 
 }
 

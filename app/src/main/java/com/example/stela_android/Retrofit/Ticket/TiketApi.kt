@@ -32,7 +32,7 @@ interface TiketApi {
         "Authorization: Bearer my token")
     @GET("tiket")
     fun getTicketsByNoTiket(
-        @Query("no_tiket") no_tiket: String,
+        @Query("no_tiket") no_tiket : String,
     ): Call<TiketResponseById>
 
     @POST("update-pengguna")

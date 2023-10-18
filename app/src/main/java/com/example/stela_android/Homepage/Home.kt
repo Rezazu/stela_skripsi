@@ -29,7 +29,6 @@ import retrofit2.Response
 
 
 class Home : Fragment(){
-    private lateinit var  imageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

@@ -12,7 +12,7 @@ import retrofit2.create
 
 object Retrofit {
 
-    const val BASE_URL = "http://10.200.179.83:8000/api/"
+    const val BASE_URL = "http://10.200.176.108:8000/api/"
 //    const val BASE_URL = "http://127.0.0.1:8000/api/"
 //    val BASE_URL = "http://192.168.1.11:8000/api/"
 

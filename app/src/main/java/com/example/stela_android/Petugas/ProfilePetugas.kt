@@ -98,35 +98,6 @@ public open class ProfilePetugas : Fragment() {
         }
     }
 
-    private fun getResult(){
-        val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
-        val token = prefs?.getString("token", "").toString()
-        val retro = Retrofit.getRetroData(token).create(UserApi::class.java)
-
-        retro.getUser().enqueue(object : Callback<LoginResponse> {
-            @SuppressLint("SetTextI18n")
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
-                    val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
-                    val nama = prefs?.getString("nama_lengkap", "")
-                    val unit_kerja = prefs?.getString("unit_kerja", "")
-                    val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
-
-                    tv_nama_profil_petugas.text = nama
-                    tv_unitkerja.text = unit_kerja
-                    Picasso.get().load(url)
-                        .placeholder(R.drawable.circle_1)
-                        .transform(CropCircleTransformation())
-                        .into(iv_profil_petugas)
-                }
-            }
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("Home", "onFailure: "+t.message)
-            }
-
-        })
-    }
-
     private fun getRatingPetugas(){
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "").toString()
@@ -147,7 +118,6 @@ public open class ProfilePetugas : Fragment() {
             }
         })
     }
-
 
     private fun showDialog(){
         val dialog = Dialog(requireActivity())

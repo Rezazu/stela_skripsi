@@ -10,11 +10,10 @@ import androidx.fragment.app.Fragment
 import com.example.stela_android.R
 import com.example.stela_android.Retrofit.Ticket.*
 import kotlinx.android.synthetic.main.activity_active_ticket_page.*
+import kotlinx.android.synthetic.main.activity_home_prakom.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ActiveTicketPage : Fragment() {
-
-    private val list = ArrayList<Tiket>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +25,6 @@ class ActiveTicketPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         btnTiketAktifListener()
         btnTiketSelesaiListener()
         refreshAction()
@@ -35,21 +33,10 @@ class ActiveTicketPage : Fragment() {
 
     fun refreshAction() {
         refreshTiket.setOnRefreshListener {
-            val activeTicket = ActiveTicketPage()
-            val myToast = Toast.makeText(context, "Refresh berhasil", Toast.LENGTH_LONG)
-            myToast.show()
-            refreshFragmentUI(activeTicket)
+            parentFragmentManager.beginTransaction().detach(this).commit()
+            parentFragmentManager.beginTransaction().attach(this).commit()
+            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
             refreshTiket.isRefreshing = false
-        }
-    }
-
-    fun refreshFragmentUI(fragment: Fragment?) {
-        if (fragment != null) {
-            parentFragmentManager
-                .beginTransaction()
-                .detach(fragment)
-                .attach(fragment)
-                .commit()
         }
     }
 
@@ -89,6 +76,5 @@ class ActiveTicketPage : Fragment() {
 
         }
     }
-
 }
 
