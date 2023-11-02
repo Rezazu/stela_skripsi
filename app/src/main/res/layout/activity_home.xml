@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_4" />
     <ImageView
-        android:id="@+id/iv_photo"
+        android:id="@+id/iv_photo_pengguna"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentStart="true"
@@ -31,9 +31,9 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="25dp"
 
-        android:layout_toEndOf="@+id/iv_photo"
+        android:layout_toEndOf="@+id/iv_photo_pengguna"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Nama Lengkap"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="16sp"/>
 
@@ -46,9 +46,9 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="14dp"
-        android:layout_toEndOf="@+id/iv_photo"
+        android:layout_toEndOf="@+id/iv_photo_pengguna"
         android:fontFamily="@font/montserrat_regular"
-        android:text="Unit Kerja"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="10sp"/>
 
@@ -80,48 +80,15 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/btn_sistem_informasi"
+                android:id="@+id/btn_stela"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="70dp"
                 android:background="@null"
-                app:srcCompat="@drawable/ic_sistem_informasi_btn" />
-
-            <ImageButton
-                android:id="@+id/btn_infrastruktur_jaringan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="260dp"
-                android:layout_toEndOf="@+id/btn_sistem_informasi"
-                android:background="@null"
-                app:srcCompat="@drawable/ic_infrastruktur_jaringan_btn" />
-
-            <ImageButton
-                android:id="@+id/btn_tata_kelola"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="260dp"
-                android:layout_toEndOf="@+id/btn_infrastruktur_jaringan"
-                android:background="@null"
-                app:srcCompat="@drawable/ic_tata_kelola_ti_btn" />
-
-            <ImageButton
-                android:id="@+id/btn_lainnya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="260dp"
-                android:layout_toEndOf="@+id/btn_tata_kelola"
-                android:background="@null"
-                app:srcCompat="@drawable/ic_lainnya_btn" />
+                app:srcCompat="@drawable/eclipse_tuscan" />
 
             <TextView
                 android:id="@+id/tv_tracking_permintaan"
@@ -130,90 +97,14 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:shadowColor="#000000"
-                android:text="Tracking Permintaan"
+                android:text="Aplikasi"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/tv_panduan_permintaan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="350dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:shadowColor="#000000"
-                android:text="Panduan Permintaan"
-                android:textColor="#000000"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_sisteminformasi"
-                android:layout_width="74dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_sistem_informasi"
-                android:layout_alignStart="@+id/btn_sistem_informasi"
-                android:layout_alignEnd="@+id/btn_sistem_informasi"
-                android:layout_marginStart="-15dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="-16dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Sistem Informasi"
-                android:textColor="#000000"
-                android:textSize="8sp" />
-
-            <TextView
-                android:id="@+id/tv_infrasturktur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_infrastruktur_jaringan"
-                android:layout_alignStart="@+id/btn_infrastruktur_jaringan"
-                android:layout_alignEnd="@+id/btn_infrastruktur_jaringan"
-                android:layout_marginStart="-7dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="-8dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Infrastruktur Jaringan"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="8sp" />
-
-            <TextView
-                android:id="@+id/tv_tata_kelola"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_tata_kelola"
-                android:layout_alignStart="@+id/btn_tata_kelola"
-                android:layout_alignEnd="@+id/btn_tata_kelola"
-                android:layout_marginStart="-7dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="-10dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Tata Kelola TI"
-                android:textColor="#000000"
-                android:textSize="8sp" />
-
-            <TextView
-                android:id="@+id/tv_lainnya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_lainnya"
-                android:layout_alignStart="@+id/btn_lainnya"
-                android:layout_alignEnd="@+id/btn_lainnya"
-                android:layout_marginStart="-8dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="-7dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Lainnya"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="8sp" />
-
-<!--            <HorizontalScrollView-->
+            <!--            <HorizontalScrollView-->
 <!--                android:id="@+id/banners"-->
 <!--                android:layout_width="wrap_content"-->
 <!--                android:layout_height="wrap_content"-->
@@ -269,55 +160,42 @@
 <!--                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />-->
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="22dp"
-                android:layout_marginTop="35dp"
-                app:srcCompat="@drawable/ic_stela_small" />
+                android:layout_alignStart="@+id/btn_stela"
+                android:layout_alignTop="@+id/btn_stela"
+                android:layout_alignEnd="@+id/btn_stela"
+                android:layout_alignBottom="@+id/btn_stela"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                app:srcCompat="@drawable/stelalogo" />
 
             <TextView
-                android:id="@+id/tv_descstela"
-                android:layout_width="358dp"
-                android:layout_height="120dp"
-                android:layout_below="@+id/imageView4"
+                android:id="@+id/tv_stela"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_stela"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="22dp"
+                android:layout_marginStart="55dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Sistem Tiket dan Layanan atau bisa disingkat dengan STELA, merupakan sebuah aplikasi yang diperuntukkan bagi kalangan pegawai/staff internal DPR. Aplikasi ini merupakan sebuah sistem pelayanan baru yang dapat digunakan untuk melaporkan atau meminta layanan mengenai Teknologi dan Informasi di DPR RI yang kemudian akan dilakukan eskalasi oleh tim dari Pusat Teknologi dan Informasi (Pustekinfo)."
-                android:textSize="12dp" />
+                android:fontFamily="@font/montserrat_medium"
+                android:shadowColor="#000000"
+                android:text="STELA"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="480dp"
-                android:layout_height="600dp"
-                android:layout_below="@+id/tv_panduan_permintaan"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                app:srcCompat="@drawable/alur_kerja_aplikasi_stela" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
 
 
         </RelativeLayout>
     </ScrollView>
-
-    <ImageButton
-        android:id="@+id/btn_permohonan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="10dp"
-        android:background="@null"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/group_1088" />
 
 </RelativeLayout>

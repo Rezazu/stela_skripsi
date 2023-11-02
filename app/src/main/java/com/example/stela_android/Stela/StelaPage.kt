@@ -10,13 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Form.FormActivity
+import com.example.stela_android.Homepage.Home
 import com.example.stela_android.R
 import com.example.stela_android.Ticket.ActiveTicketPage
 import com.github.barteksc.pdfviewer.PDFView
 import com.github.barteksc.pdfviewer.util.FitPolicy
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_home_2.*
+import kotlinx.android.synthetic.main.activity_notifications_page.*
 import kotlinx.android.synthetic.main.fragment_stela_page.*
+import kotlinx.android.synthetic.main.fragment_stela_page.back_btn
 import java.io.File
 
 
@@ -57,6 +59,7 @@ class StelaPage: Fragment() {
 
     private fun btnListener() {
         val activeTicket = ActiveTicketPage()
+        val home = Home()
         btn_aktif.setOnClickListener{
             setCurrentFragment(activeTicket)
         }
@@ -65,6 +68,9 @@ class StelaPage: Fragment() {
         }
         btn_bacapdf.setOnClickListener{
             startActivity(Intent(activity, com.example.stela_android.Stela.PDFView::class.java))
+        }
+        back_btn.setOnClickListener{
+            setCurrentFragment(home)
         }
     }
 

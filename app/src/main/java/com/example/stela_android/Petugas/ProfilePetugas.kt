@@ -8,12 +8,16 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.RatingBar
 import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import com.example.stela_android.Login.Login
@@ -28,6 +32,7 @@ import com.example.stela_android.Retrofit.UserApi
 import com.example.stela_android.Storage.SharedPrefManager
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.activity_home_prakom.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_profile.tv_unitkerja
 import kotlinx.android.synthetic.main.activity_profile_petugas.*
@@ -44,9 +49,11 @@ public open class ProfilePetugas : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getData()
-        getRatingPetugas()
-        btnListener()
+        Handler(Looper.getMainLooper()).postDelayed({
+            getData()
+            getRatingPetugas()
+            btnListener()
+        },2000)
     }
 
     override fun onCreateView(
@@ -64,7 +71,7 @@ public open class ProfilePetugas : Fragment() {
         retro.getUser().enqueue(object : Callback<LoginResponse> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if (SharedPrefManager.getInstance(requireActivity()).isLoggedIn) {
+                if(activity?.let { SharedPrefManager.getInstance(it).isLoggedIn } == true){
                     val nama = prefs?.getString("nama_lengkap", "")
                     val unit_kerja = prefs?.getString("unit_kerja", "")
                     val url = prefs?.getString("profile", "https://i.imgur.com/Xlls8fG.png")
@@ -75,6 +82,8 @@ public open class ProfilePetugas : Fragment() {
                         .transform(CropCircleTransformation())
                         .into(iv_profil_petugas)
                 }
+                val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar6)
+                progressBar?.visibility = View.GONE
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
             }
@@ -82,17 +91,17 @@ public open class ProfilePetugas : Fragment() {
     }
 
     private fun btnListener(){
-        val btn_keluar = requireActivity().findViewById<RelativeLayout>(R.id.rl_keluar)
-        val btn_data_pengguna = requireActivity().findViewById<RelativeLayout>(R.id.rl_pengguna)
-        val btn_daftar_rating = requireActivity().findViewById<RelativeLayout>(R.id.rl_rating)
-        btn_keluar.setOnClickListener {
+        val btn_keluar = view?.findViewById<RelativeLayout>(R.id.rl_keluar)
+        val btn_data_pengguna = view?.findViewById<RelativeLayout>(R.id.rl_pengguna)
+        val btn_daftar_rating = view?.findViewById<RelativeLayout>(R.id.rl_rating)
+        btn_keluar?.setOnClickListener {
             showDialog()
         }
-        btn_data_pengguna.setOnClickListener{
+        btn_data_pengguna?.setOnClickListener{
             val intent = Intent(context, DataPengguna::class.java)
             startActivity(intent)
         }
-        btn_daftar_rating.setOnClickListener{
+        btn_daftar_rating?.setOnClickListener{
             val intent = Intent(context, DaftarRating::class.java)
             startActivity(intent)
         }
@@ -110,7 +119,8 @@ public open class ProfilePetugas : Fragment() {
                 var petugas: Profile
                 petugas = response.body()?.data!!
                 if (petugas.rating != null){
-                    rating_profil.rating = petugas.rating!!
+                    val ratingProfil = view?.findViewById<RatingBar>(R.id.rating_profil)
+                    ratingProfil?.rating = petugas.rating!!
                 }
             }
             override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {

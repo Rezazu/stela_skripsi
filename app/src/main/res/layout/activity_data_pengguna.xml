@@ -9,7 +9,7 @@
         android:id="@+id/header_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#073D5F"
+        android:background="#3C99AB"
         android:padding="20sp"
         tools:ignore="MissingConstraints">
 
@@ -48,7 +48,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_profil"/>
+                android:src="@drawable/ic_profil_pengguna"/>
             <TextView
                 android:id="@+id/tv_data_nama"
                 android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/material_symbols_work_petugas"/>
+                android:src="@drawable/material_symbols_work"/>
             <TextView
                 android:id="@+id/tv_data_unit"
                 android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Bagian"/>
+                android:text="Jabatan"/>
         </LinearLayout>
 
         <TextView
@@ -145,7 +145,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/mdi_email_petugas"/>
+                android:src="@drawable/mdi_email"/>
             <TextView
                 android:id="@+id/tv_label_email"
                 android:layout_width="wrap_content"
@@ -178,7 +178,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/material_symbols_phone_iphone_petugas"/>
+                android:src="@drawable/material_symbols_phone_iphone"/>
             <TextView
                 android:id="@+id/tv_hp"
                 android:layout_width="wrap_content"

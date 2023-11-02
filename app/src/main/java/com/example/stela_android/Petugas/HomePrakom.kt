@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -39,24 +42,25 @@ class HomePrakom : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.activity_home_prakom, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getData()
-        btnListener()
-        refreshFragment()
-        ll_selesaiP.visibility = View.GONE
+        Handler(Looper.getMainLooper()).postDelayed({
+            getData()
+            btnListener()
+            refreshFragment()
+            ll_selesaiP.visibility = View.GONE
+        },2000)
     }
 
     private fun getData(){
         val prefs = activity?.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")
-        val retro = Retrofit.getRetroData(token!!).create(UserApi::class.java)
-        val tv_name : TextView = requireActivity().findViewById(R.id.tv_nameP) as TextView
-        val tv_dept : TextView = requireActivity().findViewById(R.id.tv_deptP) as TextView
-        retro.getUser().enqueue(object : Callback<LoginResponse> {
+        val retro = token?.let { Retrofit.getRetroData(it).create(UserApi::class.java) }
+        val tv_name = view?.findViewById(R.id.tv_nameP) as TextView
+        val tv_dept = view?.findViewById(R.id.tv_deptP) as TextView
+        retro?.getUser()?.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     if(SharedPrefManager.getInstance(requireActivity()).isLoggedIn){
@@ -76,6 +80,8 @@ class HomePrakom : Fragment() {
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
+                val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar5)
+                progressBar?.visibility = View.GONE
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -122,7 +128,6 @@ class HomePrakom : Fragment() {
             swipeToRefrestTiket.isRefreshing = false
         }
     }
-
 }
 
 

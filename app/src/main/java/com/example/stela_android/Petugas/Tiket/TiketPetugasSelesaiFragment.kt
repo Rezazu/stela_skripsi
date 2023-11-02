@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
@@ -15,7 +16,6 @@ import com.example.stela_android.Retrofit.Petugas.*
 import com.example.stela_android.Retrofit.Retrofit
 import kotlinx.android.synthetic.main.fragment_tiket_petugas.*
 import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.*
-import kotlinx.android.synthetic.main.fragment_tiket_petugas_selesai.tv_empty_tiket
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,6 +38,7 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        list.clear()
         getTicketPetugas()
     }
 
@@ -52,18 +53,18 @@ class TiketPetugasSelesaiFragment : Fragment(), OnTicketPetugasClickListener {
                 response: Response<PermintaanResponse>
             ) {
                 response.body()?.data?.let { list.addAll(it) }
-               
-                if (response.body()?.success == null) {
-                    tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki permintaan selesai"
-                } else {
-                    tv_empty_tiket.visibility = View.GONE
-                    rvTicketPetugasSelesai.apply {
+                val tvEmptyTiket = view?.findViewById<TextView>(R.id.tv_empty_tiket_selesai_petugas)
+                if (list.isNotEmpty()) {
+                    tvEmptyTiket?.visibility = View.GONE
+                    val rvTicketPetugas = view?.findViewById<RecyclerView>(R.id.rvTicketPetugasSelesai)
+                    rvTicketPetugas?.apply {
                         layoutManager = LinearLayoutManager(activity)
                         adapter = context?.let { TiketPetugasSelesaiAdapter(it,list, this@TiketPetugasSelesaiFragment) }
                         val ticketAdapter = adapter
                         rvTicketPetugasSelesai.adapter = ticketAdapter
                     }
+                } else {
+                    tvEmptyTiket?.visibility = View.VISIBLE
                 }
             }
             override fun onFailure(call: Call<PermintaanResponse>, t: Throwable) {

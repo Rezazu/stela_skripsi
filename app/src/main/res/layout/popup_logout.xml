@@ -49,6 +49,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="18dp"
         android:layout_toEndOf="@+id/btn_cancel"
+        android:textColor="@color/white"
         android:backgroundTint="#FF0000"
         android:text="Ya"
         android:textAllCaps="false"

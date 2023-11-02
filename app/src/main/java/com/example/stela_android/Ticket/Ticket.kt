@@ -7,12 +7,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.stela_android.Petugas.Tiket.DialogPenggunaSelesai
 import com.example.stela_android.R
-import com.example.stela_android.Retrofit.Petugas.PetugasTiketApi
 import com.example.stela_android.Retrofit.Ticket.Petugas
 import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
@@ -20,14 +17,10 @@ import com.example.stela_android.Retrofit.Ticket.DokumenLampiran.DokumenLampiran
 import com.example.stela_android.Service.Service
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
-import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_ticket.*
 import kotlinx.android.synthetic.main.activity_ticket.tv_judul_tiket
 import kotlinx.android.synthetic.main.activity_ticket.tv_solusi
 import kotlinx.android.synthetic.main.activity_ticket.tv_unit_kerja_pelapor
-import kotlinx.android.synthetic.main.activity_ticket_petugas.*
-import kotlinx.android.synthetic.main.popup_laporan_selesai.*
-import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,12 +34,12 @@ class Ticket : AppCompatActivity() {
         setContentView(R.layout.activity_ticket)
         val id = intent.getIntExtra("id",0)
         val noTiket = intent.getStringExtra("no_tiket").toString()
-        val judul = intent.getStringExtra("judul")
+        val keterangan = intent.getStringExtra("keterangan").toString()
         btn_pengguna_selesai.visibility = View.GONE
 
         getTicketbyNoTiket(noTiket)
         btn_pengguna_selesai.setOnClickListener {
-            DialogPenggunaSelesai(this, id).show()
+            DialogPenggunaSelesai(this, id, keterangan).show()
         }
     }
 
@@ -151,7 +144,7 @@ class Ticket : AppCompatActivity() {
 
     fun whatsapp(view: View) {
         val url =
-            "https://api.whatsapp.com/send/?phone=081952434368&text&type=phone_number&app_absent=0"
+            "https://api.whatsapp.com/send/?phone=6281275756100&text&type=phone_number&app_absent=0"
         val bukeBrowser = Intent(Intent.ACTION_VIEW)
         bukeBrowser.data = Uri.parse(url)
         startActivity(bukeBrowser)

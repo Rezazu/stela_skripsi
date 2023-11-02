@@ -31,7 +31,7 @@
         <TextView
             android:layout_marginTop="10sp"
             android:background="@drawable/edit_text_unfill_border_gray"
-            android:id="@+id/tv_permaslahan_awal"
+            android:id="@+id/tv_permaslahan_awal_d"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"

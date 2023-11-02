@@ -117,7 +117,6 @@ class HomepagePrakom : AppCompatActivity() {
     }
 
     fun getNewNotif() {
-        val time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
         val notif = ArrayList<Notification>()
         val prefs = this.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "")

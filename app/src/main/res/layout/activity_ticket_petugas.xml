@@ -125,6 +125,20 @@
                         />
 
 
+                    <TextView
+                        android:id="@+id/tv_rating_keterangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0sp"
+                        android:layout_marginBottom="10sp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        />
+
+
 
                 </LinearLayout>
 
@@ -401,16 +415,6 @@
                             android:onClick="whatsappPetugas"
                             app:srcCompat="@drawable/btn_hubungi_1" />
 
-                        <TextView
-                            android:id="@+id/tv_rating_keterangan"
-                            android:layout_width="250dp"
-                            android:layout_height="wrap_content"
-                            android:text="Review"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:textColor="@color/black"
-                            android:layout_alignParentBottom="true"
-                            />
                     </RelativeLayout>
 
                     <!-- Border -->
@@ -683,8 +687,9 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginEnd="50dp"
                         android:layout_marginBottom="18dp"
+                        android:textColor="@color/white"
                         android:layout_toEndOf="@+id/btn_lanjutan"
-                        android:backgroundTint="#2954A8"
+                        android:backgroundTint="#073D5F"
                         android:text="Kerjakan"
                         android:textAllCaps="false"
                         android:visibility="visible"

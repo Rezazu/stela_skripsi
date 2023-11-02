@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +18,9 @@ import com.example.stela_android.Retrofit.Retrofit
 import com.example.stela_android.Retrofit.Ticket.*
 import com.example.stela_android.Ticket.Ticket
 import kotlinx.android.synthetic.main.fragment_tiket.*
+import kotlinx.android.synthetic.main.fragment_tiket.container_tiket
 import kotlinx.android.synthetic.main.fragment_tiket.view.*
+import kotlinx.android.synthetic.main.fragment_tiket_selesai.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,12 +53,15 @@ class TiketFragment: Fragment(), OnTicketClickListener {
                     response: Response<TiketResponse>
                 ) {
                     response.body()?.data?.let { list.addAll(it) }
+                    val tvEmptyTiket = view?.findViewById<TextView>(R.id.tv_empty_tiket)
                     if (response.body()?.success == null) {
                         container_tiket.visibility = View.GONE
-                        tv_empty_tiket.visibility = View.VISIBLE
+                        tvEmptyTiket?.text = "Anda tidak memiliki layanan aktif"
+                        tvEmptyTiket?.visibility = View.VISIBLE
                     } else {
-                        tv_empty_tiket.visibility = View.GONE
-                        rvTicketFragment.apply {
+                        tvEmptyTiket?.visibility = View.GONE
+                        val rvTicket = view?.findViewById<RecyclerView>(R.id.rvTicketFragment)
+                        rvTicket?.apply {
                             layoutManager = LinearLayoutManager(activity)
                             adapter = TiketAdapter(
                                 context,
@@ -66,6 +73,8 @@ class TiketFragment: Fragment(), OnTicketClickListener {
                             ticketAdapter?.notifyDataSetChanged()
                         }
                     }
+                    val progressBar = view?.findViewById<ProgressBar>(R.id.progressBar3)
+                    progressBar?.visibility = View.GONE
                 }
                 override fun onFailure(call: Call<TiketResponse>, t: Throwable) {
                     Log.d("Ticket", "onFailure: " + t.message)
@@ -77,7 +86,7 @@ class TiketFragment: Fragment(), OnTicketClickListener {
         val intent = Intent(activity, Ticket::class.java)
         intent.putExtra("id", list[position]?.id)
         intent.putExtra("no_tiket", list[position]?.no_tiket)
-        intent.putExtra("judul", list[position]?.keterangan)
+        intent.putExtra("keterangan", list[position]?.keterangan)
         startActivity(intent)
     }
 }

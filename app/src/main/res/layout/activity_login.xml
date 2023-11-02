@@ -131,6 +131,7 @@
             android:gravity="center"
             android:stateListAnimator="@null"
             android:text="Masuk"
+            android:textColor="@color/white"
             android:translationZ="12dp"
             app:backgroundTint="@null" />
 
@@ -142,6 +143,5 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/pustekinfo" />
     </RelativeLayout>
-
 
 </RelativeLayout>

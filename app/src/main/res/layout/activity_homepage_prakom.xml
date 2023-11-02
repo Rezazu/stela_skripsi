@@ -7,10 +7,6 @@
     android:background="@color/white"
     tools:context=".Petugas.HomepagePrakom">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeToRefrestTiket"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <FrameLayout
         android:id="@+id/flFragment"
         android:layout_width="match_parent"
@@ -21,9 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </FrameLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

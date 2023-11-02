@@ -45,7 +45,7 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
     var selectedFile = ""
     var filePaths: ArrayList<String> = ArrayList()
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -81,7 +81,7 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+
     private fun updateSelesai(eskalasi: String?){
         val prefs = context.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)
         val token = prefs?.getString("token", "").toString()

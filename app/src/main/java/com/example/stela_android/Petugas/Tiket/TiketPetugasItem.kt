@@ -122,6 +122,10 @@ class TiketPetugasItem : AppCompatActivity() {
                             bottom_container.visibility = View.GONE
                             btn_wa.visibility = View.GONE
                             tv_rating_keterangan.text = result.keterangan_rating
+                        } else if (result.id_status_tiket == 6 && result.rating == null) {
+                            bottom_container.visibility = View.GONE
+                            rating_bar_petugas.visibility = View.GONE
+                            tv_rating_keterangan.visibility = View.GONE
                         }
                     }
                     if(result?.dokumen_lampiran != null) {
@@ -134,7 +138,6 @@ class TiketPetugasItem : AppCompatActivity() {
                             rvDokumenPetugas.adapter = adapter
                         }
                     }
-
                     if(result?.laporan_petugas != null) {
                         rvLaporanPetugas?.apply {
                             layoutManager = LinearLayoutManager(context)

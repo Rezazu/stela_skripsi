@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stela_android.R
@@ -37,6 +38,7 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        list.clear()
         getTicketPetugas()
     }
 
@@ -50,17 +52,18 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
                 response: Response<PermintaanResponse>
             ) {
                 response.body()?.data?.let { list.addAll(it) }
-                if (response.body()?.success == null) {
-                    tv_empty_tiket.visibility = View.VISIBLE
-                    tv_empty_tiket.text = "Anda tidak memiliki permintaan aktif"
-                } else {
-                    tv_empty_tiket.visibility = View.GONE
-                    rvTicketPetugas.apply {
+                val tvEmptyTiket = view?.findViewById<TextView>(R.id.tv_empty_tiket_petugas)
+                if (list.isNotEmpty()) {
+                    tvEmptyTiket?.visibility = View.GONE
+                    val rvTicketPetugas = view?.findViewById<RecyclerView>(R.id.rvTicketPetugas)
+                    rvTicketPetugas?.apply {
                         layoutManager = LinearLayoutManager(activity)
                         adapter = context?.let { TiketPetugasAdapter(it, list, this@TiketPetugasFragment) }
                         val ticketAdapter = adapter
                         rvTicketPetugas.adapter = ticketAdapter
                     }
+                } else {
+                    tvEmptyTiket?.visibility = View.VISIBLE
                 }
             }
             override fun onFailure(call: Call<PermintaanResponse>, t: Throwable) {
@@ -73,7 +76,7 @@ class TiketPetugasFragment : Fragment(), OnTicketPetugasClickListener {
         val intent = Intent(activity, TiketPetugasItem::class.java)
         intent.putExtra("id", list[position]?.id_tiket)
         intent.putExtra("no_tiket", list[position]?.no_tiket)
-        intent.putExtra("judul", list[position]?.keterangan)
+        intent.putExtra("keterangan", list[position]?.keterangan)
         startActivity(intent)
     }
 }
