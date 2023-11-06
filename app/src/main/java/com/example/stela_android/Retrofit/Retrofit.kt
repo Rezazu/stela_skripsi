@@ -12,8 +12,7 @@ import retrofit2.create
 
 object Retrofit {
 
-    const val BASE_URL = "http://10.200.48.60:8000/api/"
-//    const val BASE_URL = "http://35.222.190.188:8000/api/"
+    const val BASE_URL = "http://35.222.190.188:8000/api/"
 
     fun getRetroLogin() : Retrofit {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

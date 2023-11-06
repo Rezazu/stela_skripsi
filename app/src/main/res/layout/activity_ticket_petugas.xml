@@ -79,7 +79,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Proyektor Presentasi Mati Konslet"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
@@ -91,7 +91,7 @@
                         android:layout_marginTop="5sp"
                         android:layout_marginBottom="5sp"
                         android:fontFamily="@font/montserrat_regular"
-                        android:text="63a062e6c9444"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
@@ -103,7 +103,7 @@
                         android:layout_marginTop="0sp"
                         android:layout_marginBottom="10sp"
                         android:fontFamily="@font/montserrat_regular"
-                        android:text="TanggalTiket"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
@@ -186,7 +186,7 @@
                                     android:fontFamily="@font/montserrat_semibold"
                                     android:text="Nama "
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="11sp" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -209,7 +209,7 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_marginLeft="15sp"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="test"
+                                        android:text=""
                                         android:textColor="#000000"
                                         android:textSize="10sp" />
 
@@ -232,7 +232,7 @@
                                     android:fontFamily="@font/montserrat_semibold"
                                     android:text="Unit Kerja"
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="11sp" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -255,7 +255,7 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_marginLeft="15sp"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="test"
+                                        android:text=""
                                         android:textColor="#000000"
                                         android:textSize="10sp" />
 
@@ -278,7 +278,7 @@
                                     android:fontFamily="@font/montserrat_semibold"
                                     android:text="Jabatan"
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="11sp" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -301,9 +301,9 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_marginLeft="15sp"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="test"
+                                        android:text=""
                                         android:textColor="#000000"
-                                        android:textSize="10sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
 
@@ -323,7 +323,7 @@
                                     android:fontFamily="@font/montserrat_semibold"
                                     android:text="Nomor HP"
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="11sp" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -346,9 +346,9 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_marginLeft="15sp"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="test"
+                                        android:text=""
                                         android:textColor="#000000"
-                                        android:textSize="10sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
 
@@ -370,7 +370,7 @@
                                     android:fontFamily="@font/montserrat_semibold"
                                     android:text="Email"
                                     android:textColor="#000000"
-                                    android:textSize="10sp" />
+                                    android:textSize="11sp" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -393,9 +393,9 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_marginLeft="15sp"
                                         android:fontFamily="@font/montserrat_regular"
-                                        android:text="test"
+                                        android:text=""
                                         android:textColor="#000000"
-                                        android:textSize="10sp" />
+                                        android:textSize="11sp" />
 
                                 </LinearLayout>
 
@@ -473,7 +473,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginHorizontal="20dp"
                             android:layout_marginBottom="10sp"
                             android:orientation="vertical"
                             android:layout_weight="1">
@@ -484,7 +484,7 @@
                                 android:fontFamily="@font/montserrat_semibold"
                                 android:text="Keterangan"
                                 android:textColor="#000000"
-                                android:textSize="10sp" />
+                                android:textSize="11sp" />
 
                                 <TextView
                                     android:layout_marginTop="10sp"
@@ -494,7 +494,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     android:fontFamily="@font/montserrat_medium"
-                                    android:text="test"
+                                    android:text=""
                                     android:padding="15sp"
                                     android:textColor="#000000"
                                     android:textSize="12sp" />
@@ -506,7 +506,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginHorizontal="20dp"
                             android:layout_marginBottom="10sp"
                             android:orientation="vertical"
                             android:layout_weight="1">
@@ -517,7 +517,7 @@
                                 android:fontFamily="@font/montserrat_semibold"
                                 android:text="Permasalahan Akhir"
                                 android:textColor="#000000"
-                                android:textSize="10sp" />
+                                android:textSize="11sp" />
 
                             <TextView
                                 android:layout_marginTop="10sp"
@@ -527,7 +527,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:fontFamily="@font/montserrat_medium"
-                                android:text="test"
+                                android:text=""
                                 android:padding="15sp"
                                 android:textColor="#000000"
                                 android:textSize="12sp" />
@@ -540,7 +540,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="10sp"
-                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginHorizontal="20dp"
                             android:orientation="vertical"
                             android:layout_weight="1">
 
@@ -550,7 +550,7 @@
                                 android:fontFamily="@font/montserrat_semibold"
                                 android:text="Solusi"
                                 android:textColor="#000000"
-                                android:textSize="10sp" />
+                                android:textSize="11sp" />
 
                             <TextView
                                 android:layout_marginTop="10sp"
@@ -560,7 +560,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:fontFamily="@font/montserrat_medium"
-                                android:text="test"
+                                android:text=""
                                 android:padding="15sp"
                                 android:textColor="#000000"
                                 android:textSize="12sp" />

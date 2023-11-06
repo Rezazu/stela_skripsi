@@ -63,10 +63,9 @@ class Ticket : AppCompatActivity() {
                         .transform(CropCircleTransformation())
                         .into(iv_petugas)
                 }
-                if (petugas.isNotEmpty()){
+                if (petugas.isNotEmpty()) {
                     setPetugas(petugas.first())
-                } else {
-                    petugas_tiket.visibility = View.GONE
+                    petugas_tiket.visibility = View.VISIBLE
                 }
             }
 
