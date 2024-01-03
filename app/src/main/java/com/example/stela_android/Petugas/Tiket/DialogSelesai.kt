@@ -74,13 +74,17 @@ class DialogSelesai (context: Context, id_tiket:Int, keterangan:String?, eskalas
             filePaths = (getActivity(context) as TiketPetugasItem).getFilePaths()
             updateSelesai(eskalasi)
             dismiss()
+            val myToast = Toast.makeText(
+                context,
+                "Laporan sudah terkirim, terimakasih!",
+                Toast.LENGTH_LONG
+            )
+            myToast.show()
         }
         upload.setOnClickListener{
             (getActivity(context) as TiketPetugasItem).selectFile()
         }
     }
-
-
 
     private fun updateSelesai(eskalasi: String?){
         val prefs = context.getSharedPreferences("my_shared_preff", Context.MODE_PRIVATE)

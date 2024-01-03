@@ -88,11 +88,12 @@ class HomepagePrakom : AppCompatActivity() {
     fun makeNotification (title:String, text:String){
         val channelID = "CHANNEL_ID_NOTIFICATION"
         val builder = NotificationCompat.Builder(applicationContext, channelID)
-            .setSmallIcon(R.drawable.ic_notifications_page)
+            .setSmallIcon(R.drawable.stelalogo)
             .setContentTitle(title)
             .setContentText(text)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
 
         val intent = Intent(this, NotificationsPage::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -137,7 +138,7 @@ class HomepagePrakom : AppCompatActivity() {
                     val notifStamp = java.sql.Timestamp(date.time)
                     val currentStamp = Timestamp(System.currentTimeMillis() - 15*1000)
                     if (notifStamp >= currentStamp) {
-                        makeNotification(no, ket)
+                        makeNotification(ket, no)
                     }
                 }
                 notif.firstOrNull()?.let { takeNotif(it) }

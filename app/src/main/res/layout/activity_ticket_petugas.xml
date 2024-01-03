@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Petugas.Tiket.TiketPetugasItem">
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -574,6 +573,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20sp"
+                        android:layout_marginHorizontal="20dp"
                         android:orientation="vertical">
 
                         <!-- Dokumen Lampiran -->
@@ -582,7 +582,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="10sp"
-                            android:layout_marginHorizontal="10dp"
                             android:orientation="vertical"
                             android:layout_weight="1">
 
@@ -612,7 +611,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
                             android:layout_marginBottom="10sp"
-                            android:layout_marginHorizontal="10dp"
                             android:orientation="vertical"
                             android:layout_weight="1">
 

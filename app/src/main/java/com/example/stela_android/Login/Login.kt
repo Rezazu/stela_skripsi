@@ -38,10 +38,13 @@ class Login : AppCompatActivity() {
     }
 
     fun login(){
-        val retro = Retrofit.getRetroLogin().create(UserApi::class.java)
+        val retro = Retrofit
+            .getRetroLogin()
+            .create(UserApi::class.java)
         val email = et_email.text.toString().trim()
         val password = et_password.text.toString().trim()
-        retro.login(email, password).enqueue(object : Callback<LoginResponse>{
+        retro.login(email, password).enqueue(object :
+            Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful()) {
                     val result = response.body()

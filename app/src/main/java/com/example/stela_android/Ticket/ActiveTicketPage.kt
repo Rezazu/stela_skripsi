@@ -33,26 +33,45 @@ class ActiveTicketPage : Fragment() {
 
     fun refreshAction() {
         refreshTiket.setOnRefreshListener {
-            parentFragmentManager.beginTransaction().detach(this).commit()
-            parentFragmentManager.beginTransaction().attach(this).commit()
-            Toast.makeText(context,"Page Refreshed!", Toast.LENGTH_SHORT).show()
+            parentFragmentManager
+                .beginTransaction()
+                .detach(this)
+                .commit()
+            parentFragmentManager
+                .beginTransaction()
+                .attach(this)
+                .commit()
+            Toast.makeText(
+                context,
+                "Page Refreshed!",
+                Toast.LENGTH_SHORT
+            ).show()
             refreshTiket.isRefreshing = false
         }
     }
 
     fun btnTiketAktifListener() {
         btn_aktif.setOnClickListener {
-            btn_aktif.background = resources.getDrawable(R.drawable.shadow_banner)
-            btn_aktif.setTextColor(Color.parseColor("#FFFFFF"))
+            btn_aktif.background = resources.getDrawable(
+                R.drawable.shadow_banner
+            )
+            btn_aktif.setTextColor(
+                Color.parseColor("#FFFFFF")
+            )
 
-            btn_selesai.background = resources.getDrawable(R.drawable.border_blue_rounded)
-            btn_selesai.setTextColor(Color.parseColor("#000000"))
+            btn_selesai.background = resources.getDrawable(
+                R.drawable.border_blue_rounded
+            )
+            btn_selesai.setTextColor(
+                Color.parseColor("#000000")
+            )
 
-            val myToast = Toast.makeText(context, "Tiket Aktif ✨", Toast.LENGTH_LONG)
+            val myToast = Toast.makeText(
+                context,
+                "Tiket Aktif ✨",
+                Toast.LENGTH_LONG)
             myToast.show()
-
             ll_selesai.visibility = View.GONE
-
             if(ll_aktif.visibility == View.GONE) {
                 ll_aktif.visibility = View.VISIBLE
             }
@@ -61,19 +80,28 @@ class ActiveTicketPage : Fragment() {
 
     fun btnTiketSelesaiListener() {
         btn_selesai.setOnClickListener {
-            btn_selesai.background = resources.getDrawable(R.drawable.shadow_banner)
-            btn_selesai.setTextColor(Color.parseColor("#FFFFFF"))
+            btn_selesai.background = resources.getDrawable(
+                R.drawable.shadow_banner
+            )
+            btn_selesai.setTextColor(
+                Color.parseColor("#FFFFFF")
+            )
 
-            btn_aktif.background = resources.getDrawable(R.drawable.border_blue_rounded)
-            btn_aktif.setTextColor(Color.parseColor("#000000"))
+            btn_aktif.background = resources.getDrawable(
+                R.drawable.border_blue_rounded
+            )
+            btn_aktif.setTextColor(
+                Color.parseColor("#000000")
+            )
 
-            val myToast = Toast.makeText(context, "Tiket Selesai ✨", Toast.LENGTH_LONG)
+            val myToast = Toast.makeText(
+                context,
+                "Tiket Selesai ✨",
+                Toast.LENGTH_LONG)
             myToast.show()
 
             ll_selesai.visibility = View.VISIBLE
             ll_aktif.visibility = View.GONE
-//            ft?.commit();
-
         }
     }
 }
